@@ -870,7 +870,12 @@ time:xsdDateTime a owl:DatatypeProperty ;
 
 dcat:accessURL a owl:AnnotationProperty .
 
-prov:EmptyCollection a owl:NamedIndividual .
+prov:EmptyCollection a owl:Class,
+        owl:NamedIndividual ;
+    rdfs:label "EmptyCollection"@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:subClassOf prov:Collection ;
+    prov:definition "An empty collection is a collection without members."@en .
 
 prov:Organization a owl:Class ;
     rdfs:label "Organization" ;
@@ -1105,8 +1110,9 @@ sulo:isReferredToIn a owl:ObjectProperty ;
     dcterms:source pm:mergedSourceMetadata ;
     dcterms:title "Process model: Bro_Pro with OWL-Time and Allen interval rules"@en ;
     rdfs:comment "Temporal rule contract: each interval needs one unambiguous beginning and end, each represented by an instant with a timezone-qualified xsd:dateTimeStamp value using time:inXSDDateTimeStamp. Rules require positive duration and complete timestamps; they do not reason over uncertain or undated endpoints. Allen equality does not imply owl:sameAs. PROV literal start/end properties alone do not supply these endpoint paths. SULO temporal quantities have not been equated with OWL-Time entities. Legacy named temporal examples are retained."@en ;
-    owl:versionInfo "experimental-review-2026-10-22" ;
-    skos:changeNote "2026-10-22 review: verified the original six enabled rules against the published W3C Time With SWRL Rules V2.ttl. Retained direct endpoint comparison; changed the before head to intervalBefore; completed finishes/finishedBy; used value comparisons for equal boundaries; guarded against zero/reversed durations. Fixed the January gMonth literal. Restored Bundle-to-Entity and qualified-association typing, corrected the agent domain to AgentInfluence, and added the SWRL equivalent of the PROV association chain. Retained the original header at pm:mergedSourceMetadata. P-Plan and SULO logical axioms and existing test individuals are otherwise unchanged."@en .
+    owl:versionInfo "experimental-base-sync-2026-10-22" ;
+    skos:changeNote "2026-10-22 review: verified the original six enabled rules against the published W3C Time With SWRL Rules V2.ttl. Retained direct endpoint comparison; changed the before head to intervalBefore; completed finishes/finishedBy; used value comparisons for equal boundaries; guarded against zero/reversed durations. Fixed the January gMonth literal. Restored Bundle-to-Entity and qualified-association typing, corrected the agent domain to AgentInfluence, and added the SWRL equivalent of the PROV association chain. Retained the original header at pm:mergedSourceMetadata. P-Plan and SULO logical axioms and existing test individuals are otherwise unchanged."@en,
+        "2026-10-22 — Changed by ChatGPT. Synchronized the reusable process_model base with the later corrections in bro_pro_corrected.ttl before creating any domain-specific extension. Restored both prov:hadRole domains: prov:Influence and the union of prov:Association with prov:InstantaneousEvent. Restored prov:EmptyCollection as an owl:Class and subclass of prov:Collection, and prov:Collection as an owl:Class and subclass of prov:Entity, retaining the existing named-individual declaration for prov:EmptyCollection. Copied the corresponding PROV labels, definitions and source annotations, including the additional annotations on AgentInfluence, Association and Bundle. Verified that the earlier association repairs, seven direct-date Allen SWRL rules, qualified-association rule and January datatype correction were already present; preserved all eight rule bodies without duplication. Retained the ontology IRI, P-Plan and SULO definitions, all existing example individuals and dates, and earlier ontology metadata. No supply-chain vocabulary, test fixtures or inferred assertions were added."@en .
 
 pm:IntervalBefore_DirectDates a swrl:Imp ;
     rdfs:label "IntervalBefore_DirectDates" ;
@@ -1944,12 +1950,16 @@ DBPedia provides a set of resources corresponding to the IANA timezones, with a 
             La BDPedia proporciona un conjunto de recursos correspondientes a los husos horarios de IANA, con una URI para cada uno (por ejemplo, http://dbpedia.org/resource/Australia/Eucla). El Servicio de Reloj Mundial también proporciona una lista de husos horarios con la descripción de cada uno de los disponibles como una página Web individual con una URI adecuada individual (por ejemplo, https://www.timeanddate.com/time/zones/acwst). Éstos, y otros recursos similares, se puden usar como un valor de la propiedad 'huso horario'."""@es .
 
 prov:Bundle a owl:Class ;
-    rdfs:subClassOf prov:Entity .
-
-prov:Influence a owl:Class ;
-    rdfs:label "Influence" ;
+    rdfs:label "Bundle" ;
     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-    prov:definition "Influence is the capacity of an entity, activity, or agent to have an effect on the character, development, or behavior of another by means of usage, start, end, generation, invalidation, communication, derivation, attribution, association, or delegation."@en .
+    rdfs:subClassOf prov:Entity ;
+    prov:definition "A bundle is a named set of provenance descriptions, and is itself an Entity, so allowing provenance of provenance to be expressed."@en .
+
+prov:Collection a owl:Class ;
+    rdfs:label "Collection" ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:subClassOf prov:Entity ;
+    prov:definition "A collection is an entity that provides a structure to some constituents, which are themselves entities. These constituents are said to be member of the collections."@en .
 
 prov:agent a owl:ObjectProperty ;
     rdfs:domain prov:AgentInfluence ;
@@ -2011,6 +2021,9 @@ prov:hadRole a owl:ObjectProperty ;
     rdfs:label "hadRole" ;
     rdfs:comment "This property has multiple RDFS domains to suit multiple OWL Profiles. See <a href=\"#owl-profile\">PROV-O OWL Profile</a>.",
         "The _optional_ Role that an Entity assumed in the context of an Activity. For example, :baking prov:used :spoon; prov:qualified [ a prov:Usage; prov:entity :spoon; prov:hadRole roles:mixing_implement ]."@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( prov:Association prov:InstantaneousEvent ) ],
+        prov:Influence ;
     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
     rdfs:range prov:Role ;
     prov:category "qualified" ;
@@ -2514,11 +2527,13 @@ time:week a owl:DatatypeProperty ;
 prov:AgentInfluence a owl:Class ;
     rdfs:label "AgentInfluence" ;
     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-    rdfs:subClassOf prov:Influence .
+    rdfs:subClassOf prov:Influence ;
+    prov:editorsDefinition "AgentInfluence is the capacity of an agent to have an effect on the character, development, or behavior of another by means of attribution, association, delegation, or other."@en .
 
-prov:Association a owl:Class ;
-    rdfs:label "Association" ;
-    rdfs:subClassOf prov:AgentInfluence .
+prov:Influence a owl:Class ;
+    rdfs:label "Influence" ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    prov:definition "Influence is the capacity of an entity, activity, or agent to have an effect on the character, development, or behavior of another by means of usage, start, end, generation, invalidation, communication, derivation, attribution, association, or delegation."@en .
 
 prov:Location a owl:Class ;
     rdfs:label "Location" ;
@@ -2778,6 +2793,12 @@ time:years a owl:DatatypeProperty ;
     rdfs:domain time:GeneralDurationDescription ;
     rdfs:range xsd:decimal .
 
+prov:Association a owl:Class ;
+    rdfs:label "Association" ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:subClassOf prov:AgentInfluence ;
+    prov:definition "An activity association is an assignment of responsibility to an agent for an activity, indicating that the agent had a role in the activity. It further allows for a plan to be specified, which is the plan intended by the agent to achieve some goals in the context of this activity."@en .
+
 prov:Plan a owl:Class ;
     rdfs:label "Plan" ;
     rdfs:comment "There exist no prescriptive requirement on the nature of plans, their representation, the actions or steps they consist of, or their intended goals. Since plans may evolve over time, it may become necessary to track their provenance, so plans themselves are entities. Representing the plan explicitly in the provenance can be useful for various tasks: for example, to validate the execution as represented in the provenance record, to manage expectation failures, or to provide explanations."@en ;
@@ -2927,17 +2948,6 @@ sulo:TimeInstant a owl:Class ;
         sulo:Time ;
     skos:prefLabel "Time Instant"@en .
 
-prov:InstantaneousEvent a owl:Class ;
-    rdfs:label "InstantaneousEvent" ;
-    rdfs:comment "An instantaneous event, or event for short, happens in the world and marks a change in the world, in its activities and in its entities. The term 'event' is commonly used in process algebra with a similar meaning. Events represent communications or interactions; they are assumed to be atomic and instantaneous."@en ;
-    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
-    rdfs:subClassOf sulo:Process ;
-    skos:prefLabel "Instantaneous Event"@en ;
-    prov:category "qualified" ;
-    prov:component "entities-activities" ;
-    prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#dfn-event"^^xsd:anyURI ;
-    prov:definition "The PROV data model is implicitly based on a notion of instantaneous events (or just events), that mark transitions in the world. Events include generation, usage, or invalidation of entities, as well as starting or ending of activities. This notion of event is not first-class in the data model, but it is useful for explaining its other concepts and its semantics."@en .
-
 sulo:Time a owl:Class ;
     rdfs:label "time"@en ;
     rdfs:comment "time is a quantity pertaining to the duration of some interval of time or a particular instant of time (against some frame of reference)."@en ;
@@ -2966,6 +2976,17 @@ prov:Agent a owl:Class ;
     prov:definition "An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity. "@en ;
     prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent"^^xsd:anyURI ;
     prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Agent"^^xsd:anyURI .
+
+prov:InstantaneousEvent a owl:Class ;
+    rdfs:label "InstantaneousEvent" ;
+    rdfs:comment "An instantaneous event, or event for short, happens in the world and marks a change in the world, in its activities and in its entities. The term 'event' is commonly used in process algebra with a similar meaning. Events represent communications or interactions; they are assumed to be atomic and instantaneous."@en ;
+    rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+    rdfs:subClassOf sulo:Process ;
+    skos:prefLabel "Instantaneous Event"@en ;
+    prov:category "qualified" ;
+    prov:component "entities-activities" ;
+    prov:constraints "http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#dfn-event"^^xsd:anyURI ;
+    prov:definition "The PROV data model is implicitly based on a notion of instantaneous events (or just events), that mark transitions in the world. Events include generation, usage, or invalidation of entities, as well as starting or ending of activities. This notion of event is not first-class in the data model, but it is useful for explaining its other concepts and its semantics."@en .
 
 prov:wasDerivedFrom a owl:ObjectProperty ;
     rdfs:label "wasDerivedFrom" ;
@@ -3258,6 +3279,16 @@ var:endDateA a swrl:Variable .
 
 var:startDateB a swrl:Variable .
 
+time:inXSDDateTimeStamp a owl:DatatypeProperty ;
+    rdfs:label "in XSD Date-Time-Stamp"@en,
+        "en fecha-sello de tiempo XSD"@es ;
+    rdfs:comment "Position of an instant, expressed using xsd:dateTimeStamp"@en,
+        "Posición de un instante, expresado utilizando xsd:dateTimeStamp."@es ;
+    rdfs:domain time:Instant ;
+    rdfs:range xsd:dateTimeStamp ;
+    skos:definition "Position of an instant, expressed using xsd:dateTimeStamp"@en,
+        "Posición de un instante, expresado utilizando xsd:dateTimeStamp."@es .
+
 prov:Entity a owl:Class ;
     rdfs:label "Entity" ;
     rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
@@ -3269,16 +3300,6 @@ prov:Entity a owl:Class ;
     prov:definition "An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. "@en ;
     prov:dm "http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-entity"^^xsd:anyURI ;
     prov:n "http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Entity"^^xsd:anyURI .
-
-time:inXSDDateTimeStamp a owl:DatatypeProperty ;
-    rdfs:label "in XSD Date-Time-Stamp"@en,
-        "en fecha-sello de tiempo XSD"@es ;
-    rdfs:comment "Position of an instant, expressed using xsd:dateTimeStamp"@en,
-        "Posición de un instante, expresado utilizando xsd:dateTimeStamp."@es ;
-    rdfs:domain time:Instant ;
-    rdfs:range xsd:dateTimeStamp ;
-    skos:definition "Position of an instant, expressed using xsd:dateTimeStamp"@en,
-        "Posición de un instante, expresado utilizando xsd:dateTimeStamp."@es .
 
 time:ProperInterval a owl:Class ;
     rdfs:label "Proper interval"@en,
