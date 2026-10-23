@@ -1588,11 +1588,12 @@ pm:QualifiedAssociation_Agent a swrl:Imp ;
         <https://www.michaeldebellis.com/process_model>,
         sc:baseModelMetadata ;
     dcterms:title "Supply-chain collaboration: plans, resources and executions"@en ;
-    owl:versionInfo "experimental-collaboration-v1-2026-10-22" ;
-    skos:changeNote "2026-10-22 — Changed by ChatGPT. Created a separate supply_chain_model ontology from the saved process_model base after synchronizing the later Bro_Pro hadRole and EmptyCollection/Collection repairs. Kept the base vocabulary definitions and all eight existing SWRL rules unchanged. Added a compact collaboration planning/execution vocabulary for step categories, planned roles, document version lineage, messages and decision conditions with explicit alternative transitions. Added two enabled SWRL rules for same-plan flow dependencies and shared input variables between explicitly distinct steps. The paper's shared-output rule and automatic conversion of dependencies to XOR were not adopted. Preserved the base header as sc:baseModelMetadata. No Figure 8 instances, synthetic tests or inferred assertions are included. The separate process_model.ttl file was not modified by this extension."@en ;
+    owl:versionInfo "experimental-collaboration-v2-2026-10-22" ;
+    skos:changeNote "2026-10-22 — Changed by ChatGPT. Added TaskStep, CommunicationStep, EventStep, StartEventStep and EndEventStep, plus eventForRole and triggeredByVariable, to support the start/end events and request/reply task shown in Figure 8. Made the six existing task categories subclasses of TaskStep. Declared TaskStep disjoint with EventStep and StartEventStep disjoint with EndEventStep. Preserved the ten existing SWRL rules, the underlying process-model vocabulary and all existing individuals. Kept Figure 8 instances in the separate self-contained supply_chain_figure8 ontology."@en,
+        "2026-10-22 — Changed by ChatGPT. Created a separate supply_chain_model ontology from the saved process_model base after synchronizing the later Bro_Pro hadRole and EmptyCollection/Collection repairs. Kept the base vocabulary definitions and all eight existing SWRL rules unchanged. Added a compact collaboration planning/execution vocabulary for step categories, planned roles, document version lineage, messages and decision conditions with explicit alternative transitions. Added two enabled SWRL rules for same-plan flow dependencies and shared input variables between explicitly distinct steps. The paper's shared-output rule and automatic conversion of dependencies to XOR were not adopted. Preserved the base header as sc:baseModelMetadata. No Figure 8 instances, synthetic tests or inferred assertions are included. The separate process_model.ttl file was not modified by this extension."@en ;
     skos:note "The two added resource-dependency rules require distinct steps (owl:differentFrom or owl:AllDifferent) in the same explicitly identified plan. They infer candidate resource links, not execution order, resource contention, exclusive choices or authorization to execute a step. An ExclusiveChoice groups ConditionalTransition alternatives whose DecisionCondition records a decision variable and expected outcome. A workflow controller or human evaluates those conditions and selects the branch; OWL/SWRL here does not enforce executable XOR behavior. No closed-world completeness validation is supplied."@en,
         "Use distinct p-plan:Variable individuals for distinct planned document versions and contributions. p-plan:isOutputVarOf is functional, so one output variable must not be assigned to two explicitly different producing steps. Actual artifacts are p-plan:Entity instances linked through correspondsToVariable; that mapping is also functional in the retained P-Plan ontology."@en ;
-    skos:scopeNote "This is a schema extension; the Figure 8 scenario has not yet been instantiated. Drafting, contribution, revision, review and submission are planned step categories. Manufacturing-specific MakePart, AssembleProduct and DeliverProduct categories remain for a later specialization. A StepExecution realizes a step through p-plan:correspondsToStep; planned assignments do not assert that an execution took place."@en .
+    skos:scopeNote "Reusable schema for collaboration plans and their executions. Worked scenario instances belong in separate example ontologies; the Figure 8 tendering plan is provided in supply_chain_figure8.ttl. TaskStep and EventStep separate planned work from planned start/end milestones. CommunicationStep can describe request/reply tasks. Manufacturing-specific MakePart, AssembleProduct and DeliverProduct categories remain for a later specialization."@en .
 
 sc:Approved a owl:NamedIndividual,
         sc:DecisionOutcome ;
@@ -1604,10 +1605,16 @@ sc:CollaborationPlan a owl:Class ;
     rdfs:comment "A plan for collaboration between supply-chain participants. Use isStepOfPlan and isVariableOfPlan for its steps and resource variables."@en ;
     rdfs:subClassOf pplan:Plan .
 
+sc:CommunicationStep a owl:Class ;
+    rdfs:label "Communication step"@en ;
+    rdfs:comment "A planned communication task, which may include sending a request and awaiting a reply. Input/output dependencies can therefore be cyclic at this abstraction level without defining a cyclic control-flow sequence."@en ;
+    rdfs:subClassOf sc:TaskStep .
+
 sc:ContributionStep a owl:Class ;
     rdfs:label "Contribution step"@en ;
     rdfs:comment "A planned step that produces a participant contribution to a draft or proposal."@en ;
-    rdfs:subClassOf sc:CollaborationStep .
+    rdfs:subClassOf sc:CollaborationStep,
+        sc:TaskStep .
 
 sc:DocumentVariable a owl:Class ;
     rdfs:label "Document variable"@en ;
@@ -1617,7 +1624,8 @@ sc:DocumentVariable a owl:Class ;
 sc:DraftingStep a owl:Class ;
     rdfs:label "Drafting step"@en ;
     rdfs:comment "A planned step that produces an initial draft from its stated inputs."@en ;
-    rdfs:subClassOf sc:CollaborationStep .
+    rdfs:subClassOf sc:CollaborationStep,
+        sc:TaskStep .
 
 sc:LeadSupplierRole a owl:Class ;
     rdfs:label "Lead supplier role"@en ;
@@ -1627,7 +1635,8 @@ sc:LeadSupplierRole a owl:Class ;
 sc:PartnerReplacementStep a owl:Class ;
     rdfs:label "Partner replacement step"@en ;
     rdfs:comment "A planned step to replace or invite a new collaboration partner."@en ;
-    rdfs:subClassOf sc:CollaborationStep .
+    rdfs:subClassOf sc:CollaborationStep,
+        sc:TaskStep .
 
 sc:PartnerRole a owl:Class ;
     rdfs:label "Partner role"@en ;
@@ -1637,12 +1646,14 @@ sc:PartnerRole a owl:Class ;
 sc:ReviewStep a owl:Class ;
     rdfs:label "Review step"@en ;
     rdfs:comment "A planned evaluation or vote on a document version; its decision output is represented by a DecisionVariable."@en ;
-    rdfs:subClassOf sc:CollaborationStep .
+    rdfs:subClassOf sc:CollaborationStep,
+        sc:TaskStep .
 
 sc:RevisionStep a owl:Class ;
     rdfs:label "Revision step"@en ;
     rdfs:comment "A planned step that incorporates inputs into a new document version. Use a new output variable rather than overwriting the input version."@en ;
-    rdfs:subClassOf sc:CollaborationStep .
+    rdfs:subClassOf sc:CollaborationStep,
+        sc:TaskStep .
 
 sc:SamePlan_FlowDependency a swrl:Imp ;
     rdfs:label "SamePlan_FlowDependency" ;
@@ -1740,7 +1751,8 @@ sc:StepExecution a owl:Class ;
 sc:SubmissionStep a owl:Class ;
     rdfs:label "Submission step"@en ;
     rdfs:comment "A planned submission of an agreed document to its recipient."@en ;
-    rdfs:subClassOf sc:CollaborationStep .
+    rdfs:subClassOf sc:CollaborationStep,
+        sc:TaskStep .
 
 sc:aboutVersion a owl:ObjectProperty ;
     rdfs:label "about version"@en ;
@@ -1777,6 +1789,12 @@ sc:conditionVariable a owl:ObjectProperty ;
     rdfs:comment "The planned decision-result variable whose realized outcome is to be checked."@en ;
     rdfs:domain sc:DecisionCondition ;
     rdfs:range sc:DecisionVariable .
+
+sc:eventForRole a owl:ObjectProperty ;
+    rdfs:label "event for role"@en ;
+    rdfs:comment "Identifies the contextual participant role whose workflow lane contains this planned event. It is not an assertion that an agent performed an event."@en ;
+    rdfs:domain sc:EventStep ;
+    rdfs:range sc:CollaborationRole .
 
 sc:expectedOutcome a owl:ObjectProperty ;
     rdfs:label "expected outcome"@en ;
@@ -1857,6 +1875,12 @@ sc:transitionTo a owl:ObjectProperty ;
     rdfs:comment "Target step of a modeled possible transition."@en ;
     rdfs:domain sc:StepTransition ;
     rdfs:range sc:CollaborationStep .
+
+sc:triggeredByVariable a owl:ObjectProperty ;
+    rdfs:label "triggered by variable"@en ;
+    rdfs:comment "The planned information or message whose availability triggers a planned start event. The start event is not a producer of the variable."@en ;
+    rdfs:domain sc:StartEventStep ;
+    rdfs:range pplan:Variable .
 
 sc:versionIdentifier a owl:DatatypeProperty ;
     rdfs:label "version identifier"@en ;
@@ -2560,9 +2584,20 @@ sc:DocumentSeries a owl:Class ;
     rdfs:subClassOf prov:Entity,
         sulo:InformationObject .
 
+sc:EndEventStep a owl:Class ;
+    rdfs:label "End event step"@en ;
+    rdfs:comment "A planned end event for a participant path, not necessarily the end of every participant in the collaboration."@en ;
+    rdfs:subClassOf sc:EventStep .
+
 sc:Rejected a owl:NamedIndividual,
         sc:DecisionOutcome ;
     rdfs:label "Rejected"@en .
+
+sc:StartEventStep a owl:Class ;
+    rdfs:label "Start event step"@en ;
+    rdfs:comment "A planned start event. triggeredByVariable describes the planned information whose arrival triggers the event; it does not generate that information."@en ;
+    rdfs:subClassOf sc:EventStep ;
+    owl:disjointWith sc:EndEventStep .
 
 sc:baseModelMetadata a owl:NamedIndividual ;
     rdfs:label "Process model"@en ;
@@ -3323,6 +3358,11 @@ sc:DecisionOutcome a owl:Class ;
     rdfs:subClassOf prov:Entity,
         sulo:InformationObject .
 
+sc:EventStep a owl:Class ;
+    rdfs:label "Event step"@en ;
+    rdfs:comment "A planned workflow event or milestone. This is a description in a plan, not an actual prov:InstantaneousEvent or time:Instant. eventForRole identifies its participant lane."@en ;
+    rdfs:subClassOf sc:CollaborationStep .
+
 scvar:plan a swrl:Variable .
 
 scvar:resource a swrl:Variable .
@@ -3334,12 +3374,6 @@ sulo:Time a owl:Class ;
     owl:disjointUnionOf ( sulo:Duration sulo:TimeInstant sulo:TimeInterval ) ;
     owl:disjointWith sulo:Unit ;
     skos:prefLabel "Time"@en .
-
-sc:CollaborationRole a owl:Class ;
-    rdfs:label "Collaboration role"@en ;
-    rdfs:comment "A context-dependent function in a collaboration. Assign a role instance to an agent through PlannedAssignment or, for an execution, a PROV Association with hadRole."@en ;
-    rdfs:subClassOf prov:Role,
-        sulo:Role .
 
 sc:DocumentVersion a owl:Class ;
     rdfs:label "Document version"@en ;
@@ -3376,6 +3410,12 @@ prov:wasDerivedFrom a owl:ObjectProperty ;
     prov:definition "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."@en ;
     prov:inverse "hadDerivation" .
 
+sc:CollaborationRole a owl:Class ;
+    rdfs:label "Collaboration role"@en ;
+    rdfs:comment "A context-dependent function in a collaboration. Assign a role instance to an agent through PlannedAssignment or, for an execution, a PROV Association with hadRole."@en ;
+    rdfs:subClassOf prov:Role,
+        sulo:Role .
+
 rdfs:seeAlso a owl:AnnotationProperty ;
     rdfs:comment ""@en .
 
@@ -3394,6 +3434,12 @@ sulo:Feature a owl:Class ;
     owl:disjointWith sulo:SpatialObject ;
     skos:example "the capability to fly, a collection of cards, a measured height of 170cm."@en ;
     skos:prefLabel "Feature"@en .
+
+sc:TaskStep a owl:Class ;
+    rdfs:label "Task step"@en ;
+    rdfs:comment "A planned unit of work in a collaboration. Distinguished from a planned event; actual performances are StepExecution individuals."@en ;
+    rdfs:subClassOf sc:CollaborationStep ;
+    owl:disjointWith sc:EventStep .
 
 time:DayOfWeek a owl:Class ;
     rdfs:label "Day of week"@en,
@@ -3472,11 +3518,6 @@ sulo:Object a owl:Class ;
     skos:example "a heart, the function to pump blood, the role of a doctor"@en ;
     skos:prefLabel "Object"@en .
 
-pplan:Variable a owl:Class ;
-    rdfs:label "Variable" ;
-    rdfs:isDefinedBy pplan: ;
-    prov:definition "A p-plan:Variable represents a description of the input of the planned Activity (p-plan:Step)" .
-
 owl:Thing a owl:Class .
 
 time:GeneralDurationDescription a owl:Class ;
@@ -3525,6 +3566,11 @@ sulo:hasPart a owl:ObjectProperty,
 scvar:consumer a swrl:Variable .
 
 scvar:producer a swrl:Variable .
+
+pplan:Variable a owl:Class ;
+    rdfs:label "Variable" ;
+    rdfs:isDefinedBy pplan: ;
+    prov:definition "A p-plan:Variable represents a description of the input of the planned Activity (p-plan:Step)" .
 
 time:TemporalEntity a owl:Class ;
     rdfs:label "Temporal entity"@en,
@@ -3662,16 +3708,16 @@ sulo:InformationObject a owl:Class ;
         sulo:Feature ;
     skos:prefLabel "Information Object"@en .
 
+var:endDateB a swrl:Variable .
+
+var:startDateA a swrl:Variable .
+
 sc:CollaborationStep a owl:Class ;
     rdfs:label "Collaboration step"@en ;
     rdfs:comment "A planned step description. It is an information object, not an occurrence. Actual performances are StepExecution instances linked with correspondsToStep."@en ;
     rdfs:subClassOf pplan:Step,
         prov:Entity,
         sulo:InformationObject .
-
-var:endDateB a swrl:Variable .
-
-var:startDateA a swrl:Variable .
 
 var:a a swrl:Variable .
 
