@@ -1580,6 +1580,7 @@ pm:QualifiedAssociation_Agent a swrl:Imp ;
         <https://www.michaeldebellis.com/supply_chain_model> ;
     dcterms:title "Collaborative tendering between a lead supplier and an invited partner"@en ;
     owl:versionInfo "figure8-plan-v1-2026-10-22" ;
+    skos:changeNote "2026-10-23 - Changed by ChatGPT. Corrected the inherited dcterms:created metadata value from 2025-28-11 to 2025-11-28 (interpreted as 28 November 2025) to address the reported AllegroGraph import error. Workflow definitions and rules are unchanged."@en ;
     skos:changeNote "2026-10-22 — Changed by ChatGPT. Implemented Figure 8 as a separate planned collaboration on the updated supply-chain schema. Added placeholder organizations, contextual role instances, seven task definitions and planned assignments, five planned events, ten control-flow transitions, ten resource/message variables, four message exchanges, and one explicit exclusive choice with approval and rejection conditions. Preserved the figure's seven-task structure by documenting t11 as a send-and-await request/reply task. Retained separate initial-draft, contribution, revised tender and submitted-tender variables, and the single-producer P-Plan semantics. The submitted-tender slot is an explicit completion artifact chosen for this model. Preserved all ten existing SWRL rules. No runtime execution, branch-selection result, synthetic test data or inferred assertions are included."@en ;
     skos:note "Control-flow transitions, message variables and decision conditions are explicit assertions. The existing SWRL rules infer candidate resource dependencies and shared inputs; they neither select a branch nor execute the plan. All declared steps and resource variables are explicitly distinct. Each produced variable has exactly one asserted producer. The call-for-tender variable is supplied externally."@en,
         "Figure 8 returns the partner vote to t11SendTenderForVotingTask. This model interprets that task as sending the voting request and awaiting the reply. Consequently t11 and t12 have resource dependencies in both directions; these describe a request/reply exchange, not a control-flow loop or a reason to assert each task precedes the other. An executable refinement may split sending and receiving into separate steps. The replacement branch ends where the figure ends; no retry loop is added."@en ;
@@ -2469,7 +2470,7 @@ pm:mergedSourceMetadata a owl:NamedIndividual ;
     dcterms:created "2006-09-27"^^xsd:date,
         "2012-11-10"^^xsd:date,
         "2024-11-11",
-        "2025-28-11" ;
+        "2025-11-28" ;
     dcterms:creator <http://orcid.org/0000-0002-3884-3420>,
         <https://en.wikipedia.org/wiki/Jerry_Hobbs>,
         <mailto:panfeng66@gmail.com>,
