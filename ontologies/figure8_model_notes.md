@@ -1,3 +1,4 @@
+
 # Figure 8 collaborative tendering model
 
 ## Files and starting point
@@ -155,6 +156,7 @@ CONSTRUCT {
 Figure 1b. Gruff Visualization of Query 1b
 
 
+
 ### 2. Control transitions and branch conditions
 
 **2a — Table: ten transitions.** Returns the transition and endpoint IRIs alongside their labels. Two rows have outcomes: approval leads to submission and rejection leads to replacement. The other eight rows have no condition/outcome binding because those transitions are unconditional.
@@ -177,6 +179,7 @@ ORDER BY ?fromLabel ?toLabel
 ```
 <img width="1902" height="695" alt="control_trasitions_2a" src="https://github.com/user-attachments/assets/8b2d806e-d490-4f5d-8f32-bf83b01f781b" />
 Figure 2a. Gruff Visualization of Query 2a.
+
 
 
 **2b — Graph: the ten transition individuals and their endpoints, plus the two branch conditions.** The transition is a node with `transitionFrom` and `transitionTo` links. These links both originate at the transition node; follow their predicate names to distinguish the source and target steps. The graph preserves the ontology's actual representation instead of inventing a direct step-to-step control predicate. The outcomes describe alternatives in the plan, not votes that have actually occurred.
@@ -208,6 +211,10 @@ CONSTRUCT {
   OPTIONAL { ?transition rdfs:label ?transitionLabel. }
 }
 ```
+<img width="1896" height="742" alt="Graph2-1" src="https://github.com/user-attachments/assets/4b728861-8043-48cf-81c9-d304645e1e13" />
+Figure 2b. Results of SPARQL Query 2b.
+
+
 
 ### 3. Resource-flow dependencies without prior reasoning
 
