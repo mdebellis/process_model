@@ -120,6 +120,7 @@ SELECT ?assignment ?task ?label ?agent ?role WHERE {
 ORDER BY ?task
 ```
 <img width="1122" height="649" alt="task_assignments_1a" src="https://github.com/user-attachments/assets/aa0a8f37-4341-419e-92b6-4a195234732a" />
+Figure 1a. Gruff Visualization of Query 1a
 
 **1b — Graph: tasks, assignments, agents, and roles.** This includes the assignment nodes and their three links, rather than showing only tasks linked to the plan. The two organizations remain illustrative placeholders, as described above.
 
