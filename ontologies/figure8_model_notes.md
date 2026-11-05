@@ -94,14 +94,24 @@ The inherited regression tests also passed: 31 PROV type entailments, qualified 
 
 ## Useful SPARQL queries
 
-List the seven task assignments. This query works on the asserted graph:
+Updated 4 November 2026 by ChatGPT for the Figure 8 demonstration in AllegroGraph/Gruff.
+
+The table and graph queries below work directly on the asserted content of `supply_chain_figure8.ttl`; no prior SWRL execution or materialization is required. They are scoped to `fig8:TenderingPlan`.
+
+Use the `SELECT` variants for tables. Use the `CONSTRUCT` variants for visual graphs: run the query in Gruff, then choose **Create Visual Graph**. A `CONSTRUCT` returns a graph for browsing; it does not insert those triples into the repository. These instructions target Gruff connected directly to AllegroGraph, as in the demonstration, rather than its generic SPARQL-endpoint mode.
+
+Gruff has to reconstruct related triples from a `SELECT` result. Returning only labels can therefore produce a valid table with nothing to graph. Including entity IRIs helps, but the explicit graph variants specify exactly which links should be displayed. See [Gruff 9.0.2 query documentation](https://franz.com/agraph/support/documentation/9.0.2/gruff.html).
+
+### 1. Task assignments
+
+**1a — Table: seven assignments.** The assignment individual is now included so the result retains the connection between each task, agent, and role.
 
 ```sparql
 PREFIX sc: <https://www.michaeldebellis.com/supply_chain_model/>
 PREFIX fig8: <https://www.michaeldebellis.com/supply_chain_figure8/>
 PREFIX pp: <http://purl.org/net/p-plan#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-SELECT ?task ?label ?agent ?role WHERE {
+SELECT ?assignment ?task ?label ?agent ?role WHERE {
   ?task pp:isStepOfPlan fig8:TenderingPlan; rdfs:label ?label.
   ?assignment sc:assignmentForStep ?task;
               sc:assignedAgent ?agent;
@@ -110,23 +120,156 @@ SELECT ?task ?label ?agent ?role WHERE {
 ORDER BY ?task
 ```
 
-List the ten control transitions and their optional decision outcomes. This also works on the asserted graph:
+**1b — Graph: tasks, assignments, agents, and roles.** This includes the assignment nodes and their three links, rather than showing only tasks linked to the plan. The two organizations remain illustrative placeholders, as described above.
 
 ```sparql
 PREFIX sc: <https://www.michaeldebellis.com/supply_chain_model/>
 PREFIX fig8: <https://www.michaeldebellis.com/supply_chain_figure8/>
 PREFIX pp: <http://purl.org/net/p-plan#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-SELECT ?fromLabel ?toLabel ?outcome WHERE {
+CONSTRUCT {
+  ?assignment sc:assignmentForStep ?task;
+              sc:assignedAgent ?agent;
+              sc:assignedRole ?role;
+              rdfs:label ?assignmentLabel.
+  ?task pp:isStepOfPlan fig8:TenderingPlan; rdfs:label ?label.
+  ?agent rdfs:label ?agentLabel.
+  ?role rdfs:label ?roleLabel.
+  fig8:TenderingPlan rdfs:label ?planLabel.
+} WHERE {
+  ?task pp:isStepOfPlan fig8:TenderingPlan; rdfs:label ?label.
+  ?assignment sc:assignmentForStep ?task;
+              sc:assignedAgent ?agent;
+              sc:assignedRole ?role.
+  OPTIONAL { ?assignment rdfs:label ?assignmentLabel. }
+  OPTIONAL { ?agent rdfs:label ?agentLabel. }
+  OPTIONAL { ?role rdfs:label ?roleLabel. }
+  OPTIONAL { fig8:TenderingPlan rdfs:label ?planLabel. }
+}
+```
+
+### 2. Control transitions and branch conditions
+
+**2a — Table: ten transitions.** Returns the transition and endpoint IRIs alongside their labels. Two rows have outcomes: approval leads to submission and rejection leads to replacement. The other eight rows have no condition/outcome binding because those transitions are unconditional.
+
+```sparql
+PREFIX sc: <https://www.michaeldebellis.com/supply_chain_model/>
+PREFIX fig8: <https://www.michaeldebellis.com/supply_chain_figure8/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?transition ?from ?fromLabel ?to ?toLabel ?condition ?outcome WHERE {
   ?transition sc:transitionFrom ?from; sc:transitionTo ?to.
   ?from pp:isStepOfPlan fig8:TenderingPlan; rdfs:label ?fromLabel.
-  ?to rdfs:label ?toLabel.
-  OPTIONAL { ?transition sc:hasCondition/sc:expectedOutcome ?outcome. }
+  ?to pp:isStepOfPlan fig8:TenderingPlan; rdfs:label ?toLabel.
+  OPTIONAL {
+    ?transition sc:hasCondition ?condition.
+    ?condition sc:expectedOutcome ?outcome.
+  }
 }
 ORDER BY ?fromLabel ?toLabel
 ```
 
-List inferred resource-flow links. The query engine must be able to see the SWRL inference output:
+**2b — Graph: the ten transition individuals and their endpoints, plus the two branch conditions.** The transition is a node with `transitionFrom` and `transitionTo` links. These links both originate at the transition node; follow their predicate names to distinguish the source and target steps. The graph preserves the ontology's actual representation instead of inventing a direct step-to-step control predicate. The outcomes describe alternatives in the plan, not votes that have actually occurred.
+
+```sparql
+PREFIX sc: <https://www.michaeldebellis.com/supply_chain_model/>
+PREFIX fig8: <https://www.michaeldebellis.com/supply_chain_figure8/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+CONSTRUCT {
+  ?transition sc:transitionFrom ?from;
+              sc:transitionTo ?to;
+              sc:hasCondition ?condition;
+              rdfs:label ?transitionLabel.
+  ?from rdfs:label ?fromLabel.
+  ?to rdfs:label ?toLabel.
+  ?condition sc:expectedOutcome ?outcome; rdfs:label ?conditionLabel.
+  ?outcome rdfs:label ?outcomeLabel.
+} WHERE {
+  ?transition sc:transitionFrom ?from; sc:transitionTo ?to.
+  ?from pp:isStepOfPlan fig8:TenderingPlan; rdfs:label ?fromLabel.
+  ?to pp:isStepOfPlan fig8:TenderingPlan; rdfs:label ?toLabel.
+  OPTIONAL {
+    ?transition sc:hasCondition ?condition.
+    ?condition sc:expectedOutcome ?outcome.
+    OPTIONAL { ?condition rdfs:label ?conditionLabel. }
+    OPTIONAL { ?outcome rdfs:label ?outcomeLabel. }
+  }
+  OPTIONAL { ?transition rdfs:label ?transitionLabel. }
+}
+```
+
+### 3. Resource-flow dependencies without prior reasoning
+
+The original third query selected `sc:hasFlowDependency` triples. That property is declared and appears in a SWRL rule head, but the supplied Turtle file contains **zero asserted uses of it as a predicate**. Importing rule definitions is not the same as executing the rules or loading their inferred results. A zero-row result, or Gruff's warning that no triples use this predicate, is therefore expected on the asserted graph.
+
+For this demonstration, calculate the dependencies at query time by joining a producer's `pp:hasOutputVar` with a consumer's `pp:hasInputVar` for the same variable. Both steps must belong to the Figure 8 plan.
+
+**3a — Table: ten distinct producer/consumer pairs.**
+
+```sparql
+PREFIX sc: <https://www.michaeldebellis.com/supply_chain_model/>
+PREFIX fig8: <https://www.michaeldebellis.com/supply_chain_figure8/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?producer ?consumer WHERE {
+  ?producer pp:isStepOfPlan fig8:TenderingPlan;
+            pp:hasOutputVar ?variable.
+  ?consumer pp:isStepOfPlan fig8:TenderingPlan;
+            pp:hasInputVar ?variable.
+  FILTER(?producer != ?consumer)
+}
+ORDER BY ?producer ?consumer
+```
+
+This reproduces the ten expected dependency pairs for this Figure 8 dataset. Its steps are explicitly different individuals and are CollaborationSteps through their declared types and subclass hierarchy. The `!=` filter compares RDF terms; it is not a general replacement for OWL/SWRL distinctness reasoning on arbitrary ontologies.
+
+**3b — Graph: ten derived dependency edges.** The `WHERE` clause reads the asserted output/input links, so it does not require pre-existing `hasFlowDependency` triples. The `CONSTRUCT` presents those calculated links under the existing `sc:hasFlowDependency` property. They are query results, not changes to the stored ontology.
+
+```sparql
+PREFIX sc: <https://www.michaeldebellis.com/supply_chain_model/>
+PREFIX fig8: <https://www.michaeldebellis.com/supply_chain_figure8/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+CONSTRUCT {
+  ?producer sc:hasFlowDependency ?consumer;
+            rdfs:label ?producerLabel.
+  ?consumer rdfs:label ?consumerLabel.
+} WHERE {
+  ?producer pp:isStepOfPlan fig8:TenderingPlan;
+            pp:hasOutputVar ?variable.
+  ?consumer pp:isStepOfPlan fig8:TenderingPlan;
+            pp:hasInputVar ?variable.
+  FILTER(?producer != ?consumer)
+  OPTIONAL { ?producer rdfs:label ?producerLabel. }
+  OPTIONAL { ?consumer rdfs:label ?consumerLabel. }
+}
+```
+
+The two opposite dependencies between the send-and-await task and the voting task are intentional: one carries the voting request and the other carries the reply. They are resource dependencies, not a control-flow loop or a requirement that each task finish before the other starts.
+
+**3c — Explanation table: which variable establishes each dependency?** Returns twelve rows supporting the ten distinct pairs. Two pairs each share both a document variable and a message variable, so `DISTINCT` on the producer/consumer pair in 3a is intentional.
+
+```sparql
+PREFIX sc: <https://www.michaeldebellis.com/supply_chain_model/>
+PREFIX fig8: <https://www.michaeldebellis.com/supply_chain_figure8/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?producer ?consumer ?variable WHERE {
+  ?producer pp:isStepOfPlan fig8:TenderingPlan;
+            pp:hasOutputVar ?variable.
+  ?consumer pp:isStepOfPlan fig8:TenderingPlan;
+            pp:hasInputVar ?variable.
+  FILTER(?producer != ?consumer)
+}
+ORDER BY ?producer ?consumer ?variable
+```
+
+### Optional: query stored or reasoner-visible dependency triples
+
+The original third query remains useful after inferred dependency assertions have been exported and loaded, materialized by an appropriate rule translation, or otherwise made visible to the query engine. Merely running a reasoner in a separate Protégé session does not make its inferences available in AllegroGraph.
+
+**Expected on the supplied asserted file: zero rows.** This query is a check for available dependency triples, not the recommended first-use demonstration query.
 
 ```sparql
 PREFIX sc: <https://www.michaeldebellis.com/supply_chain_model/>
@@ -137,4 +280,35 @@ SELECT ?producer ?consumer WHERE {
             sc:hasFlowDependency ?consumer.
 }
 ORDER BY ?producer ?consumer
+```
+
+### Query verification for this revision
+
+All eight SPARQL blocks in this section were executed with RDFLib against the GitHub `supply_chain_figure8.ttl` retrieved on 4 November 2026. The original three queries returned 7, 10, and 0 rows, reproducing the reported behavior. The replacement dependency query matched all ten independently enumerated expected pairs from the original Figure 8 validation, including the request/reply pair in both directions. The graph versions were checked for their assignment, transition, condition, and dependency edges; the source graph remained unchanged.
+
+| Query | Verified result |
+|---|---|
+| 1a | 7 assignment rows |
+| 1b | 47 triples, including all 7 assignment nodes and their task/agent/role links |
+| 2a | 10 transition rows, including 2 conditional outcomes |
+| 2b | 50 triples, including all 10 transitions and both branch conditions |
+| 3a | 10 distinct dependency pairs |
+| 3b | 17 triples: 10 dependency edges and 7 task labels |
+| 3c | 12 producer/consumer/variable rows |
+| Optional stored-triple query | 0 rows before inference output is made available |
+
+This revision tests SPARQL results and graph structure; it is not a new Pellet validation or a claim that the queries have been run in the user's live Gruff/AllegroGraph repository. The earlier ontology-validation results above remain the record of the original implementation.
+
+## Suggested commit text for this Figure 8 implementation
+
+```text
+Implement the Figure 8 collaborative tendering plan
+
+Extended the reusable supply-chain schema with planned task, communication, start-event, and end-event categories, plus properties for event lanes and triggering variables. Preserved the ten existing SWRL rules and the corrected base ontology definitions.
+
+Added supply_chain_figure8.ttl as a separate self-contained example containing the seven tasks, two start events, three end events, seven planned role assignments, ten resource/message variables, four message exchanges, ten control-flow transitions, and explicit approval/rejection conditions from the paper. Kept document versions and message payloads in distinct planned variables, with one producer per produced variable.
+
+Documented the send-and-await interpretation of the voting request task so that the returning vote is represented without inventing an eighth task or converting the request/reply resource cycle into a control-flow loop. Kept the supplier-replacement branch terminal as drawn. Added dated change notes identifying ChatGPT and retained a clear separation between planned workflow elements and actual executions.
+
+Validated both ontologies with Pellet and checked the expected resource dependencies, message exchanges, control topology, branch conditions, and producer constraints. All inherited temporal and PROV regression checks passed. The basic process_model.ttl was unchanged.
 ```
