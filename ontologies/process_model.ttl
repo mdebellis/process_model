@@ -24,7 +24,7 @@
 @prefix schema: <https://schema.org/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dcmitype: <http://purl.org/dc/dcmitype/> .
-@base <https://www.michaeldebellis.com/process_model> .
+@base <https://www.michaeldebellis.com/process_model#> .
 
 <https://www.michaeldebellis.com/process_model> rdf:type owl:Ontology ;
                                                  dcterms:created "2026-10-22"^^xsd:date ;
@@ -38,7 +38,9 @@
                                                  rdfs:label "Process model"@en ;
                                                  owl:versionInfo "experimental-base-sync-2026-10-22" ;
                                                  skos:changeNote "2026-10-22 review: verified the original six enabled rules against the published W3C Time With SWRL Rules V2.ttl. Retained direct endpoint comparison; changed the before head to intervalBefore; completed finishes/finishedBy; used value comparisons for equal boundaries; guarded against zero/reversed durations. Fixed the January gMonth literal. Restored Bundle-to-Entity and qualified-association typing, corrected the agent domain to AgentInfluence, and added the SWRL equivalent of the PROV association chain. Retained the original header at pm:mergedSourceMetadata. P-Plan and SULO logical axioms and existing test individuals are otherwise unchanged."@en ,
-                                                                 "2026-10-22 — Changed by ChatGPT. Synchronized the reusable process_model base with the later corrections in bro_pro_corrected.ttl before creating any domain-specific extension. Restored both prov:hadRole domains: prov:Influence and the union of prov:Association with prov:InstantaneousEvent. Restored prov:EmptyCollection as an owl:Class and subclass of prov:Collection, and prov:Collection as an owl:Class and subclass of prov:Entity, retaining the existing named-individual declaration for prov:EmptyCollection. Copied the corresponding PROV labels, definitions and source annotations, including the additional annotations on AgentInfluence, Association and Bundle. Verified that the earlier association repairs, seven direct-date Allen SWRL rules, qualified-association rule and January datatype correction were already present; preserved all eight rule bodies without duplication. Retained the ontology IRI, P-Plan and SULO definitions, all existing example individuals and dates, and earlier ontology metadata. No supply-chain vocabulary, test fixtures or inferred assertions were added."@en .
+                                                                 "2026-10-22 — Changed by ChatGPT. Synchronized the reusable process_model base with the later corrections in bro_pro_corrected.ttl before creating any domain-specific extension. Restored both prov:hadRole domains: prov:Influence and the union of prov:Association with prov:InstantaneousEvent. Restored prov:EmptyCollection as an owl:Class and subclass of prov:Collection, and prov:Collection as an owl:Class and subclass of prov:Entity, retaining the existing named-individual declaration for prov:EmptyCollection. Copied the corresponding PROV labels, definitions and source annotations, including the additional annotations on AgentInfluence, Association and Bundle. Verified that the earlier association repairs, seven direct-date Allen SWRL rules, qualified-association rule and January datatype correction were already present; preserved all eight rule bodies without duplication. Retained the ontology IRI, P-Plan and SULO definitions, all existing example individuals and dates, and earlier ontology metadata. No supply-chain vocabulary, test fixtures or inferred assertions were added."@en ,
+                                                                 """Several PPlan object properties had rdfs:label values like \"isInputVar\". I added intuitive lang strings as values for each such properties skos:prefLabel
+M. DeBellis 11-5-2026"""@en .
 
 #################################################################
 #    Annotation properties
@@ -765,6 +767,7 @@ pplan:hasInputVar rdf:type owl:ObjectProperty ;
                   rdfs:range pplan:Variable ;
                   rdfs:isDefinedBy pplan: ;
                   rdfs:label "hasInputVar"@en ;
+                  skos:prefLabel "has input variable"@en ;
                   prov:definition "p-plan:hasInputVar binds a p-plan:Step to the p-plan:Variable that takes as input for the planned execution"@en .
 
 
@@ -775,6 +778,7 @@ pplan:hasOutputVar rdf:type owl:ObjectProperty ;
                    rdfs:range pplan:Variable ;
                    rdfs:isDefinedBy pplan: ;
                    rdfs:label "hasOutputVar"@en ;
+                   skos:prefLabel "has output variable"@en ;
                    prov:definition "p-plan:hasOutputVar binds a p-plan:Step to the p-plan:Variable that will be produced as output in the planned execution"@en .
 
 
@@ -3650,8 +3654,97 @@ Michael DeBellis mdebellissf@gmail.com""" ;
 
 
 [ swrl:argument1 var:a ;
-  swrl:argument2 var:startA ;
-  swrl:propertyPredicate time:hasBeginning
+  swrl:argument2 var:b ;
+  swrl:propertyPredicate time:intervalOverlaps
+] .
+
+[ swrl:argument1 var:b ;
+   swrl:argument2 var:endB ;
+   swrl:propertyPredicate time:hasEnd
+ ] .
+
+[ swrl:argument1 var:a ;
+   swrl:argument2 var:startA ;
+   swrl:propertyPredicate time:hasBeginning
+ ] .
+
+[ swrl:argument1 var:startA ;
+   swrl:argument2 var:startDateA ;
+   swrl:propertyPredicate time:inXSDDateTimeStamp
+ ] .
+
+[ swrl:arguments [ ] ;
+swrl:builtin swrlb:lessThan
+] .
+
+[ swrl:argument1 var:startB ;
+   swrl:argument2 var:startDateB ;
+   swrl:propertyPredicate time:inXSDDateTimeStamp
+ ] .
+
+[ swrl:argument1 var:b ;
+   swrl:argument2 var:startB ;
+   swrl:propertyPredicate time:hasBeginning
+ ] .
+
+[ swrl:arguments [ ] ;
+swrl:builtin swrlb:lessThan
+] .
+
+[ swrl:argument1 var:startA ;
+   swrl:argument2 var:startDateA ;
+   swrl:propertyPredicate time:inXSDDateTimeStamp
+ ] .
+
+[ swrl:argument1 var:endA ;
+   swrl:argument2 var:endDateA ;
+   swrl:propertyPredicate time:inXSDDateTimeStamp
+ ] .
+
+[ swrl:arguments [ ] ;
+swrl:builtin swrlb:lessThan
+] .
+
+[ swrl:argument1 var:a ;
+   swrl:argument2 var:endA ;
+   swrl:propertyPredicate time:hasEnd
+ ] .
+
+[ swrl:argument1 var:a ;
+   swrl:argument2 var:b ;
+   swrl:propertyPredicate time:intervalContains
+ ] .
+
+[ swrl:argument1 var:a ;
+   swrl:argument2 var:startA ;
+   swrl:propertyPredicate time:hasBeginning
+ ] .
+
+[ swrl:arguments [ ] ;
+swrl:builtin swrlb:lessThan
+] .
+
+[ swrl:arguments [ ] ;
+swrl:builtin swrlb:equal
+] .
+
+[ swrl:argument1 var:startB ;
+   swrl:argument2 var:startDateB ;
+   swrl:propertyPredicate time:inXSDDateTimeStamp
+ ] .
+
+[ swrl:argument1 var:a ;
+   swrl:argument2 var:endA ;
+   swrl:propertyPredicate time:hasEnd
+ ] .
+
+[ swrl:argument1 var:endB ;
+   swrl:argument2 var:endDateB ;
+   swrl:propertyPredicate time:inXSDDateTimeStamp
+ ] .
+
+[ swrl:arguments [ ] ;
+swrl:builtin swrlb:lessThan
 ] .
 
 [ swrl:arguments [ ] ;
@@ -3661,6 +3754,152 @@ swrl:builtin swrlb:lessThan
 [ swrl:argument1 var:endA ;
    swrl:argument2 var:endDateA ;
    swrl:propertyPredicate time:inXSDDateTimeStamp
+ ] .
+
+[ swrl:argument1 var:endB ;
+   swrl:argument2 var:endDateB ;
+   swrl:propertyPredicate time:inXSDDateTimeStamp
+ ] .
+
+[ swrl:argument1 var:b ;
+   swrl:argument2 var:startB ;
+   swrl:propertyPredicate time:hasBeginning
+ ] .
+
+[ swrl:arguments [ ] ;
+swrl:builtin swrlb:equal
+] .
+
+[ swrl:argument1 var:a ;
+   swrl:argument2 var:b ;
+   swrl:propertyPredicate time:intervalEquals
+ ] .
+
+[ swrl:argument1 var:endA ;
+   swrl:argument2 var:endDateA ;
+   swrl:propertyPredicate time:inXSDDateTimeStamp
+ ] .
+
+[ swrl:argument1 var:b ;
+   swrl:argument2 var:startB ;
+   swrl:propertyPredicate time:hasBeginning
+ ] .
+
+[ swrl:argument1 var:a ;
+   swrl:argument2 var:b ;
+   swrl:propertyPredicate time:intervalStarts
+ ] .
+
+[ swrl:argument1 var:b ;
+   swrl:argument2 var:endB ;
+   swrl:propertyPredicate time:hasEnd
+ ] .
+
+[ swrl:argument1 var:activity ;
+   swrl:argument2 var:association ;
+   swrl:propertyPredicate prov:qualifiedAssociation
+ ] .
+
+[ swrl:argument1 var:startB ;
+   swrl:argument2 var:startDateB ;
+   swrl:propertyPredicate time:inXSDDateTimeStamp
+ ] .
+
+[ swrl:argument1 var:endB ;
+   swrl:argument2 var:endDateB ;
+   swrl:propertyPredicate time:inXSDDateTimeStamp
+ ] .
+
+[ swrl:argument1 var:activity ;
+   swrl:argument2 var:agent ;
+   swrl:propertyPredicate prov:wasAssociatedWith
+ ] .
+
+[ swrl:arguments [ ] ;
+swrl:builtin swrlb:lessThan
+] .
+
+[ swrl:argument1 var:a ;
+   swrl:argument2 var:endA ;
+   swrl:propertyPredicate time:hasEnd
+ ] .
+
+[ swrl:argument1 var:b ;
+   swrl:argument2 var:endB ;
+   swrl:propertyPredicate time:hasEnd
+ ] .
+
+[ swrl:argument1 var:a ;
+   swrl:argument2 var:startA ;
+   swrl:propertyPredicate time:hasBeginning
+ ] .
+
+[ swrl:arguments [ ] ;
+swrl:builtin swrlb:lessThan
+] .
+
+[ swrl:arguments [ ] ;
+swrl:builtin swrlb:lessThan
+] .
+
+[ swrl:argument1 var:startA ;
+   swrl:argument2 var:startDateA ;
+   swrl:propertyPredicate time:inXSDDateTimeStamp
+ ] .
+
+[ swrl:arguments [ ] ;
+swrl:builtin swrlb:equal
+] .
+
+[ swrl:arguments [ ] ;
+swrl:builtin swrlb:lessThan
+] .
+
+[ swrl:arguments [ ] ;
+swrl:builtin swrlb:equal
+] .
+
+[ swrl:argument1 var:a ;
+   swrl:argument2 var:startA ;
+   swrl:propertyPredicate time:hasBeginning
+ ] .
+
+[ swrl:arguments [ ] ;
+swrl:builtin swrlb:lessThan
+] .
+
+[ swrl:argument1 var:a ;
+   swrl:argument2 var:endA ;
+   swrl:propertyPredicate time:hasEnd
+ ] .
+
+[ swrl:argument1 var:b ;
+   swrl:argument2 var:startB ;
+   swrl:propertyPredicate time:hasBeginning
+ ] .
+
+[ swrl:argument1 var:endA ;
+   swrl:argument2 var:endDateA ;
+   swrl:propertyPredicate time:inXSDDateTimeStamp
+ ] .
+
+[ swrl:argument1 var:endB ;
+   swrl:argument2 var:endDateB ;
+   swrl:propertyPredicate time:inXSDDateTimeStamp
+ ] .
+
+[ swrl:arguments [ ] ;
+swrl:builtin swrlb:lessThan
+] .
+
+[ swrl:argument1 var:association ;
+   swrl:argument2 var:agent ;
+   swrl:propertyPredicate prov:agent
+ ] .
+
+[ swrl:argument1 var:a ;
+   swrl:argument2 var:startA ;
+   swrl:propertyPredicate time:hasBeginning
  ] .
 
 [ swrl:arguments [ ] ;
@@ -3682,108 +3921,8 @@ swrl:builtin swrlb:lessThan
    swrl:propertyPredicate time:inXSDDateTimeStamp
  ] .
 
-[ swrl:arguments [ ] ;
-swrl:builtin swrlb:equal
-] .
-
-[ swrl:argument1 var:a ;
-   swrl:argument2 var:startA ;
-   swrl:propertyPredicate time:hasBeginning
- ] .
-
-[ swrl:argument1 var:b ;
-   swrl:argument2 var:startB ;
-   swrl:propertyPredicate time:hasBeginning
- ] .
-
 [ swrl:argument1 var:endA ;
    swrl:argument2 var:endDateA ;
-   swrl:propertyPredicate time:inXSDDateTimeStamp
- ] .
-
-[ swrl:argument1 var:endB ;
-   swrl:argument2 var:endDateB ;
-   swrl:propertyPredicate time:inXSDDateTimeStamp
- ] .
-
-[ swrl:arguments [ ] ;
-swrl:builtin swrlb:lessThan
-] .
-
-[ swrl:arguments [ ] ;
-swrl:builtin swrlb:lessThan
-] .
-
-[ swrl:argument1 var:a ;
-   swrl:argument2 var:endA ;
-   swrl:propertyPredicate time:hasEnd
- ] .
-
-[ swrl:argument1 var:b ;
-   swrl:argument2 var:endB ;
-   swrl:propertyPredicate time:hasEnd
- ] .
-
-[ swrl:argument1 var:startA ;
-   swrl:argument2 var:startDateA ;
-   swrl:propertyPredicate time:inXSDDateTimeStamp
- ] .
-
-[ swrl:argument1 var:startB ;
-   swrl:argument2 var:startDateB ;
-   swrl:propertyPredicate time:inXSDDateTimeStamp
- ] .
-
-[ swrl:argument1 var:a ;
-   swrl:argument2 var:b ;
-   swrl:propertyPredicate time:intervalBefore
- ] .
-
-[ swrl:argument1 var:a ;
-   swrl:argument2 var:startA ;
-   swrl:propertyPredicate time:hasBeginning
- ] .
-
-[ swrl:arguments [ ] ;
-swrl:builtin swrlb:lessThan
-] .
-
-[ swrl:argument1 var:a ;
-   swrl:argument2 var:endA ;
-   swrl:propertyPredicate time:hasEnd
- ] .
-
-[ swrl:argument1 var:startA ;
-   swrl:argument2 var:startDateA ;
-   swrl:propertyPredicate time:inXSDDateTimeStamp
- ] .
-
-[ swrl:argument1 var:endA ;
-   swrl:argument2 var:endDateA ;
-   swrl:propertyPredicate time:inXSDDateTimeStamp
- ] .
-
-[ swrl:arguments [ ] ;
-swrl:builtin swrlb:lessThan
-] .
-
-[ swrl:argument1 var:b ;
-   swrl:argument2 var:endB ;
-   swrl:propertyPredicate time:hasEnd
- ] .
-
-[ swrl:argument1 var:startB ;
-   swrl:argument2 var:startDateB ;
-   swrl:propertyPredicate time:inXSDDateTimeStamp
- ] .
-
-[ swrl:argument1 var:b ;
-   swrl:argument2 var:startB ;
-   swrl:propertyPredicate time:hasBeginning
- ] .
-
-[ swrl:argument1 var:endB ;
-   swrl:argument2 var:endDateB ;
    swrl:propertyPredicate time:inXSDDateTimeStamp
  ] .
 
@@ -3810,11 +3949,6 @@ swrl:builtin swrlb:equal
    swrl:propertyPredicate time:hasBeginning
  ] .
 
-[ swrl:argument1 var:endA ;
-   swrl:argument2 var:endDateA ;
-   swrl:propertyPredicate time:inXSDDateTimeStamp
- ] .
-
 [ swrl:argument1 var:endB ;
    swrl:argument2 var:endDateB ;
    swrl:propertyPredicate time:inXSDDateTimeStamp
@@ -3824,13 +3958,14 @@ swrl:builtin swrlb:equal
 swrl:builtin swrlb:lessThan
 ] .
 
-[ swrl:arguments [ ] ;
-swrl:builtin swrlb:lessThan
-] .
-
-[ swrl:argument1 var:a ;
-   swrl:argument2 var:endA ;
+[ swrl:argument1 var:b ;
+   swrl:argument2 var:endB ;
    swrl:propertyPredicate time:hasEnd
+ ] .
+
+[ swrl:argument1 var:startB ;
+   swrl:argument2 var:startDateB ;
+   swrl:propertyPredicate time:inXSDDateTimeStamp
  ] .
 
 [ swrl:argument1 var:b ;
@@ -3843,36 +3978,18 @@ swrl:builtin swrlb:lessThan
    swrl:propertyPredicate time:inXSDDateTimeStamp
  ] .
 
-[ swrl:argument1 var:startB ;
-   swrl:argument2 var:startDateB ;
-   swrl:propertyPredicate time:inXSDDateTimeStamp
- ] .
-
-[ swrl:argument1 var:b ;
-   swrl:argument2 var:startB ;
-   swrl:propertyPredicate time:hasBeginning
- ] .
-
-[ swrl:arguments [ ] ;
-swrl:builtin swrlb:lessThan
-] .
-
-[ swrl:argument1 var:endB ;
-   swrl:argument2 var:endDateB ;
-   swrl:propertyPredicate time:inXSDDateTimeStamp
- ] .
-
-[ swrl:arguments [ ] ;
-swrl:builtin swrlb:lessThan
-] .
-
-[ swrl:argument1 var:b ;
-   swrl:argument2 var:endB ;
+[ swrl:argument1 var:a ;
+   swrl:argument2 var:endA ;
    swrl:propertyPredicate time:hasEnd
  ] .
 
-[ swrl:argument1 var:startB ;
-   swrl:argument2 var:startDateB ;
+[ swrl:argument1 var:startA ;
+   swrl:argument2 var:startDateA ;
+   swrl:propertyPredicate time:inXSDDateTimeStamp
+ ] .
+
+[ swrl:argument1 var:endA ;
+   swrl:argument2 var:endDateA ;
    swrl:propertyPredicate time:inXSDDateTimeStamp
  ] .
 
@@ -3882,7 +3999,7 @@ swrl:builtin swrlb:lessThan
 
 [ swrl:argument1 var:a ;
    swrl:argument2 var:b ;
-   swrl:propertyPredicate time:intervalContains
+   swrl:propertyPredicate time:intervalBefore
  ] .
 
 [ swrl:argument1 var:a ;
@@ -3894,9 +4011,42 @@ swrl:builtin swrlb:lessThan
 swrl:builtin swrlb:lessThan
 ] .
 
-[ swrl:argument1 var:endA ;
-   swrl:argument2 var:endDateA ;
+[ swrl:argument1 var:startB ;
+   swrl:argument2 var:startDateB ;
    swrl:propertyPredicate time:inXSDDateTimeStamp
+ ] .
+
+[ swrl:argument1 var:startB ;
+   swrl:argument2 var:startDateB ;
+   swrl:propertyPredicate time:inXSDDateTimeStamp
+ ] .
+
+[ swrl:arguments [ ] ;
+swrl:builtin swrlb:lessThan
+] .
+
+[ swrl:argument1 var:endB ;
+   swrl:argument2 var:endDateB ;
+   swrl:propertyPredicate time:inXSDDateTimeStamp
+ ] .
+
+[ swrl:arguments [ ] ;
+swrl:builtin swrlb:lessThan
+] .
+
+[ swrl:argument1 var:b ;
+   swrl:argument2 var:endB ;
+   swrl:propertyPredicate time:hasEnd
+ ] .
+
+[ swrl:argument1 var:startB ;
+   swrl:argument2 var:startDateB ;
+   swrl:propertyPredicate time:inXSDDateTimeStamp
+ ] .
+
+[ swrl:argument1 var:b ;
+   swrl:argument2 var:startB ;
+   swrl:propertyPredicate time:hasBeginning
  ] .
 
 [ swrl:arguments [ ] ;
@@ -3905,6 +4055,11 @@ swrl:builtin swrlb:lessThan
 
 [ swrl:argument1 var:a ;
    swrl:argument2 var:endA ;
+   swrl:propertyPredicate time:hasEnd
+ ] .
+
+[ swrl:argument1 var:b ;
+   swrl:argument2 var:endB ;
    swrl:propertyPredicate time:hasEnd
  ] .
 
@@ -3921,170 +4076,19 @@ swrl:builtin swrlb:lessThan
 swrl:builtin swrlb:lessThan
 ] .
 
-[ swrl:argument1 var:startB ;
-   swrl:argument2 var:startDateB ;
-   swrl:propertyPredicate time:inXSDDateTimeStamp
- ] .
-
 [ swrl:argument1 var:b ;
    swrl:argument2 var:startB ;
    swrl:propertyPredicate time:hasBeginning
  ] .
-
-[ swrl:argument1 var:a ;
-   swrl:argument2 var:b ;
-   swrl:propertyPredicate time:intervalOverlaps
- ] .
-
-[ swrl:argument1 var:b ;
-   swrl:argument2 var:endB ;
-   swrl:propertyPredicate time:hasEnd
- ] .
-
-[ swrl:argument1 var:a ;
-   swrl:argument2 var:startA ;
-   swrl:propertyPredicate time:hasBeginning
- ] .
-
-[ swrl:argument1 var:startA ;
-   swrl:argument2 var:startDateA ;
-   swrl:propertyPredicate time:inXSDDateTimeStamp
- ] .
-
-[ swrl:arguments [ ] ;
-swrl:builtin swrlb:lessThan
-] .
 
 [ swrl:argument1 var:endA ;
    swrl:argument2 var:endDateA ;
    swrl:propertyPredicate time:inXSDDateTimeStamp
  ] .
 
-[ swrl:argument1 var:a ;
-   swrl:argument2 var:endA ;
-   swrl:propertyPredicate time:hasEnd
- ] .
-
 [ swrl:argument1 var:endB ;
    swrl:argument2 var:endDateB ;
    swrl:propertyPredicate time:inXSDDateTimeStamp
- ] .
-
-[ swrl:arguments [ ] ;
-swrl:builtin swrlb:lessThan
-] .
-
-[ swrl:arguments [ ] ;
-swrl:builtin swrlb:equal
-] .
-
-[ swrl:argument1 var:startB ;
-   swrl:argument2 var:startDateB ;
-   swrl:propertyPredicate time:inXSDDateTimeStamp
- ] .
-
-[ swrl:argument1 var:a ;
-   swrl:argument2 var:b ;
-   swrl:propertyPredicate time:intervalEquals
- ] .
-
-[ swrl:argument1 var:endB ;
-   swrl:argument2 var:endDateB ;
-   swrl:propertyPredicate time:inXSDDateTimeStamp
- ] .
-
-[ swrl:argument1 var:b ;
-   swrl:argument2 var:startB ;
-   swrl:propertyPredicate time:hasBeginning
- ] .
-
-[ swrl:arguments [ ] ;
-swrl:builtin swrlb:equal
-] .
-
-[ swrl:argument1 var:b ;
-   swrl:argument2 var:endB ;
-   swrl:propertyPredicate time:hasEnd
- ] .
-
-[ swrl:argument1 var:a ;
-   swrl:argument2 var:startA ;
-   swrl:propertyPredicate time:hasBeginning
- ] .
-
-[ swrl:arguments [ ] ;
-swrl:builtin swrlb:lessThan
-] .
-
-[ swrl:argument1 var:a ;
-   swrl:argument2 var:endA ;
-   swrl:propertyPredicate time:hasEnd
- ] .
-
-[ swrl:arguments [ ] ;
-swrl:builtin swrlb:lessThan
-] .
-
-[ swrl:arguments [ ] ;
-swrl:builtin swrlb:lessThan
-] .
-
-[ swrl:argument1 var:startA ;
-   swrl:argument2 var:startDateA ;
-   swrl:propertyPredicate time:inXSDDateTimeStamp
- ] .
-
-[ swrl:arguments [ ] ;
-swrl:builtin swrlb:equal
-] .
-
-[ swrl:argument1 var:endA ;
-   swrl:argument2 var:endDateA ;
-   swrl:propertyPredicate time:inXSDDateTimeStamp
- ] .
-
-[ swrl:argument1 var:b ;
-   swrl:argument2 var:startB ;
-   swrl:propertyPredicate time:hasBeginning
- ] .
-
-[ swrl:argument1 var:a ;
-   swrl:argument2 var:b ;
-   swrl:propertyPredicate time:intervalStarts
- ] .
-
-[ swrl:argument1 var:endB ;
-   swrl:argument2 var:endDateB ;
-   swrl:propertyPredicate time:inXSDDateTimeStamp
- ] .
-
-[ swrl:argument1 var:activity ;
-   swrl:argument2 var:agent ;
-   swrl:propertyPredicate prov:wasAssociatedWith
- ] .
-
-[ swrl:arguments [ ] ;
-swrl:builtin swrlb:lessThan
-] .
-
-[ swrl:argument1 var:b ;
-   swrl:argument2 var:endB ;
-   swrl:propertyPredicate time:hasEnd
- ] .
-
-[ swrl:argument1 var:activity ;
-   swrl:argument2 var:association ;
-   swrl:propertyPredicate prov:qualifiedAssociation
- ] .
-
-[ swrl:argument1 var:startB ;
-   swrl:argument2 var:startDateB ;
-   swrl:propertyPredicate time:inXSDDateTimeStamp
- ] .
-
-[ swrl:argument1 var:association ;
-   swrl:argument2 var:agent ;
-   swrl:propertyPredicate prov:agent
  ] .
 
 [ xsd:pattern "-?([1-9][0-9]{3,}|0[0-9]{3})(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?"
