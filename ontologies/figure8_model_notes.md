@@ -122,6 +122,7 @@ ORDER BY ?task
 <img width="1122" height="649" alt="task_assignments_1a" src="https://github.com/user-attachments/assets/aa0a8f37-4341-419e-92b6-4a195234732a" />
 Figure 1a. Gruff Visualization of Query 1a
 
+
 **1b — Graph: tasks, assignments, agents, and roles.** This includes the assignment nodes and their three links, rather than showing only tasks linked to the plan. The two organizations remain illustrative placeholders, as described above.
 
 ```sparql
@@ -149,6 +150,9 @@ CONSTRUCT {
   OPTIONAL { fig8:TenderingPlan rdfs:label ?planLabel. }
 }
 ```
+<img width="1056" height="703" alt="task_assignments_1b" src="https://github.com/user-attachments/assets/2b10d129-63ce-4e1d-9967-0953fc8fda1e" />
+Figure 1b. Gruff Visualization of Query 1b
+
 
 ### 2. Control transitions and branch conditions
 
