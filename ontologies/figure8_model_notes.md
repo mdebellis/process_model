@@ -177,7 +177,7 @@ SELECT ?transition ?from ?fromLabel ?to ?toLabel ?condition ?outcome WHERE {
 }
 ORDER BY ?fromLabel ?toLabel
 ```
-<img width="1902" height="695" alt="control_trasitions_2a" src="https://github.com/user-attachments/assets/8b2d806e-d490-4f5d-8f32-bf83b01f781b" />
+<img width="1907" height="720" alt="control_trasitions_2a1" src="https://github.com/user-attachments/assets/24a1f81e-4741-4003-9768-6160b0f35909" />
 Figure 2a. Gruff Visualization of Query 2a.
 
 
