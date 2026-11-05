@@ -299,16 +299,4 @@ All eight SPARQL blocks in this section were executed with RDFLib against the Gi
 
 This revision tests SPARQL results and graph structure; it is not a new Pellet validation or a claim that the queries have been run in the user's live Gruff/AllegroGraph repository. The earlier ontology-validation results above remain the record of the original implementation.
 
-## Suggested commit text for this Figure 8 implementation
 
-```text
-Implement the Figure 8 collaborative tendering plan
-
-Extended the reusable supply-chain schema with planned task, communication, start-event, and end-event categories, plus properties for event lanes and triggering variables. Preserved the ten existing SWRL rules and the corrected base ontology definitions.
-
-Added supply_chain_figure8.ttl as a separate self-contained example containing the seven tasks, two start events, three end events, seven planned role assignments, ten resource/message variables, four message exchanges, ten control-flow transitions, and explicit approval/rejection conditions from the paper. Kept document versions and message payloads in distinct planned variables, with one producer per produced variable.
-
-Documented the send-and-await interpretation of the voting request task so that the returning vote is represented without inventing an eighth task or converting the request/reply resource cycle into a control-flow loop. Kept the supplier-replacement branch terminal as drawn. Added dated change notes identifying ChatGPT and retained a clear separation between planned workflow elements and actual executions.
-
-Validated both ontologies with Pellet and checked the expected resource dependencies, message exchanges, control topology, branch conditions, and producer constraints. All inherited temporal and PROV regression checks passed. The basic process_model.ttl was unchanged.
-```
