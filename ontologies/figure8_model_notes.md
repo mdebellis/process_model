@@ -122,8 +122,6 @@ ORDER BY ?task
 <img width="1122" height="649" alt="task_assignments_1a" src="https://github.com/user-attachments/assets/aa0a8f37-4341-419e-92b6-4a195234732a" />
 Figure 1a. Gruff Visualization of Query 1a
 
-<img width="1902" height="695" alt="control_trasitions_2a" src="https://github.com/user-attachments/assets/8b2d806e-d490-4f5d-8f32-bf83b01f781b" />
-<img width="1902" height="695" alt="control_trasitions_2a" src="https://github.com/user-attachments/assets/62e492cd-cd9d-4798-8de5-1c81ebd4d087" />
 
 
 **1b — Graph: tasks, assignments, agents, and roles.** This includes the assignment nodes and their three links, rather than showing only tasks linked to the plan. The two organizations remain illustrative placeholders, as described above.
@@ -177,6 +175,9 @@ SELECT ?transition ?from ?fromLabel ?to ?toLabel ?condition ?outcome WHERE {
 }
 ORDER BY ?fromLabel ?toLabel
 ```
+<img width="1902" height="695" alt="control_trasitions_2a" src="https://github.com/user-attachments/assets/8b2d806e-d490-4f5d-8f32-bf83b01f781b" />
+Figure 2a. Gruff Visualization of Query 2a.
+
 
 **2b — Graph: the ten transition individuals and their endpoints, plus the two branch conditions.** The transition is a node with `transitionFrom` and `transitionTo` links. These links both originate at the transition node; follow their predicate names to distinguish the source and target steps. The graph preserves the ontology's actual representation instead of inventing a direct step-to-step control predicate. The outcomes describe alternatives in the plan, not votes that have actually occurred.
 
