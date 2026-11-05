@@ -18,7 +18,8 @@
                                                         rdfs:label "Figure 8: collaborative tendering plan"@en ;
                                                         owl:versionInfo "figure8-plan-v1-2026-10-22" ;
                                                         <http://www.w3.org/2004/02/skos/core#changeNote> "2026-10-22 — Changed by ChatGPT. Implemented Figure 8 as a separate planned collaboration on the updated supply-chain schema. Added placeholder organizations, contextual role instances, seven task definitions and planned assignments, five planned events, ten control-flow transitions, ten resource/message variables, four message exchanges, and one explicit exclusive choice with approval and rejection conditions. Preserved the figure's seven-task structure by documenting t11 as a send-and-await request/reply task. Retained separate initial-draft, contribution, revised tender and submitted-tender variables, and the single-producer P-Plan semantics. The submitted-tender slot is an explicit completion artifact chosen for this model. Preserved all ten existing SWRL rules. No runtime execution, branch-selection result, synthetic test data or inferred assertions are included."@en ,
-                                                                                                         "2026-10-23 - Changed by ChatGPT. Corrected the inherited dcterms:created metadata value from 2025-28-11 to 2025-11-28 (interpreted as 28 November 2025) to address the reported AllegroGraph import error. Workflow definitions and rules are unchanged."@en ;
+                                                                                                         "2026-10-23 - Changed by ChatGPT. Corrected the inherited dcterms:created metadata value from 2025-28-11 to 2025-11-28 (interpreted as 28 November 2025) to address the reported AllegroGraph import error. Workflow definitions and rules are unchanged."@en ,
+                                                                                                         "2026-11-4 Changed by M. DeBellis. Several P-Plan properties had labels in CamelCase. I added skos:prefLabel values for them using my standard of all lower case for property labels. E.g., pplan:isStepOfPlan had label \"isStepOfPlan\". I added a skos pref label: \"is step of plan\" and made it a lang string datatype."@en ;
                                                         <http://www.w3.org/2004/02/skos/core#note> "Control-flow transitions, message variables and decision conditions are explicit assertions. The existing SWRL rules infer candidate resource dependencies and shared inputs; they neither select a branch nor execute the plan. All declared steps and resource variables are explicitly distinct. Each produced variable has exactly one asserted producer. The call-for-tender variable is supplied externally."@en ,
                                                                                                    "Figure 8 returns the partner vote to t11SendTenderForVotingTask. This model interprets that task as sending the voting request and awaiting the reply. Consequently t11 and t12 have resource dependencies in both directions; these describe a request/reply exchange, not a control-flow loop or a reason to assert each task precedes the other. An executable refinement may split sending and receiving into separate steps. The replacement branch ends where the figure ends; no retry loop is added."@en ;
                                                         <http://www.w3.org/2004/02/skos/core#scopeNote> "The paper and Figure 8 specify the task/lane topology and exchanges. Approval leading to submission and rejection leading to replacement are taken from the accompanying text. The figure does not name all message payloads or document slots, so their explicit names and version separation are modeling choices. LeadSupplier and InvitedPartner are placeholder organizations for the example, not identified real companies. No actual executions, messages, votes, tender documents or scenario timestamps are asserted. The inherited historical Time examples remain part of the self-contained base."@en .
@@ -407,6 +408,7 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
                                          rdfs:range <http://purl.org/net/p-plan#Variable> ;
                                          rdfs:isDefinedBy <http://purl.org/net/p-plan#> ;
                                          rdfs:label "hasInputVar"@en ;
+                                         <http://www.w3.org/2004/02/skos/core#prefLabel> "has input variable"@en ;
                                          <http://www.w3.org/ns/prov#definition> "p-plan:hasInputVar binds a p-plan:Step to the p-plan:Variable that takes as input for the planned execution"@en .
 
 
@@ -417,6 +419,7 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
                                           rdfs:range <http://purl.org/net/p-plan#Variable> ;
                                           rdfs:isDefinedBy <http://purl.org/net/p-plan#> ;
                                           rdfs:label "hasOutputVar"@en ;
+                                          <http://www.w3.org/2004/02/skos/core#prefLabel> "has output variable"@en ;
                                           <http://www.w3.org/ns/prov#definition> "p-plan:hasOutputVar binds a p-plan:Step to the p-plan:Variable that will be produced as output in the planned execution"@en .
 
 
@@ -426,6 +429,7 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
                                           rdfs:range <http://purl.org/net/p-plan#Step> ;
                                           rdfs:isDefinedBy <http://purl.org/net/p-plan#> ;
                                           rdfs:label "isInputVarOf"@en ;
+                                          <http://www.w3.org/2004/02/skos/core#prefLabel> "is input variable of"@en ;
                                           <http://www.w3.org/ns/prov#definition> "p-plan:isInputVarOf links an input variable of a step to the step."@en .
 
 
@@ -436,6 +440,7 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
                                            rdfs:range <http://purl.org/net/p-plan#Step> ;
                                            rdfs:isDefinedBy <http://purl.org/net/p-plan#> ;
                                            rdfs:label "isOutputVarOf"@en ;
+                                           <http://www.w3.org/2004/02/skos/core#prefLabel> "is output variable of"@en ;
                                            <http://www.w3.org/ns/prov#definition> "p-plan:isOutputVarOf is intended to link an output variable of a step to the step."@en .
 
 
@@ -446,7 +451,8 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
                                            rdfs:range <http://purl.org/net/p-plan#Step> ;
                                            rdfs:comment <http://purl.org/net/p-plan#> ;
                                            rdfs:isDefinedBy "Property that asserts which Step preceeds the current one. "@en ;
-                                           rdfs:label "isPreceededBy"@en .
+                                           rdfs:label "isPreceededBy"@en ;
+                                           <http://www.w3.org/2004/02/skos/core#prefLabel> "is preceeded by"@en .
 
 
 ###  http://purl.org/net/p-plan#isStepOfPlan
@@ -455,6 +461,7 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
                                           rdfs:range <http://purl.org/net/p-plan#Plan> ;
                                           rdfs:isDefinedBy <http://purl.org/net/p-plan#> ;
                                           rdfs:label "isStepOfPlan"@en ;
+                                          <http://www.w3.org/2004/02/skos/core#prefLabel> "is step of plan"@en ;
                                           <http://www.w3.org/ns/prov#definition> "p-plan:isStepOfPlan links a p-plan:Step to the p-plan:Plan which it corresponds to."@en .
 
 
@@ -464,6 +471,7 @@ xsd:gYearMonth rdf:type rdfs:Datatype .
                                               rdfs:range <http://purl.org/net/p-plan#Plan> ;
                                               rdfs:isDefinedBy <http://purl.org/net/p-plan#> ;
                                               rdfs:label "isVariableofPlan"@en ;
+                                              <http://www.w3.org/2004/02/skos/core#prefLabel> "is variable of plan"@en ;
                                               <http://www.w3.org/ns/prov#definition> "p-plan:IsVariableOfPlan binds a p-plan:Variable to the p-plan:Plan it corresponds to."@en .
 
 
@@ -1462,6 +1470,12 @@ http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#term-Revision 23 April 
                                                                 rdfs:range <https://www.michaeldebellis.com/supply_chain_model/DecisionOutcome> ;
                                                                 rdfs:comment "The single outcome of this decision artifact. Different votes or rounds are separate DecisionResult individuals."@en ;
                                                                 rdfs:label "has outcome"@en .
+
+
+###  https://www.michaeldebellis.com/supply_chain_model/hasOutgoingTransition
+<https://www.michaeldebellis.com/supply_chain_model/hasOutgoingTransition> rdf:type owl:ObjectProperty ;
+                                                                           owl:inverseOf <https://www.michaeldebellis.com/supply_chain_model/transitionFrom> ;
+                                                                           <http://www.w3.org/2004/02/skos/core#prefLabel> "has outgoing transition"@en .
 
 
 ###  https://www.michaeldebellis.com/supply_chain_model/messagePayloadVariable
@@ -4023,6 +4037,7 @@ Michael DeBellis mdebellissf@gmail.com""" ;
                                                                     <https://w3id.org/sulo/isIn> <https://www.michaeldebellis.com/supply_chain_figure8/CFT_Received> ;
                                                                     <https://w3id.org/sulo/isPartOf> <https://www.michaeldebellis.com/supply_chain_figure8/CFT_Received> ;
                                                                     <https://www.michaeldebellis.com/supply_chain_model/eventForRole> <https://www.michaeldebellis.com/supply_chain_figure8/LeadSupplierRole> ;
+                                                                    <https://www.michaeldebellis.com/supply_chain_model/hasOutgoingTransition> <https://www.michaeldebellis.com/supply_chain_figure8/StartLeadDraft> ;
                                                                     <https://www.michaeldebellis.com/supply_chain_model/triggeredByVariable> <https://www.michaeldebellis.com/supply_chain_figure8/CallForTenderVar> ;
                                                                     rdfs:label "Call for tender received"@en .
 
@@ -4109,6 +4124,7 @@ Michael DeBellis mdebellissf@gmail.com""" ;
                                                                       <https://w3id.org/sulo/isIn> <https://www.michaeldebellis.com/supply_chain_figure8/Draft_Received> ;
                                                                       <https://w3id.org/sulo/isPartOf> <https://www.michaeldebellis.com/supply_chain_figure8/Draft_Received> ;
                                                                       <https://www.michaeldebellis.com/supply_chain_model/eventForRole> <https://www.michaeldebellis.com/supply_chain_figure8/PartnerRole> ;
+                                                                      <https://www.michaeldebellis.com/supply_chain_model/hasOutgoingTransition> <https://www.michaeldebellis.com/supply_chain_figure8/StartPartnerInput> ;
                                                                       <https://www.michaeldebellis.com/supply_chain_model/triggeredByVariable> <https://www.michaeldebellis.com/supply_chain_figure8/DraftToPartnerMessageVar> ;
                                                                       rdfs:label "Draft received"@en .
 
@@ -4562,6 +4578,8 @@ Michael DeBellis mdebellissf@gmail.com""" ;
                                                                                   <https://w3id.org/sulo/hasPart> <https://www.michaeldebellis.com/supply_chain_figure8/t11SendTenderForVotingTask> ;
                                                                                   <https://w3id.org/sulo/isIn> <https://www.michaeldebellis.com/supply_chain_figure8/t11SendTenderForVotingTask> ;
                                                                                   <https://w3id.org/sulo/isPartOf> <https://www.michaeldebellis.com/supply_chain_figure8/t11SendTenderForVotingTask> ;
+                                                                                  <https://www.michaeldebellis.com/supply_chain_model/hasOutgoingTransition> <https://www.michaeldebellis.com/supply_chain_figure8/ApprovalToSubmission> ,
+                                                                                                                                                             <https://www.michaeldebellis.com/supply_chain_figure8/RejectionToReplacement> ;
                                                                                   rdfs:comment "Corresponds to t11SendTenderForVotingTask. The send-and-await interpretation accounts for both the outgoing voting request and the returning vote drawn at this task. The branch is considered after the reply is available."@en ;
                                                                                   rdfs:label "Send tender for voting and await reply"@en .
 
@@ -4602,6 +4620,7 @@ Michael DeBellis mdebellissf@gmail.com""" ;
                                                                             <https://w3id.org/sulo/hasPart> <https://www.michaeldebellis.com/supply_chain_figure8/t12VoteForTenderTask> ;
                                                                             <https://w3id.org/sulo/isIn> <https://www.michaeldebellis.com/supply_chain_figure8/t12VoteForTenderTask> ;
                                                                             <https://w3id.org/sulo/isPartOf> <https://www.michaeldebellis.com/supply_chain_figure8/t12VoteForTenderTask> ;
+                                                                            <https://www.michaeldebellis.com/supply_chain_model/hasOutgoingTransition> <https://www.michaeldebellis.com/supply_chain_figure8/PartnerVoteToEnd> ;
                                                                             rdfs:comment "Partner task t12VoteForTenderTask. Reviews the revised tender on receipt of the voting request, produces one decision-result slot and returns that decision to the lead supplier."@en ;
                                                                             rdfs:label "Vote on tender submission"@en .
 
@@ -4639,6 +4658,7 @@ Michael DeBellis mdebellissf@gmail.com""" ;
                                                                               <https://w3id.org/sulo/hasPart> <https://www.michaeldebellis.com/supply_chain_figure8/t13ReplaceSupplierTask> ;
                                                                               <https://w3id.org/sulo/isIn> <https://www.michaeldebellis.com/supply_chain_figure8/t13ReplaceSupplierTask> ;
                                                                               <https://w3id.org/sulo/isPartOf> <https://www.michaeldebellis.com/supply_chain_figure8/t13ReplaceSupplierTask> ;
+                                                                              <https://www.michaeldebellis.com/supply_chain_model/hasOutgoingTransition> <https://www.michaeldebellis.com/supply_chain_figure8/ReplacementToEnd> ;
                                                                               rdfs:comment "Replacement task on the rejection branch. The accompanying text describes inviting an alternative partner; Figure 8 terminates this branch without drawing a retry loop or a third participant lane."@en ;
                                                                               rdfs:label "Replace supplier / invite an alternative partner"@en .
 
@@ -4678,6 +4698,7 @@ Michael DeBellis mdebellissf@gmail.com""" ;
                                                                                <https://w3id.org/sulo/hasPart> <https://www.michaeldebellis.com/supply_chain_figure8/t1CreateTenderDraftTask> ;
                                                                                <https://w3id.org/sulo/isIn> <https://www.michaeldebellis.com/supply_chain_figure8/t1CreateTenderDraftTask> ;
                                                                                <https://w3id.org/sulo/isPartOf> <https://www.michaeldebellis.com/supply_chain_figure8/t1CreateTenderDraftTask> ;
+                                                                               <https://www.michaeldebellis.com/supply_chain_model/hasOutgoingTransition> <https://www.michaeldebellis.com/supply_chain_figure8/DraftToIncorporation> ;
                                                                                rdfs:comment "Lead-supplier task t1CreateTenderDraftTask in Figure 8. Uses the external call for tender and produces the initial draft and its outgoing message."@en ;
                                                                                rdfs:label "Create tender draft"@en .
 
@@ -4718,6 +4739,7 @@ Michael DeBellis mdebellissf@gmail.com""" ;
                                                                          <https://w3id.org/sulo/hasPart> <https://www.michaeldebellis.com/supply_chain_figure8/t222MakeInputTask> ;
                                                                          <https://w3id.org/sulo/isIn> <https://www.michaeldebellis.com/supply_chain_figure8/t222MakeInputTask> ;
                                                                          <https://w3id.org/sulo/isPartOf> <https://www.michaeldebellis.com/supply_chain_figure8/t222MakeInputTask> ;
+                                                                         <https://www.michaeldebellis.com/supply_chain_model/hasOutgoingTransition> <https://www.michaeldebellis.com/supply_chain_figure8/PartnerInputToVote> ;
                                                                          rdfs:comment "Partner task t222MakeInputTask. Produces a distinct partner-contribution slot and sends that contribution to the lead supplier."@en ;
                                                                          rdfs:label "Provide input to the tender"@en .
 
@@ -4758,6 +4780,7 @@ Michael DeBellis mdebellissf@gmail.com""" ;
                                                                                <https://w3id.org/sulo/hasPart> <https://www.michaeldebellis.com/supply_chain_figure8/t2IncorporateInputsTask> ;
                                                                                <https://w3id.org/sulo/isIn> <https://www.michaeldebellis.com/supply_chain_figure8/t2IncorporateInputsTask> ;
                                                                                <https://w3id.org/sulo/isPartOf> <https://www.michaeldebellis.com/supply_chain_figure8/t2IncorporateInputsTask> ;
+                                                                               <https://www.michaeldebellis.com/supply_chain_model/hasOutgoingTransition> <https://www.michaeldebellis.com/supply_chain_figure8/IncorporationToVotingRequest> ;
                                                                                rdfs:comment "Lead-supplier incorporation task shown as t2IncorporteInputsTask in the figure. The local identifier corrects that spelling. Produces a new revised-tender slot instead of reusing the initial-draft output variable."@en ;
                                                                                rdfs:label "Incorporate partner input"@en .
 
@@ -4797,6 +4820,7 @@ Michael DeBellis mdebellissf@gmail.com""" ;
                                                                           <https://w3id.org/sulo/hasPart> <https://www.michaeldebellis.com/supply_chain_figure8/t3SubmitTenderTask> ;
                                                                           <https://w3id.org/sulo/isIn> <https://www.michaeldebellis.com/supply_chain_figure8/t3SubmitTenderTask> ;
                                                                           <https://w3id.org/sulo/isPartOf> <https://www.michaeldebellis.com/supply_chain_figure8/t3SubmitTenderTask> ;
+                                                                          <https://www.michaeldebellis.com/supply_chain_model/hasOutgoingTransition> <https://www.michaeldebellis.com/supply_chain_figure8/SubmissionToEnd> ;
                                                                           rdfs:comment "Submission task on the approval branch. The modeled submitted-tender variable denotes the submitted copy or submission artifact; it is distinct from the revised draft slot."@en ;
                                                                           rdfs:label "Submit tender"@en .
 
@@ -4867,71 +4891,19 @@ Michael DeBellis mdebellissf@gmail.com""" ;
                                                                                                                         "2026-10-22 — Changed by ChatGPT. Synchronized the reusable process_model base with the later corrections in bro_pro_corrected.ttl before creating any domain-specific extension. Restored both prov:hadRole domains: prov:Influence and the union of prov:Association with prov:InstantaneousEvent. Restored prov:EmptyCollection as an owl:Class and subclass of prov:Collection, and prov:Collection as an owl:Class and subclass of prov:Entity, retaining the existing named-individual declaration for prov:EmptyCollection. Copied the corresponding PROV labels, definitions and source annotations, including the additional annotations on AgentInfluence, Association and Bundle. Verified that the earlier association repairs, seven direct-date Allen SWRL rules, qualified-association rule and January datatype correction were already present; preserved all eight rule bodies without duplication. Retained the ontology IRI, P-Plan and SULO definitions, all existing example individuals and dates, and earlier ontology metadata. No supply-chain vocabulary, test fixtures or inferred assertions were added."@en .
 
 
-[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
-<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
-] .
-
-[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
-<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
-] .
-
 [ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#b> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#intervalBefore>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#b> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startB> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasBeginning>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#startB> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startDateB> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#b> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endB> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasEnd>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#endB> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endDateB> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startA> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasBeginning>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#startA> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startDateA> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endA> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasEnd>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
-<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
+  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endA> ;
+  <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasEnd>
 ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#endA> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endDateA> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
- ] .
 
 [ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
    <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#b> ;
    <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#intervalContains>
  ] .
 
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endA> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasEnd>
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#startA> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startDateA> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
  ] .
 
 [ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
@@ -4939,14 +4911,38 @@ Michael DeBellis mdebellissf@gmail.com""" ;
    <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasBeginning>
  ] .
 
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#startA> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startDateA> ;
+[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
+<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
+] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endA> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasEnd>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#endB> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endDateB> ;
    <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
  ] .
 
 [ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
 <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
 ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#endA> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endDateA> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#startA> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startDateA> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#b> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endB> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasEnd>
+ ] .
 
 [ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
 <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
@@ -4961,49 +4957,14 @@ Michael DeBellis mdebellissf@gmail.com""" ;
    <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasEnd>
  ] .
 
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#b> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startB> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasBeginning>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#endB> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endDateB> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#startB> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startDateB> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startA> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasBeginning>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#startA> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startDateA> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endA> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasEnd>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
-<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
-] .
-
 [ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#endA> ;
    <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endDateA> ;
    <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
  ] .
 
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#startB> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startDateB> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
- ] .
+[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
+<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
+] .
 
 [ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
 <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
@@ -5013,14 +4974,6 @@ Michael DeBellis mdebellissf@gmail.com""" ;
    <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endDateB> ;
    <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
  ] .
-
-[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
-<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#equal>
-] .
-
-[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
-<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
-] .
 
 [ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
    <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#b> ;
@@ -5028,36 +4981,17 @@ Michael DeBellis mdebellissf@gmail.com""" ;
  ] .
 
 [ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
-<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
+<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#equal>
 ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#startB> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startDateB> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
+ ] .
 
 [ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#endA> ;
    <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endDateA> ;
    <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
-<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
-] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#b> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endB> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasEnd>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#b> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startB> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasBeginning>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startA> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasBeginning>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endA> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasEnd>
  ] .
 
 [ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
@@ -5069,99 +5003,32 @@ Michael DeBellis mdebellissf@gmail.com""" ;
    <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
  ] .
 
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#endA> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endDateA> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
+[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
+<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
+] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endA> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasEnd>
  ] .
 
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#b> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startB> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasBeginning>
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:producer> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:supply-chain-rule:var:resource> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/net/p-plan#hasOutputVar>
  ] .
 
 [ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
 <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#equal>
 ] .
 
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#b> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endB> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasEnd>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startA> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasBeginning>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#startB> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startDateB> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#b> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#intervalEquals>
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:consumer> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:supply-chain-rule:var:resource> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/net/p-plan#hasInputVar>
  ] .
 
 [ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#endB> ;
    <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endDateB> ;
    <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#startA> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startDateA> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
-<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#equal>
-] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#endA> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endDateA> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
-<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
-] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endA> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasEnd>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
-<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
-] .
-
-[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
-<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
-] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#b> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endB> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasEnd>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#activity> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#association> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/ns/prov#qualifiedAssociation>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#startB> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startDateB> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#association> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#agent> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/ns/prov#agent>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#b> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startB> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasBeginning>
  ] .
 
 [ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
@@ -5169,63 +5036,51 @@ Michael DeBellis mdebellissf@gmail.com""" ;
    <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#intervalStarts>
  ] .
 
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#endB> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endDateB> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
- ] .
+[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
+<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
+] .
 
 [ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#activity> ;
    <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#agent> ;
    <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/ns/prov#wasAssociatedWith>
  ] .
 
-[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
-<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
-] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:producer> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:supply-chain-rule:var:resource> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/net/p-plan#hasOutputVar>
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#b> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startB> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasBeginning>
  ] .
 
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:consumer> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:supply-chain-rule:var:resource> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/net/p-plan#hasInputVar>
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startA> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasBeginning>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#b> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endB> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasEnd>
  ] .
 
 [ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
 <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#equal>
 ] .
 
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:producer> ;
-   <http://www.w3.org/2003/11/swrl#classPredicate> <https://www.michaeldebellis.com/supply_chain_model/CollaborationStep>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:consumer> ;
-   <http://www.w3.org/2003/11/swrl#classPredicate> <https://www.michaeldebellis.com/supply_chain_model/CollaborationStep>
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#endA> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endDateA> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
  ] .
 
 [ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
 <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
 ] .
 
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:producer> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:supply-chain-rule:var:plan> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/net/p-plan#isStepOfPlan>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:consumer> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:supply-chain-rule:var:plan> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/net/p-plan#isStepOfPlan>
- ] .
-
 [ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endA> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasEnd>
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#b> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#intervalEquals>
  ] .
 
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:producer> ;
-   <http://www.w3.org/2003/11/swrl#classPredicate> <https://www.michaeldebellis.com/supply_chain_model/CollaborationStep>
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#startB> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startDateB> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
  ] .
 
 [ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#startA> ;
@@ -5233,21 +5088,37 @@ Michael DeBellis mdebellissf@gmail.com""" ;
    <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
  ] .
 
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#endB> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endDateB> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#startA> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startDateA> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#b> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startB> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasBeginning>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#endA> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endDateA> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
+ ] .
+
 [ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:consumer> ;
-   <http://www.w3.org/2003/11/swrl#classPredicate> <https://www.michaeldebellis.com/supply_chain_model/CollaborationStep>
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:supply-chain-rule:var:plan> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/net/p-plan#isStepOfPlan>
  ] .
 
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#b> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#intervalFinishes>
- ] .
+[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
+<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#equal>
+] .
 
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:producer> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:supply-chain-rule:var:consumer>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startA> ;
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#b> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startB> ;
    <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasBeginning>
  ] .
 
@@ -5256,23 +5127,9 @@ Michael DeBellis mdebellissf@gmail.com""" ;
    <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://www.michaeldebellis.com/supply_chain_model/hasFlowDependency>
  ] .
 
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#endA> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endDateA> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:producer> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:supply-chain-rule:var:resource> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/net/p-plan#hasInputVar>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
-<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
-] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:consumer> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:supply-chain-rule:var:plan> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/net/p-plan#isStepOfPlan>
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startA> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasBeginning>
  ] .
 
 [ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#b> ;
@@ -5281,56 +5138,13 @@ Michael DeBellis mdebellissf@gmail.com""" ;
  ] .
 
 [ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:producer> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:supply-chain-rule:var:consumer>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#startB> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startDateB> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:consumer> ;
    <http://www.w3.org/2003/11/swrl#argument2> <urn:supply-chain-rule:var:resource> ;
    <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/net/p-plan#hasInputVar>
  ] .
 
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:producer> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:supply-chain-rule:var:plan> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/net/p-plan#isStepOfPlan>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#b> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startB> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasBeginning>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:producer> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:supply-chain-rule:var:consumer> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://www.michaeldebellis.com/supply_chain_model/sharesInputVariable>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#endB> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endDateB> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
-<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#equal>
-] .
-
 [ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
 <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
 ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#b> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#intervalMeets>
- ] .
-
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startA> ;
-   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasBeginning>
- ] .
 
 [ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#endA> ;
    <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endDateA> ;
@@ -5342,6 +5156,61 @@ Michael DeBellis mdebellissf@gmail.com""" ;
    <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasEnd>
  ] .
 
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endA> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasEnd>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
+<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
+] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:producer> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:supply-chain-rule:var:consumer>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#b> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#intervalFinishes>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
+<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
+] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startA> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasBeginning>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#activity> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#association> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/ns/prov#qualifiedAssociation>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:producer> ;
+   <http://www.w3.org/2003/11/swrl#classPredicate> <https://www.michaeldebellis.com/supply_chain_model/CollaborationStep>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#association> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#agent> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/ns/prov#agent>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endA> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasEnd>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#startB> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startDateB> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:consumer> ;
+   <http://www.w3.org/2003/11/swrl#classPredicate> <https://www.michaeldebellis.com/supply_chain_model/CollaborationStep>
+ ] .
+
 [ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#startA> ;
    <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startDateA> ;
    <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
@@ -5351,14 +5220,70 @@ Michael DeBellis mdebellissf@gmail.com""" ;
 <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
 ] .
 
-[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#startB> ;
-   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startDateB> ;
+[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
+<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
+] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#b> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endB> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasEnd>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:consumer> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:supply-chain-rule:var:plan> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/net/p-plan#isStepOfPlan>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:producer> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:supply-chain-rule:var:plan> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/net/p-plan#isStepOfPlan>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:consumer> ;
+   <http://www.w3.org/2003/11/swrl#classPredicate> <https://www.michaeldebellis.com/supply_chain_model/CollaborationStep>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:producer> ;
+   <http://www.w3.org/2003/11/swrl#classPredicate> <https://www.michaeldebellis.com/supply_chain_model/CollaborationStep>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#endB> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endDateB> ;
    <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startA> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasBeginning>
  ] .
 
 [ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#b> ;
    <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startB> ;
    <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasBeginning>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#startA> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startDateA> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#b> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#intervalBefore>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
+<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
+] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#b> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startB> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasBeginning>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#startB> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startDateB> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
  ] .
 
 [ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#b> ;
@@ -5370,9 +5295,108 @@ Michael DeBellis mdebellissf@gmail.com""" ;
 <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
 ] .
 
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#startB> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startDateB> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#b> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#intervalMeets>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
+<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
+] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startA> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasBeginning>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#endA> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endDateA> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
+<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
+] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endA> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasEnd>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:producer> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:supply-chain-rule:var:consumer> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <https://www.michaeldebellis.com/supply_chain_model/sharesInputVariable>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#b> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startB> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasBeginning>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
+<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#equal>
+] .
+
 [ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#endB> ;
    <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endDateB> ;
    <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:producer> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:supply-chain-rule:var:consumer>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:consumer> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:supply-chain-rule:var:resource> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/net/p-plan#hasInputVar>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#startB> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startDateB> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:supply-chain-rule:var:producer> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:supply-chain-rule:var:plan> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://purl.org/net/p-plan#isStepOfPlan>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#endB> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endDateB> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#b> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startB> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasBeginning>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#a> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startA> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasBeginning>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#startB> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#startDateB> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#inXSDDateTimeStamp>
+ ] .
+
+[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
+<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
+] .
+
+[ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
+<http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan>
+] .
+
+[ <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#b> ;
+   <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#endB> ;
+   <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.w3.org/2006/time#hasEnd>
  ] .
 
 [ <http://www.w3.org/2003/11/swrl#arguments> [ ] ;
@@ -5382,10 +5406,10 @@ Michael DeBellis mdebellissf@gmail.com""" ;
 [ xsd:pattern "-?([1-9][0-9]{3,}|0[0-9]{3})(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?"
  ] .
 
-[ xsd:pattern "---(0[1-9]|[1-9][0-9])(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?"
+[ xsd:pattern "--(0[1-9]|1[0-9]|20)(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?"
  ] .
 
-[ xsd:pattern "--(0[1-9]|1[0-9]|20)(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?"
+[ xsd:pattern "---(0[1-9]|[1-9][0-9])(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?"
  ] .
 
 #################################################################
@@ -5493,6 +5517,9 @@ Note that the value-space is not defined, so a generic OWL2 processor cannot com
 
 <https://www.michaeldebellis.com/supply_chain_model/SamePlan_SharedInput> <http://www.w3.org/2003/11/swrl#body> [ ] ;
 <http://www.w3.org/2003/11/swrl#head> [ ] .
+
+
+<https://www.michaeldebellis.com/supply_chain_model/hasIncomingTransition> <http://www.w3.org/2004/02/skos/core#prefLabel> "has incoming transition"@en .
 
 
 #################################################################
