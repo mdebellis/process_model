@@ -36,6 +36,7 @@
         <owl:versionInfo>figure8-plan-v1-2026-10-22</owl:versionInfo>
         <skos:changeNote xml:lang="en">2026-10-22 — Changed by ChatGPT. Implemented Figure 8 as a separate planned collaboration on the updated supply-chain schema. Added placeholder organizations, contextual role instances, seven task definitions and planned assignments, five planned events, ten control-flow transitions, ten resource/message variables, four message exchanges, and one explicit exclusive choice with approval and rejection conditions. Preserved the figure&apos;s seven-task structure by documenting t11 as a send-and-await request/reply task. Retained separate initial-draft, contribution, revised tender and submitted-tender variables, and the single-producer P-Plan semantics. The submitted-tender slot is an explicit completion artifact chosen for this model. Preserved all ten existing SWRL rules. No runtime execution, branch-selection result, synthetic test data or inferred assertions are included.</skos:changeNote>
         <skos:changeNote xml:lang="en">2026-10-23 - Changed by ChatGPT. Corrected the inherited dcterms:created metadata value from 2025-28-11 to 2025-11-28 (interpreted as 28 November 2025) to address the reported AllegroGraph import error. Workflow definitions and rules are unchanged.</skos:changeNote>
+        <skos:changeNote xml:lang="en">2026-11-05 (ChatGPT): Completed the reused PROV-O subset for qualified usage by copying the standard declarations of Usage, EntityInfluence, qualifiedUsage, entity, qualifiedInfluence and influencer, including their original domain/range and hierarchy axioms. This prevents qualifiedUsage and entity being interpreted as annotation properties by OWLAPI. Existing data, rules and vocabulary IRIs are unchanged.</skos:changeNote>
         <skos:changeNote xml:lang="en">2026-11-05 (ChatGPT): Restored ten complete SWRL rules and variable declarations from supply_chain_model(1).ttl, removed damaged SWRL structures and structural annotation-property declarations, and added a synthetic approved execution with six StepExecutions, one enclosing run Activity, seven OWL-Time intervals, ten realized resource variables and qualified PROV associations/usages. Preserved prior plan assertions and inverse-property edits. No inferred assertions or SHACL constraints added.</skos:changeNote>
         <skos:changeNote xml:lang="en">2026-11-4 Changed by M. DeBellis. Several P-Plan properties had labels in CamelCase. I added skos:prefLabel values for them using my standard of all lower case for property labels. E.g., pplan:isStepOfPlan had label &quot;isStepOfPlan&quot;. I added a skos pref label: &quot;is step of plan&quot; and made it a lang string datatype.</skos:changeNote>
         <skos:note xml:lang="en">Control-flow transitions, message variables and decision conditions are explicit assertions. The existing SWRL rules infer candidate resource dependencies and shared inputs; they neither select a branch nor execute the plan. All declared steps and resource variables are explicitly distinct. Each produced variable has exactly one asserted producer. The call-for-tender variable is supplied externally.</skos:note>
@@ -362,12 +363,6 @@
     
 
 
-    <!-- http://www.w3.org/ns/prov#entity -->
-
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/prov#entity"/>
-    
-
-
     <!-- http://www.w3.org/ns/prov#inverse -->
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/prov#inverse">
@@ -411,12 +406,6 @@ can be qualified by adding:
 Note how the value of the unqualified influence (prov:wasGeneratedBy :activity1) is mirrored as the value of the prov:activity (or prov:entity, or prov:agent) property on the influence class.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov-o#"/>
     </owl:AnnotationProperty>
-    
-
-
-    <!-- http://www.w3.org/ns/prov#qualifiedUsage -->
-
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/prov#qualifiedUsage"/>
     
 
 
@@ -1282,6 +1271,18 @@ DBPedia provides a set of resources corresponding to the IANA timezones, with a 
     
 
 
+    <!-- http://www.w3.org/ns/prov#entity -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#entity">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#influencer"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#EntityInfluence"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov-o#"/>
+        <rdfs:label>entity</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.w3.org/ns/prov#generated -->
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#generated">
@@ -1363,6 +1364,18 @@ DBPedia provides a set of resources corresponding to the IANA timezones, with a 
     
 
 
+    <!-- http://www.w3.org/ns/prov#influencer -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#influencer">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Influence"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment xml:lang="en">Subproperties of prov:influencer are used to cite the object of an unqualified PROV-O triple whose predicate is a subproperty of prov:wasInfluencedBy (e.g. prov:used, prov:wasGeneratedBy). prov:influencer is used much like rdf:object is used.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov-o#"/>
+        <rdfs:label>influencer</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.w3.org/ns/prov#invalidated -->
 
     <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#invalidated">
@@ -1388,6 +1401,39 @@ DBPedia provides a set of resources corresponding to the IANA timezones, with a 
         <rdfs:comment>If this Activity prov:wasAssociatedWith Agent :ag, then it can qualify the Association using prov:qualifiedAssociation [ a prov:Association;  prov:agent :ag; :foo :bar ].</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov-o#"/>
         <skos:prefLabel xml:lang="en">qualified association</skos:prefLabel>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#qualifiedInfluence -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#qualifiedInfluence">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.w3.org/ns/prov#Activity"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/prov#Agent"/>
+                    <rdf:Description rdf:about="http://www.w3.org/ns/prov#Entity"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Influence"/>
+        <rdfs:comment xml:lang="en">Because prov:qualifiedInfluence is a broad relation, the more specific relations (qualifiedCommunication, qualifiedDelegation, qualifiedEnd, etc.) should be used when applicable.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov-o#"/>
+        <rdfs:label>qualifiedInfluence</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#qualifiedUsage -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#qualifiedUsage">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#qualifiedInfluence"/>
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Usage"/>
+        <rdfs:comment xml:lang="en">If this Activity prov:used Entity :e, then it can qualify how it used it using prov:qualifiedUsage [ a prov:Usage; prov:entity :e; :foo :bar ].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov-o#"/>
+        <rdfs:label>qualifiedUsage</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -3496,6 +3542,18 @@ It is deprecated in this edition of OWL-Time. </skos:historyNote>
     
 
 
+    <!-- http://www.w3.org/ns/prov#EntityInfluence -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#EntityInfluence">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Influence"/>
+        <rdfs:comment xml:lang="en">EntityInfluence provides additional descriptions of an Entity&apos;s binary influence upon any other kind of resource. Instances of EntityInfluence use the prov:entity property to cite the influencing Entity.</rdfs:comment>
+        <rdfs:comment xml:lang="en">It is not recommended that the type EntityInfluence be asserted without also asserting one of its more specific subclasses.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov-o#"/>
+        <rdfs:label>EntityInfluence</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://www.w3.org/ns/prov#Influence -->
 
     <owl:Class rdf:about="http://www.w3.org/ns/prov#Influence">
@@ -3617,7 +3675,13 @@ It is deprecated in this edition of OWL-Time. </skos:historyNote>
 
     <!-- http://www.w3.org/ns/prov#Usage -->
 
-    <owl:Class rdf:about="http://www.w3.org/ns/prov#Usage"/>
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Usage">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#EntityInfluence"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#InstantaneousEvent"/>
+        <rdfs:comment xml:lang="en">An instance of prov:Usage provides additional descriptions about the binary prov:used relation from some prov:Activity to an prov:Entity that it used. For example, :keynote prov:used :podium; prov:qualifiedUsage [ a prov:Usage; prov:entity :podium; :foo :bar ].</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov-o#"/>
+        <rdfs:label>Usage</rdfs:label>
+    </owl:Class>
     
 
 
@@ -5967,6 +6031,8 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
         <prov:generated rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01DraftMessage"/>
         <prov:generated rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01InitialDraft"/>
         <prov:qualifiedAssociation rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01CreateDraftAssociation"/>
+        <prov:qualifiedInfluence rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01CreateDraftUsesCallForTender"/>
+        <prov:qualifiedUsage rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01CreateDraftUsesCallForTender"/>
         <prov:used rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01CallForTender"/>
         <prov:wasAssociatedWith rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/LeadSupplier"/>
         <sulo:contains rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01CreateDraft"/>
@@ -5979,7 +6045,6 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
         <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T09:00:00+00:00</prov:startedAtTime>
         <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T09:00:00Z</prov:startedAtTime>
         <rdfs:label xml:lang="en">Run 01: Create tender draft</rdfs:label>
-        <prov:qualifiedUsage rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01CreateDraftUsesCallForTender"/>
     </owl:NamedIndividual>
     
 
@@ -6094,9 +6159,13 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
     <!-- https://www.michaeldebellis.com/supply_chain_figure8/Run01CreateDraftUsesCallForTender -->
 
     <owl:NamedIndividual rdf:about="https://www.michaeldebellis.com/supply_chain_figure8/Run01CreateDraftUsesCallForTender">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#EntityInfluence"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Influence"/>
         <rdf:type rdf:resource="http://www.w3.org/ns/prov#InstantaneousEvent"/>
         <rdf:type rdf:resource="http://www.w3.org/ns/prov#Usage"/>
         <rdf:type rdf:resource="https://w3id.org/sulo/Process"/>
+        <prov:entity rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01CallForTender"/>
+        <prov:influencer rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01CallForTender"/>
         <sulo:contains rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01CreateDraftUsesCallForTender"/>
         <sulo:hasPart rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01CreateDraftUsesCallForTender"/>
         <sulo:isIn rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01CreateDraftUsesCallForTender"/>
@@ -6104,7 +6173,6 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
         <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T09:00:00+00:00</prov:atTime>
         <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T09:00:00Z</prov:atTime>
         <rdfs:label xml:lang="en">Run 01: CreateDraft uses CallForTender</rdfs:label>
-        <prov:entity rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01CallForTender"/>
     </owl:NamedIndividual>
     
 
@@ -6167,6 +6235,12 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
         <time:hasTime rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputInterval"/>
         <prov:generated rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01RevisedTender"/>
         <prov:qualifiedAssociation rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputAssociation"/>
+        <prov:qualifiedInfluence rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesContribution"/>
+        <prov:qualifiedInfluence rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesContributionMessage"/>
+        <prov:qualifiedInfluence rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesInitialDraft"/>
+        <prov:qualifiedUsage rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesContribution"/>
+        <prov:qualifiedUsage rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesContributionMessage"/>
+        <prov:qualifiedUsage rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesInitialDraft"/>
         <prov:used rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01Contribution"/>
         <prov:used rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01ContributionMessage"/>
         <prov:used rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01InitialDraft"/>
@@ -6180,9 +6254,6 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
         <prov:endedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T15:00:00+00:00</prov:endedAtTime>
         <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T13:00:00+00:00</prov:startedAtTime>
         <rdfs:label xml:lang="en">Run 01: Incorporate partner input</rdfs:label>
-        <prov:qualifiedUsage rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesContribution"/>
-        <prov:qualifiedUsage rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesContributionMessage"/>
-        <prov:qualifiedUsage rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesInitialDraft"/>
     </owl:NamedIndividual>
     
 
@@ -6294,16 +6365,19 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
     <!-- https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesContribution -->
 
     <owl:NamedIndividual rdf:about="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesContribution">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#EntityInfluence"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Influence"/>
         <rdf:type rdf:resource="http://www.w3.org/ns/prov#InstantaneousEvent"/>
         <rdf:type rdf:resource="http://www.w3.org/ns/prov#Usage"/>
         <rdf:type rdf:resource="https://w3id.org/sulo/Process"/>
+        <prov:entity rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01Contribution"/>
+        <prov:influencer rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01Contribution"/>
         <sulo:contains rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesContribution"/>
         <sulo:hasPart rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesContribution"/>
         <sulo:isIn rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesContribution"/>
         <sulo:isPartOf rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesContribution"/>
         <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T13:00:00+00:00</prov:atTime>
         <rdfs:label xml:lang="en">Run 01: IncorporateInput uses Contribution</rdfs:label>
-        <prov:entity rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01Contribution"/>
     </owl:NamedIndividual>
     
 
@@ -6311,16 +6385,19 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
     <!-- https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesContributionMessage -->
 
     <owl:NamedIndividual rdf:about="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesContributionMessage">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#EntityInfluence"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Influence"/>
         <rdf:type rdf:resource="http://www.w3.org/ns/prov#InstantaneousEvent"/>
         <rdf:type rdf:resource="http://www.w3.org/ns/prov#Usage"/>
         <rdf:type rdf:resource="https://w3id.org/sulo/Process"/>
+        <prov:entity rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01ContributionMessage"/>
+        <prov:influencer rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01ContributionMessage"/>
         <sulo:contains rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesContributionMessage"/>
         <sulo:hasPart rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesContributionMessage"/>
         <sulo:isIn rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesContributionMessage"/>
         <sulo:isPartOf rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesContributionMessage"/>
         <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T13:00:00+00:00</prov:atTime>
         <rdfs:label xml:lang="en">Run 01: IncorporateInput uses ContributionMessage</rdfs:label>
-        <prov:entity rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01ContributionMessage"/>
     </owl:NamedIndividual>
     
 
@@ -6328,16 +6405,19 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
     <!-- https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesInitialDraft -->
 
     <owl:NamedIndividual rdf:about="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesInitialDraft">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#EntityInfluence"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Influence"/>
         <rdf:type rdf:resource="http://www.w3.org/ns/prov#InstantaneousEvent"/>
         <rdf:type rdf:resource="http://www.w3.org/ns/prov#Usage"/>
         <rdf:type rdf:resource="https://w3id.org/sulo/Process"/>
+        <prov:entity rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01InitialDraft"/>
+        <prov:influencer rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01InitialDraft"/>
         <sulo:contains rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesInitialDraft"/>
         <sulo:hasPart rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesInitialDraft"/>
         <sulo:isIn rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesInitialDraft"/>
         <sulo:isPartOf rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01IncorporateInputUsesInitialDraft"/>
         <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T13:00:00+00:00</prov:atTime>
         <rdfs:label xml:lang="en">Run 01: IncorporateInput uses InitialDraft</rdfs:label>
-        <prov:entity rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01InitialDraft"/>
     </owl:NamedIndividual>
     
 
@@ -6377,6 +6457,10 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
         <prov:generated rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01Contribution"/>
         <prov:generated rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01ContributionMessage"/>
         <prov:qualifiedAssociation rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01ProvideInputAssociation"/>
+        <prov:qualifiedInfluence rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01ProvideInputUsesDraftMessage"/>
+        <prov:qualifiedInfluence rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01ProvideInputUsesInitialDraft"/>
+        <prov:qualifiedUsage rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01ProvideInputUsesDraftMessage"/>
+        <prov:qualifiedUsage rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01ProvideInputUsesInitialDraft"/>
         <prov:used rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01DraftMessage"/>
         <prov:used rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01InitialDraft"/>
         <prov:wasAssociatedWith rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/InvitedPartner"/>
@@ -6389,8 +6473,6 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
         <prov:endedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T13:00:00+00:00</prov:endedAtTime>
         <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T11:30:00+00:00</prov:startedAtTime>
         <rdfs:label xml:lang="en">Run 01: Provide partner input</rdfs:label>
-        <prov:qualifiedUsage rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01ProvideInputUsesDraftMessage"/>
-        <prov:qualifiedUsage rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01ProvideInputUsesInitialDraft"/>
     </owl:NamedIndividual>
     
 
@@ -6504,16 +6586,19 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
     <!-- https://www.michaeldebellis.com/supply_chain_figure8/Run01ProvideInputUsesDraftMessage -->
 
     <owl:NamedIndividual rdf:about="https://www.michaeldebellis.com/supply_chain_figure8/Run01ProvideInputUsesDraftMessage">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#EntityInfluence"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Influence"/>
         <rdf:type rdf:resource="http://www.w3.org/ns/prov#InstantaneousEvent"/>
         <rdf:type rdf:resource="http://www.w3.org/ns/prov#Usage"/>
         <rdf:type rdf:resource="https://w3id.org/sulo/Process"/>
+        <prov:entity rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01DraftMessage"/>
+        <prov:influencer rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01DraftMessage"/>
         <sulo:contains rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01ProvideInputUsesDraftMessage"/>
         <sulo:hasPart rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01ProvideInputUsesDraftMessage"/>
         <sulo:isIn rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01ProvideInputUsesDraftMessage"/>
         <sulo:isPartOf rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01ProvideInputUsesDraftMessage"/>
         <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T11:30:00+00:00</prov:atTime>
         <rdfs:label xml:lang="en">Run 01: ProvideInput uses DraftMessage</rdfs:label>
-        <prov:entity rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01DraftMessage"/>
     </owl:NamedIndividual>
     
 
@@ -6521,16 +6606,19 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
     <!-- https://www.michaeldebellis.com/supply_chain_figure8/Run01ProvideInputUsesInitialDraft -->
 
     <owl:NamedIndividual rdf:about="https://www.michaeldebellis.com/supply_chain_figure8/Run01ProvideInputUsesInitialDraft">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#EntityInfluence"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Influence"/>
         <rdf:type rdf:resource="http://www.w3.org/ns/prov#InstantaneousEvent"/>
         <rdf:type rdf:resource="http://www.w3.org/ns/prov#Usage"/>
         <rdf:type rdf:resource="https://w3id.org/sulo/Process"/>
+        <prov:entity rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01InitialDraft"/>
+        <prov:influencer rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01InitialDraft"/>
         <sulo:contains rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01ProvideInputUsesInitialDraft"/>
         <sulo:hasPart rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01ProvideInputUsesInitialDraft"/>
         <sulo:isIn rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01ProvideInputUsesInitialDraft"/>
         <sulo:isPartOf rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01ProvideInputUsesInitialDraft"/>
         <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T11:30:00+00:00</prov:atTime>
         <rdfs:label xml:lang="en">Run 01: ProvideInput uses InitialDraft</rdfs:label>
-        <prov:entity rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01InitialDraft"/>
     </owl:NamedIndividual>
     
 
@@ -6573,6 +6661,10 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
         <time:hasTime rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SendAndAwaitVoteInterval"/>
         <prov:generated rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01VotingRequest"/>
         <prov:qualifiedAssociation rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SendAndAwaitVoteAssociation"/>
+        <prov:qualifiedInfluence rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SendAndAwaitVoteUsesRevisedTender"/>
+        <prov:qualifiedInfluence rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SendAndAwaitVoteUsesVoteMessage"/>
+        <prov:qualifiedUsage rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SendAndAwaitVoteUsesRevisedTender"/>
+        <prov:qualifiedUsage rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SendAndAwaitVoteUsesVoteMessage"/>
         <prov:used rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01RevisedTender"/>
         <prov:used rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01VoteMessage"/>
         <prov:wasAssociatedWith rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/LeadSupplier"/>
@@ -6586,8 +6678,6 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
         <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T15:00:00+00:00</prov:startedAtTime>
         <rdfs:comment xml:lang="en">Includes sending at 15:00Z and waiting for the partner reply, used at 17:15Z; ends at 17:30Z. The partner voting Activity occurs strictly within this interval. Its returning vote is received during execution, not required at the start.</rdfs:comment>
         <rdfs:label xml:lang="en">Run 01: Send tender and await vote</rdfs:label>
-        <prov:qualifiedUsage rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SendAndAwaitVoteUsesRevisedTender"/>
-        <prov:qualifiedUsage rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SendAndAwaitVoteUsesVoteMessage"/>
     </owl:NamedIndividual>
     
 
@@ -6697,16 +6787,19 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
     <!-- https://www.michaeldebellis.com/supply_chain_figure8/Run01SendAndAwaitVoteUsesRevisedTender -->
 
     <owl:NamedIndividual rdf:about="https://www.michaeldebellis.com/supply_chain_figure8/Run01SendAndAwaitVoteUsesRevisedTender">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#EntityInfluence"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Influence"/>
         <rdf:type rdf:resource="http://www.w3.org/ns/prov#InstantaneousEvent"/>
         <rdf:type rdf:resource="http://www.w3.org/ns/prov#Usage"/>
         <rdf:type rdf:resource="https://w3id.org/sulo/Process"/>
+        <prov:entity rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01RevisedTender"/>
+        <prov:influencer rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01RevisedTender"/>
         <sulo:contains rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SendAndAwaitVoteUsesRevisedTender"/>
         <sulo:hasPart rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SendAndAwaitVoteUsesRevisedTender"/>
         <sulo:isIn rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SendAndAwaitVoteUsesRevisedTender"/>
         <sulo:isPartOf rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SendAndAwaitVoteUsesRevisedTender"/>
         <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T15:00:00+00:00</prov:atTime>
         <rdfs:label xml:lang="en">Run 01: SendAndAwaitVote uses RevisedTender</rdfs:label>
-        <prov:entity rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01RevisedTender"/>
     </owl:NamedIndividual>
     
 
@@ -6714,16 +6807,19 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
     <!-- https://www.michaeldebellis.com/supply_chain_figure8/Run01SendAndAwaitVoteUsesVoteMessage -->
 
     <owl:NamedIndividual rdf:about="https://www.michaeldebellis.com/supply_chain_figure8/Run01SendAndAwaitVoteUsesVoteMessage">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#EntityInfluence"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Influence"/>
         <rdf:type rdf:resource="http://www.w3.org/ns/prov#InstantaneousEvent"/>
         <rdf:type rdf:resource="http://www.w3.org/ns/prov#Usage"/>
         <rdf:type rdf:resource="https://w3id.org/sulo/Process"/>
+        <prov:entity rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01VoteMessage"/>
+        <prov:influencer rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01VoteMessage"/>
         <sulo:contains rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SendAndAwaitVoteUsesVoteMessage"/>
         <sulo:hasPart rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SendAndAwaitVoteUsesVoteMessage"/>
         <sulo:isIn rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SendAndAwaitVoteUsesVoteMessage"/>
         <sulo:isPartOf rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SendAndAwaitVoteUsesVoteMessage"/>
         <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T17:15:00+00:00</prov:atTime>
         <rdfs:label xml:lang="en">Run 01: SendAndAwaitVote uses VoteMessage</rdfs:label>
-        <prov:entity rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01VoteMessage"/>
     </owl:NamedIndividual>
     
 
@@ -6739,6 +6835,10 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
         <time:hasTime rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SubmitInterval"/>
         <prov:generated rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SubmittedTender"/>
         <prov:qualifiedAssociation rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SubmitAssociation"/>
+        <prov:qualifiedInfluence rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SubmitUsesDecision"/>
+        <prov:qualifiedInfluence rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SubmitUsesRevisedTender"/>
+        <prov:qualifiedUsage rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SubmitUsesDecision"/>
+        <prov:qualifiedUsage rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SubmitUsesRevisedTender"/>
         <prov:used rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01Decision"/>
         <prov:used rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01RevisedTender"/>
         <prov:wasAssociatedWith rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/LeadSupplier"/>
@@ -6752,8 +6852,6 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
         <prov:endedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T18:00:00Z</prov:endedAtTime>
         <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T17:30:00+00:00</prov:startedAtTime>
         <rdfs:label xml:lang="en">Run 01: Submit approved tender</rdfs:label>
-        <prov:qualifiedUsage rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SubmitUsesDecision"/>
-        <prov:qualifiedUsage rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SubmitUsesRevisedTender"/>
     </owl:NamedIndividual>
     
 
@@ -6866,16 +6964,19 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
     <!-- https://www.michaeldebellis.com/supply_chain_figure8/Run01SubmitUsesDecision -->
 
     <owl:NamedIndividual rdf:about="https://www.michaeldebellis.com/supply_chain_figure8/Run01SubmitUsesDecision">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#EntityInfluence"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Influence"/>
         <rdf:type rdf:resource="http://www.w3.org/ns/prov#InstantaneousEvent"/>
         <rdf:type rdf:resource="http://www.w3.org/ns/prov#Usage"/>
         <rdf:type rdf:resource="https://w3id.org/sulo/Process"/>
+        <prov:entity rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01Decision"/>
+        <prov:influencer rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01Decision"/>
         <sulo:contains rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SubmitUsesDecision"/>
         <sulo:hasPart rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SubmitUsesDecision"/>
         <sulo:isIn rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SubmitUsesDecision"/>
         <sulo:isPartOf rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SubmitUsesDecision"/>
         <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T17:30:00+00:00</prov:atTime>
         <rdfs:label xml:lang="en">Run 01: Submit uses Decision</rdfs:label>
-        <prov:entity rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01Decision"/>
     </owl:NamedIndividual>
     
 
@@ -6883,16 +6984,19 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
     <!-- https://www.michaeldebellis.com/supply_chain_figure8/Run01SubmitUsesRevisedTender -->
 
     <owl:NamedIndividual rdf:about="https://www.michaeldebellis.com/supply_chain_figure8/Run01SubmitUsesRevisedTender">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#EntityInfluence"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Influence"/>
         <rdf:type rdf:resource="http://www.w3.org/ns/prov#InstantaneousEvent"/>
         <rdf:type rdf:resource="http://www.w3.org/ns/prov#Usage"/>
         <rdf:type rdf:resource="https://w3id.org/sulo/Process"/>
+        <prov:entity rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01RevisedTender"/>
+        <prov:influencer rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01RevisedTender"/>
         <sulo:contains rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SubmitUsesRevisedTender"/>
         <sulo:hasPart rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SubmitUsesRevisedTender"/>
         <sulo:isIn rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SubmitUsesRevisedTender"/>
         <sulo:isPartOf rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01SubmitUsesRevisedTender"/>
         <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T17:30:00+00:00</prov:atTime>
         <rdfs:label xml:lang="en">Run 01: Submit uses RevisedTender</rdfs:label>
-        <prov:entity rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01RevisedTender"/>
     </owl:NamedIndividual>
     
 
@@ -6950,6 +7054,10 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
         <prov:generated rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01Decision"/>
         <prov:generated rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01VoteMessage"/>
         <prov:qualifiedAssociation rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01VoteAssociation"/>
+        <prov:qualifiedInfluence rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01VoteUsesRevisedTender"/>
+        <prov:qualifiedInfluence rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01VoteUsesVotingRequest"/>
+        <prov:qualifiedUsage rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01VoteUsesRevisedTender"/>
+        <prov:qualifiedUsage rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01VoteUsesVotingRequest"/>
         <prov:used rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01RevisedTender"/>
         <prov:used rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01VotingRequest"/>
         <prov:wasAssociatedWith rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/InvitedPartner"/>
@@ -6963,8 +7071,6 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
         <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T15:15:00+00:00</prov:startedAtTime>
         <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T15:15:00Z</prov:startedAtTime>
         <rdfs:label xml:lang="en">Run 01: Vote on tender submission</rdfs:label>
-        <prov:qualifiedUsage rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01VoteUsesRevisedTender"/>
-        <prov:qualifiedUsage rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01VoteUsesVotingRequest"/>
     </owl:NamedIndividual>
     
 
@@ -7102,9 +7208,13 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
     <!-- https://www.michaeldebellis.com/supply_chain_figure8/Run01VoteUsesRevisedTender -->
 
     <owl:NamedIndividual rdf:about="https://www.michaeldebellis.com/supply_chain_figure8/Run01VoteUsesRevisedTender">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#EntityInfluence"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Influence"/>
         <rdf:type rdf:resource="http://www.w3.org/ns/prov#InstantaneousEvent"/>
         <rdf:type rdf:resource="http://www.w3.org/ns/prov#Usage"/>
         <rdf:type rdf:resource="https://w3id.org/sulo/Process"/>
+        <prov:entity rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01RevisedTender"/>
+        <prov:influencer rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01RevisedTender"/>
         <sulo:contains rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01VoteUsesRevisedTender"/>
         <sulo:hasPart rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01VoteUsesRevisedTender"/>
         <sulo:isIn rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01VoteUsesRevisedTender"/>
@@ -7112,7 +7222,6 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
         <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T15:15:00+00:00</prov:atTime>
         <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T15:15:00Z</prov:atTime>
         <rdfs:label xml:lang="en">Run 01: Vote uses RevisedTender</rdfs:label>
-        <prov:entity rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01RevisedTender"/>
     </owl:NamedIndividual>
     
 
@@ -7120,9 +7229,13 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
     <!-- https://www.michaeldebellis.com/supply_chain_figure8/Run01VoteUsesVotingRequest -->
 
     <owl:NamedIndividual rdf:about="https://www.michaeldebellis.com/supply_chain_figure8/Run01VoteUsesVotingRequest">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#EntityInfluence"/>
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Influence"/>
         <rdf:type rdf:resource="http://www.w3.org/ns/prov#InstantaneousEvent"/>
         <rdf:type rdf:resource="http://www.w3.org/ns/prov#Usage"/>
         <rdf:type rdf:resource="https://w3id.org/sulo/Process"/>
+        <prov:entity rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01VotingRequest"/>
+        <prov:influencer rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01VotingRequest"/>
         <sulo:contains rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01VoteUsesVotingRequest"/>
         <sulo:hasPart rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01VoteUsesVotingRequest"/>
         <sulo:isIn rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01VoteUsesVotingRequest"/>
@@ -7130,7 +7243,6 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
         <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T15:15:00+00:00</prov:atTime>
         <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T15:15:00Z</prov:atTime>
         <rdfs:label xml:lang="en">Run 01: Vote uses VotingRequest</rdfs:label>
-        <prov:entity rdf:resource="https://www.michaeldebellis.com/supply_chain_figure8/Run01VotingRequest"/>
     </owl:NamedIndividual>
     
 
@@ -7924,13 +8036,13 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
         <skos:changeNote xml:lang="en">2026-10-22 — Changed by ChatGPT. Synchronized the reusable process_model base with the later corrections in bro_pro_corrected.ttl before creating any domain-specific extension. Restored both prov:hadRole domains: prov:Influence and the union of prov:Association with prov:InstantaneousEvent. Restored prov:EmptyCollection as an owl:Class and subclass of prov:Collection, and prov:Collection as an owl:Class and subclass of prov:Entity, retaining the existing named-individual declaration for prov:EmptyCollection. Copied the corresponding PROV labels, definitions and source annotations, including the additional annotations on AgentInfluence, Association and Bundle. Verified that the earlier association repairs, seven direct-date Allen SWRL rules, qualified-association rule and January datatype correction were already present; preserved all eight rule bodies without duplication. Retained the ontology IRI, P-Plan and SULO definitions, all existing example individuals and dates, and earlier ontology metadata. No supply-chain vocabulary, test fixtures or inferred assertions were added.</skos:changeNote>
     </owl:NamedIndividual>
     <rdf:Description>
-        <xsd:pattern>---(0[1-9]|[1-9][0-9])(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?</xsd:pattern>
-    </rdf:Description>
-    <rdf:Description>
         <xsd:pattern>--(0[1-9]|1[0-9]|20)(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?</xsd:pattern>
     </rdf:Description>
     <rdf:Description>
         <xsd:pattern>-?([1-9][0-9]{3,}|0[0-9]{3})(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?</xsd:pattern>
+    </rdf:Description>
+    <rdf:Description>
+        <xsd:pattern>---(0[1-9]|[1-9][0-9])(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?</xsd:pattern>
     </rdf:Description>
     
 
