@@ -1,6 +1,6 @@
 # Figure 8: restored rules and a dated execution
 
-Prepared 5 November 2026 for Michael DeBellis. All execution data are synthetic demonstration data, not a record of a real tender.
+Prepared 5 November 2026 Michael DeBellis. All execution data are synthetic demonstration data, not a record of a real tender.
 
 ## Open the RDF/XML file in Protégé
 
@@ -57,6 +57,28 @@ Query 2 projects `prov:wasAssociatedWith` from qualified associations for displa
 Queries 1, 2, and 5 normalize date lexical values to `xsd:dateTime`; the SELECT queries also use DISTINCT. This prevents equivalent `dateTime`/`dateTimeStamp` literals in an inference export from duplicating display rows. It does not modify the stored timestamps or the SWRL rules.
 
 Useful inferred relations: drafting is **before** partner input; input **meets** incorporation; incorporation **meets** send-and-await; send-and-await **contains** voting; voting is **during** send-and-await; send-and-await **meets** submission. The overall run additionally shows **starts/started by** and **finishes/finished by**. The business example naturally covers eleven Allen relations when the run and self-pairs are included. A separate regression covers all thirteen; the example was not distorted to force a crossing overlap.
+
+## Query Visualizations
+<img width="1041" height="544" alt="Query_01" src="https://github.com/user-attachments/assets/f48b86cf-3c7b-4157-a87e-1fd9af87c88c" />
+Query 01 Execution Table
+<br>
+<br>
+<img width="1475" height="644" alt="Query 02 (2)" src="https://github.com/user-attachments/assets/1c1f1d52-b407-4a36-931f-202052038a97" />
+Query 02 
+<br>
+<br>
+<img width="799" height="324" alt="Query_03" src="https://github.com/user-attachments/assets/b0ae5e4d-c4d7-4c65-a614-5304fc266276" />
+<br>Query 03
+<br>
+<br>
+<img width="958" height="463" alt="Query_04" src="https://github.com/user-attachments/assets/90849094-9a98-4dda-ac3d-7146980dfd34" />
+<br>Query 04
+<br>
+<br>
+<img width="836" height="596" alt="Query_05" src="https://github.com/user-attachments/assets/c5baf9fd-4d5f-44ce-ae99-381be319aaf9" />
+<br>Query 05
+<br>
+<br>
 
 ## Gruff timeline
 
