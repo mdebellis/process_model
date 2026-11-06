@@ -58,6 +58,13 @@ Queries 1, 2, and 5 normalize date lexical values to `xsd:dateTime`; the SELECT 
 
 Useful inferred relations: drafting is **before** partner input; input **meets** incorporation; incorporation **meets** send-and-await; send-and-await **contains** voting; voting is **during** send-and-await; send-and-await **meets** submission. The overall run additionally shows **starts/started by** and **finishes/finished by**. The business example naturally covers eleven Allen relations when the run and self-pairs are included. A separate regression covers all thirteen; the example was not distorted to force a crossing overlap.
 
+## Query Visualizations
+<img width="1041" height="544" alt="Query_01" src="https://github.com/user-attachments/assets/f48b86cf-3c7b-4157-a87e-1fd9af87c88c" />
+Query 01 Execution Table
+
+
+
+
 ## Gruff timeline
 
 1. Display the result graph from query 2, including the Activity date triples.
