@@ -62,6 +62,10 @@ Useful inferred relations: drafting is **before** partner input; input **meets**
 <img width="1041" height="544" alt="Query_01" src="https://github.com/user-attachments/assets/f48b86cf-3c7b-4157-a87e-1fd9af87c88c" />
 Query 01 Execution Table
 
+<img width="1475" height="644" alt="Query 02 (2)" src="https://github.com/user-attachments/assets/1c1f1d52-b407-4a36-931f-202052038a97" />
+Query 02 
+
+
 
 
 
