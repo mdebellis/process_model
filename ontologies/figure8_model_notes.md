@@ -262,6 +262,10 @@ CONSTRUCT {
   OPTIONAL { ?consumer rdfs:label ?consumerLabel. }
 }
 ```
+<img width="1159" height="529" alt="derived_dependency_edges_3b" src="https://github.com/user-attachments/assets/7c6e445b-19ef-40bd-803e-6e2678c28d37" />
+Figure 3b. Visualization of Query 3b.
+
+
 
 The two opposite dependencies between the send-and-await task and the voting task are intentional: one carries the voting request and the other carries the reply. They are resource dependencies, not a control-flow loop or a requirement that each task finish before the other starts.
 
