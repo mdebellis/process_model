@@ -68,11 +68,11 @@ Query 02
 <br>
 <br>
 <img width="799" height="324" alt="Query_03" src="https://github.com/user-attachments/assets/b0ae5e4d-c4d7-4c65-a614-5304fc266276" />
-Query 03
+<br>Query 03
 <br>
 <br>
 <img width="958" height="463" alt="Query_04" src="https://github.com/user-attachments/assets/90849094-9a98-4dda-ac3d-7146980dfd34" />
-Query 04
+<br>Query 04
 <br>
 <br>
 ## Gruff timeline
