@@ -177,7 +177,7 @@ SELECT ?transition ?from ?fromLabel ?to ?toLabel ?condition ?outcome WHERE {
 }
 ORDER BY ?fromLabel ?toLabel
 ```
-<img width="1902" height="695" alt="control_trasitions_2a" src="https://github.com/user-attachments/assets/8b2d806e-d490-4f5d-8f32-bf83b01f781b" />
+<img width="1907" height="720" alt="control_trasitions_2a1" src="https://github.com/user-attachments/assets/24a1f81e-4741-4003-9768-6160b0f35909" />
 Figure 2a. Gruff Visualization of Query 2a.
 
 
@@ -211,7 +211,7 @@ CONSTRUCT {
   OPTIONAL { ?transition rdfs:label ?transitionLabel. }
 }
 ```
-<img width="1896" height="742" alt="Graph2-1" src="https://github.com/user-attachments/assets/4b728861-8043-48cf-81c9-d304645e1e13" />
+<img width="1903" height="690" alt="control_trasitions_2b" src="https://github.com/user-attachments/assets/e8e52dd6-516c-49c5-a69d-1a97015986bb" />
 Figure 2b. Results of SPARQL Query 2b.
 
 
@@ -262,6 +262,10 @@ CONSTRUCT {
   OPTIONAL { ?consumer rdfs:label ?consumerLabel. }
 }
 ```
+<img width="1159" height="529" alt="derived_dependency_edges_3b" src="https://github.com/user-attachments/assets/7c6e445b-19ef-40bd-803e-6e2678c28d37" />
+Figure 3b. Visualization of Query 3b.
+
+
 
 The two opposite dependencies between the send-and-await task and the voting task are intentional: one carries the voting request and the other carries the reply. They are resource dependencies, not a control-flow loop or a requirement that each task finish before the other starts.
 
