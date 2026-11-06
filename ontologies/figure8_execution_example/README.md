@@ -1,6 +1,6 @@
 # Figure 8: restored rules and a dated execution
 
-Prepared 5 November 2026 for Michael DeBellis. All execution data are synthetic demonstration data, not a record of a real tender.
+Prepared 5 November 2026 Michael DeBellis. All execution data are synthetic demonstration data, not a record of a real tender.
 
 ## Open the RDF/XML file in Protégé
 
