@@ -1,0 +1,103 @@
+{
+  "version": "OWLAPI4.5.29",
+  "source_sha256": "5fc4945fb309a042787b34c389d2f84a07fc3be1c3628981a5cfca455889d04c",
+  "source_triples": 4452,
+  "rdfxml_identical_graph": true,
+  "tests": [
+    {
+      "source": "/workspace/scratch/269ed501d4fb/execution_demo/deliverables/supply_chain_figure8.ttl",
+      "returncode": 0,
+      "stages": [
+        "LOADED AXIOMS=3444 RULES=10",
+        "RELOADED AXIOMS=3455 RULES=10"
+      ],
+      "body_head_counts": [
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0"
+      ],
+      "warnings": 20
+    },
+    {
+      "source": "/workspace/scratch/269ed501d4fb/execution_demo/roundtrip/final_rules_at_end.ttl",
+      "returncode": 0,
+      "stages": [
+        "LOADED AXIOMS=3444 RULES=10",
+        "RELOADED AXIOMS=3455 RULES=10"
+      ],
+      "body_head_counts": [
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0",
+        "0 head=0"
+      ],
+      "warnings": 20
+    },
+    {
+      "source": "/workspace/scratch/269ed501d4fb/execution_demo/roundtrip/final_rdflib.rdf",
+      "returncode": 0,
+      "stages": [
+        "LOADED AXIOMS=3130 RULES=10",
+        "RELOADED AXIOMS=3133 RULES=10"
+      ],
+      "body_head_counts": [
+        "11 head=1",
+        "11 head=1",
+        "13 head=1",
+        "12 head=1",
+        "12 head=1",
+        "12 head=1",
+        "12 head=1",
+        "7 head=1",
+        "7 head=1",
+        "2 head=1",
+        "11 head=1",
+        "11 head=1",
+        "13 head=1",
+        "12 head=1",
+        "12 head=1",
+        "12 head=1",
+        "12 head=1",
+        "7 head=1",
+        "7 head=1",
+        "2 head=1"
+      ],
+      "warnings": 0,
+      "named_rules_after_save": 0,
+      "rules_after_save": 10
+    }
+  ]
+}

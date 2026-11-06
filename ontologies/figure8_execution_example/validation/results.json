@@ -1,0 +1,33 @@
+{
+  "asserted_triples": 4452,
+  "pellet_extracted_triples": 2258,
+  "pellet_extract_exit_code": 0,
+  "task_activities": 6,
+  "overall_activity": 1,
+  "activities_inferred_as_processes": 7,
+  "proper_intervals": 7,
+  "ordered_interval_pairs_checked": 49,
+  "allen_relation_counts": {
+    "intervalAfter": 11,
+    "intervalBefore": 11,
+    "intervalContains": 5,
+    "intervalDuring": 5,
+    "intervalEquals": 7,
+    "intervalFinishedBy": 1,
+    "intervalFinishes": 1,
+    "intervalMeets": 3,
+    "intervalMetBy": 3,
+    "intervalStartedBy": 1,
+    "intervalStarts": 1
+  },
+  "actual_artifacts": 10,
+  "actual_messages": 4,
+  "qualified_usages_with_valid_timing": 12,
+  "qualified_agent_inferences": 7,
+  "planned_flow_dependencies": 10,
+  "restored_rules_equal_donor": 10,
+  "planned_data_preserved": true,
+  "plan_activity_separation": true,
+  "replacement_not_executed": true,
+  "asserted_file_has_no_materialized_allen_relations": true
+}
