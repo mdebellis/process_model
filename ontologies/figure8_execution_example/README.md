@@ -75,6 +75,11 @@ Query 02
 <br>Query 04
 <br>
 <br>
+<img width="836" height="596" alt="Query_05" src="https://github.com/user-attachments/assets/c5baf9fd-4d5f-44ce-ae99-381be319aaf9" />
+<br>Query 05
+<br>
+<br>
+
 ## Gruff timeline
 
 1. Display the result graph from query 2, including the Activity date triples.
