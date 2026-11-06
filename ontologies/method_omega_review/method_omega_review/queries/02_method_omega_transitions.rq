@@ -1,0 +1,29 @@
+PREFIX mo: <https://www.in2use.com/method_omega/>
+PREFIX pm: <https://www.in2use.com/process_model/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX sc: <https://www.michaeldebellis.com/supply_chain_model/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+CONSTRUCT {
+  ?from sc:hasOutgoingTransition ?transition; rdfs:label ?fromLabel.
+  ?transition a ?kind; sc:transitionTo ?to; rdfs:label ?transitionLabel;
+              sc:hasCondition ?condition.
+  ?to rdfs:label ?toLabel.
+  ?condition rdfs:label ?conditionLabel; sc:expectedOutcome ?outcome.
+  ?outcome rdfs:label ?outcomeLabel.
+  ?choice a sc:ExclusiveChoice; rdfs:label ?choiceLabel; sc:hasAlternative ?transition.
+} WHERE {
+  ?transition sc:transitionFrom ?from; sc:transitionTo ?to;
+              rdfs:label ?transitionLabel; a ?kind.
+  FILTER(STRSTARTS(STR(?transition), STR(mo:)))
+  FILTER(?kind IN (pm:Finish_To_Start_Transition, sc:ConditionalTransition))
+  ?from rdfs:label ?fromLabel.
+  ?to rdfs:label ?toLabel.
+  # To show only the expanded Requirements Acquisition flow, uncomment:
+  # ?from pp:isStepOfPlan mo:Requirements_Acquisition_Plan.
+  OPTIONAL {
+    ?transition sc:hasCondition ?condition.
+    ?condition rdfs:label ?conditionLabel; sc:expectedOutcome ?outcome.
+    ?outcome rdfs:label ?outcomeLabel.
+  }
+  OPTIONAL { ?choice sc:hasAlternative ?transition; rdfs:label ?choiceLabel. }
+}

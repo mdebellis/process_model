@@ -1,0 +1,31 @@
+{
+  "combined_asserted_triples": 4942,
+  "pellet_consistent": true,
+  "new_step_definitions": 16,
+  "multisteps": 8,
+  "separate_body_plans": 4,
+  "unexpanded_multisteps": 4,
+  "methodology_root_plans": 1,
+  "direct_precedence_edges": 10,
+  "inferred_precedence_pairs": 19,
+  "transitions": 12,
+  "conditional_transitions": 2,
+  "single_producer_variables": 3,
+  "original_domain_data_unchanged": true,
+  "plan_activity_separation": true,
+  "old_tender_activities_checked": 7,
+  "old_ordered_interval_pairs_checked": 49,
+  "new_execution_activities": 0,
+  "duration_estimate_values": 0,
+  "rdfxml_turtle_isomorphic": true,
+  "queries_on_asserted_data": {
+    "01_method_omega_hierarchy.rq": 70,
+    "02_method_omega_transitions.rq": 78,
+    "03_method_omega_deliverables.rq": 17,
+    "04_method_omega_step_inventory.rq": 16
+  },
+  "existing_swrl_rules_preserved": 10,
+  "owlapi_version": "4.5.29",
+  "owlapi_rdfxml_load_save_reload_axioms": 3525,
+  "owlapi_rdfxml_load_save_reload_complete_rules": 10
+}

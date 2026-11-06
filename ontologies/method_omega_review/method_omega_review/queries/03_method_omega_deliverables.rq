@@ -1,0 +1,16 @@
+PREFIX mo: <https://www.in2use.com/method_omega/>
+PREFIX pm: <https://www.in2use.com/process_model/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+CONSTRUCT {
+  ?producer rdfs:label ?producerLabel; pp:hasOutputVar ?variable.
+  ?variable a pp:Variable; rdfs:label ?variableLabel; pp:isInputVarOf ?consumer.
+  ?consumer rdfs:label ?consumerLabel.
+  ?wrapper rdfs:label ?wrapperLabel; pm:exposes_output_variable ?variable.
+} WHERE {
+  ?producer pp:hasOutputVar ?variable; rdfs:label ?producerLabel.
+  FILTER(STRSTARTS(STR(?variable), STR(mo:)))
+  ?variable rdfs:label ?variableLabel.
+  OPTIONAL { ?consumer pp:hasInputVar ?variable; rdfs:label ?consumerLabel. }
+  OPTIONAL { ?wrapper pm:exposes_output_variable ?variable; rdfs:label ?wrapperLabel. }
+}

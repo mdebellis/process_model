@@ -1,0 +1,157 @@
+{
+  "source_triples": 4498,
+  "combined_triples": 4942,
+  "new_triples": 450,
+  "replaced_metadata_triples": 6,
+  "ordinary_plans": 5,
+  "steps": 16,
+  "multisteps": 8,
+  "expanded_multisteps": 4,
+  "variables": 3,
+  "transitions": 12,
+  "conditional_transitions": 2,
+  "direct_precedence_edges": 10,
+  "new_individuals": 39,
+  "step_inventory": [
+    [
+      "Requirements_Acquisition",
+      "Method_Omega",
+      true,
+      "Requirements_Acquisition_Plan"
+    ],
+    [
+      "Technical_Design",
+      "Method_Omega",
+      true,
+      null
+    ],
+    [
+      "Implementation",
+      "Method_Omega",
+      true,
+      null
+    ],
+    [
+      "Testing",
+      "Method_Omega",
+      true,
+      null
+    ],
+    [
+      "Rollout",
+      "Method_Omega",
+      true,
+      null
+    ],
+    [
+      "Kickoff_Meeting",
+      "Requirements_Acquisition_Plan",
+      false,
+      null
+    ],
+    [
+      "Create_Project_Narrative",
+      "Requirements_Acquisition_Plan",
+      false,
+      null
+    ],
+    [
+      "Create_Detailed_Requirements",
+      "Requirements_Acquisition_Plan",
+      true,
+      "Create_Detailed_Requirements_Plan"
+    ],
+    [
+      "Review_Requirements",
+      "Requirements_Acquisition_Plan",
+      false,
+      null
+    ],
+    [
+      "Requirements_Acquisition_Completed",
+      "Requirements_Acquisition_Plan",
+      false,
+      null
+    ],
+    [
+      "Create_Wireframes",
+      "Create_Detailed_Requirements_Plan",
+      true,
+      "Create_Wireframes_Plan"
+    ],
+    [
+      "Create_Use_Cases",
+      "Create_Detailed_Requirements_Plan",
+      true,
+      "Create_Use_Cases_Plan"
+    ],
+    [
+      "User_Wireframe_Interviews",
+      "Create_Wireframes_Plan",
+      false,
+      null
+    ],
+    [
+      "Develop_Wireframes",
+      "Create_Wireframes_Plan",
+      false,
+      null
+    ],
+    [
+      "Use_Case_Interviews",
+      "Create_Use_Cases_Plan",
+      false,
+      null
+    ],
+    [
+      "Write_Use_Cases",
+      "Create_Use_Cases_Plan",
+      false,
+      null
+    ]
+  ],
+  "direct_precedence": [
+    [
+      "Requirements_Acquisition",
+      "Technical_Design"
+    ],
+    [
+      "Technical_Design",
+      "Implementation"
+    ],
+    [
+      "Implementation",
+      "Testing"
+    ],
+    [
+      "Testing",
+      "Rollout"
+    ],
+    [
+      "Kickoff_Meeting",
+      "Create_Project_Narrative"
+    ],
+    [
+      "Create_Project_Narrative",
+      "Create_Detailed_Requirements"
+    ],
+    [
+      "Create_Detailed_Requirements",
+      "Review_Requirements"
+    ],
+    [
+      "Create_Wireframes",
+      "Create_Use_Cases"
+    ],
+    [
+      "User_Wireframe_Interviews",
+      "Develop_Wireframes"
+    ],
+    [
+      "Use_Case_Interviews",
+      "Write_Use_Cases"
+    ]
+  ],
+  "ontology_iri": "https://www.michaeldebellis.com/supply_chain_figure8",
+  "source_file": "supply_chain_figure8.rdf"
+}

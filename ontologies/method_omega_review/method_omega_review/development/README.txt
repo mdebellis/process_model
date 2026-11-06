@@ -1,0 +1,1 @@
+Build and validation records from the working environment. The scripts retain paths to the uploaded source and prior execution_demo/review test helpers; adjust those paths if rerunning elsewhere. These scripts and the reference snapshot are not required to open the self-contained ontology.

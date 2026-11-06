@@ -1,0 +1,430 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix mo: <https://www.in2use.com/method_omega/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pm: <https://www.in2use.com/process_model/> .
+@prefix pp: <http://purl.org/net/p-plan#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sc: <https://www.michaeldebellis.com/supply_chain_model/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+pp:isDecomposedAsPlan a owl:ObjectProperty ;
+    rdfs:label "isDecomposedAsPlan"@en ;
+    rdfs:domain pp:MultiStep ;
+    rdfs:isDefinedBy pp: ;
+    rdfs:range pp:Plan ;
+    skos:prefLabel "is decomposed as plan"@en ;
+    prov:definition "The p-plan:isDecomposedAsPlan relationship binds a p-plan:MultiStep to the p-plan:Plan holding the definition of that step. That is, p-plan:isDecomposedAsPlan links the MultiStep to the Plan sptecification where it is decomposed."@en .
+
+pp:isSubPlanOfPlan a owl:ObjectProperty ;
+    rdfs:label "isSubPlanOfPlan"@en ;
+    rdfs:domain pp:Plan ;
+    rdfs:isDefinedBy pp: ;
+    rdfs:range pp:Plan ;
+    rdfs:subPropertyOf owl:topObjectProperty ;
+    skos:prefLabel "is subplan of plan"@en ;
+    prov:definition "A p-plan:Plan may be a subplan of another bigger p-plan:Plan. p-plan:isSubPlanOfPlan is used to state the link among the two different plans. Note that if p1 is a p-plan:subPlan of p2, p1will not necessarily be a step of p2. A multistep will represent p1 in p2, and link to p1 with the p-plan.hasStepDecomposition relationship."@en .
+
+pm:expected_duration a owl:ObjectProperty ;
+    rdfs:label "expected duration"@en ;
+    rdfs:comment "An estimate of the elapsed duration of an execution described by a Plan or Step, represented as an OWL-Time Duration with a numeric value and unit. It is not actual elapsed time, labor effort, or an implicit working-calendar calculation. State separately whether a composite estimate includes rework. No default inheritance or roll-up arithmetic is implied."@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( pp:Plan pp:Step ) ] ;
+    rdfs:isDefinedBy pm: ;
+    rdfs:range time:Duration ;
+    skos:prefLabel "expected duration"@en .
+
+pm:exposes_output_variable a owl:ObjectProperty ;
+    rdfs:label "exposes output variable"@en ;
+    rdfs:comment "Links a MultiStep to an output Variable produced by a Step in its decomposition and made available to consumers outside that decomposition. This exposes the same planned slot; it neither asserts another producer nor creates another artifact. Deliberately not a subproperty of p-plan:hasOutputVar, whose inverse is functional."@en ;
+    rdfs:domain pp:MultiStep ;
+    rdfs:isDefinedBy pm: ;
+    rdfs:range pp:Variable ;
+    skos:prefLabel "exposes output variable"@en .
+
+pm:has_step a owl:ObjectProperty ;
+    rdfs:label "has step"@en ;
+    rdfs:comment "Inverse of p-plan:isStepOfPlan, for displaying Plan-to-Step membership. This relation is not transitive; a MultiStep is linked to its separate decomposition Plan with p-plan:isDecomposedAsPlan."@en ;
+    rdfs:domain pp:Plan ;
+    rdfs:isDefinedBy pm: ;
+    rdfs:range pp:Step ;
+    owl:inverseOf pp:isStepOfPlan ;
+    skos:prefLabel "has step"@en .
+
+pm:precedes a owl:ObjectProperty ;
+    rdfs:label "precedes"@en ;
+    rdfs:comment "Inverse of p-plan:isPrecededBy. This is planned precedence, not a timestamp relation between actual Activities. Immediate possible control-flow edges are modeled separately as StepTransitions."@en ;
+    rdfs:domain pp:Step ;
+    rdfs:isDefinedBy pm: ;
+    rdfs:range pp:Step ;
+    owl:inverseOf pp:isPrecededBy ;
+    skos:prefLabel "precedes"@en .
+
+<https://www.michaeldebellis.com/supply_chain_figure8> rdfs:label "Process modeling examples: tendering and Method Omega"@en ;
+    dcterms:description "Self-contained experimental ontology containing the Figure 8 tendering Plan and its synthetic execution, plus the abstract Method Omega development methodology excerpt. Existing tendering assertions, vocabulary IRIs, SULO alignments and ten SWRL rules are retained. Method Omega adds nested P-Plan definitions, finish-to-start transitions, expected deliverable slots and an approval/rework choice. No Method Omega executions or estimate values are included."@en ;
+    dcterms:modified "2026-11-06"^^xsd:date ;
+    dcterms:title "Process modeling examples: collaborative tendering and Method Omega development"@en ;
+    owl:versionInfo "figure8-and-method-omega-v1-2026-11-06" ;
+    skos:changeNote "2026-11-06 (ChatGPT): Added the Method Omega excerpt in the https://www.in2use.com/method_omega/ namespace, preserving existing domain data and all ten SWRL rules. Copied four missing standard P-Plan terms from the 2014 release. Added has_step and precedes display inverses, Finish_To_Start_Transition, exposes_output_variable, and expected_duration in https://www.in2use.com/process_model/. Kept separate MultiSteps and body Plans, single producers for Variables, and conditional rework without a precedence cycle. No Method Omega Activities, duration values, SHACL constraints or materialized inferences added. Updated ontology-level descriptive metadata; retained the ontology IRI."@en ;
+    skos:scopeNote "Figure 8 plan content follows the cited paper and its accompanying text; the dated tender run is explicitly synthetic. Method Omega follows Michael DeBellis's supplied diagram and conventions, with modeling choices explained on its individuals. Existing Time examples remain. These are review examples, not a workflow engine or records of real projects."@en .
+
+pp:isPrecededBy a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "isPrecededBy"@en ;
+    rdfs:comment pp: ;
+    rdfs:domain pp:Step ;
+    rdfs:isDefinedBy "Property that asserts which Step preceeds the current one. "@en ;
+    rdfs:range pp:Step ;
+    skos:prefLabel "is preceded by"@en .
+
+mo:Create_Detailed_Requirements_To_Review_Requirements a owl:NamedIndividual,
+        pm:Finish_To_Start_Transition,
+        sc:StepTransition ;
+    rdfs:label "Create Detailed Requirements To Review Requirements"@en ;
+    skos:prefLabel "Create Detailed Requirements To Review Requirements"@en ;
+    sc:transitionFrom mo:Create_Detailed_Requirements ;
+    sc:transitionTo mo:Review_Requirements .
+
+mo:Create_Project_Narrative_To_Create_Detailed_Requirements a owl:NamedIndividual,
+        pm:Finish_To_Start_Transition,
+        sc:StepTransition ;
+    rdfs:label "Create Project Narrative To Create Detailed Requirements"@en ;
+    skos:prefLabel "Create Project Narrative To Create Detailed Requirements"@en ;
+    sc:transitionFrom mo:Create_Project_Narrative ;
+    sc:transitionTo mo:Create_Detailed_Requirements .
+
+mo:Create_Wireframes_To_Create_Use_Cases a owl:NamedIndividual,
+        pm:Finish_To_Start_Transition,
+        sc:StepTransition ;
+    rdfs:label "Create Wireframes To Create Use Cases"@en ;
+    skos:prefLabel "Create Wireframes To Create Use Cases"@en ;
+    sc:transitionFrom mo:Create_Wireframes ;
+    sc:transitionTo mo:Create_Use_Cases .
+
+mo:Implementation_To_Testing a owl:NamedIndividual,
+        pm:Finish_To_Start_Transition,
+        sc:StepTransition ;
+    rdfs:label "Implementation To Testing"@en ;
+    skos:prefLabel "Implementation To Testing"@en ;
+    sc:transitionFrom mo:Implementation ;
+    sc:transitionTo mo:Testing .
+
+mo:Kickoff_Meeting_To_Create_Project_Narrative a owl:NamedIndividual,
+        pm:Finish_To_Start_Transition,
+        sc:StepTransition ;
+    rdfs:label "Kickoff Meeting To Create Project Narrative"@en ;
+    skos:prefLabel "Kickoff Meeting To Create Project Narrative"@en ;
+    sc:transitionFrom mo:Kickoff_Meeting ;
+    sc:transitionTo mo:Create_Project_Narrative .
+
+mo:Requirements_Acquisition_To_Technical_Design a owl:NamedIndividual,
+        pm:Finish_To_Start_Transition,
+        sc:StepTransition ;
+    rdfs:label "Requirements Acquisition To Technical Design"@en ;
+    skos:prefLabel "Requirements Acquisition To Technical Design"@en ;
+    sc:transitionFrom mo:Requirements_Acquisition ;
+    sc:transitionTo mo:Technical_Design .
+
+mo:Requirements_Approved_Choice a owl:NamedIndividual,
+        sc:ExclusiveChoice ;
+    rdfs:label "Requirements Approved Choice"@en ;
+    rdfs:comment "The diagram's Requirements Approved? diamond. Yes leads to completion; No leads to a new pass through Create Detailed Requirements and review. A reasoner does not evaluate the condition or create Activities. The exact set of leaf Steps repeated on revision is left unspecified."@en ;
+    skos:prefLabel "Requirements Approved Choice"@en ;
+    sc:choiceAfterStep mo:Review_Requirements ;
+    sc:hasAlternative mo:Approval_To_Requirements_Completion,
+        mo:Rejection_To_Requirements_Rework .
+
+mo:Technical_Design_To_Implementation a owl:NamedIndividual,
+        pm:Finish_To_Start_Transition,
+        sc:StepTransition ;
+    rdfs:label "Technical Design To Implementation"@en ;
+    skos:prefLabel "Technical Design To Implementation"@en ;
+    sc:transitionFrom mo:Technical_Design ;
+    sc:transitionTo mo:Implementation .
+
+mo:Testing_To_Rollout a owl:NamedIndividual,
+        pm:Finish_To_Start_Transition,
+        sc:StepTransition ;
+    rdfs:label "Testing To Rollout"@en ;
+    skos:prefLabel "Testing To Rollout"@en ;
+    sc:transitionFrom mo:Testing ;
+    sc:transitionTo mo:Rollout .
+
+mo:Use_Case_Interviews_To_Write_Use_Cases a owl:NamedIndividual,
+        pm:Finish_To_Start_Transition,
+        sc:StepTransition ;
+    rdfs:label "Use Case Interviews To Write Use Cases"@en ;
+    skos:prefLabel "Use Case Interviews To Write Use Cases"@en ;
+    sc:transitionFrom mo:Use_Case_Interviews ;
+    sc:transitionTo mo:Write_Use_Cases .
+
+mo:User_Wireframe_Interviews_To_Develop_Wireframes a owl:NamedIndividual,
+        pm:Finish_To_Start_Transition,
+        sc:StepTransition ;
+    rdfs:label "User Wireframe Interviews To Develop Wireframes"@en ;
+    skos:prefLabel "User Wireframe Interviews To Develop Wireframes"@en ;
+    sc:transitionFrom mo:User_Wireframe_Interviews ;
+    sc:transitionTo mo:Develop_Wireframes .
+
+mo:Approval_To_Requirements_Completion a owl:NamedIndividual,
+        pm:Finish_To_Start_Transition,
+        sc:ConditionalTransition,
+        sc:StepTransition ;
+    rdfs:label "Approval To Requirements Completion"@en ;
+    skos:prefLabel "Approval To Requirements Completion"@en ;
+    sc:hasCondition mo:Requirements_Approved_Condition ;
+    sc:transitionFrom mo:Review_Requirements ;
+    sc:transitionTo mo:Requirements_Acquisition_Completed .
+
+mo:Create_Use_Cases a pp:MultiStep,
+        pp:Step,
+        owl:NamedIndividual,
+        sc:TaskStep ;
+    rdfs:label "Create Use Cases"@en ;
+    pp:hasOutputVar mo:Use_Cases ;
+    pp:isDecomposedAsPlan mo:Create_Use_Cases_Plan ;
+    pp:isPrecededBy mo:Create_Wireframes ;
+    pp:isStepOfPlan mo:Create_Detailed_Requirements_Plan ;
+    skos:prefLabel "Create Use Cases"@en .
+
+mo:Develop_Wireframes a pp:Step,
+        owl:NamedIndividual,
+        sc:TaskStep ;
+    rdfs:label "Develop Wireframes"@en ;
+    pp:isPrecededBy mo:User_Wireframe_Interviews ;
+    pp:isStepOfPlan mo:Create_Wireframes_Plan ;
+    skos:prefLabel "Develop Wireframes"@en .
+
+mo:Rejection_To_Requirements_Rework a owl:NamedIndividual,
+        pm:Finish_To_Start_Transition,
+        sc:ConditionalTransition,
+        sc:StepTransition ;
+    rdfs:label "Rejection To Requirements Rework"@en ;
+    skos:prefLabel "Rejection To Requirements Rework"@en ;
+    sc:hasCondition mo:Requirements_Not_Approved_Condition ;
+    sc:transitionFrom mo:Review_Requirements ;
+    sc:transitionTo mo:Create_Detailed_Requirements .
+
+mo:Requirements_Acquisition_Completed a pp:Step,
+        owl:NamedIndividual,
+        sc:EndEventStep ;
+    rdfs:label "Requirements Acquisition Completed"@en ;
+    pp:isStepOfPlan mo:Requirements_Acquisition_Plan ;
+    rdfs:comment "Planned completion event reached only on approval. It belongs to Requirements Acquisition Plan. Completing the containing Requirements Acquisition MultiStep enables Technical Design at the outer level; no unconditional cross-level shortcut is added."@en ;
+    skos:prefLabel "Requirements Acquisition Completed"@en .
+
+mo:Requirements_Approved_Condition a owl:NamedIndividual,
+        sc:DecisionCondition ;
+    rdfs:label "Requirements Approved Condition"@en ;
+    skos:prefLabel "Requirements Approved Condition"@en ;
+    sc:conditionVariable mo:Requirements_Review_Decision ;
+    sc:expectedOutcome sc:Approved .
+
+mo:Requirements_Not_Approved_Condition a owl:NamedIndividual,
+        sc:DecisionCondition ;
+    rdfs:label "Requirements Not Approved Condition"@en ;
+    rdfs:comment "The diagram's No outcome is represented using the existing Rejected value. Here it means revision is required at this review, not that the project is cancelled. A missing decision does not mean No."@en ;
+    skos:prefLabel "Requirements Not Approved Condition"@en ;
+    sc:conditionVariable mo:Requirements_Review_Decision ;
+    sc:expectedOutcome sc:Rejected .
+
+mo:Rollout a pp:MultiStep,
+        pp:Step,
+        owl:NamedIndividual,
+        sc:TaskStep ;
+    rdfs:label "Rollout"@en ;
+    pp:isPrecededBy mo:Testing ;
+    pp:isStepOfPlan mo:Method_Omega ;
+    rdfs:comment "Unexpanded MultiStep in the supplied excerpt. Its detailed decomposition is intentionally unspecified; no empty or invented body Plan is asserted."@en ;
+    skos:prefLabel "Rollout"@en .
+
+mo:Write_Use_Cases a pp:Step,
+        owl:NamedIndividual,
+        sc:TaskStep ;
+    rdfs:label "Write Use Cases"@en ;
+    pp:isPrecededBy mo:Use_Case_Interviews ;
+    pp:isStepOfPlan mo:Create_Use_Cases_Plan ;
+    skos:prefLabel "Write Use Cases"@en .
+
+mo:Create_Wireframes a pp:MultiStep,
+        pp:Step,
+        owl:NamedIndividual,
+        sc:TaskStep ;
+    rdfs:label "Create Wireframes"@en ;
+    pp:hasOutputVar mo:Wireframes ;
+    pp:isDecomposedAsPlan mo:Create_Wireframes_Plan ;
+    pp:isStepOfPlan mo:Create_Detailed_Requirements_Plan ;
+    skos:prefLabel "Create Wireframes"@en .
+
+mo:Kickoff_Meeting a pp:Step,
+        owl:NamedIndividual,
+        sc:TaskStep ;
+    rdfs:label "Kickoff Meeting"@en ;
+    pp:isStepOfPlan mo:Requirements_Acquisition_Plan ;
+    skos:prefLabel "Kickoff Meeting"@en .
+
+mo:Requirements_Acquisition a pp:MultiStep,
+        pp:Step,
+        owl:NamedIndividual,
+        sc:TaskStep ;
+    rdfs:label "Requirements Acquisition"@en ;
+    pp:isDecomposedAsPlan mo:Requirements_Acquisition_Plan ;
+    pp:isStepOfPlan mo:Method_Omega ;
+    skos:prefLabel "Requirements Acquisition"@en .
+
+mo:Use_Case_Interviews a pp:Step,
+        owl:NamedIndividual,
+        sc:TaskStep ;
+    rdfs:label "Use Case Interviews"@en ;
+    pp:isStepOfPlan mo:Create_Use_Cases_Plan ;
+    skos:prefLabel "Use Case Interviews"@en .
+
+mo:User_Wireframe_Interviews a pp:Step,
+        owl:NamedIndividual,
+        sc:TaskStep ;
+    rdfs:label "User Wireframe Interviews"@en ;
+    pp:isStepOfPlan mo:Create_Wireframes_Plan ;
+    skos:prefLabel "User Wireframe Interviews"@en .
+
+mo:Create_Project_Narrative a pp:Step,
+        owl:NamedIndividual,
+        sc:TaskStep ;
+    rdfs:label "Create Project Narrative"@en ;
+    pp:isPrecededBy mo:Kickoff_Meeting ;
+    pp:isStepOfPlan mo:Requirements_Acquisition_Plan ;
+    skos:prefLabel "Create Project Narrative"@en .
+
+mo:Create_Use_Cases_Plan a pp:Plan,
+        owl:NamedIndividual ;
+    rdfs:label "Create Use Cases Plan"@en ;
+    pp:isSubPlanOfPlan mo:Create_Detailed_Requirements_Plan ;
+    rdfs:comment "Reusable decomposition of Create Use Cases. The contextual MultiStep retains its position and dependencies in its containing Plan."@en ;
+    skos:prefLabel "Create Use Cases Plan"@en .
+
+mo:Create_Wireframes_Plan a pp:Plan,
+        owl:NamedIndividual ;
+    rdfs:label "Create Wireframes Plan"@en ;
+    pp:isSubPlanOfPlan mo:Create_Detailed_Requirements_Plan ;
+    rdfs:comment "Reusable decomposition of Create Wireframes. The contextual MultiStep retains its position and dependencies in its containing Plan."@en ;
+    skos:prefLabel "Create Wireframes Plan"@en .
+
+mo:Implementation a pp:MultiStep,
+        pp:Step,
+        owl:NamedIndividual,
+        sc:TaskStep ;
+    rdfs:label "Implementation"@en ;
+    pp:isPrecededBy mo:Technical_Design ;
+    pp:isStepOfPlan mo:Method_Omega ;
+    rdfs:comment "Unexpanded MultiStep in the supplied excerpt. Its detailed decomposition is intentionally unspecified; no empty or invented body Plan is asserted."@en ;
+    skos:prefLabel "Implementation"@en .
+
+mo:Requirements_Review_Decision a pp:Variable,
+        owl:NamedIndividual,
+        sc:DecisionVariable ;
+    rdfs:label "Requirements Review Decision"@en ;
+    pp:isVariableOfPlan mo:Requirements_Acquisition_Plan ;
+    rdfs:comment "Planned decision slot introduced to express the diagram's Yes/No conditions. It is not an actual recorded approval or rejection."@en ;
+    skos:prefLabel "Requirements Review Decision"@en .
+
+mo:Technical_Design a pp:MultiStep,
+        pp:Step,
+        owl:NamedIndividual,
+        sc:TaskStep ;
+    rdfs:label "Technical Design"@en ;
+    pp:isPrecededBy mo:Requirements_Acquisition ;
+    pp:isStepOfPlan mo:Method_Omega ;
+    rdfs:comment "Unexpanded MultiStep in the supplied excerpt. Its detailed decomposition is intentionally unspecified; no empty or invented body Plan is asserted."@en ;
+    skos:prefLabel "Technical Design"@en .
+
+mo:Testing a pp:MultiStep,
+        pp:Step,
+        owl:NamedIndividual,
+        sc:TaskStep ;
+    rdfs:label "Testing"@en ;
+    pp:isPrecededBy mo:Implementation ;
+    pp:isStepOfPlan mo:Method_Omega ;
+    rdfs:comment "Unexpanded MultiStep in the supplied excerpt. Its detailed decomposition is intentionally unspecified; no empty or invented body Plan is asserted."@en ;
+    skos:prefLabel "Testing"@en .
+
+mo:Use_Cases a pp:Variable,
+        owl:NamedIndividual ;
+    rdfs:label "Use Cases"@en ;
+    pp:isVariableOfPlan mo:Create_Detailed_Requirements_Plan,
+        mo:Requirements_Acquisition_Plan ;
+    rdfs:comment "Expected Use Cases deliverable slot. Its asserted producer is the Create Use Cases MultiStep, as drawn. It is exposed by the containing MultiStep for review. Production by individual leaf Steps and actual document versions are not specified in this excerpt."@en ;
+    skos:prefLabel "Use Cases"@en .
+
+mo:Wireframes a pp:Variable,
+        owl:NamedIndividual ;
+    rdfs:label "Wireframes"@en ;
+    pp:isVariableOfPlan mo:Create_Detailed_Requirements_Plan,
+        mo:Requirements_Acquisition_Plan ;
+    rdfs:comment "Expected Wireframes deliverable slot. Its asserted producer is the Create Wireframes MultiStep, as drawn. It is exposed by the containing MultiStep for review. Production by individual leaf Steps and actual document versions are not specified in this excerpt."@en ;
+    skos:prefLabel "Wireframes"@en .
+
+mo:Create_Detailed_Requirements a pp:MultiStep,
+        pp:Step,
+        owl:NamedIndividual,
+        sc:TaskStep ;
+    rdfs:label "Create Detailed Requirements"@en ;
+    pp:isDecomposedAsPlan mo:Create_Detailed_Requirements_Plan ;
+    pp:isPrecededBy mo:Create_Project_Narrative ;
+    pp:isStepOfPlan mo:Requirements_Acquisition_Plan ;
+    skos:prefLabel "Create Detailed Requirements"@en ;
+    pm:exposes_output_variable mo:Use_Cases,
+        mo:Wireframes .
+
+mo:Review_Requirements a pp:Step,
+        owl:NamedIndividual,
+        sc:TaskStep ;
+    rdfs:label "Review Requirements"@en ;
+    pp:hasInputVar mo:Use_Cases,
+        mo:Wireframes ;
+    pp:hasOutputVar mo:Requirements_Review_Decision ;
+    pp:isPrecededBy mo:Create_Detailed_Requirements ;
+    pp:isStepOfPlan mo:Requirements_Acquisition_Plan ;
+    rdfs:comment "Review uses the Wireframes and Use Cases exposed by Create Detailed Requirements and produces the decision for the exclusive choice. Rejection returns to Create Detailed Requirements for another pass. The diamond is the choice, not an extra work Step."@en ;
+    skos:prefLabel "Review Requirements"@en .
+
+mo:Method_Omega a pp:Plan,
+        owl:NamedIndividual ;
+    rdfs:label "Method Omega"@en ;
+    rdfs:comment "Reusable Method Omega development methodology, transcribed from Michael DeBellis's supplied diagram. This excerpt expands Requirements Acquisition only. No project-specific plan, execution, participant assignment, scheduled date, or duration estimate is asserted."@en ;
+    skos:prefLabel "Method Omega"@en ;
+    skos:scopeNote "Horizontal solid arrows are finish-to-start requirements. The No branch is a possible rework transition, not an unconditional reverse precedence assertion. Precedence applies to the matching pass through the plan, not every pair of Activities sharing the source and target Step definitions. Unspecified dependencies do not assert concurrency."@en .
+
+mo:Create_Detailed_Requirements_Plan a pp:Plan,
+        owl:NamedIndividual ;
+    rdfs:label "Create Detailed Requirements Plan"@en ;
+    pp:isSubPlanOfPlan mo:Requirements_Acquisition_Plan ;
+    rdfs:comment "Reusable decomposition of Create Detailed Requirements. The contextual MultiStep retains its position and dependencies in its containing Plan."@en ;
+    skos:prefLabel "Create Detailed Requirements Plan"@en .
+
+pp:MultiStep a owl:Class ;
+    rdfs:label "MultiStep"@en ;
+    rdfs:isDefinedBy pp: ;
+    rdfs:subClassOf pp:Plan,
+        pp:Step ;
+    skos:prefLabel "MultiStep"@en ;
+    prov:definition "A multi step is the representation of a plan that appears as a step of another plan."@en .
+
+mo:Requirements_Acquisition_Plan a pp:Plan,
+        owl:NamedIndividual ;
+    rdfs:label "Requirements Acquisition Plan"@en ;
+    pp:isSubPlanOfPlan mo:Method_Omega ;
+    rdfs:comment "Reusable decomposition of Requirements Acquisition. The contextual MultiStep retains its position and dependencies in its containing Plan."@en ;
+    skos:prefLabel "Requirements Acquisition Plan"@en .
+
+pm:Finish_To_Start_Transition a owl:Class ;
+    rdfs:label "Finish To Start Transition"@en ;
+    rdfs:comment "A planned possible transition that, when selected, requires the source Activity occurrence to have completed by the time the target occurrence starts. No overlap is permitted; zero waiting time is permitted. Applies to the particular occurrences connected by that transition, including a later iteration of a loop. This declaration neither executes a transition nor infers actual interval relations."@en ;
+    rdfs:isDefinedBy pm: ;
+    rdfs:subClassOf sc:StepTransition ;
+    skos:prefLabel "Finish To Start Transition"@en .
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( mo:Method_Omega mo:Requirements_Acquisition_Plan mo:Create_Detailed_Requirements_Plan mo:Create_Wireframes_Plan mo:Create_Use_Cases_Plan mo:Requirements_Acquisition mo:Technical_Design mo:Implementation mo:Testing mo:Rollout mo:Kickoff_Meeting mo:Create_Project_Narrative mo:Create_Detailed_Requirements mo:Review_Requirements mo:Requirements_Acquisition_Completed mo:Create_Wireframes mo:Create_Use_Cases mo:User_Wireframe_Interviews mo:Develop_Wireframes mo:Use_Case_Interviews mo:Write_Use_Cases mo:Requirements_Acquisition_To_Technical_Design mo:Technical_Design_To_Implementation mo:Implementation_To_Testing mo:Testing_To_Rollout mo:Kickoff_Meeting_To_Create_Project_Narrative mo:Create_Project_Narrative_To_Create_Detailed_Requirements mo:Create_Detailed_Requirements_To_Review_Requirements mo:Create_Wireframes_To_Create_Use_Cases mo:User_Wireframe_Interviews_To_Develop_Wireframes mo:Use_Case_Interviews_To_Write_Use_Cases mo:Wireframes mo:Use_Cases mo:Requirements_Review_Decision mo:Requirements_Approved_Condition mo:Requirements_Not_Approved_Condition mo:Approval_To_Requirements_Completion mo:Rejection_To_Requirements_Rework mo:Requirements_Approved_Choice ) .
+
