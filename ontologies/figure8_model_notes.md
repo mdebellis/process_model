@@ -211,7 +211,7 @@ CONSTRUCT {
   OPTIONAL { ?transition rdfs:label ?transitionLabel. }
 }
 ```
-<img width="1896" height="742" alt="Graph2-1" src="https://github.com/user-attachments/assets/4b728861-8043-48cf-81c9-d304645e1e13" />
+<img width="1903" height="690" alt="control_trasitions_2b" src="https://github.com/user-attachments/assets/e8e52dd6-516c-49c5-a69d-1a97015986bb" />
 Figure 2b. Results of SPARQL Query 2b.
 
 
