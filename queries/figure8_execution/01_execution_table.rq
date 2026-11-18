@@ -1,0 +1,19 @@
+PREFIX fig8: <https://www.michaeldebellis.com/supply_chain_figure8/>
+PREFIX sc: <https://www.michaeldebellis.com/supply_chain_model/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX sulo: <https://w3id.org/sulo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT DISTINCT ?activity ?activityLabel ?step ?stepLabel ?agent ?role ?start ?end ?interval WHERE {
+  fig8:TenderRun01 sulo:hasPart ?activity.
+  ?activity pp:correspondsToStep ?step;
+    rdfs:label ?activityLabel; prov:startedAtTime ?startValue; prov:endedAtTime ?endValue;
+    time:hasTime ?interval; prov:qualifiedAssociation ?association.
+  ?association prov:agent ?agent; prov:hadRole ?role.
+  ?step rdfs:label ?stepLabel.
+  BIND(xsd:dateTime(STR(?startValue)) AS ?start)
+  BIND(xsd:dateTime(STR(?endValue)) AS ?end)
+}
+ORDER BY ?start ?activity

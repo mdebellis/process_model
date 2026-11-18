@@ -1,0 +1,112 @@
+{
+  "verified_on": "2026-11-18",
+  "source_commit": "1ed5356d36623deec14f3408cd3c3f41b85bb7e4",
+  "canonical_file": "ontologies/process_model_with_examples.rdf",
+  "format": "RDF/XML",
+  "ontology_file_bytes_unchanged": true,
+  "sha256": "c00778dc449cb7c5ca7e82eab5dd5f6d6a099a623d45888b262fa5b3a00e692c",
+  "asserted_triples": 4942,
+  "method_omega": {
+    "Step": 16,
+    "MultiStep": 8,
+    "Plan": 5
+  },
+  "tender_task_executions": 6,
+  "tender_overall_activities": 1,
+  "complete_swrl_rules": {
+    "https://www.michaeldebellis.com/process_model/IntervalBefore_DirectDates": {
+      "body_atoms": 11,
+      "head_atoms": 1
+    },
+    "https://www.michaeldebellis.com/process_model/IntervalContains_DirectDates": {
+      "body_atoms": 12,
+      "head_atoms": 1
+    },
+    "https://www.michaeldebellis.com/process_model/IntervalEquals_DirectDates": {
+      "body_atoms": 12,
+      "head_atoms": 1
+    },
+    "https://www.michaeldebellis.com/process_model/IntervalFinishes_DirectDates": {
+      "body_atoms": 12,
+      "head_atoms": 1
+    },
+    "https://www.michaeldebellis.com/process_model/IntervalMeets_DirectDates": {
+      "body_atoms": 11,
+      "head_atoms": 1
+    },
+    "https://www.michaeldebellis.com/process_model/IntervalOverlaps_DirectDates": {
+      "body_atoms": 13,
+      "head_atoms": 1
+    },
+    "https://www.michaeldebellis.com/process_model/IntervalStarts_DirectDates": {
+      "body_atoms": 12,
+      "head_atoms": 1
+    },
+    "https://www.michaeldebellis.com/process_model/QualifiedAssociation_Agent": {
+      "body_atoms": 2,
+      "head_atoms": 1
+    },
+    "https://www.michaeldebellis.com/supply_chain_model/SamePlan_FlowDependency": {
+      "body_atoms": 7,
+      "head_atoms": 1
+    },
+    "https://www.michaeldebellis.com/supply_chain_model/SamePlan_SharedInput": {
+      "body_atoms": 7,
+      "head_atoms": 1
+    }
+  },
+  "queries_on_asserted_source": {
+    "queries/figure8_execution/01_execution_table.rq": {
+      "result_type": "SELECT",
+      "count": 6
+    },
+    "queries/figure8_execution/02_execution_graph_timeline.rq": {
+      "result_type": "CONSTRUCT",
+      "count": 44
+    },
+    "queries/figure8_execution/03_inferred_allen_relations.rq": {
+      "result_type": "SELECT",
+      "count": 0
+    },
+    "queries/figure8_execution/04_approval_evidence.rq": {
+      "result_type": "SELECT",
+      "count": 1
+    },
+    "queries/figure8_execution/05_message_timing.rq": {
+      "result_type": "SELECT",
+      "count": 4
+    },
+    "queries/method_omega/01_method_omega_hierarchy.rq": {
+      "result_type": "CONSTRUCT",
+      "count": 70
+    },
+    "queries/method_omega/02_method_omega_transitions.rq": {
+      "result_type": "CONSTRUCT",
+      "count": 78
+    },
+    "queries/method_omega/03_method_omega_deliverables.rq": {
+      "result_type": "CONSTRUCT",
+      "count": 17
+    },
+    "queries/method_omega/04_method_omega_step_inventory.rq": {
+      "result_type": "SELECT",
+      "count": 16
+    }
+  },
+  "notes": [
+    "Filename and directory cleanup only; no ontology graph or IRI changes.",
+    "The Allen-relation query correctly returns zero rows on asserted data; run the SWRL reasoner and expose its inferred graph to query those relations.",
+    "This cleanup did not rerun Pellet or the OWLAPI round-trip diagnostic. Historical reasoning results are recorded separately.",
+    "Independent source audit preserved prior tender data and rooted blank-node structures, all ten intact donor rules, and substantive base axioms; differences from earlier sources are documented repairs, metadata, and excluded derived exports."
+  ],
+  "figure8_inline_tutorial_query_counts": [
+    7,
+    47,
+    10,
+    50,
+    10,
+    17,
+    12,
+    0
+  ]
+}

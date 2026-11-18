@@ -1,0 +1,24 @@
+{
+  "regression_intervals": 22,
+  "ordered_pairs_checked": 484,
+  "allen_relations_covered": 13,
+  "allen_relation_counts": {
+    "intervalAfter": 145,
+    "intervalBefore": 145,
+    "intervalContains": 16,
+    "intervalDuring": 16,
+    "intervalEquals": 28,
+    "intervalFinishedBy": 14,
+    "intervalFinishes": 14,
+    "intervalMeets": 15,
+    "intervalMetBy": 15,
+    "intervalOverlappedBy": 21,
+    "intervalOverlaps": 21,
+    "intervalStartedBy": 17,
+    "intervalStarts": 17
+  },
+  "negative_controls_passed": 3,
+  "timezone_value_equality": true,
+  "equal_interval_endpoints_do_not_merge_individuals": true,
+  "pellet_extract_exit_code": 0
+}

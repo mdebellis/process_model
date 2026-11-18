@@ -1,0 +1,17 @@
+PREFIX fig8: <https://www.michaeldebellis.com/supply_chain_figure8/>
+PREFIX sc: <https://www.michaeldebellis.com/supply_chain_model/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX sulo: <https://w3id.org/sulo/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?voteActivity ?decision ?outcome ?transition ?nextStep ?performedActivity WHERE {
+  fig8:TenderRun01 sulo:hasPart ?voteActivity, ?performedActivity.
+  ?decision a sc:DecisionResult; prov:wasGeneratedBy ?voteActivity;
+    pp:correspondsToVariable ?variable; sc:hasOutcome ?outcome.
+  fig8:SubmissionChoice sc:hasAlternative ?transition.
+  ?transition sc:hasCondition ?condition; sc:transitionTo ?nextStep.
+  ?condition sc:conditionVariable ?variable; sc:expectedOutcome ?outcome.
+  ?performedActivity pp:correspondsToStep ?nextStep.
+}

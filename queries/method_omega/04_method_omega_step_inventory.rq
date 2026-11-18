@@ -1,0 +1,9 @@
+PREFIX mo: <https://www.in2use.com/method_omega/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?step ?stepLabel ?kind ?parentPlan ?bodyPlan WHERE {
+  mo:Method_Omega (^pp:isStepOfPlan/pp:isDecomposedAsPlan)* ?parentPlan.
+  ?step pp:isStepOfPlan ?parentPlan; rdfs:label ?stepLabel.
+  BIND(IF(EXISTS { ?step a pp:MultiStep }, "MultiStep", "Step") AS ?kind)
+  OPTIONAL { ?step pp:isDecomposedAsPlan ?bodyPlan. }
+} ORDER BY ?parentPlan ?stepLabel

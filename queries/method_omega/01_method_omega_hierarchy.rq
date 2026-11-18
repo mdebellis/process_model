@@ -1,0 +1,15 @@
+PREFIX mo: <https://www.in2use.com/method_omega/>
+PREFIX pm: <https://www.in2use.com/process_model/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+CONSTRUCT {
+  ?plan a pp:Plan; rdfs:label ?planLabel; pm:has_step ?step.
+  ?step a ?stepType; rdfs:label ?stepLabel; pp:isDecomposedAsPlan ?body.
+} WHERE {
+  mo:Method_Omega (^pp:isStepOfPlan/pp:isDecomposedAsPlan)* ?plan.
+  ?plan rdfs:label ?planLabel.
+  ?step pp:isStepOfPlan ?plan; a ?stepType; rdfs:label ?stepLabel.
+  FILTER(?stepType IN (pp:Step, pp:MultiStep))
+  OPTIONAL { ?step pp:isDecomposedAsPlan ?body. }
+}

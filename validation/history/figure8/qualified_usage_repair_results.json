@@ -1,0 +1,26 @@
+{
+  "asserted_triples": 4498,
+  "added_standard_schema_triples": 45,
+  "added_change_notes": 1,
+  "source_assertions_preserved": true,
+  "formats_isomorphic": true,
+  "pellet_consistent": true,
+  "allen_pairs_checked": 49,
+  "allen_relation_counts": {
+    "intervalAfter": 11,
+    "intervalBefore": 11,
+    "intervalContains": 5,
+    "intervalDuring": 5,
+    "intervalEquals": 7,
+    "intervalFinishedBy": 1,
+    "intervalFinishes": 1,
+    "intervalMeets": 3,
+    "intervalMetBy": 3,
+    "intervalStartedBy": 1,
+    "intervalStarts": 1
+  },
+  "expected_agent_associations": 7,
+  "qualified_usages_correctly_typed": 12,
+  "owlapi_4_5_29_rdfxml_roundtrip_rules": 10,
+  "qualified_usage_and_entity_remain_object_properties": true
+}

@@ -1,0 +1,73 @@
+{
+  "source_export": "supply_chain_figure8_inferences.rdf",
+  "export_sha256": "de85b8769c838b14b8bd7ec3c52a69ce9173809b7ef85c23930fc1e7061b8d90",
+  "export_triples": 6010,
+  "ordered_interval_pairs_checked": 49,
+  "correct_pairs": 49,
+  "missing_or_incorrect_pairs": 0,
+  "allen_relation_counts": {
+    "intervalAfter": 11,
+    "intervalBefore": 11,
+    "intervalContains": 5,
+    "intervalDuring": 5,
+    "intervalEquals": 7,
+    "intervalFinishedBy": 1,
+    "intervalFinishes": 1,
+    "intervalMeets": 3,
+    "intervalMetBy": 3,
+    "intervalStartedBy": 1,
+    "intervalStarts": 1
+  },
+  "agent_associations_verified": 7,
+  "intact_swrl_rules": [
+    {
+      "body": 7,
+      "head": 1
+    },
+    {
+      "body": 7,
+      "head": 1
+    },
+    {
+      "body": 12,
+      "head": 1
+    },
+    {
+      "body": 12,
+      "head": 1
+    },
+    {
+      "body": 11,
+      "head": 1
+    },
+    {
+      "body": 12,
+      "head": 1
+    },
+    {
+      "body": 13,
+      "head": 1
+    },
+    {
+      "body": 11,
+      "head": 1
+    },
+    {
+      "body": 12,
+      "head": 1
+    },
+    {
+      "body": 2,
+      "head": 1
+    }
+  ],
+  "updated_query_counts_on_export": {
+    "01_execution_table.rq": 6,
+    "02_execution_graph_timeline.rq": 44,
+    "03_inferred_allen_relations.rq": 30,
+    "04_approval_evidence.rq": 1,
+    "05_message_timing.rq": 4
+  },
+  "export_was_modified": false,
+  "declaration_cleanup": "First delivery omitted standard qualified-usage declarations; corrected separately in source without changing dates, execution assertions, or rules."
+}
