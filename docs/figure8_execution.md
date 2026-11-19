@@ -2,9 +2,11 @@
 
 Execution example prepared 5 November 2026 for Michael DeBellis. All execution data are synthetic demonstration data, not a record of a real tender. This page describes the execution layer of the [Figure 8 plan](figure8_model_notes.md).
 
+Current examples use `pm:` for `https://in2use.com/process_model/`, which is also the ontology IRI. Its label is **Process model with examples**. The [namespace migration notes](namespace_migration.md) explain the identifier changes. Historical reports and screenshots retain the earlier identifiers.
+
 ## Open the RDF/XML file in Protégé
 
-**Open [process_model_with_examples.rdf](../ontologies/process_model_with_examples.rdf) in Protégé and retain RDF/XML when saving.** It is the repository's single ontology source, containing the reusable model, restored rules, Figure 8 plan and execution, and Method Omega. This source can also be imported directly into AllegroGraph.
+**Open [process_model_with_examples.rdf](../ontologies/process_model_with_examples.rdf) in Protégé and retain RDF/XML when saving.** It is the repository's single ontology source, containing the reusable model, restored rules, Figure 8 plan and execution, Method Omega, and the state and goal extensions. This source can also be imported directly into AllegroGraph. Preserve `rdf:type` elements before other properties within resource descriptions; the [RDF/XML compatibility report](../validation/rdfxml_compatibility.md) explains why this ordering is needed for the affected OWLAPI parser.
 
 **Do not convert the source to Turtle for editing in the affected Protégé/OWLAPI installation: that route deleted SWRL rule content.** A test using OWLAPI 4.5.29, matching the generator identified in the damaged upload, reproduced ten empty SWRL rules from both the intact donor and restored Turtle. The same model in RDF/XML loaded, saved, and reloaded with all ten complete rules and their annotations. SWRLTab was not involved in this reproduction. Moving named rules after variable declarations or removing AtomList typing did not solve the Turtle failure. Experimental anonymous-rule Turtle worked, but the supplied source preserves the named rule IRIs.
 
@@ -15,11 +17,11 @@ This establishes a failure in that parser/version/encoding combination, not the 
 - Restored seven temporal rules, two planned resource-flow rules, and the qualified-association rule from the uploaded intact `supply_chain_model(1).ttl`.
 - Restored seventeen SWRL variable declarations and removed damaged rule fragments and eight SWRL structural predicates incorrectly declared as annotation properties.
 - Preserved all 3,170 unrelated triples from the latest Figure 8 upload, including its plan, labels, and transition inverse properties. Updated ontology metadata to describe the additional example.
-- Added six `sc:StepExecution` individuals and one overall `prov:Activity`, `fig8:TenderRun01`. The overall Activity contains the six executions through the existing `sulo:hasPart` property; it is neither a Plan nor a provenance Bundle.
+- Added six `StepExecution` individuals and one overall `prov:Activity`, `TenderRun01` (now `pm:StepExecution` and `pm:TenderRun01`). The overall Activity contains the six executions through the existing `sulo:hasPart` property; it is neither a Plan nor a provenance Bundle.
 - Added actual-example participants through qualified PROV associations; ten artifacts correspond to the ten planned Variables, including four messages and one approval decision.
 - Added seven `time:ProperInterval` individuals linked from Activities with `time:hasTime`. Interval endpoints have `time:inXSDDateTimeStamp` values. Direct `prov:startedAtTime` and `prov:endedAtTime` values on Activities support the Gruff timeline. Both representations denote the same instants.
 
-That execution addition introduced no custom classes/properties, SHACL constraints, or stored Allen inferences. The current combined source includes the standard PROV declarations needed by the qualified-usage records; these were omitted from the first delivery. Existing ontology namespaces and naming conventions were retained.
+That execution addition introduced no custom classes/properties, SHACL constraints, or stored Allen inferences. The current combined source includes the standard PROV declarations needed by the qualified-usage records; these were omitted from the first delivery. The execution addition retained the namespaces and naming conventions in use at that time; the later namespace migration changed the project-owned IRIs.
 
 ## Read the example
 
@@ -52,7 +54,7 @@ The five files in [queries/figure8_execution](../queries/figure8_execution/) can
 | [04_approval_evidence.rq](../queries/figure8_execution/04_approval_evidence.rq) | Approval result, matching conditional transition, and performed submission | 1 row |
 | [05_message_timing.rq](../queries/figure8_execution/05_message_timing.rq) | Four messages with producers, generation times, consumers, and use times | 4 rows |
 
-The cleanup checks reproduced 6 rows, 44 triples, 1 approval row, and 4 message rows on the current asserted source. Query 3 returned zero rows because the source excludes materialized Allen inferences. See [cleanup_verification.json](../validation/cleanup_verification.json).
+The historical cleanup checks reproduced 6 rows, 44 triples, 1 approval row, and 4 message rows on the then-current asserted source. Query 3 returned zero rows because the source excludes materialized Allen inferences. See [cleanup_verification.json](../validation/cleanup_verification.json) for that snapshot and [namespace_migration.json](../validation/namespace_migration.json) for the later migration checks.
 
 Query 2 projects `prov:wasAssociatedWith` from qualified associations for display; the supplied source stores the qualified associations. Query 4 matches the recorded outcome and performed Step; it does not execute a branch. Query 3 filters to Activities with Step correspondence so any reflexive `sulo:hasPart` inference does not add the overall run to the task-only view.
 
@@ -61,6 +63,9 @@ Queries 1, 2, and 5 normalize date lexical values to `xsd:dateTime`; the SELECT 
 Useful inferred relations: drafting is **before** partner input; input **meets** incorporation; incorporation **meets** send-and-await; send-and-await **contains** voting; voting is **during** send-and-await; send-and-await **meets** submission. The overall run additionally shows **starts/started by** and **finishes/finished by**. The business example naturally covers eleven Allen relations when the run and self-pairs are included. A separate regression covers all thirteen; the example was not distorted to force a crossing overlap.
 
 ## Query Visualizations
+
+These screenshots predate the namespace migration. Any older IRIs or prefixes visible in them are historical; use the linked query files for the current identifiers.
+
 <img width="1041" height="544" alt="Query_01" src="https://github.com/user-attachments/assets/f48b86cf-3c7b-4157-a87e-1fd9af87c88c" />
 Query 01 Execution Table
 <br>
@@ -106,7 +111,7 @@ These findings record the November 2026 execution-model checks, before Method Om
 - No Plan was inferred to be an Activity; no replacement execution was added.
 - OWLAPI 4.5.29 read/save/reload preserved all ten rule bodies/heads and annotations through the RDF/XML route. The Turtle failure was reproduced separately. This does not test the installed SWRLTab UI.
 
-Validation summaries are retained under [validation/history/figure8](../validation/history/figure8/). The single ontology source excludes regression fixtures and materialized inferred triples. Donor ontologies, recovery snapshots, and obsolete build files are no longer shipped. See the [validation guide](../validation/README.md) for the distinction between historical reports and current cleanup checks.
+Validation summaries are retained under [validation/history/figure8](../validation/history/figure8/). The single ontology source excludes regression fixtures and materialized inferred triples. Donor ontologies, recovery snapshots, and obsolete build files are no longer shipped. See the [validation guide](../validation/README.md) for the distinction between historical reports and current namespace migration checks.
 
 ## Historical verification against Michael's Protégé export
 

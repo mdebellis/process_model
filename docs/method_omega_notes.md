@@ -2,11 +2,11 @@
 
 Abstract model added 6 November 2026; documentation updated for the single-source repository layout.
 
-The combined ontology contains the Figure 8 tendering plan, its synthetic execution, and the Method Omega model from Michael's diagram. The Method Omega stage contained **4,942 asserted triples**; the current source contains **5,294 asserted triples** after the [state and goal extensions](../state_goal_extensions_review/README.md). It retains all ten complete SWRL rules and the qualified PROV usage declarations, with no exported inferences.
+The combined ontology contains the Figure 8 tendering plan, its synthetic execution, and the Method Omega model from Michael's diagram. The Method Omega stage contained **4,942 asserted triples**; the current source contains **5,299 asserted triples** after the [state and goal extensions](../state_goal_extensions_review/README.md) and [namespace migration](namespace_migration.md). It retains all ten complete SWRL rules and the qualified PROV usage declarations, with no exported inferences.
 
 ## Open and review
 
-Open [process_model_with_examples.rdf](../ontologies/process_model_with_examples.rdf) in Protégé. It is the complete combined ontology and the repository's only ontology source. Its ontology IRI remains `https://www.michaeldebellis.com/supply_chain_figure8`; renaming the file preserves the header, vocabulary IRIs, and individual IRIs.
+Open [process_model_with_examples.rdf](../ontologies/process_model_with_examples.rdf) in Protégé. It is the complete combined ontology and the repository's only ontology source. Its ontology label is **Process model with examples**. Its ontology IRI and the namespace for project-owned vocabulary and examples are `https://in2use.com/process_model/`. The [namespace migration](namespace_migration.md) replaces the earlier local namespaces while preserving standard vocabulary IRIs.
 
 **Keep the source in RDF/XML, with `rdf:type` elements first within each resource description.** The affected OWLAPI 4.5.29 parser can otherwise load named SWRL rules with empty bodies or heads; see the [RDF/XML compatibility report](../validation/rdfxml_compatibility.md). The affected Protégé/OWLAPI Turtle parsing and saving route also deleted named SWRL rule content; the [execution notes](figure8_execution.md#open-the-rdfxml-file-in-protégé) describe those earlier tests. Turtle fragments below are explanatory notation only, not an alternative source file.
 
@@ -23,7 +23,7 @@ Use **Create Visual Graph** for the first three queries. Query 2 contains a comm
 
 ## Hierarchy
 
-`mo:` denotes `https://www.in2use.com/method_omega/`.
+`pm:` denotes `https://in2use.com/process_model/`.
 
 | Containing Plan | Direct Steps |
 |---|---|
@@ -38,14 +38,14 @@ There are **16 Step definitions, including eight MultiSteps**. Four MultiSteps h
 Each expanded MultiStep uses the P-Plan separation between a contextual Step and its body Plan. For example:
 
 ```turtle
-mo:Requirements_Acquisition
+pm:Requirements_Acquisition
     a pp:MultiStep ;
-    pp:isStepOfPlan mo:Method_Omega ;
-    pp:isDecomposedAsPlan mo:Requirements_Acquisition_Plan .
+    pp:isStepOfPlan pm:Method_Omega ;
+    pp:isDecomposedAsPlan pm:Requirements_Acquisition_Plan .
 
-mo:Kickoff_Meeting
+pm:Kickoff_Meeting
     a pp:Step ;
-    pp:isStepOfPlan mo:Requirements_Acquisition_Plan .
+    pp:isStepOfPlan pm:Requirements_Acquisition_Plan .
 ```
 
 The body Plan is also linked to its containing Plan through `pp:isSubPlanOfPlan`. Because P-Plan makes MultiStep a subclass of both Step and Plan, MultiSteps will appear under both classes in the inferred hierarchy. This does not make them actual processes or Activities.
@@ -54,17 +54,17 @@ The diagram's downward arrows show parent-to-child membership. `pp:isStepOfPlan`
 
 ## Sequence, conditions and repeated work
 
-`pm:` denotes `https://www.in2use.com/process_model/`. The following are local extensions, not P-Plan terms.
+The following `pm:` properties and classes are local extensions, not P-Plan terms.
 
 There are ten asserted forward precedence relationships. The underlying P-Plan triples use successor-to-predecessor direction; `pm:precedes` supplies the forward inverse. Neither relation denotes an immediate next step, because P-Plan precedence is transitive.
 
 The twelve **StepTransition** individuals preserve the immediate possible arrows separately. Each is also a `pm:Finish_To_Start_Transition`, explicitly describing the requirement that the source occurrence completes before the target occurrence starts. The interpretation permits zero waiting time: finish at 11:00 and start at 11:00 are allowed; overlap is not. This is a declared scheduling constraint, not an executable rule or an actual Allen relation.
 
-The **Requirements Approved?** diamond is an `sc:ExclusiveChoice`, not an extra work Step:
+The **Requirements Approved?** diamond is an instance of `pm:ExclusiveChoice`, not an extra work Step:
 
 - The decision is produced by `Review_Requirements` in the planned `Requirements_Review_Decision` Variable.
-- The Yes transition uses the existing `sc:Approved` outcome and reaches `Requirements_Acquisition_Completed`.
-- The No transition uses `sc:Rejected` and returns to `Create_Detailed_Requirements`. Here rejection means that this review requires revision, not that the project is cancelled.
+- The Yes transition uses the existing `pm:Approved` outcome and reaches `Requirements_Acquisition_Completed`.
+- The No transition uses `pm:Rejected` and returns to `Create_Detailed_Requirements`. Here rejection means that this review requires revision, not that the project is cancelled.
 - A missing decision does not mean No. The reasoner neither selects a branch nor creates an Activity.
 
 The No transition is **not** asserted as reverse P-Plan precedence. That would create a transitive precedence cycle. If rework occurs later, it creates new Activity occurrences corresponding to the same Step definitions. Requirements for ordering apply to the matching occurrences in that pass, not every possible pair of Activities sharing those Step definitions.
@@ -88,12 +88,11 @@ P-Plan has no expected-duration property. The new object property **`pm:expected
 For illustration only, a future estimate could be expressed as:
 
 ```turtle
-@prefix mo: <https://www.in2use.com/method_omega/> .
-@prefix pm: <https://www.in2use.com/process_model/> .
+@prefix pm: <https://in2use.com/process_model/> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-mo:Develop_Wireframes pm:expected_duration [
+pm:Develop_Wireframes pm:expected_duration [
     a time:Duration ;
     time:numericDuration "6"^^xsd:decimal ;
     time:unitType time:unitHour
@@ -108,7 +107,7 @@ The property is not a subproperty of `time:hasDuration`. In the supplied ontolog
 
 The excerpt is sufficient for the current abstract model. No additional participants, dates or durations are needed at this stage. For project executions we will later need the participating agents, actual/planned timing, decision outcomes and any rework occurrences.
 
-The combined ontology retains the original SULO alignment and reuses the existing transition, decision and task classes. No SHACL shapes, new SWRL rules or Method Omega Activities were added. New IRIs use the In2use slash namespaces, Title_Case_With_Underscores for classes and individuals, and lower_case_with_underscores for properties. Labels replace underscores with spaces. Reused vocabulary IRIs and existing labels remain unchanged.
+The combined ontology retains the original SULO alignment and reuses the existing transition, decision and task classes. The Method Omega addition introduced no SHACL shapes, new SWRL rules or Method Omega Activities. Its new local names use Title_Case_With_Underscores for classes and individuals, and lower_case_with_underscores for properties; labels replace underscores with spaces. The later namespace migration places project-owned terms under `https://in2use.com/process_model/` while preserving standard vocabulary IRIs and the Method Omega local names. Earlier validation reports retain their original namespaces and metadata.
 
 The original 6 November 2026 validation passed the following checks. These are historical findings, distinct from the [repository cleanup verification](../validation/README.md):
 
@@ -123,7 +122,7 @@ The original 6 November 2026 validation passed the following checks. These are h
 
 The [historical validation JSON](../validation/history/method_omega/validation_results.json) records the counts. The then-current input was graph-isomorphic to the corrected 4,498-triple Figure 8 source before the Method Omega additions. Local Pellet/OWLAPI checks did not test the installed Protégé UI or Gruff layout; no new reasoner run is implied by the repository cleanup.
 
-The historical cleanup checks confirmed that the then-current 4,942-triple RDF/XML was byte-identical to the prior combined source, retained ten complete rules, and had the expected hierarchy. The four Method Omega queries returned 70, 78, and 17 graph triples, and 16 inventory rows respectively. These checks are recorded in [cleanup_verification.json](../validation/cleanup_verification.json). See the [validation overview](../validation/README.md) for the later state extension and RDF/XML compatibility checks.
+The historical cleanup checks confirmed that the then-current 4,942-triple RDF/XML was byte-identical to the prior combined source, retained ten complete rules, and had the expected hierarchy. The four Method Omega queries returned 70, 78, and 17 graph triples, and 16 inventory rows respectively. These checks are recorded in [cleanup_verification.json](../validation/cleanup_verification.json). See the [validation overview](../validation/README.md) for the later state extension, RDF/XML compatibility, and [namespace migration checks](../validation/namespace_migration.json).
 
 ## Vocabulary references
 

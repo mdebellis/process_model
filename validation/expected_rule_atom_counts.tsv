@@ -7,5 +7,5 @@
 [<http://www.w3.org/2006/time#intervalOverlaps>]	13	1	builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=5;data_property=4;object_property=4	object_property=1
 [<http://www.w3.org/2006/time#intervalStarts>]	12	1	builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4	object_property=1
 [<http://www.w3.org/ns/prov#wasAssociatedWith>]	2	1	object_property=2	object_property=1
-[<https://www.michaeldebellis.com/supply_chain_model/hasFlowDependency>]	7	1	class=2;different_individuals=1;object_property=4	object_property=1
-[<https://www.michaeldebellis.com/supply_chain_model/sharesInputVariable>]	7	1	class=2;different_individuals=1;object_property=4	object_property=1
+[<https://in2use.com/process_model/hasFlowDependency>]	7	1	class=2;different_individuals=1;object_property=4	object_property=1
+[<https://in2use.com/process_model/sharesInputVariable>]	7	1	class=2;different_individuals=1;object_property=4	object_property=1

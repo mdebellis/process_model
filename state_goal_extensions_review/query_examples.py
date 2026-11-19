@@ -5,7 +5,7 @@ equivalent initial bindings. ChatGPT magic functions require AllegroGraph.
 """
 from rdflib import Graph, Namespace, URIRef
 
-PM = Namespace('https://www.in2use.com/process_model/')
+PM = Namespace('https://in2use.com/process_model/')
 
 
 def ask_tender_state(graph: Graph, test: URIRef, *, run: URIRef, version: URIRef) -> bool:

@@ -1,21 +1,18 @@
-@prefix fig: <https://www.michaeldebellis.com/supply_chain_figure8/> .
-@prefix mo: <https://www.in2use.com/method_omega/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix pm: <https://www.in2use.com/process_model/> .
+@prefix pm: <https://in2use.com/process_model/> .
 @prefix pp: <http://purl.org/net/p-plan#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix sc: <https://www.michaeldebellis.com/supply_chain_model/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sulo: <https://w3id.org/sulo/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-mo:Create_Detailed_Requirements pm:has_goal pm:Requirements_Ready_For_Review .
+pm:ApprovalCondition skos:definition "The decision artifact corresponding to the Partner Decision variable for the selected tender execution and review round has the explicit Approved outcome. The decision must concern the document version selected for evaluation."@en .
 
-mo:Requirements_Approved_Condition skos:definition "The decision artifact corresponding to the Requirements Review Decision variable for the selected Method Omega execution and review round has the explicit Approved outcome."@en .
+pm:Create_Detailed_Requirements pm:has_goal pm:Requirements_Ready_For_Review .
 
-mo:Requirements_Not_Approved_Condition skos:definition "The decision artifact corresponding to the Requirements Review Decision variable for the selected Method Omega execution and review round has the explicit Rejected outcome, meaning revision is required. Absence of a decision is not rejection."@en .
+pm:DecisionCondition rdfs:subClassOf pm:State_Description .
 
 pm:Evaluation_Error a owl:NamedIndividual,
         pm:Evaluation_Result ;
@@ -24,12 +21,20 @@ pm:Evaluation_Error a owl:NamedIndividual,
     skos:definition "The evaluation could not be completed or its output could not be interpreted according to the expected result contract. This is a technical evaluation outcome, not a truth value."@en ;
     skos:prefLabel "Evaluation Error"@en .
 
+pm:RejectionCondition skos:definition "The decision artifact corresponding to the Partner Decision variable for the selected tender execution and review round has the explicit Rejected outcome. Absence of an approval or a decision is not rejection."@en .
+
+pm:Requirements_Approved_Condition skos:definition "The decision artifact corresponding to the Requirements Review Decision variable for the selected Method Omega execution and review round has the explicit Approved outcome."@en .
+
+pm:Requirements_Not_Approved_Condition skos:definition "The decision artifact corresponding to the Requirements Review Decision variable for the selected Method Omega execution and review round has the explicit Rejected outcome, meaning revision is required. Absence of a decision is not rejection."@en .
+
 pm:Satisfied a owl:NamedIndividual,
         pm:Evaluation_Result ;
     rdfs:label "Satisfied"@en ;
     rdfs:isDefinedBy pm: ;
     skos:definition "The condition is assessed as satisfied for the specified inputs and evidence under the test interpretation."@en ;
     skos:prefLabel "Satisfied"@en .
+
+pm:TenderingPlan pm:has_goal pm:Approved_Tender_Submitted .
 
 pm:Unknown a owl:NamedIndividual,
         pm:Evaluation_Result ;
@@ -193,14 +198,6 @@ pm:has_sub_goal a owl:ObjectProperty ;
     skos:definition "Relates a goal to a component goal in its decomposition. The parent test specifies how its subgoals contribute to satisfaction."@en ;
     skos:prefLabel "has sub goal"@en .
 
-fig:ApprovalCondition skos:definition "The decision artifact corresponding to the Partner Decision variable for the selected tender execution and review round has the explicit Approved outcome. The decision must concern the document version selected for evaluation."@en .
-
-fig:RejectionCondition skos:definition "The decision artifact corresponding to the Partner Decision variable for the selected tender execution and review round has the explicit Rejected outcome. Absence of an approval or a decision is not rejection."@en .
-
-fig:TenderingPlan pm:has_goal pm:Approved_Tender_Submitted .
-
-sc:DecisionCondition rdfs:subClassOf pm:State_Description .
-
 pm:Approved_Tender_Submission_Test a owl:NamedIndividual,
         pm:State_Test ;
     rdfs:label "Approved Tender Submission Test"@en ;
@@ -209,26 +206,25 @@ pm:Approved_Tender_Submission_Test a owl:NamedIndividual,
     skos:prefLabel "Approved Tender Submission Test"@en ;
     skos:scopeNote "Required bindings: ?run is the selected tender execution IRI; ?version is the selected tender document-version IRI. No latest-version discovery is implied. Evaluate against the intended evidence dataset or snapshot. An unbound input is an evaluation error and must be rejected by the caller before execution. ASK true establishes the positive pattern in that dataset. ASK false means the pattern was not established: use Unsatisfied only when the relevant records are known complete and unambiguous for the selected run and version; otherwise use Unknown. Conflicting evidence requires assessment of the conflict and must not be silently resolved by a positive match. Runtime/query failures are Evaluation Error. These tests check recorded completed events, not workflow scheduling, vote unanimity, or absence of later revocation."@en ;
     pm:has_evaluation_method pm:SPARQL_Evaluation ;
-    pm:has_sparql_query """PREFIX fig: <https://www.michaeldebellis.com/supply_chain_figure8/>
-PREFIX sc: <https://www.michaeldebellis.com/supply_chain_model/>
+    pm:has_sparql_query """PREFIX pm: <https://in2use.com/process_model/>
 PREFIX pp: <http://purl.org/net/p-plan#>
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX sulo: <https://w3id.org/sulo/>
 ASK {
   ?run sulo:hasPart ?review .
-  ?review pp:correspondsToStep fig:t12VoteForTenderTask ;
+  ?review pp:correspondsToStep pm:t12VoteForTenderTask ;
           prov:used ?version ;
           prov:endedAtTime ?review_end .
-  ?decision a sc:DecisionResult ;
-            pp:correspondsToVariable fig:PartnerDecisionVar ;
-            sc:hasOutcome sc:Approved ;
-            sc:aboutVersion ?version ;
+  ?decision a pm:DecisionResult ;
+            pp:correspondsToVariable pm:PartnerDecisionVar ;
+            pm:hasOutcome pm:Approved ;
+            pm:aboutVersion ?version ;
             prov:wasGeneratedBy ?review .
   ?run sulo:hasPart ?submission .
-  ?submission pp:correspondsToStep fig:t3SubmitTenderTask ;
+  ?submission pp:correspondsToStep pm:t3SubmitTenderTask ;
               prov:used ?version ;
               prov:endedAtTime ?submission_end .
-  ?submitted_copy pp:correspondsToVariable fig:SubmittedTenderVar ;
+  ?submitted_copy pp:correspondsToVariable pm:SubmittedTenderVar ;
                   prov:wasGeneratedBy ?submission ;
                   prov:wasDerivedFrom ?version .
   ?submission prov:used ?decision .
@@ -261,7 +257,7 @@ pm:Requirements_Readiness_Test a owl:NamedIndividual,
     skos:prefLabel "Requirements Readiness Test"@en ;
     skos:scopeNote "Assess whether the supplied wireframes and use cases identify their actors, relevant user actions, observable outcomes, and important alternative or error paths; whether their shared concepts and interactions agree; and whether unresolved omissions prevent a meaningful review. Use the supplied project expectations as the scope: do not invent universal completeness requirements. Cite the evidence identifiers supporting the judgment. If document content, version bindings or context are missing, or material evidence conflicts cannot be resolved, return Unknown. This assesses readiness for human review, not formal approval."@en ;
     pm:has_evaluation_method pm:ChatGPT_Evaluation ;
-    pm:has_sparql_query """PREFIX pm: <https://www.in2use.com/process_model/>
+    pm:has_sparql_query """PREFIX pm: <https://in2use.com/process_model/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX llm: <http://franz.com/ns/allegrograph/8.0.0/llm/>
 SELECT ?response WHERE {
@@ -306,20 +302,19 @@ pm:Tender_Approval_Test a owl:NamedIndividual,
     skos:prefLabel "Tender Approval Test"@en ;
     skos:scopeNote "Required bindings: ?run is the selected tender execution IRI; ?version is the selected tender document-version IRI. No latest-version discovery is implied. Evaluate against the intended evidence dataset or snapshot. An unbound input is an evaluation error and must be rejected by the caller before execution. ASK true establishes the positive pattern in that dataset. ASK false means the pattern was not established: use Unsatisfied only when the relevant records are known complete and unambiguous for the selected run and version; otherwise use Unknown. Conflicting evidence requires assessment of the conflict and must not be silently resolved by a positive match. Runtime/query failures are Evaluation Error. These tests check recorded completed events, not workflow scheduling, vote unanimity, or absence of later revocation."@en ;
     pm:has_evaluation_method pm:SPARQL_Evaluation ;
-    pm:has_sparql_query """PREFIX fig: <https://www.michaeldebellis.com/supply_chain_figure8/>
-PREFIX sc: <https://www.michaeldebellis.com/supply_chain_model/>
+    pm:has_sparql_query """PREFIX pm: <https://in2use.com/process_model/>
 PREFIX pp: <http://purl.org/net/p-plan#>
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX sulo: <https://w3id.org/sulo/>
 ASK {
   ?run sulo:hasPart ?review .
-  ?review pp:correspondsToStep fig:t12VoteForTenderTask ;
+  ?review pp:correspondsToStep pm:t12VoteForTenderTask ;
           prov:used ?version ;
           prov:endedAtTime ?review_end .
-  ?decision a sc:DecisionResult ;
-            pp:correspondsToVariable fig:PartnerDecisionVar ;
-            sc:hasOutcome sc:Approved ;
-            sc:aboutVersion ?version ;
+  ?decision a pm:DecisionResult ;
+            pp:correspondsToVariable pm:PartnerDecisionVar ;
+            pm:hasOutcome pm:Approved ;
+            pm:aboutVersion ?version ;
             prov:wasGeneratedBy ?review .
 }
 """^^xsd:string .
@@ -340,17 +335,16 @@ pm:Tender_Submission_Test a owl:NamedIndividual,
     skos:prefLabel "Tender Submission Test"@en ;
     skos:scopeNote "Required bindings: ?run is the selected tender execution IRI; ?version is the selected tender document-version IRI. No latest-version discovery is implied. Evaluate against the intended evidence dataset or snapshot. An unbound input is an evaluation error and must be rejected by the caller before execution. ASK true establishes the positive pattern in that dataset. ASK false means the pattern was not established: use Unsatisfied only when the relevant records are known complete and unambiguous for the selected run and version; otherwise use Unknown. Conflicting evidence requires assessment of the conflict and must not be silently resolved by a positive match. Runtime/query failures are Evaluation Error. These tests check recorded completed events, not workflow scheduling, vote unanimity, or absence of later revocation."@en ;
     pm:has_evaluation_method pm:SPARQL_Evaluation ;
-    pm:has_sparql_query """PREFIX fig: <https://www.michaeldebellis.com/supply_chain_figure8/>
-PREFIX sc: <https://www.michaeldebellis.com/supply_chain_model/>
+    pm:has_sparql_query """PREFIX pm: <https://in2use.com/process_model/>
 PREFIX pp: <http://purl.org/net/p-plan#>
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX sulo: <https://w3id.org/sulo/>
 ASK {
   ?run sulo:hasPart ?submission .
-  ?submission pp:correspondsToStep fig:t3SubmitTenderTask ;
+  ?submission pp:correspondsToStep pm:t3SubmitTenderTask ;
               prov:used ?version ;
               prov:endedAtTime ?submission_end .
-  ?submitted_copy pp:correspondsToVariable fig:SubmittedTenderVar ;
+  ?submitted_copy pp:correspondsToVariable pm:SubmittedTenderVar ;
                   prov:wasGeneratedBy ?submission ;
                   prov:wasDerivedFrom ?version .
 }

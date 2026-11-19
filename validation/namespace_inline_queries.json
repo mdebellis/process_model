@@ -1,0 +1,116 @@
+{
+  "baseline_commit": "6a446c369bf2401e5107b6fa5fc5b5a945c2ac8c",
+  "baseline_triples": 5294,
+  "migrated_triples": 5299,
+  "mapping_count": 308,
+  "query_count": 8,
+  "all_expected_counts_match": true,
+  "all_full_results_equal_after_iri_mapping": false,
+  "results": [
+    {
+      "query": "1a",
+      "type": "SELECT",
+      "baseline_count": 7,
+      "migrated_count": 7,
+      "expected_count": 7,
+      "expected_count_matches": true,
+      "full_result_equal_after_iri_mapping": true,
+      "equivalent_with_intended_role_labels": true
+    },
+    {
+      "query": "1b",
+      "type": "CONSTRUCT",
+      "baseline_count": 47,
+      "migrated_count": 47,
+      "expected_count": 47,
+      "expected_count_matches": true,
+      "full_result_equal_after_iri_mapping": false,
+      "baseline_only": [
+        [
+          "<https://in2use.com/process_model/Tendering_Lead_Supplier_Role>",
+          "<http://www.w3.org/2000/01/rdf-schema#label>",
+          "\"Lead supplier role in this tendering plan\"@en"
+        ],
+        [
+          "<https://in2use.com/process_model/Tendering_Partner_Role>",
+          "<http://www.w3.org/2000/01/rdf-schema#label>",
+          "\"Invited partner role in this tendering plan\"@en"
+        ]
+      ],
+      "migrated_only": [
+        [
+          "<https://in2use.com/process_model/Tendering_Lead_Supplier_Role>",
+          "<http://www.w3.org/2000/01/rdf-schema#label>",
+          "\"Tendering Lead Supplier Role\"@en"
+        ],
+        [
+          "<https://in2use.com/process_model/Tendering_Partner_Role>",
+          "<http://www.w3.org/2000/01/rdf-schema#label>",
+          "\"Tendering Partner Role\"@en"
+        ]
+      ],
+      "equivalent_with_intended_role_labels": true
+    },
+    {
+      "query": "2a",
+      "type": "SELECT",
+      "baseline_count": 10,
+      "migrated_count": 10,
+      "expected_count": 10,
+      "expected_count_matches": true,
+      "full_result_equal_after_iri_mapping": true,
+      "equivalent_with_intended_role_labels": true
+    },
+    {
+      "query": "2b",
+      "type": "CONSTRUCT",
+      "baseline_count": 50,
+      "migrated_count": 50,
+      "expected_count": 50,
+      "expected_count_matches": true,
+      "full_result_equal_after_iri_mapping": true,
+      "equivalent_with_intended_role_labels": true
+    },
+    {
+      "query": "3a",
+      "type": "SELECT",
+      "baseline_count": 10,
+      "migrated_count": 10,
+      "expected_count": 10,
+      "expected_count_matches": true,
+      "full_result_equal_after_iri_mapping": true,
+      "equivalent_with_intended_role_labels": true
+    },
+    {
+      "query": "3b",
+      "type": "CONSTRUCT",
+      "baseline_count": 17,
+      "migrated_count": 17,
+      "expected_count": 17,
+      "expected_count_matches": true,
+      "full_result_equal_after_iri_mapping": true,
+      "equivalent_with_intended_role_labels": true
+    },
+    {
+      "query": "3c",
+      "type": "SELECT",
+      "baseline_count": 12,
+      "migrated_count": 12,
+      "expected_count": 12,
+      "expected_count_matches": true,
+      "full_result_equal_after_iri_mapping": true,
+      "equivalent_with_intended_role_labels": true
+    },
+    {
+      "query": "Optional stored-triple query",
+      "type": "SELECT",
+      "baseline_count": 0,
+      "migrated_count": 0,
+      "expected_count": 0,
+      "expected_count_matches": true,
+      "full_result_equal_after_iri_mapping": true,
+      "equivalent_with_intended_role_labels": true
+    }
+  ],
+  "all_results_equivalent_with_intended_role_labels": true
+}

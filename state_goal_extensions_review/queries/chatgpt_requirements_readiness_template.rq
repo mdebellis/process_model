@@ -1,4 +1,4 @@
-PREFIX pm: <https://www.in2use.com/process_model/>
+PREFIX pm: <https://in2use.com/process_model/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX llm: <http://franz.com/ns/allegrograph/8.0.0/llm/>
 SELECT ?response WHERE {

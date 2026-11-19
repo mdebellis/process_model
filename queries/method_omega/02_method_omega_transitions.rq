@@ -1,29 +1,28 @@
-PREFIX mo: <https://www.in2use.com/method_omega/>
-PREFIX pm: <https://www.in2use.com/process_model/>
+PREFIX pm: <https://in2use.com/process_model/>
 PREFIX pp: <http://purl.org/net/p-plan#>
-PREFIX sc: <https://www.michaeldebellis.com/supply_chain_model/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 CONSTRUCT {
-  ?from sc:hasOutgoingTransition ?transition; rdfs:label ?fromLabel.
-  ?transition a ?kind; sc:transitionTo ?to; rdfs:label ?transitionLabel;
-              sc:hasCondition ?condition.
+  ?from pm:hasOutgoingTransition ?transition; rdfs:label ?fromLabel.
+  ?transition a ?kind; pm:transitionTo ?to; rdfs:label ?transitionLabel;
+              pm:hasCondition ?condition.
   ?to rdfs:label ?toLabel.
-  ?condition rdfs:label ?conditionLabel; sc:expectedOutcome ?outcome.
+  ?condition rdfs:label ?conditionLabel; pm:expectedOutcome ?outcome.
   ?outcome rdfs:label ?outcomeLabel.
-  ?choice a sc:ExclusiveChoice; rdfs:label ?choiceLabel; sc:hasAlternative ?transition.
+  ?choice a pm:ExclusiveChoice; rdfs:label ?choiceLabel; pm:hasAlternative ?transition.
 } WHERE {
-  ?transition sc:transitionFrom ?from; sc:transitionTo ?to;
+  ?transition pm:transitionFrom ?from; pm:transitionTo ?to;
               rdfs:label ?transitionLabel; a ?kind.
-  FILTER(STRSTARTS(STR(?transition), STR(mo:)))
-  FILTER(?kind IN (pm:Finish_To_Start_Transition, sc:ConditionalTransition))
+  pm:Method_Omega (^pp:isStepOfPlan/pp:isDecomposedAsPlan)* ?plan.
+  ?from pp:isStepOfPlan ?plan.
+  FILTER(?kind IN (pm:Finish_To_Start_Transition, pm:ConditionalTransition))
   ?from rdfs:label ?fromLabel.
   ?to rdfs:label ?toLabel.
   # To show only the expanded Requirements Acquisition flow, uncomment:
-  # ?from pp:isStepOfPlan mo:Requirements_Acquisition_Plan.
+  # ?from pp:isStepOfPlan pm:Requirements_Acquisition_Plan.
   OPTIONAL {
-    ?transition sc:hasCondition ?condition.
-    ?condition rdfs:label ?conditionLabel; sc:expectedOutcome ?outcome.
+    ?transition pm:hasCondition ?condition.
+    ?condition rdfs:label ?conditionLabel; pm:expectedOutcome ?outcome.
     ?outcome rdfs:label ?outcomeLabel.
   }
-  OPTIONAL { ?choice sc:hasAlternative ?transition; rdfs:label ?choiceLabel. }
+  OPTIONAL { ?choice pm:hasAlternative ?transition; rdfs:label ?choiceLabel. }
 }

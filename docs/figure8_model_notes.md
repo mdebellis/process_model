@@ -9,10 +9,11 @@ Keep the source in **RDF/XML**. Opening and saving the named-rule Turtle represe
 
 This page explains the Figure 8 **planned workflow**. The [dated execution](figure8_execution.md) is a separate set of synthetic individuals in the same ontology.
 
-- The combined ontology retains the ontology IRI `https://www.michaeldebellis.com/supply_chain_figure8`
-- The example namespace, abbreviated fig8 below, is `https://www.michaeldebellis.com/supply_chain_figure8/`
-- The main plan individual is `fig8:TenderingPlan`.
-- The reusable vocabulary namespace, abbreviated sc, is `https://www.michaeldebellis.com/supply_chain_model/`
+- The ontology IRI and namespace for all project-owned vocabulary and examples are `https://in2use.com/process_model/`, abbreviated `pm:` below.
+- The ontology label is **Process model with examples**.
+- The main plan individual is `pm:TenderingPlan`.
+
+The [namespace migration notes](namespace_migration.md) explain the changes from the earlier supply-chain and Method Omega identifiers. Standard P-Plan, PROV, SULO, and OWL-Time IRIs are unchanged. The reusable role classes are `pm:Partner_Role` and `pm:Lead_Supplier_Role`; the Figure 8 role individuals are `pm:Tendering_Partner_Role` and `pm:Tendering_Lead_Supplier_Role`. Distinct names preserve the distinction between role classes and the contextual roles in this example.
 
 ## Source and scope
 
@@ -30,29 +31,29 @@ The original Figure 8 plan additions preserved the ten existing SWRL rules and t
 
 ## Seven tasks
 
-- `fig8:t1CreateTenderDraftTask` - `DraftingStep`, assigned to the lead supplier. Uses the call for tender and produces the initial draft.
-- `fig8:t2IncorporateInputsTask` - `RevisionStep`, assigned to the lead supplier. Incorporates the partner contribution into a new revised-tender variable. The local identifier corrects the spelling of the incorporation task in the figure.
-- `fig8:t11SendTenderForVotingTask` - `CommunicationStep`, assigned to the lead supplier. Sends the revised tender for voting and awaits the returning vote.
-- `fig8:t3SubmitTenderTask` - `SubmissionStep`, assigned to the lead supplier. The approval branch.
-- `fig8:t13ReplaceSupplierTask` - `PartnerReplacementStep`, assigned to the lead supplier. The rejection branch, described in the paper as inviting an alternative partner.
-- `fig8:t222MakeInputTask` - `ContributionStep`, assigned to the invited partner. Produces a separate partner contribution.
-- `fig8:t12VoteForTenderTask` - `ReviewStep`, assigned to the invited partner. Reviews the revised tender and produces the partner decision.
+- `pm:t1CreateTenderDraftTask` - `DraftingStep`, assigned to the lead supplier. Uses the call for tender and produces the initial draft.
+- `pm:t2IncorporateInputsTask` - `RevisionStep`, assigned to the lead supplier. Incorporates the partner contribution into a new revised-tender variable. The local identifier corrects the spelling of the incorporation task in the figure.
+- `pm:t11SendTenderForVotingTask` - `CommunicationStep`, assigned to the lead supplier. Sends the revised tender for voting and awaits the returning vote.
+- `pm:t3SubmitTenderTask` - `SubmissionStep`, assigned to the lead supplier. The approval branch.
+- `pm:t13ReplaceSupplierTask` - `PartnerReplacementStep`, assigned to the lead supplier. The rejection branch, described in the paper as inviting an alternative partner.
+- `pm:t222MakeInputTask` - `ContributionStep`, assigned to the invited partner. Produces a separate partner contribution.
+- `pm:t12VoteForTenderTask` - `ReviewStep`, assigned to the invited partner. Reviews the revised tender and produces the partner decision.
 
 Each task has its own `PlannedAssignment` connecting the task, the placeholder organization, and its contextual role. These are intended assignments, not actual PROV associations or executions.
 
 ## Events and control flow
 
-The lead-supplier path starts at `fig8:CFT_Received`, proceeds through draft creation, input incorporation, and the send-and-await task, and then branches.
+The lead-supplier path starts at `pm:CFT_Received`, proceeds through draft creation, input incorporation, and the send-and-await task, and then branches.
 
-Approval leads to submission and `fig8:TenderSubmitted_End`. Rejection leads to supplier replacement and `fig8:SupplierReplaced_End`.
+Approval leads to submission and `pm:TenderSubmitted_End`. Rejection leads to supplier replacement and `pm:SupplierReplaced_End`.
 
-The partner path starts at `fig8:Draft_Received`, proceeds through contribution and voting, and finishes at `fig8:PartnerVote_End`. This participant-specific end is not asserted to end the lead supplier's path.
+The partner path starts at `pm:Draft_Received`, proceeds through contribution and voting, and finishes at `pm:PartnerVote_End`. This participant-specific end is not asserted to end the lead supplier's path.
 
-There are ten explicit `StepTransition` individuals, including two `ConditionalTransition` individuals. `fig8:SubmissionChoice` groups the two conditional alternatives after `t11SendTenderForVotingTask`.
+There are ten explicit `StepTransition` individuals, including two `ConditionalTransition` individuals. `pm:SubmissionChoice` groups the two conditional alternatives after `t11SendTenderForVotingTask`.
 
 The XOR gateway is represented by the `ExclusiveChoice` individual. Its incoming connection is recorded with `choiceAfterStep`; its outgoing branches are the `hasAlternative` links to the two `ConditionalTransitions`.
 
-`ApprovalCondition` checks `PartnerDecisionVar` for `sc:Approved`. `RejectionCondition` checks the same variable for `sc:Rejected`. These outcome-to-branch mappings come from the explanatory text, since the figure itself does not label the branches. The plan describes both alternatives. The separate synthetic execution records an approval decision and a submission; it does not change those planned alternatives. Missing decision information does not select a branch.
+`ApprovalCondition` checks `PartnerDecisionVar` for `pm:Approved`. `RejectionCondition` checks the same variable for `pm:Rejected`. These outcome-to-branch mappings come from the explanatory text, since the figure itself does not label the branches. The plan describes both alternatives. The separate synthetic execution records an approval decision and a submission; it does not change those planned alternatives. Missing decision information does not select a branch.
 
 The replacement branch ends where Figure 8 ends. No retry loop or additional partner lane has been invented.
 
@@ -99,9 +100,9 @@ The inherited regression tests also passed: 31 PROV type entailments, qualified 
 
 ## Useful SPARQL queries
 
-Updated 4 November 2026 by ChatGPT for the Figure 8 demonstration in AllegroGraph/Gruff.
+Originally prepared 4 November 2026 for the Figure 8 demonstration in AllegroGraph/Gruff; the query text below now uses the unified `pm:` namespace. The screenshots are historical captures and may show earlier IRIs or prefix names.
 
-The table and graph queries below work directly on the asserted content of [process_model_with_examples.rdf](../ontologies/process_model_with_examples.rdf); no prior SWRL execution or materialization is required. They are scoped to `fig8:TenderingPlan`.
+The table and graph queries below work directly on the asserted content of [process_model_with_examples.rdf](../ontologies/process_model_with_examples.rdf); no prior SWRL execution or materialization is required. They are scoped to `pm:TenderingPlan`.
 
 Use the `SELECT` variants for tables. Use the `CONSTRUCT` variants for visual graphs: run the query in Gruff, then choose **Create Visual Graph**. A `CONSTRUCT` returns a graph for browsing; it does not insert those triples into the repository. These instructions target Gruff connected directly to AllegroGraph, as in the demonstration, rather than its generic SPARQL-endpoint mode.
 
@@ -112,15 +113,14 @@ Gruff has to reconstruct related triples from a `SELECT` result. Returning only 
 **1a — Table: seven assignments.** The assignment individual is now included so the result retains the connection between each task, agent, and role.
 
 ```sparql
-PREFIX sc: <https://www.michaeldebellis.com/supply_chain_model/>
-PREFIX fig8: <https://www.michaeldebellis.com/supply_chain_figure8/>
+PREFIX pm: <https://in2use.com/process_model/>
 PREFIX pp: <http://purl.org/net/p-plan#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 SELECT ?assignment ?task ?label ?agent ?role WHERE {
-  ?task pp:isStepOfPlan fig8:TenderingPlan; rdfs:label ?label.
-  ?assignment sc:assignmentForStep ?task;
-              sc:assignedAgent ?agent;
-              sc:assignedRole ?role.
+  ?task pp:isStepOfPlan pm:TenderingPlan; rdfs:label ?label.
+  ?assignment pm:assignmentForStep ?task;
+              pm:assignedAgent ?agent;
+              pm:assignedRole ?role.
 }
 ORDER BY ?task
 ```
@@ -132,28 +132,27 @@ Figure 1a. Gruff Visualization of Query 1a
 **1b — Graph: tasks, assignments, agents, and roles.** This includes the assignment nodes and their three links, rather than showing only tasks linked to the plan. The two organizations remain illustrative placeholders, as described above.
 
 ```sparql
-PREFIX sc: <https://www.michaeldebellis.com/supply_chain_model/>
-PREFIX fig8: <https://www.michaeldebellis.com/supply_chain_figure8/>
+PREFIX pm: <https://in2use.com/process_model/>
 PREFIX pp: <http://purl.org/net/p-plan#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 CONSTRUCT {
-  ?assignment sc:assignmentForStep ?task;
-              sc:assignedAgent ?agent;
-              sc:assignedRole ?role;
+  ?assignment pm:assignmentForStep ?task;
+              pm:assignedAgent ?agent;
+              pm:assignedRole ?role;
               rdfs:label ?assignmentLabel.
-  ?task pp:isStepOfPlan fig8:TenderingPlan; rdfs:label ?label.
+  ?task pp:isStepOfPlan pm:TenderingPlan; rdfs:label ?label.
   ?agent rdfs:label ?agentLabel.
   ?role rdfs:label ?roleLabel.
-  fig8:TenderingPlan rdfs:label ?planLabel.
+  pm:TenderingPlan rdfs:label ?planLabel.
 } WHERE {
-  ?task pp:isStepOfPlan fig8:TenderingPlan; rdfs:label ?label.
-  ?assignment sc:assignmentForStep ?task;
-              sc:assignedAgent ?agent;
-              sc:assignedRole ?role.
+  ?task pp:isStepOfPlan pm:TenderingPlan; rdfs:label ?label.
+  ?assignment pm:assignmentForStep ?task;
+              pm:assignedAgent ?agent;
+              pm:assignedRole ?role.
   OPTIONAL { ?assignment rdfs:label ?assignmentLabel. }
   OPTIONAL { ?agent rdfs:label ?agentLabel. }
   OPTIONAL { ?role rdfs:label ?roleLabel. }
-  OPTIONAL { fig8:TenderingPlan rdfs:label ?planLabel. }
+  OPTIONAL { pm:TenderingPlan rdfs:label ?planLabel. }
 }
 ```
 <img width="1056" height="703" alt="task_assignments_1b" src="https://github.com/user-attachments/assets/2b10d129-63ce-4e1d-9967-0953fc8fda1e" />
@@ -166,17 +165,16 @@ Figure 1b. Gruff Visualization of Query 1b
 **2a — Table: ten transitions.** Returns the transition and endpoint IRIs alongside their labels. Two rows have outcomes: approval leads to submission and rejection leads to replacement. The other eight rows have no condition/outcome binding because those transitions are unconditional.
 
 ```sparql
-PREFIX sc: <https://www.michaeldebellis.com/supply_chain_model/>
-PREFIX fig8: <https://www.michaeldebellis.com/supply_chain_figure8/>
+PREFIX pm: <https://in2use.com/process_model/>
 PREFIX pp: <http://purl.org/net/p-plan#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 SELECT ?transition ?from ?fromLabel ?to ?toLabel ?condition ?outcome WHERE {
-  ?transition sc:transitionFrom ?from; sc:transitionTo ?to.
-  ?from pp:isStepOfPlan fig8:TenderingPlan; rdfs:label ?fromLabel.
-  ?to pp:isStepOfPlan fig8:TenderingPlan; rdfs:label ?toLabel.
+  ?transition pm:transitionFrom ?from; pm:transitionTo ?to.
+  ?from pp:isStepOfPlan pm:TenderingPlan; rdfs:label ?fromLabel.
+  ?to pp:isStepOfPlan pm:TenderingPlan; rdfs:label ?toLabel.
   OPTIONAL {
-    ?transition sc:hasCondition ?condition.
-    ?condition sc:expectedOutcome ?outcome.
+    ?transition pm:hasCondition ?condition.
+    ?condition pm:expectedOutcome ?outcome.
   }
 }
 ORDER BY ?fromLabel ?toLabel
@@ -189,26 +187,25 @@ Figure 2a. Gruff Visualization of Query 2a.
 **2b — Graph: the ten transition individuals and their endpoints, plus the two branch conditions.** The transition is a node with `transitionFrom` and `transitionTo` links. These links both originate at the transition node; follow their predicate names to distinguish the source and target steps. The graph preserves the ontology's actual representation instead of inventing a direct step-to-step control predicate. The outcomes describe alternatives in the plan, not votes that have actually occurred.
 
 ```sparql
-PREFIX sc: <https://www.michaeldebellis.com/supply_chain_model/>
-PREFIX fig8: <https://www.michaeldebellis.com/supply_chain_figure8/>
+PREFIX pm: <https://in2use.com/process_model/>
 PREFIX pp: <http://purl.org/net/p-plan#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 CONSTRUCT {
-  ?transition sc:transitionFrom ?from;
-              sc:transitionTo ?to;
-              sc:hasCondition ?condition;
+  ?transition pm:transitionFrom ?from;
+              pm:transitionTo ?to;
+              pm:hasCondition ?condition;
               rdfs:label ?transitionLabel.
   ?from rdfs:label ?fromLabel.
   ?to rdfs:label ?toLabel.
-  ?condition sc:expectedOutcome ?outcome; rdfs:label ?conditionLabel.
+  ?condition pm:expectedOutcome ?outcome; rdfs:label ?conditionLabel.
   ?outcome rdfs:label ?outcomeLabel.
 } WHERE {
-  ?transition sc:transitionFrom ?from; sc:transitionTo ?to.
-  ?from pp:isStepOfPlan fig8:TenderingPlan; rdfs:label ?fromLabel.
-  ?to pp:isStepOfPlan fig8:TenderingPlan; rdfs:label ?toLabel.
+  ?transition pm:transitionFrom ?from; pm:transitionTo ?to.
+  ?from pp:isStepOfPlan pm:TenderingPlan; rdfs:label ?fromLabel.
+  ?to pp:isStepOfPlan pm:TenderingPlan; rdfs:label ?toLabel.
   OPTIONAL {
-    ?transition sc:hasCondition ?condition.
-    ?condition sc:expectedOutcome ?outcome.
+    ?transition pm:hasCondition ?condition.
+    ?condition pm:expectedOutcome ?outcome.
     OPTIONAL { ?condition rdfs:label ?conditionLabel. }
     OPTIONAL { ?outcome rdfs:label ?outcomeLabel. }
   }
@@ -222,21 +219,20 @@ Figure 2b. Results of SPARQL Query 2b.
 
 ### 3. Resource-flow dependencies without prior reasoning
 
-The original third query selected `sc:hasFlowDependency` triples. That property is declared and appears in a SWRL rule head, but the asserted ontology contains **zero uses of it as a predicate**. Importing rule definitions is not the same as executing the rules or loading their inferred results. A zero-row result, or Gruff's warning that no triples use this predicate, is therefore expected on the asserted graph.
+The original third query selected `pm:hasFlowDependency` triples. That property is declared and appears in a SWRL rule head, but the asserted ontology contains **zero uses of it as a predicate**. Importing rule definitions is not the same as executing the rules or loading their inferred results. A zero-row result, or Gruff's warning that no triples use this predicate, is therefore expected on the asserted graph.
 
 For this demonstration, calculate the dependencies at query time by joining a producer's `pp:hasOutputVar` with a consumer's `pp:hasInputVar` for the same variable. Both steps must belong to the Figure 8 plan.
 
 **3a — Table: ten distinct producer/consumer pairs.**
 
 ```sparql
-PREFIX sc: <https://www.michaeldebellis.com/supply_chain_model/>
-PREFIX fig8: <https://www.michaeldebellis.com/supply_chain_figure8/>
+PREFIX pm: <https://in2use.com/process_model/>
 PREFIX pp: <http://purl.org/net/p-plan#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 SELECT DISTINCT ?producer ?consumer WHERE {
-  ?producer pp:isStepOfPlan fig8:TenderingPlan;
+  ?producer pp:isStepOfPlan pm:TenderingPlan;
             pp:hasOutputVar ?variable.
-  ?consumer pp:isStepOfPlan fig8:TenderingPlan;
+  ?consumer pp:isStepOfPlan pm:TenderingPlan;
             pp:hasInputVar ?variable.
   FILTER(?producer != ?consumer)
 }
@@ -245,21 +241,20 @@ ORDER BY ?producer ?consumer
 
 This reproduces the ten expected dependency pairs for this Figure 8 dataset. Its steps are explicitly different individuals and are CollaborationSteps through their declared types and subclass hierarchy. The `!=` filter compares RDF terms; it is not a general replacement for OWL/SWRL distinctness reasoning on arbitrary ontologies.
 
-**3b — Graph: ten derived dependency edges.** The `WHERE` clause reads the asserted output/input links, so it does not require pre-existing `hasFlowDependency` triples. The `CONSTRUCT` presents those calculated links under the existing `sc:hasFlowDependency` property. They are query results, not changes to the stored ontology.
+**3b — Graph: ten derived dependency edges.** The `WHERE` clause reads the asserted output/input links, so it does not require pre-existing `hasFlowDependency` triples. The `CONSTRUCT` presents those calculated links under the existing `pm:hasFlowDependency` property. They are query results, not changes to the stored ontology.
 
 ```sparql
-PREFIX sc: <https://www.michaeldebellis.com/supply_chain_model/>
-PREFIX fig8: <https://www.michaeldebellis.com/supply_chain_figure8/>
+PREFIX pm: <https://in2use.com/process_model/>
 PREFIX pp: <http://purl.org/net/p-plan#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 CONSTRUCT {
-  ?producer sc:hasFlowDependency ?consumer;
+  ?producer pm:hasFlowDependency ?consumer;
             rdfs:label ?producerLabel.
   ?consumer rdfs:label ?consumerLabel.
 } WHERE {
-  ?producer pp:isStepOfPlan fig8:TenderingPlan;
+  ?producer pp:isStepOfPlan pm:TenderingPlan;
             pp:hasOutputVar ?variable.
-  ?consumer pp:isStepOfPlan fig8:TenderingPlan;
+  ?consumer pp:isStepOfPlan pm:TenderingPlan;
             pp:hasInputVar ?variable.
   FILTER(?producer != ?consumer)
   OPTIONAL { ?producer rdfs:label ?producerLabel. }
@@ -276,14 +271,13 @@ The two opposite dependencies between the send-and-await task and the voting tas
 **3c — Explanation table: which variable establishes each dependency?** Returns twelve rows supporting the ten distinct pairs. Two pairs each share both a document variable and a message variable, so `DISTINCT` on the producer/consumer pair in 3a is intentional.
 
 ```sparql
-PREFIX sc: <https://www.michaeldebellis.com/supply_chain_model/>
-PREFIX fig8: <https://www.michaeldebellis.com/supply_chain_figure8/>
+PREFIX pm: <https://in2use.com/process_model/>
 PREFIX pp: <http://purl.org/net/p-plan#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 SELECT ?producer ?consumer ?variable WHERE {
-  ?producer pp:isStepOfPlan fig8:TenderingPlan;
+  ?producer pp:isStepOfPlan pm:TenderingPlan;
             pp:hasOutputVar ?variable.
-  ?consumer pp:isStepOfPlan fig8:TenderingPlan;
+  ?consumer pp:isStepOfPlan pm:TenderingPlan;
             pp:hasInputVar ?variable.
   FILTER(?producer != ?consumer)
 }
@@ -297,19 +291,18 @@ The original third query remains useful after inferred dependency assertions hav
 **Expected on the supplied asserted file: zero rows.** This query is a check for available dependency triples, not the recommended first-use demonstration query.
 
 ```sparql
-PREFIX sc: <https://www.michaeldebellis.com/supply_chain_model/>
-PREFIX fig8: <https://www.michaeldebellis.com/supply_chain_figure8/>
+PREFIX pm: <https://in2use.com/process_model/>
 PREFIX pp: <http://purl.org/net/p-plan#>
 SELECT ?producer ?consumer WHERE {
-  ?producer pp:isStepOfPlan fig8:TenderingPlan;
-            sc:hasFlowDependency ?consumer.
+  ?producer pp:isStepOfPlan pm:TenderingPlan;
+            pm:hasFlowDependency ?consumer.
 }
 ORDER BY ?producer ?consumer
 ```
 
 ### Historical query verification on 4 November 2026
 
-All eight SPARQL blocks in this section were executed with RDFLib against the GitHub `supply_chain_figure8.ttl` retrieved on 4 November 2026. The original three queries returned 7, 10, and 0 rows, reproducing the reported behavior. The replacement dependency query matched all ten independently enumerated expected pairs from the original Figure 8 validation, including the request/reply pair in both directions. The graph versions were checked for their assignment, transition, condition, and dependency edges; the source graph remained unchanged.
+The earlier versions of all eight SPARQL blocks in this section were executed with RDFLib against the GitHub `supply_chain_figure8.ttl` retrieved on 4 November 2026, using the namespaces in that source. The original three queries returned 7, 10, and 0 rows, reproducing the reported behavior. The replacement dependency query matched all ten independently enumerated expected pairs from the original Figure 8 validation, including the request/reply pair in both directions. The graph versions were checked for their assignment, transition, condition, and dependency edges; the source graph remained unchanged.
 
 | Query | Verified result |
 |---|---|
@@ -322,6 +315,8 @@ All eight SPARQL blocks in this section were executed with RDFLib against the Gi
 | 3c | 12 producer/consumer/variable rows |
 | Optional stored-triple query | 0 rows before inference output is made available |
 
-These historical checks tested SPARQL results and graph structure; they were not a new Pellet validation or a claim that the queries had run in a live Gruff/AllegroGraph repository. The [cleanup verification](../validation/README.md) records checks against the renamed combined source. The ontology-validation results above remain the record of the original implementation.
+These historical checks tested SPARQL results and graph structure; they were not a new Pellet validation or a claim that the queries had run in a live Gruff/AllegroGraph repository. The [validation overview](../validation/README.md) distinguishes those earlier records from the [namespace migration checks](../validation/namespace_migration.json). The ontology-validation results above remain the record of the original implementation.
+
+The namespace migration checks reran all eight current snippets against the 5,299-triple source. Their result sizes match the table above. After applying the IRI mapping, the results are unchanged except for the two deliberately updated role labels displayed by query 1b: **Tendering Lead Supplier Role** and **Tendering Partner Role**.
 
 

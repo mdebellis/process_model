@@ -1,5 +1,4 @@
-PREFIX fig8: <https://www.michaeldebellis.com/supply_chain_figure8/>
-PREFIX sc: <https://www.michaeldebellis.com/supply_chain_model/>
+PREFIX pm: <https://in2use.com/process_model/>
 PREFIX pp: <http://purl.org/net/p-plan#>
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX time: <http://www.w3.org/2006/time#>
@@ -7,14 +6,14 @@ PREFIX sulo: <https://w3id.org/sulo/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 CONSTRUCT {
-  ?activity a sc:StepExecution; rdfs:label ?activityLabel;
+  ?activity a pm:StepExecution; rdfs:label ?activityLabel;
     pp:correspondsToStep ?step;
     prov:startedAtTime ?start; prov:endedAtTime ?end;
     prov:wasAssociatedWith ?agent.
   ?step rdfs:label ?stepLabel.
   ?agent rdfs:label ?agentLabel.
 } WHERE {
-  fig8:TenderRun01 sulo:hasPart ?activity.
+  pm:TenderRun01 sulo:hasPart ?activity.
   ?activity pp:correspondsToStep ?step;
     rdfs:label ?activityLabel; prov:startedAtTime ?startValue; prov:endedAtTime ?endValue;
     prov:qualifiedAssociation/prov:agent ?agent.

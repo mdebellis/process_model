@@ -1,0 +1,387 @@
+{
+  "passed": true,
+  "namespace": "https://in2use.com/process_model/",
+  "baseline_commit": "6a446c369bf2401e5107b6fa5fc5b5a945c2ac8c",
+  "baseline_triples": 5294,
+  "current_triples": 5299,
+  "baseline_sha256": "311d8fbd516073d0e9bbcccfe08885cf6062a1292a590b517757eca342e6364f",
+  "current_sha256": "5f11c0651c8a85332de57fe1ea302b923743f316554f0ed5c79c2f9a6ab5f585",
+  "mapping_entries": 308,
+  "checks": [
+    {
+      "check": "One stable target ontology IRI",
+      "passed": true,
+      "ontology_iris": [
+        "https://in2use.com/process_model/"
+      ]
+    },
+    {
+      "check": "Unique old mapping keys",
+      "passed": true
+    },
+    {
+      "check": "No unintended IRI merges",
+      "passed": true,
+      "intentional_alias_convergence": {
+        "https://in2use.com/process_model/": [
+          "https://www.in2use.com/process_model/",
+          "https://www.michaeldebellis.com/supply_chain_figure8"
+        ]
+      }
+    },
+    {
+      "check": "All destinations use exact target namespace",
+      "passed": true
+    },
+    {
+      "check": "All locally defined resources included in mapping",
+      "passed": true,
+      "local_subject_count": 287,
+      "historical_time_example_count": 19,
+      "missing": []
+    },
+    {
+      "check": "SWRL variables are migrated",
+      "passed": true,
+      "variable_count": 17
+    },
+    {
+      "check": "No reused external vocabulary renamed",
+      "passed": true,
+      "unexpected_external_mapping": []
+    },
+    {
+      "check": "No legacy project namespace in RDF terms",
+      "passed": true,
+      "legacy_terms": []
+    },
+    {
+      "check": "Historical source IRI remains a source reference",
+      "passed": true
+    },
+    {
+      "check": "Unchanged header metadata and historical change notes retained",
+      "passed": true,
+      "prior_change_notes": 7,
+      "new_change_notes": 1
+    },
+    {
+      "check": "RDF structure preserved under declared IRI mapping",
+      "passed": true,
+      "compared_triples_before": 5265,
+      "compared_triples_after": 5265,
+      "excluded_intentional_changes": [
+        "ontology-header annotations",
+        "four role labels/prefLabels",
+        "SPARQL text (expanded algebra checked separately)"
+      ]
+    },
+    {
+      "check": "Role class and plan-specific individual remain distinct: Partner_Role",
+      "passed": true
+    },
+    {
+      "check": "English collision-resolution label: Partner_Role",
+      "passed": true
+    },
+    {
+      "check": "English collision-resolution label: Tendering_Partner_Role",
+      "passed": true
+    },
+    {
+      "check": "Role class and plan-specific individual remain distinct: Lead_Supplier_Role",
+      "passed": true
+    },
+    {
+      "check": "English collision-resolution label: Lead_Supplier_Role",
+      "passed": true
+    },
+    {
+      "check": "English collision-resolution label: Tendering_Lead_Supplier_Role",
+      "passed": true
+    },
+    {
+      "check": "All four embedded queries preserve expanded SPARQL algebra",
+      "passed": true,
+      "queries": [
+        {
+          "test": "https://in2use.com/process_model/Tender_Submission_Test",
+          "expanded_algebra_preserved": true,
+          "error": null
+        },
+        {
+          "test": "https://in2use.com/process_model/Tender_Approval_Test",
+          "expanded_algebra_preserved": true,
+          "error": null
+        },
+        {
+          "test": "https://in2use.com/process_model/Approved_Tender_Submission_Test",
+          "expanded_algebra_preserved": true,
+          "error": null
+        },
+        {
+          "test": "https://in2use.com/process_model/Requirements_Readiness_Test",
+          "expanded_algebra_preserved": true,
+          "error": null
+        }
+      ],
+      "llm_executed": false
+    },
+    {
+      "check": "Nine existing queries retain their results",
+      "passed": true,
+      "queries": [
+        {
+          "path": "queries/figure8_execution/01_execution_table.rq",
+          "result_type": "SELECT",
+          "result_count": 6,
+          "equivalent_after_inverse_mapping": true
+        },
+        {
+          "path": "queries/figure8_execution/02_execution_graph_timeline.rq",
+          "result_type": "CONSTRUCT",
+          "result_count": 44,
+          "equivalent_after_inverse_mapping": true
+        },
+        {
+          "path": "queries/figure8_execution/03_inferred_allen_relations.rq",
+          "result_type": "SELECT",
+          "result_count": 0,
+          "equivalent_after_inverse_mapping": true
+        },
+        {
+          "path": "queries/figure8_execution/04_approval_evidence.rq",
+          "result_type": "SELECT",
+          "result_count": 1,
+          "equivalent_after_inverse_mapping": true
+        },
+        {
+          "path": "queries/figure8_execution/05_message_timing.rq",
+          "result_type": "SELECT",
+          "result_count": 4,
+          "equivalent_after_inverse_mapping": true
+        },
+        {
+          "path": "queries/method_omega/01_method_omega_hierarchy.rq",
+          "result_type": "CONSTRUCT",
+          "result_count": 70,
+          "equivalent_after_inverse_mapping": true
+        },
+        {
+          "path": "queries/method_omega/02_method_omega_transitions.rq",
+          "result_type": "CONSTRUCT",
+          "result_count": 78,
+          "equivalent_after_inverse_mapping": true
+        },
+        {
+          "path": "queries/method_omega/03_method_omega_deliverables.rq",
+          "result_type": "CONSTRUCT",
+          "result_count": 17,
+          "equivalent_after_inverse_mapping": true
+        },
+        {
+          "path": "queries/method_omega/04_method_omega_step_inventory.rq",
+          "result_type": "SELECT",
+          "result_count": 16,
+          "equivalent_after_inverse_mapping": true
+        }
+      ]
+    },
+    {
+      "check": "Four standalone state queries parse; three deterministic examples pass",
+      "passed": true,
+      "queries": [
+        {
+          "path": "state_goal_extensions_review/queries/approved_tender_submission_test.rq",
+          "syntax_valid": true,
+          "executed": true,
+          "ask_result": true
+        },
+        {
+          "path": "state_goal_extensions_review/queries/chatgpt_requirements_readiness_template.rq",
+          "syntax_valid": true,
+          "executed": false,
+          "reason": "Vendor LLM function requires configured AllegroGraph; no LLM invoked."
+        },
+        {
+          "path": "state_goal_extensions_review/queries/tender_approval_test.rq",
+          "syntax_valid": true,
+          "executed": true,
+          "ask_result": true
+        },
+        {
+          "path": "state_goal_extensions_review/queries/tender_submission_test.rq",
+          "syntax_valid": true,
+          "executed": true,
+          "ask_result": true
+        }
+      ]
+    },
+    {
+      "check": "Additions-only Turtle fragment migrated consistently",
+      "passed": true,
+      "triples_before": 350,
+      "triples_after": 350,
+      "embedded_queries_match_complete_ontology": true
+    },
+    {
+      "check": "All 26 state/query/invocation checks pass",
+      "passed": true,
+      "report": {
+        "passed": true,
+        "checks": 26,
+        "results": [
+          {
+            "case": "Parse Tender_Submission_Test",
+            "passed": true
+          },
+          {
+            "case": "Parse Requirements_Readiness_Test",
+            "passed": true
+          },
+          {
+            "case": "Parse Approved_Tender_Submission_Test",
+            "passed": true
+          },
+          {
+            "case": "Parse Tender_Approval_Test",
+            "passed": true
+          },
+          {
+            "case": "Existing run: Tender_Approval_Test",
+            "expected": true,
+            "actual": true,
+            "passed": true
+          },
+          {
+            "case": "Different version: Tender_Approval_Test",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Different run: Tender_Approval_Test",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Existing run: Tender_Submission_Test",
+            "expected": true,
+            "actual": true,
+            "passed": true
+          },
+          {
+            "case": "Different version: Tender_Submission_Test",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Different run: Tender_Submission_Test",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Existing run: Approved_Tender_Submission_Test",
+            "expected": true,
+            "actual": true,
+            "passed": true
+          },
+          {
+            "case": "Different version: Approved_Tender_Submission_Test",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Different run: Approved_Tender_Submission_Test",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Missing approval evidence",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Parent with missing approval evidence",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Submission independently of approval",
+            "expected": true,
+            "actual": true,
+            "passed": true
+          },
+          {
+            "case": "Explicit rejection",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Submission not recorded complete",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Parent must link actual approval used",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Approval subgoal remains independent",
+            "expected": true,
+            "actual": true,
+            "passed": true
+          },
+          {
+            "case": "Submission subgoal remains independent",
+            "expected": true,
+            "actual": true,
+            "passed": true
+          },
+          {
+            "case": "Submitted copy of wrong version",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Approval from another execution cannot be borrowed",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Reject missing caller binding",
+            "passed": true
+          },
+          {
+            "case": "Reject missing caller binding",
+            "passed": true
+          },
+          {
+            "case": "Do not interpret an LLM SELECT as deterministic ASK",
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "check": "Executable supporting files use current IRIs",
+      "passed": true,
+      "stale_files": []
+    }
+  ],
+  "reasoning_report": "namespace_reasoning.json",
+  "scope": "No network or LLM calls. Reasoning is tested separately. Historical records are not rewritten."
+}

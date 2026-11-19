@@ -2,7 +2,7 @@
 
 18 November 2026
 
-Open **process_model_with_examples.rdf** in Protégé. It is the complete updated
+Open [process_model_with_examples.rdf](../ontologies/process_model_with_examples.rdf) in Protégé. It is the complete updated
 ontology, including the existing tendering, Method Omega and OWL-Time examples.
 Use the corrected type-first RDF/XML serialization described in the
 [compatibility report](../validation/rdfxml_compatibility.md). The original
@@ -18,15 +18,20 @@ is the provisional executable representation. A future higher-level language,
 including the discussed Manchester Syntax extension, can replace or generate
 tests without changing the identity of state descriptions or goals.
 
-All new vocabulary and example individuals use
-`https://www.in2use.com/process_model/`. The existing ontology IRI remains
-`https://www.michaeldebellis.com/supply_chain_figure8`. Existing vocabulary and
-example IRIs are preserved.
+All project-owned vocabulary and example individuals now use
+`https://in2use.com/process_model/`, abbreviated `pm:`. This is also the ontology
+IRI; its label is **Process model with examples**. The later
+[namespace migration](../docs/namespace_migration.md) updated the draft's local
+IRIs and query text while preserving standard vocabulary IRIs. The original
+validation reports retain the identifiers used when they were produced; the
+[migration report](../validation/namespace_migration.json) covers the current source.
 
 The supplied baseline contained 4,942 asserted triples but no State_Description
-or has_sub_state declarations. This draft supplies those foundations. The
-updated ontology contains 5,294 asserted triples. No inferred triples or runtime
-evaluation records have been added.
+or has_sub_state declarations. The state draft supplied those foundations and
+contained 5,294 triples before namespace migration. The current ontology contains
+5,299 asserted triples. The five additional triples are four role preferred
+labels and one migration change note. No inferred triples or runtime evaluation records have
+been added.
 
 ## Vocabulary
 
@@ -67,8 +72,9 @@ disjointness or functional-property constraints were introduced.
 
 The existing supply-chain DecisionCondition class is now a subclass of
 State_Description, retaining its original parents. Its four existing individuals
-have English skos:definition values. Their IRIs, outcomes and branch meanings are
-unchanged; a missing decision still does not mean rejection.
+have English skos:definition values. The namespace migration updates their IRIs;
+their outcomes and branch meanings remain unchanged. A missing decision still
+does not mean rejection.
 
 The illustrative **Approved_Tender_Submitted** goal has **Tender_Approved** and
 **Tender_Submitted** subgoals. Three ASK tests assess the selected execution and
@@ -136,10 +142,12 @@ Documentation checked:
 
 ## Validation
 
-The checks below describe the initial draft validation. The
+The checks below describe the initial draft validation before namespace migration. The
 [RDF/XML compatibility regression](../validation/rdfxml_compatibility.md)
 additionally reproduces the reported Protégé inconsistency and verifies the
-corrected serialization with OWLAPI 4.5.29 and the official Pellet plug-in.
+corrected serialization with OWLAPI 4.5.29 and the official Pellet plug-in. Both
+sets of reports describe the earlier IRIs. See the [namespace migration
+results](../validation/namespace_migration.json) for checks on the current source.
 
 - RDF/XML parsing and isomorphic roundtrip: passed.
 - Existing named assertions and anonymous structures preserved, except updated
