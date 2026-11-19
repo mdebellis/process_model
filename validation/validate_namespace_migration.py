@@ -1,5 +1,8 @@
 """Validate the process-model namespace migration without network or LLM calls.
 
+Historical v2 checker; its header/name expectations describe that snapshot.
+Use validation/validate_naming.py to validate the current repository source.
+
 Requires RDFLib. From the repository root:
     python validation/validate_namespace_migration.py --baseline-ref 6a446c3
 

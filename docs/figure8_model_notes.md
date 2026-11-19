@@ -9,7 +9,7 @@ Keep the source in **RDF/XML**. Opening and saving the named-rule Turtle represe
 
 This page explains the Figure 8 **planned workflow**. The [dated execution](figure8_execution.md) is a separate set of synthetic individuals in the same ontology.
 
-- The ontology IRI and namespace for all project-owned vocabulary and examples are `https://in2use.com/process_model/`, abbreviated `pm:` below.
+- The ontology IRI is `https://in2use.com/process_model`, without a trailing slash. The namespace for all project-owned vocabulary and examples is `https://in2use.com/process_model/`, abbreviated `pm:` below.
 - The ontology label is **Process model with examples**.
 - The main plan individual is `pm:Tendering_Plan`.
 

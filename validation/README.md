@@ -2,11 +2,17 @@
 
 The repository has one ontology source: [process_model_with_examples.rdf](../ontologies/process_model_with_examples.rdf). Validation records document checks on this source and the earlier stages from which it was assembled.
 
-## Current source and naming checks
+## Current source and ontology-identity checks
 
-The current ontology contains **5,505 asserted triples**, including ten complete SWRL rules and the [state and goal extensions](../state_goal_extensions_review/README.md). Its ontology IRI and project-owned term namespace remain `https://in2use.com/process_model/`; `owl:versionInfo` is `process-model-v3-2026-11-18`.
+The current ontology contains **5,506 asserted triples**, including ten complete SWRL rules and the [state and goal extensions](../state_goal_extensions_review/README.md). Its ontology IRI is `https://in2use.com/process_model` (no trailing slash). Its entity namespace and `pm:` prefix remain `https://in2use.com/process_model/`; `owl:versionInfo` is `process-model-v4-2026-11-18`.
 
-The [naming conventions](../docs/naming_conventions.md) explain the 175 IRI changes recorded in [naming_migration.tsv](../docs/naming_migration.tsv), direct English labels, and retention of replaced labels as alternatives. Two existing inverse-property declarations moved to their primary `has_` side; no new inverses or constraints were introduced. [naming_validation.json](naming_validation.json) records structural and query checks; [naming_reasoning.json](naming_reasoning.json) records parser and reasoner checks on this revision.
+The [naming conventions](../docs/naming_conventions.md) explain the distinction between ontology identity and entity namespace. The header correction updates 54 `rdfs:isDefinedBy` references in the complete source and 49 in the review fragment. Class, property, and individual IRIs, labels, logical axioms, and query text are unchanged. The additional triple is an ontology change note.
+
+[ontology_identity.json](ontology_identity.json) records current structural, naming, reference, and query checks; [ontology_identity_reasoning.json](ontology_identity_reasoning.json) records the focused comparison with commit `8cfff5f` and current parser/reasoner results. Run `python validation/validate_naming.py` to repeat the structural/query checks; it writes the current report without overwriting the historical naming report.
+
+## Earlier naming revision
+
+The 175 entity IRI changes in [naming_migration.tsv](../docs/naming_migration.tsv), direct English labels, retained alternative labels, and two inverse declarations moved to their primary side were introduced in the preceding 5,505-triple version. [naming_validation.json](naming_validation.json) and [naming_reasoning.json](naming_reasoning.json) remain unchanged evidence for that revision.
 
 ## Earlier namespace migration
 

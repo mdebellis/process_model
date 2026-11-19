@@ -6,7 +6,7 @@ The combined ontology contains the Figure 8 tendering plan, its synthetic execut
 
 ## Open and review
 
-Open [process_model_with_examples.rdf](../ontologies/process_model_with_examples.rdf) in Protégé. It is the complete combined ontology and the repository's only ontology source. Its ontology label is **Process model with examples**. Its ontology IRI and the namespace for project-owned vocabulary and examples are `https://in2use.com/process_model/`. The [namespace migration](namespace_migration.md) replaces the earlier local namespaces while preserving standard vocabulary IRIs.
+Open [process_model_with_examples.rdf](../ontologies/process_model_with_examples.rdf) in Protégé. It is the complete combined ontology and the repository's only ontology source. Its ontology label is **Process model with examples**. Its ontology IRI is `https://in2use.com/process_model` (no trailing slash); the entity namespace is `https://in2use.com/process_model/`. The [naming guide](naming_conventions.md) explains this distinction and the earlier namespace and naming changes. Standard vocabulary IRIs are preserved.
 
 **Keep the source in RDF/XML, with `rdf:type` elements first within each resource description.** The affected OWLAPI 4.5.29 parser can otherwise load named SWRL rules with empty bodies or heads; see the [RDF/XML compatibility report](../validation/rdfxml_compatibility.md). The affected Protégé/OWLAPI Turtle parsing and saving route also deleted named SWRL rule content; the [execution notes](figure8_execution.md#open-the-rdfxml-file-in-protégé) describe those earlier tests. Turtle fragments below are explanatory notation only, not an alternative source file.
 

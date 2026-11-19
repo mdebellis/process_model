@@ -1,13 +1,26 @@
 # Naming conventions and migration
 
-18 November 2026. The current version is `process-model-v3-2026-11-18`.
+18 November 2026. The current version is `process-model-v4-2026-11-18`.
 
-The ontology remains **Process model with examples**, with the stable ontology
-IRI and project namespace `https://in2use.com/process_model/`, abbreviated `pm:`.
-This revision standardizes project-owned local names and labels. The
-[naming map](naming_migration.tsv) records **175 renamed IRIs**. The complete
-[RDF/XML source](../ontologies/process_model_with_examples.rdf) now contains
-**5,505 asserted triples**, including all ten SWRL rules.
+The ontology remains **Process model with examples**. Its identity and entity
+namespace use these separate conventions:
+
+| Purpose | IRI |
+|---|---|
+| Ontology identity | `https://in2use.com/process_model` |
+| Entity namespace and `pm:` prefix | `https://in2use.com/process_model/` |
+
+The earlier naming revision standardized project-owned local names and labels.
+The [naming map](naming_migration.tsv) records its **175 renamed entity IRIs**.
+The current ontology-identity correction removes the slash only from the
+ontology identifier and references to that identifier. All class, property,
+individual, rule, and variable IRIs remain unchanged. For example,
+`pm:Contribution_Step` still expands to
+`https://in2use.com/process_model/Contribution_Step`.
+
+The complete [RDF/XML source](../ontologies/process_model_with_examples.rdf)
+contains **5,506 asserted triples**, including all ten SWRL rules. The one
+additional triple since the naming revision is an ontology change note.
 
 ## Names and labels
 
@@ -43,10 +56,15 @@ including reused P-Plan, PROV, SULO, and OWL-Time terms.
 
 ## What changes semantically
 
-The revision changes identifiers, labels, references in queries and supporting
-files, and version/change annotations. It preserves the example data and the
+The naming revision changed identifiers, labels, references in queries and supporting
+files, and version/change annotations. It preserved the example data and the
 logical meanings of the classes, properties, and rules. The increase from
-5,299 to 5,505 triples comes from label and change annotations.
+5,299 to 5,505 triples came from label and change annotations.
+
+The subsequent ontology-identity correction updates the header and all 54
+`rdfs:isDefinedBy` references to it in the complete ontology, plus the 49 matching
+references in the state/goal review fragment. It updates current descriptive
+metadata and version information, and preserves query text and logical axioms.
 
 Two existing `owl:inverseOf` statements are now written on the primary side:
 
@@ -68,11 +86,15 @@ outside this repository must translate their own references.
 
 For clients using the previous unified namespace, apply
 [naming_migration.tsv](naming_migration.tsv). For clients still using the
-original supply-chain or Method Omega namespaces, apply both maps in order:
+original supply-chain or Method Omega namespaces, use these steps:
 
 1. Apply the original [namespace map](iri_migration.tsv).
 2. Apply the [naming map](naming_migration.tsv) to that result. If an IRI has no
    entry in the second map, retain the name produced by the first map.
+3. For the ontology identifier and references to the ontology itself, replace
+   the exact IRI `https://in2use.com/process_model/` with
+   `https://in2use.com/process_model`. This is an exact RDF-term replacement,
+   not a replacement of the namespace prefix within entity IRIs or queries.
 
 For example, the original supply-chain `CollaborationStep` becomes
 `pm:CollaborationStep` in the first map and `pm:Collaboration_Step` in the
@@ -87,10 +109,17 @@ evidence. Their earlier names and counts describe the snapshots tested then.
 
 ## Validation and RDF/XML compatibility
 
-- [Naming and query checks](../validation/naming_validation.json) record the
-  structural, label, mapping, and query checks for this revision.
-- [Reasoning checks](../validation/naming_reasoning.json) record the parser and
-  reasoner checks for this revision.
+- [Current structural and query checks](../validation/ontology_identity.json)
+  cover the ontology-identity correction and the established naming conventions.
+- [Current reasoning checks](../validation/ontology_identity_reasoning.json)
+  cover parser and reasoner behavior after the header correction.
+- The [naming checks](../validation/naming_validation.json) and
+  [naming reasoning checks](../validation/naming_reasoning.json) remain records
+  of the preceding 5,505-triple version.
+
+Run `python validation/validate_naming.py` to repeat the current structural and
+query checks (RDFLib and lxml required). The scripts in `tools/` reproduce the
+historical namespace and naming revisions; their headers identify that scope.
 
 Keep the complete ontology in RDF/XML, with each resource description's
 `rdf:type` elements before its other properties. The

@@ -1,0 +1,375 @@
+{
+  "passed": true,
+  "baseline_commit": "03dc687f43dd18644318579e4adb7c263815af53",
+  "ontology_iri": "https://in2use.com/process_model",
+  "entity_namespace": "https://in2use.com/process_model/",
+  "baseline_triples": 5299,
+  "current_triples": 5506,
+  "renamed_iris": 175,
+  "renamed_by_kind": {
+    "individual": 109,
+    "class": 27,
+    "rule": 10,
+    "object_property": 28,
+    "data_property": 1
+  },
+  "ontology_sha256": "1f3621db3a5a810bcd15d689cdba32d5415036e4d835424301c887eb754b732a",
+  "checks": [
+    {
+      "check": "Unique naming map with no resource merges",
+      "passed": true,
+      "count": 175
+    },
+    {
+      "check": "Only project IRIs renamed",
+      "passed": true
+    },
+    {
+      "check": "No obsolete IRIs remain in RDF terms",
+      "passed": true
+    },
+    {
+      "check": "External IRIs unchanged",
+      "passed": true
+    },
+    {
+      "check": "Ontology identity is distinct from the entity namespace",
+      "passed": true,
+      "ontology_iri": "https://in2use.com/process_model",
+      "entity_namespace": "https://in2use.com/process_model/"
+    },
+    {
+      "check": "Ontology definition references point to the corrected identity",
+      "passed": true,
+      "references": 54
+    },
+    {
+      "check": "All project names follow conventions",
+      "passed": true,
+      "failures": [],
+      "entities": 306
+    },
+    {
+      "check": "Exact default English labels and consistent preferred labels",
+      "passed": true,
+      "failures": []
+    },
+    {
+      "check": "Prior labels retained as defaults or alternatives",
+      "passed": true
+    },
+    {
+      "check": "All other assertions preserved under renaming",
+      "passed": true
+    },
+    {
+      "check": "Historical provenance annotations preserved",
+      "passed": true
+    },
+    {
+      "check": "Primary transition properties own inverse definitions",
+      "passed": true
+    },
+    {
+      "check": "All nine query results preserved with intended labels",
+      "passed": true,
+      "queries": [
+        {
+          "path": "queries/figure8_execution/01_execution_table.rq",
+          "passed": true,
+          "count": 6
+        },
+        {
+          "path": "queries/figure8_execution/02_execution_graph_timeline.rq",
+          "passed": true,
+          "count": 44
+        },
+        {
+          "path": "queries/figure8_execution/03_inferred_allen_relations.rq",
+          "passed": true,
+          "count": 0
+        },
+        {
+          "path": "queries/figure8_execution/04_approval_evidence.rq",
+          "passed": true,
+          "count": 1
+        },
+        {
+          "path": "queries/figure8_execution/05_message_timing.rq",
+          "passed": true,
+          "count": 4
+        },
+        {
+          "path": "queries/method_omega/01_method_omega_hierarchy.rq",
+          "passed": true,
+          "count": 70
+        },
+        {
+          "path": "queries/method_omega/02_method_omega_transitions.rq",
+          "passed": true,
+          "count": 78
+        },
+        {
+          "path": "queries/method_omega/03_method_omega_deliverables.rq",
+          "passed": true,
+          "count": 17
+        },
+        {
+          "path": "queries/method_omega/04_method_omega_step_inventory.rq",
+          "passed": true,
+          "count": 16
+        }
+      ]
+    },
+    {
+      "check": "All eight inline SPARQL results preserved",
+      "passed": true,
+      "queries": [
+        {
+          "path": "docs/figure8_model_notes.md",
+          "example": 1,
+          "passed": true,
+          "count": 7
+        },
+        {
+          "path": "docs/figure8_model_notes.md",
+          "example": 2,
+          "passed": true,
+          "count": 47
+        },
+        {
+          "path": "docs/figure8_model_notes.md",
+          "example": 3,
+          "passed": true,
+          "count": 10
+        },
+        {
+          "path": "docs/figure8_model_notes.md",
+          "example": 4,
+          "passed": true,
+          "count": 50
+        },
+        {
+          "path": "docs/figure8_model_notes.md",
+          "example": 5,
+          "passed": true,
+          "count": 10
+        },
+        {
+          "path": "docs/figure8_model_notes.md",
+          "example": 6,
+          "passed": true,
+          "count": 17
+        },
+        {
+          "path": "docs/figure8_model_notes.md",
+          "example": 7,
+          "passed": true,
+          "count": 12
+        },
+        {
+          "path": "docs/figure8_model_notes.md",
+          "example": 8,
+          "passed": true,
+          "count": 0
+        }
+      ]
+    },
+    {
+      "check": "All 26 state and caller validation cases pass",
+      "passed": true,
+      "report": {
+        "passed": true,
+        "checks": 26,
+        "results": [
+          {
+            "case": "Parse Approved_Tender_Submission_Test",
+            "passed": true
+          },
+          {
+            "case": "Parse Tender_Approval_Test",
+            "passed": true
+          },
+          {
+            "case": "Parse Requirements_Readiness_Test",
+            "passed": true
+          },
+          {
+            "case": "Parse Tender_Submission_Test",
+            "passed": true
+          },
+          {
+            "case": "Existing run: Tender_Approval_Test",
+            "expected": true,
+            "actual": true,
+            "passed": true
+          },
+          {
+            "case": "Different version: Tender_Approval_Test",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Different run: Tender_Approval_Test",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Existing run: Tender_Submission_Test",
+            "expected": true,
+            "actual": true,
+            "passed": true
+          },
+          {
+            "case": "Different version: Tender_Submission_Test",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Different run: Tender_Submission_Test",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Existing run: Approved_Tender_Submission_Test",
+            "expected": true,
+            "actual": true,
+            "passed": true
+          },
+          {
+            "case": "Different version: Approved_Tender_Submission_Test",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Different run: Approved_Tender_Submission_Test",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Missing approval evidence",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Parent with missing approval evidence",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Submission independently of approval",
+            "expected": true,
+            "actual": true,
+            "passed": true
+          },
+          {
+            "case": "Explicit rejection",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Submission not recorded complete",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Parent must link actual approval used",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Approval subgoal remains independent",
+            "expected": true,
+            "actual": true,
+            "passed": true
+          },
+          {
+            "case": "Submission subgoal remains independent",
+            "expected": true,
+            "actual": true,
+            "passed": true
+          },
+          {
+            "case": "Submitted copy of wrong version",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Approval from another execution cannot be borrowed",
+            "expected": false,
+            "actual": false,
+            "passed": true
+          },
+          {
+            "case": "Reject missing caller binding",
+            "passed": true
+          },
+          {
+            "case": "Reject missing caller binding",
+            "passed": true
+          },
+          {
+            "case": "Do not interpret an LLM SELECT as deterministic ASK",
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "check": "State query files parse and deterministic ASK examples pass",
+      "passed": true,
+      "templates": [
+        {
+          "path": "state_goal_extensions_review/queries/approved_tender_submission_test.rq",
+          "parsed": true,
+          "deterministic_result": true
+        },
+        {
+          "path": "state_goal_extensions_review/queries/chatgpt_requirements_readiness_template.rq",
+          "parsed": true,
+          "deterministic_result": null
+        },
+        {
+          "path": "state_goal_extensions_review/queries/tender_approval_test.rq",
+          "parsed": true,
+          "deterministic_result": true
+        },
+        {
+          "path": "state_goal_extensions_review/queries/tender_submission_test.rq",
+          "parsed": true,
+          "deterministic_result": true
+        }
+      ]
+    },
+    {
+      "check": "Review fragment stored queries match complete ontology",
+      "passed": true
+    },
+    {
+      "check": "Review fragment assertions preserved",
+      "passed": true
+    },
+    {
+      "check": "RDF types precede other properties in each XML description",
+      "passed": true
+    },
+    {
+      "check": "Relative Markdown links resolve",
+      "passed": true,
+      "broken_links": []
+    }
+  ],
+  "scope": "Current source compared with the pre-naming baseline, allowing the documented naming changes and ontology-header correction. No LLM invoked. Current reasoning is recorded separately in ontology_identity_reasoning.json. Prior naming reports are retained unchanged."
+}

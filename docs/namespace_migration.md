@@ -1,8 +1,8 @@
 # One namespace for the process model
 
 This page records the historical namespace-only revision. The current source
-also includes the [naming cleanup](naming_conventions.md); the counts, local
-names, and validation results below describe the earlier snapshot. Clients
+also includes the [naming cleanup and ontology-identity correction](naming_conventions.md);
+the counts, ontology IRI, local names, and validation results below describe the earlier snapshot. Clients
 updating from the original namespaces need the namespace map followed by the
 later naming map, as explained in that guide.
 

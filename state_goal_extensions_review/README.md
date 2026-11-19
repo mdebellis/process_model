@@ -19,21 +19,24 @@ including the discussed Manchester Syntax extension, can replace or generate
 tests without changing the identity of state descriptions or goals.
 
 All project-owned vocabulary and example individuals now use
-`https://in2use.com/process_model/`, abbreviated `pm:`. This is also the ontology
-IRI; its label is **Process model with examples**. The later
+`https://in2use.com/process_model/`, abbreviated `pm:`. The ontology IRI is
+`https://in2use.com/process_model`, without the trailing slash; its label is
+**Process model with examples**. The later
 [namespace migration](../docs/namespace_migration.md) updated the draft's local
 IRIs and query text while preserving standard vocabulary IRIs. The current
-[naming revision](../docs/naming_conventions.md) standardizes the remaining local
-names and labels; its version is `process-model-v3-2026-11-18`. The original
+[naming guide](../docs/naming_conventions.md) describes the standardized local
+names and labels and the subsequent ontology-identity correction. The current
+version is `process-model-v4-2026-11-18`. The original
 validation and namespace reports retain the identifiers used when they were
-produced. Current checks are in [naming_validation.json](../validation/naming_validation.json)
-and [naming_reasoning.json](../validation/naming_reasoning.json).
+produced. Current checks are in [ontology_identity.json](../validation/ontology_identity.json)
+and [ontology_identity_reasoning.json](../validation/ontology_identity_reasoning.json).
 
 The supplied baseline contained 4,942 asserted triples but no State_Description
 or has_sub_state declarations. The state draft supplied those foundations and
 contained 5,294 triples before namespace migration. The namespace revision
-contained 5,299 triples; the current naming revision contains **5,505 asserted
-triples**, with labels and change annotations accounting for the increase.
+contained 5,299 triples; the naming revision contained 5,505 triples, with labels
+and change annotations accounting for the increase. The current source contains
+**5,506 asserted triples**, including one further ontology-identity change note.
 No inferred triples or runtime evaluation records have been added.
 
 ## Vocabulary
@@ -74,9 +77,11 @@ disjointness or functional-property constraints were introduced.
 These conventions now apply across the project-owned vocabulary, with the
 documented property exceptions `precedes` and symmetric `shares_input_variable`.
 Replaced labels are retained as `skos:altLabel`; standard external IRIs are
-unchanged. The [naming map](../docs/naming_migration.tsv) records this revision's
+unchanged. The [naming map](../docs/naming_migration.tsv) records the earlier naming revision's
 175 IRI changes. For identifiers predating namespace unification, apply the
 [namespace map](../docs/iri_migration.tsv) first, then the naming map.
+References to the ontology itself use the slashless ontology IRI; the entity
+namespace and all query prefixes retain their trailing slash.
 
 ## Connection to the existing examples
 
@@ -158,8 +163,8 @@ additionally reproduces the reported Protégé inconsistency and verifies the
 corrected serialization with OWLAPI 4.5.29 and the official Pellet plug-in. Both
 sets of reports describe the earlier IRIs. The [namespace migration
 results](../validation/namespace_migration.json) describe the next stage, before
-the naming cleanup. See the current [naming and query results](../validation/naming_validation.json)
-and [reasoning results](../validation/naming_reasoning.json) for this revision.
+the naming cleanup. See the current [structural and query results](../validation/ontology_identity.json)
+and [reasoning results](../validation/ontology_identity_reasoning.json) after the ontology-identity correction.
 
 - RDF/XML parsing and isomorphic roundtrip: passed.
 - Existing named assertions and anonymous structures preserved, except updated

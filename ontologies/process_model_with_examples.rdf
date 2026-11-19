@@ -36,7 +36,7 @@
     <skos:prefLabel xml:lang="en">Satisfied</skos:prefLabel>
     <skos:definition xml:lang="en">The condition is assessed as satisfied for the specified inputs and evidence under the test interpretation.</skos:definition>
     <rdfs:label xml:lang="en">Satisfied</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://in2use.com/process_model/Run_01_Incorporate_Input_Start">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -298,7 +298,7 @@ It is deprecated in this edition of OWL-Time. </skos:historyNote>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <skos:definition xml:lang="en">A provisional SPARQL ASK test for Approved Tender Submitted, using explicit execution and document-version bindings.</skos:definition>
     <skos:scopeNote xml:lang="en">Required bindings: ?run is the selected tender execution IRI; ?version is the selected tender document-version IRI. No latest-version discovery is implied. Evaluate against the intended evidence dataset or snapshot. An unbound input is an evaluation error and must be rejected by the caller before execution. ASK true establishes the positive pattern in that dataset. ASK false means the pattern was not established: use Unsatisfied only when the relevant records are known complete and unambiguous for the selected run and version; otherwise use Unknown. Conflicting evidence requires assessment of the conflict and must not be silently resolved by a positive match. Runtime/query failures are Evaluation Error. These tests check recorded completed events, not workflow scheduling, vote unanimity, or absence of later revocation.</skos:scopeNote>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <skos:prefLabel xml:lang="en">Approved Tender Submission Test</skos:prefLabel>
     <pm:has_sparql_query rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PREFIX pm: &lt;https://in2use.com/process_model/&gt;
 PREFIX pp: &lt;http://purl.org/net/p-plan#&gt;
@@ -374,7 +374,7 @@ ASK {
   </rdf:Description>
   <rdf:Description rdf:about="https://in2use.com/process_model/Evaluation_Method">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <rdfs:subClassOf rdf:resource="https://w3id.org/sulo/InformationObject"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     <rdfs:label xml:lang="en">Evaluation Method</rdfs:label>
@@ -508,7 +508,7 @@ ASK {
   <skos:prefLabel xml:lang="en">is evaluated entity of</skos:prefLabel>
     <rdfs:label xml:lang="en">is evaluated entity of</rdfs:label>
     <skos:definition xml:lang="en">Inverse of has evaluated entity.</skos:definition>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     </rdf:Description>
   <rdf:Description rdf:nodeID="N4e250da3bd424ca2826b358fd5542305">
     <rdf:rest rdf:nodeID="Ne94b9c1eb5f04b1185dc0c025acfe76c"/>
@@ -562,7 +562,7 @@ ASK {
   </rdf:Description>
   <rdf:Description rdf:about="https://in2use.com/process_model/has_evaluated_execution">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <owl:inverseOf rdf:resource="https://in2use.com/process_model/is_evaluated_execution_of"/>
     <skos:prefLabel xml:lang="en">has evaluated execution</skos:prefLabel>
     <skos:definition xml:lang="en">Relates an evaluation record to the particular process execution whose condition was assessed.</skos:definition>
@@ -611,7 +611,7 @@ ASK {
     <rdf:type rdf:resource="https://in2use.com/process_model/Goal"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdfs:label xml:lang="en">Requirements Ready For Review</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <skos:scopeNote xml:lang="en">A proposed qualitative criterion for the Method Omega example, not an additional requirement asserted to have appeared in the supplied diagram or paper. It does not replace the recorded approval decision or imply that requirements have been approved.</skos:scopeNote>
     <skos:definition xml:lang="en">For the selected Method Omega execution and document versions, the wireframes and use cases provide sufficiently clear, mutually consistent descriptions of the intended behavior to support a requirements review.</skos:definition>
     <skos:prefLabel xml:lang="en">Requirements Ready For Review</skos:prefLabel>
@@ -659,7 +659,7 @@ ASK {
     <rdfs:domain rdf:resource="https://in2use.com/process_model/State_Evaluation"/>
     <rdfs:label xml:lang="en">has evaluation explanation</rdfs:label>
     <skos:definition xml:lang="en">An explanation of the evaluation result, including relevant evidence or the reason assessment was not possible.</skos:definition>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <skos:prefLabel xml:lang="en">has evaluation explanation</skos:prefLabel>
   </rdf:Description>
@@ -997,7 +997,7 @@ Michael DeBellis mdebellissf@gmail.com</skos:historyNote>
     <skos:definition xml:lang="en">Inverse of has state evaluation.</skos:definition>
     <rdfs:label xml:lang="en">is state evaluation of</rdfs:label>
     <skos:prefLabel xml:lang="en">is state evaluation of</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/ns/prov#endedAtTime">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
@@ -1038,7 +1038,7 @@ Michael DeBellis mdebellissf@gmail.com</skos:historyNote>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <rdfs:domain rdf:resource="https://in2use.com/process_model/State_Evaluation"/>
     <skos:prefLabel xml:lang="en">has evaluation context</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <rdfs:label xml:lang="en">has evaluation context</rdfs:label>
     </rdf:Description>
   <rdf:Description rdf:about="https://in2use.com/process_model/Run_01_Submitted_Tender">
@@ -1058,7 +1058,7 @@ Michael DeBellis mdebellissf@gmail.com</skos:historyNote>
     <rdf:type rdf:resource="https://in2use.com/process_model/Goal"/>
     <skos:prefLabel xml:lang="en">Tender Approved</skos:prefLabel>
     <rdfs:label xml:lang="en">Tender Approved</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <skos:definition xml:lang="en">A completed partner vote in the selected tender execution has produced an explicit approval decision about the selected tender version.</skos:definition>
     <pm:has_state_test rdf:resource="https://in2use.com/process_model/Tender_Approval_Test"/>
   </rdf:Description>
@@ -1255,7 +1255,7 @@ El rango de esta propiedad no está especificado, por tanto, se puede reemplazar
     <rdf:first rdf:resource="http://www.w3.org/2006/time#GeneralDurationDescription"/>
     <rdf:rest rdf:nodeID="Nf10d206b23af4587bd6910cfa9932ad8"/>
   </rdf:Description>
-  <rdf:Description rdf:about="https://in2use.com/process_model/">
+  <rdf:Description rdf:about="https://in2use.com/process_model">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <skos:changeNote xml:lang="en">2026-11-18 (ChatGPT): Added provisional State Description and Goal vocabulary, goal decomposition, reusable test specifications, controlled evaluation methods/results, and evaluation-record vocabulary in https://www.in2use.com/process_model/. Added explicit natural-language definitions to the four existing decision conditions and aligned DecisionCondition to State_Description. Added three deterministic tender tests and an unexecuted ChatGPT requirements-readiness template. Preserved all original example assertions and ten SWRL rules. The eventual higher-level state-description language, including a possible Manchester Syntax extension, remains deferred. No runtime evaluation records or inferred assertions are included.</skos:changeNote>
     <skos:changeNote xml:lang="en">2026-10-22 — Changed by ChatGPT. Implemented Figure 8 as a separate planned collaboration on the updated supply-chain schema. Added placeholder organizations, contextual role instances, seven task definitions and planned assignments, five planned events, ten control-flow transitions, ten resource/message variables, four message exchanges, and one explicit exclusive choice with approval and rejection conditions. Preserved the figure's seven-task structure by documenting t11 as a send-and-await request/reply task. Retained separate initial-draft, contribution, revised tender and submitted-tender variables, and the single-producer P-Plan semantics. The submitted-tender slot is an explicit completion artifact chosen for this model. Preserved all ten existing SWRL rules. No runtime execution, branch-selection result, synthetic test data or inferred assertions are included.</skos:changeNote>
@@ -1271,15 +1271,16 @@ El rango de esta propiedad no está especificado, por tanto, se puede reemplazar
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-18</dcterms:modified>
     <skos:note xml:lang="en">Control-flow transitions, message variables and decision conditions are explicit assertions. The existing SWRL rules infer candidate resource dependencies and shared inputs; they neither select a branch nor execute the plan. All declared steps and resource variables are explicitly distinct. Each produced variable has exactly one asserted producer. The call-for-tender variable is supplied externally.</skos:note>
     <skos:note xml:lang="en">Figure 8 returns the partner vote to t11SendTenderForVotingTask. This model interprets that task as sending the voting request and awaiting the reply. Consequently t11 and t12 have resource dependencies in both directions; these describe a request/reply exchange, not a control-flow loop or a reason to assert each task precedes the other. An executable refinement may split sending and receiving into separate steps. The replacement branch ends where the figure ends; no retry loop is added.</skos:note>
-    <dcterms:description xml:lang="en">Self-contained experimental process ontology combining a collaborative tendering plan and its synthetic execution, the abstract Method Omega development methodology, temporal reasoning examples, and provisional state and goal tests. The ontology and project-defined entities use https://in2use.com/process_model/. Reused external vocabulary retains its original IRIs. The model includes ten SWRL rules and SPARQL tests; it does not implement a workflow engine. No Method Omega execution, LLM evaluation record or materialized inference is included.</dcterms:description>
-    <skos:scopeNote xml:lang="en">State/goal extensions are a first draft. SPARQL is a provisional executable representation. The LLM template calls the configured OpenAI model through AllegroGraph and requires actual evidence plus context; it is not a formal condition expression. No LLM was called and no evaluation record was fabricated. The ontology and project-defined entities share https://in2use.com/process_model/; reused external vocabulary keeps its original IRIs.</skos:scopeNote>
+    <dcterms:description xml:lang="en">Self-contained experimental process ontology combining a collaborative tendering plan and its synthetic execution, the abstract Method Omega development methodology, temporal reasoning examples, and provisional state and goal tests. The ontology IRI is https://in2use.com/process_model; project-defined entities use the namespace https://in2use.com/process_model/. Reused external vocabulary retains its original IRIs. The model includes ten SWRL rules and SPARQL tests; it does not implement a workflow engine. No Method Omega execution, LLM evaluation record or materialized inference is included.</dcterms:description>
+    <skos:scopeNote xml:lang="en">State/goal extensions are a first draft. SPARQL is a provisional executable representation. The LLM template calls the configured OpenAI model through AllegroGraph and requires actual evidence plus context; it is not a formal condition expression. No LLM was called and no evaluation record was fabricated. The ontology IRI is https://in2use.com/process_model and the entity namespace is https://in2use.com/process_model/; reused external vocabulary keeps its original IRIs.</skos:scopeNote>
     <skos:scopeNote xml:lang="en">Figure 8 plan content follows the cited paper and its accompanying text; the dated tender run is explicitly synthetic. Method Omega follows Michael DeBellis's supplied diagram and conventions, with modeling choices explained on its individuals. Existing Time examples remain. These are review examples, not a workflow engine or records of real projects.</skos:scopeNote>
     <dcterms:source rdf:resource="https://www.michaeldebellis.com/supply_chain_model"/>
     <dcterms:source rdf:resource="https://in2use.com/process_model/Source_Schema_Metadata"/>
     <dcterms:source rdf:resource="https://doi.org/10.1080/00207543.2023.2242508"/>
     <dcterms:creator rdf:resource="https://orcid.org/0000-0002-8824-9577"/>
     <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-22</dcterms:created>
-    <owl:versionInfo>process-model-v3-2026-11-18</owl:versionInfo>
+    <owl:versionInfo>process-model-v4-2026-11-18</owl:versionInfo>
+    <skos:changeNote xml:lang="en">2026-11-18 (ChatGPT): Set the ontology IRI to https://in2use.com/process_model without a trailing slash. Retained https://in2use.com/process_model/ as the entity namespace and pm: prefix. Updated the 54 rdfs:isDefinedBy references in the complete ontology and the 49 matching references in the state/goal review fragment. Updated current documentation and validation expectations. Entity IRIs, labels, logical axioms, SWRL rules, and query text are unchanged.</skos:changeNote>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/ns/prov#used">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -1395,7 +1396,7 @@ El rango de esta propiedad no está especificado, por tanto, se puede reemplazar
   </rdf:Description>
   <rdf:Description rdf:about="https://in2use.com/process_model/Finish_To_Start_Transition">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <rdfs:comment xml:lang="en">A planned possible transition that, when selected, requires the source Activity occurrence to have completed by the time the target occurrence starts. No overlap is permitted; zero waiting time is permitted. Applies to the particular occurrences connected by that transition, including a later iteration of a loop. This declaration neither executes a transition nor infers actual interval relations.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="https://in2use.com/process_model/Step_Transition"/>
     <skos:prefLabel xml:lang="en">Finish To Start Transition</skos:prefLabel>
@@ -1434,7 +1435,7 @@ El rango de esta propiedad no está especificado, por tanto, se puede reemplazar
     <pm:has_state_test rdf:resource="https://in2use.com/process_model/Tender_Submission_Test"/>
     <skos:prefLabel xml:lang="en">Tender Submitted</skos:prefLabel>
     <rdfs:label xml:lang="en">Tender Submitted</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <skos:definition xml:lang="en">A completed submission in the selected tender execution has used the selected tender version and produced a submitted copy derived from that version.</skos:definition>
   </rdf:Description>
   <rdf:Description rdf:nodeID="N40521e72ec7440bf81826011d1eb7e13">
@@ -1497,7 +1498,7 @@ allows data encoded according to the previous version to be consistent with the 
     <rdfs:range rdf:resource="https://in2use.com/process_model/State_Test"/>
     <skos:prefLabel xml:lang="en">has state test</skos:prefLabel>
     <skos:definition xml:lang="en">Relates a state description to a test specification that can assess it. Multiple tests are alternatives whose selection is explicit; they are not automatically combined or tried in sequence.</skos:definition>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/net/p-plan#Activity">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -1606,7 +1607,7 @@ allows data encoded according to the previous version to be consistent with the 
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="https://in2use.com/process_model/State_Evaluation"/>
     <owl:inverseOf rdf:resource="https://in2use.com/process_model/is_evidence_of"/>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <rdfs:label xml:lang="en">has evidence</rdfs:label>
     <skos:definition xml:lang="en">Relates an evaluation record to an evidence entity used in the assessment, such as a decision artifact, document version or identified dataset snapshot.</skos:definition>
     <skos:prefLabel xml:lang="en">has evidence</skos:prefLabel>
@@ -1627,7 +1628,7 @@ allows data encoded according to the previous version to be consistent with the 
     <owl:inverseOf rdf:resource="https://in2use.com/process_model/is_state_evaluation_of"/>
     <rdfs:range rdf:resource="https://in2use.com/process_model/State_Evaluation"/>
     <rdfs:label xml:lang="en">has state evaluation</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <skos:definition xml:lang="en">Relates a state description to a record of one assessment of it. Assessments for different executions, versions, evidence snapshots or times are separate records.</skos:definition>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/sulo/contains">
@@ -1694,7 +1695,7 @@ allows data encoded according to the previous version to be consistent with the 
     <pm:has_evaluation_method rdf:resource="https://in2use.com/process_model/SPARQL_Evaluation"/>
     <skos:definition xml:lang="en">A provisional SPARQL ASK test for Tender Approved, using explicit execution and document-version bindings.</skos:definition>
     <rdfs:label xml:lang="en">Tender Approval Test</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <skos:scopeNote xml:lang="en">Required bindings: ?run is the selected tender execution IRI; ?version is the selected tender document-version IRI. No latest-version discovery is implied. Evaluate against the intended evidence dataset or snapshot. An unbound input is an evaluation error and must be rejected by the caller before execution. ASK true establishes the positive pattern in that dataset. ASK false means the pattern was not established: use Unsatisfied only when the relevant records are known complete and unambiguous for the selected run and version; otherwise use Unknown. Conflicting evidence requires assessment of the conflict and must not be silently resolved by a positive match. Runtime/query failures are Evaluation Error. These tests check recorded completed events, not workflow scheduling, vote unanimity, or absence of later revocation.</skos:scopeNote>
     <pm:has_sparql_query rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PREFIX pm: &lt;https://in2use.com/process_model/&gt;
 PREFIX pp: &lt;http://purl.org/net/p-plan#&gt;
@@ -1770,7 +1771,7 @@ ASK {
   <skos:prefLabel xml:lang="en">is evaluated execution of</skos:prefLabel>
     <rdfs:label xml:lang="en">is evaluated execution of</rdfs:label>
     <skos:definition xml:lang="en">Inverse of has evaluated execution.</skos:definition>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2006/time#TemporalUnit">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -1820,7 +1821,7 @@ In the original OWL-Time the following constraint appeared:
     <rdfs:domain rdf:resource="https://in2use.com/process_model/State_Evaluation"/>
     <rdfs:label xml:lang="en">has evaluation time</rdfs:label>
     <skos:definition xml:lang="en">The time the assessment was performed. This is distinct from the time of the state or process events assessed.</skos:definition>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2006/time#intervalIn">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -1954,7 +1955,7 @@ In the original OWL-Time the following constraint appeared:
   <rdf:Description rdf:about="https://in2use.com/process_model/Approved_Tender_Submitted">
     <rdf:type rdf:resource="https://in2use.com/process_model/Goal"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <rdfs:label xml:lang="en">Approved Tender Submitted</rdfs:label>
     <skos:scopeNote xml:lang="en">An illustrative operational goal added to exercise state evaluation on the existing synthetic tender run. The parent query requires both component conditions for the same run and version and requires the submission to use the approval decision. Goal decomposition alone does not execute these tests.</skos:scopeNote>
     <pm:has_sub_goal rdf:resource="https://in2use.com/process_model/Tender_Submitted"/>
@@ -1975,7 +1976,7 @@ In the original OWL-Time the following constraint appeared:
   <rdf:Description rdf:about="https://in2use.com/process_model/is_applied_state_test_of">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <skos:definition xml:lang="en">Inverse of has applied state test.</skos:definition>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <skos:prefLabel xml:lang="en">is applied state test of</skos:prefLabel>
     <rdfs:label xml:lang="en">is applied state test of</rdfs:label>
   </rdf:Description>
@@ -2014,7 +2015,7 @@ In the original OWL-Time the following constraint appeared:
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:subClassOf rdf:resource="https://in2use.com/process_model/State_Description"/>
     <skos:prefLabel xml:lang="en">Goal</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <rdfs:label xml:lang="en">Goal</rdfs:label>
     <skos:definition xml:lang="en">A state description specifying a condition to be achieved or maintained.</skos:definition>
   </rdf:Description>
@@ -2038,7 +2039,7 @@ In the original OWL-Time the following constraint appeared:
   <rdf:Description rdf:about="https://in2use.com/process_model/has_expected_duration">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <skos:prefLabel xml:lang="en">has expected duration</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <rdfs:label xml:lang="en">has expected duration</rdfs:label>
     <rdfs:domain rdf:nodeID="Nec38a628a87546f781ef32f19645c358"/>
     <rdfs:comment xml:lang="en">An estimate of the elapsed duration of an execution described by a Plan or Step, represented as an OWL-Time Duration with a numeric value and unit. It is not actual elapsed time, labor effort, or an implicit working-calendar calculation. State separately whether a composite estimate includes rework. No default inheritance or roll-up arithmetic is implied.</rdfs:comment>
@@ -2151,7 +2152,7 @@ In the original OWL-Time the following constraint appeared:
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:label xml:lang="en">has goal</rdfs:label>
     <skos:definition xml:lang="en">Relates a Plan or Step to a condition it is intended to achieve or maintain. This does not assert goal satisfaction, start execution, or select a workflow branch.</skos:definition>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <rdfs:range rdf:resource="https://in2use.com/process_model/Goal"/>
     <skos:prefLabel xml:lang="en">has goal</skos:prefLabel>
     <rdfs:domain rdf:nodeID="N3709655eaca94ab285295b28147ac0fe"/>
@@ -2377,7 +2378,7 @@ In the original OWL-Time the following constraint appeared:
     <owl:inverseOf rdf:resource="https://in2use.com/process_model/is_applied_state_test_of"/>
     <rdfs:domain rdf:resource="https://in2use.com/process_model/State_Evaluation"/>
     <rdfs:range rdf:resource="https://in2use.com/process_model/State_Test"/>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <skos:prefLabel xml:lang="en">has applied state test</skos:prefLabel>
     </rdf:Description>
   <rdf:Description rdf:nodeID="N5169c5600c8f4f4e94e5449dd4264ebd">
@@ -2483,7 +2484,7 @@ In the original OWL-Time the following constraint appeared:
     <rdf:type rdf:resource="https://in2use.com/process_model/Evaluation_Method"/>
     <skos:definition xml:lang="en">Evaluation of an explicit SPARQL condition against the selected dataset and input bindings, without an LLM deciding whether the condition holds.</skos:definition>
     <skos:prefLabel xml:lang="en">SPARQL Evaluation</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <rdfs:label xml:lang="en">SPARQL Evaluation</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:nodeID="N6d66eca6298f4d819d2c691d4a84c19d">
@@ -2552,7 +2553,7 @@ In the original OWL-Time the following constraint appeared:
   <rdf:Description rdf:about="https://in2use.com/process_model/Evaluation_Error">
     <rdf:type rdf:resource="https://in2use.com/process_model/Evaluation_Result"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <skos:prefLabel xml:lang="en">Evaluation Error</skos:prefLabel>
     <rdfs:label xml:lang="en">Evaluation Error</rdfs:label>
     <skos:definition xml:lang="en">The evaluation could not be completed or its output could not be interpreted according to the expected result contract. This is a technical evaluation outcome, not a truth value.</skos:definition>
@@ -2863,7 +2864,7 @@ Note that the value-space is not defined, so a generic OWL2 processor cannot com
   <rdf:Description rdf:about="https://in2use.com/process_model/has_evaluated_entity">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:range rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <skos:definition xml:lang="en">Relates an evaluation record to an entity, such as the selected document version, bound as an input to the test. The test input contract specifies the role of each input.</skos:definition>
     <skos:prefLabel xml:lang="en">has evaluated entity</skos:prefLabel>
     <owl:inverseOf rdf:resource="https://in2use.com/process_model/is_evaluated_entity_of"/>
@@ -2926,7 +2927,7 @@ Note that the value-space is not defined, so a generic OWL2 processor cannot com
     <rdfs:subPropertyOf rdf:resource="https://in2use.com/process_model/is_sub_state_of"/>
     <skos:definition xml:lang="en">Inverse of has sub goal.</skos:definition>
     <rdfs:label xml:lang="en">is sub goal of</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
   </rdf:Description>
   <rdf:Description rdf:nodeID="Nd515de814d784ed9b1b9b793047529b1">
     <rdf:rest rdf:nodeID="N81635bc6ce4641b68063be26f6b80bd4"/>
@@ -2987,7 +2988,7 @@ Note that the value-space is not defined, so a generic OWL2 processor cannot com
     <owl:inverseOf rdf:resource="https://in2use.com/process_model/is_sub_state_of"/>
     <rdfs:range rdf:resource="https://in2use.com/process_model/State_Description"/>
     <rdfs:label xml:lang="en">has sub state</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2006/time#intervalContains">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -3189,7 +3190,7 @@ Note that the value-space is not defined, so a generic OWL2 processor cannot com
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     <rdfs:subClassOf rdf:resource="https://w3id.org/sulo/InformationObject"/>
     <skos:definition xml:lang="en">An information object specifying how to assess a state description for explicitly supplied inputs and evidence. SPARQL is the provisional executable representation; an LLM invocation is an assessment procedure, not a formal logical definition.</skos:definition>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <rdfs:label xml:lang="en">State Test</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="https://in2use.com/process_model/User_Wireframe_Interviews">
@@ -3305,7 +3306,7 @@ Note that the value-space is not defined, so a generic OWL2 processor cannot com
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:domain rdf:resource="https://in2use.com/process_model/State_Evaluation"/>
     <skos:prefLabel xml:lang="en">has evidence text</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <rdfs:label xml:lang="en">has evidence text</rdfs:label>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     <skos:definition xml:lang="en">The exact textual evidence supplied to an evaluator, when retaining that text is appropriate.</skos:definition>
@@ -3484,7 +3485,7 @@ The range of this property is not specified, so can be replaced by any specific 
     <skos:definition xml:lang="en">The condition is assessed as not satisfied under the declared interpretation and data-completeness assumptions. A failed graph match alone does not establish real-world falsity.</skos:definition>
     <skos:prefLabel xml:lang="en">Unsatisfied</skos:prefLabel>
     <rdfs:label xml:lang="en">Unsatisfied</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://in2use.com/process_model/Run_01_Send_And_Await_Vote_Association">
     <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association"/>
@@ -3506,7 +3507,7 @@ The range of this property is not specified, so can be replaced by any specific 
     <rdfs:label xml:lang="en">has raw response</rdfs:label>
     <rdfs:domain rdf:resource="https://in2use.com/process_model/State_Evaluation"/>
     <skos:definition xml:lang="en">The unmodified response returned by an LLM or other evaluator, retained separately from its interpreted result.</skos:definition>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <skos:prefLabel xml:lang="en">has raw response</skos:prefLabel>
   </rdf:Description>
   <rdf:Description rdf:nodeID="Nd5056992fc3343409acb81292ef436d8">
@@ -3643,7 +3644,7 @@ The range of this property is not specified, so can be replaced by any specific 
   </rdf:Description>
   <rdf:Description rdf:about="https://in2use.com/process_model/is_evidence_of">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <rdfs:label xml:lang="en">is evidence of</rdfs:label>
     <skos:prefLabel xml:lang="en">is evidence of</skos:prefLabel>
     <skos:definition xml:lang="en">Inverse of has evidence.</skos:definition>
@@ -3842,7 +3843,7 @@ Note that the value-space is not defined, so a generic OWL2 processor cannot com
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   <skos:definition xml:lang="en">Inverse of has goal.</skos:definition>
     <rdfs:label xml:lang="en">is goal of</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <skos:prefLabel xml:lang="en">is goal of</skos:prefLabel>
     </rdf:Description>
   <rdf:Description rdf:nodeID="N667993c6574a4b09bc5c10e7309e6ffb">
@@ -3943,7 +3944,7 @@ Note that the value-space is not defined, so a generic OWL2 processor cannot com
     <rdfs:domain rdf:resource="http://purl.org/net/p-plan#Plan"/>
     <rdfs:label xml:lang="en">has step</rdfs:label>
     <rdfs:range rdf:resource="http://purl.org/net/p-plan#Step"/>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/dc/terms/ISO3166">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
@@ -4440,7 +4441,7 @@ In the original OWL-Time the following constraint appeared:
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <skos:scopeNote xml:lang="en">Assess whether the supplied wireframes and use cases identify their actors, relevant user actions, observable outcomes, and important alternative or error paths; whether their shared concepts and interactions agree; and whether unresolved omissions prevent a meaningful review. Use the supplied project expectations as the scope: do not invent universal completeness requirements. Cite the evidence identifiers supporting the judgment. If document content, version bindings or context are missing, or material evidence conflicts cannot be resolved, return Unknown. This assesses readiness for human review, not formal approval.</skos:scopeNote>
     <skos:prefLabel xml:lang="en">Requirements Readiness Test</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <pm:has_sparql_query rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PREFIX pm: &lt;https://in2use.com/process_model/&gt;
 PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
 PREFIX llm: &lt;http://franz.com/ns/allegrograph/8.0.0/llm/&gt;
@@ -4481,7 +4482,7 @@ SELECT ?response WHERE {
     <rdf:type rdf:resource="https://in2use.com/process_model/Evaluation_Result"/>
     <skos:prefLabel xml:lang="en">Unknown</skos:prefLabel>
     <skos:definition xml:lang="en">The evidence is insufficient, ambiguous or conflicting to assess whether the condition is satisfied.</skos:definition>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <rdfs:label xml:lang="en">Unknown</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="https://in2use.com/process_model/Replacement_To_End">
@@ -4550,7 +4551,7 @@ SELECT ?response WHERE {
     <rdfs:subClassOf rdf:resource="https://w3id.org/sulo/InformationObject"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     <rdfs:label xml:lang="en">State Evaluation</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <skos:definition xml:lang="en">An information object recording one assessment of a state description using a specified test, inputs and evidence. This is the assessment record, not the activity performing it and not the state description itself.</skos:definition>
     <skos:prefLabel xml:lang="en">State Evaluation</skos:prefLabel>
   </rdf:Description>
@@ -4638,7 +4639,7 @@ SELECT ?response WHERE {
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:label xml:lang="en">has sparql query</rdfs:label>
     <rdfs:domain rdf:resource="https://in2use.com/process_model/State_Test"/>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <skos:definition xml:lang="en">The complete SPARQL query text for a test. Deterministic examples use ASK; the ChatGPT example uses SELECT and an AllegroGraph extension function. This representation is provisional and does not constrain future higher-level expressions.</skos:definition>
     <skos:prefLabel xml:lang="en">has sparql query</skos:prefLabel>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -4657,7 +4658,7 @@ SELECT ?response WHERE {
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:domain rdf:resource="https://in2use.com/process_model/State_Evaluation"/>
     <skos:prefLabel xml:lang="en">has evaluator identifier</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <skos:definition xml:lang="en">The concrete evaluator identifier, such as the configured OpenAI model identifier and available version, or the software evaluator version. Do not infer it from the interface name ChatGPT.</skos:definition>
     <rdfs:label xml:lang="en">has evaluator identifier</rdfs:label>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
@@ -4770,7 +4771,7 @@ This is a stub class, representing the set of all temporal reference systems.</r
     <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
     <rdfs:subClassOf rdf:resource="https://w3id.org/sulo/InformationObject"/>
     <rdfs:label xml:lang="en">State Description</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <skos:prefLabel xml:lang="en">State Description</skos:prefLabel>
     <skos:definition xml:lang="en">An information object describing a condition that can hold for specified entities in a specified context. The description does not assert that the condition holds.</skos:definition>
   </rdf:Description>
@@ -5227,7 +5228,7 @@ This is a stub class, representing the set of all temporal reference systems.</r
     <rdfs:comment xml:lang="en">Links a MultiStep to an output Variable produced by a Step in its decomposition and made available to consumers outside that decomposition. This exposes the same planned slot; it neither asserts another producer nor creates another artifact. Deliberately not a subproperty of p-plan:hasOutputVar, whose inverse is functional.</rdfs:comment>
     <rdfs:domain rdf:resource="http://purl.org/net/p-plan#MultiStep"/>
     <skos:prefLabel xml:lang="en">has exposed output variable</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <skos:altLabel xml:lang="en">exposes output variable</skos:altLabel>
   </rdf:Description>
   <rdf:Description rdf:nodeID="N66a457c25c0f486ca4fdee5a78ac02c2">
@@ -5240,7 +5241,7 @@ This is a stub class, representing the set of all temporal reference systems.</r
     <skos:definition xml:lang="en">Relates a test specification to the approach that determines its result. Calling an LLM through SPARQL remains an LLM assessment.</skos:definition>
     <rdfs:label xml:lang="en">has evaluation method</rdfs:label>
     <owl:inverseOf rdf:resource="https://in2use.com/process_model/is_evaluation_method_of"/>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <rdfs:range rdf:resource="https://in2use.com/process_model/Evaluation_Method"/>
     <skos:prefLabel xml:lang="en">has evaluation method</skos:prefLabel>
   </rdf:Description>
@@ -5259,7 +5260,7 @@ This is a stub class, representing the set of all temporal reference systems.</r
   <skos:prefLabel xml:lang="en">is state test of</skos:prefLabel>
     <rdfs:label xml:lang="en">is state test of</rdfs:label>
     <skos:definition xml:lang="en">Inverse of has state test.</skos:definition>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     </rdf:Description>
   <rdf:Description rdf:nodeID="N9f24f52a055b4635a3ea32a73d14da92">
     <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
@@ -5378,7 +5379,7 @@ This is a stub class, representing the set of all temporal reference systems.</r
   <rdf:Description rdf:about="https://in2use.com/process_model/has_sub_goal">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:label xml:lang="en">has sub goal</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <rdfs:range rdf:resource="https://in2use.com/process_model/Goal"/>
     <rdfs:subPropertyOf rdf:resource="https://in2use.com/process_model/has_sub_state"/>
     <owl:inverseOf rdf:resource="https://in2use.com/process_model/is_sub_goal_of"/>
@@ -5699,7 +5700,7 @@ This is a stub class, representing the set of all temporal reference systems.</r
     <skos:prefLabel xml:lang="en">Evaluation Result</skos:prefLabel>
     <skos:definition xml:lang="en">A controlled result category for a state evaluation. Categories describe the evaluation outcome, including inability to assess; they are not global truth values.</skos:definition>
     <rdfs:label xml:lang="en">Evaluation Result</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
   </rdf:Description>
   <rdf:Description rdf:nodeID="N363840ab5f444fb7a68201b99d95aa67">
     <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
@@ -5954,7 +5955,7 @@ This is a stub class, representing the set of all temporal reference systems.</r
   <rdf:Description rdf:about="https://in2use.com/process_model/is_evaluation_method_of">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <skos:prefLabel xml:lang="en">is evaluation method of</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <rdfs:label xml:lang="en">is evaluation method of</rdfs:label>
     <skos:definition xml:lang="en">Inverse of has evaluation method.</skos:definition>
   </rdf:Description>
@@ -5966,7 +5967,7 @@ This is a stub class, representing the set of all temporal reference systems.</r
   <rdf:Description rdf:about="https://in2use.com/process_model/is_sub_state_of">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <skos:definition xml:lang="en">Inverse of has sub state.</skos:definition>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <rdfs:label xml:lang="en">is sub state of</rdfs:label>
     <skos:prefLabel xml:lang="en">is sub state of</skos:prefLabel>
   </rdf:Description>
@@ -6183,7 +6184,7 @@ The region where it applies and the offset from UTC are specified by a locally r
   <rdf:Description rdf:about="https://in2use.com/process_model/is_evaluation_result_of">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <skos:definition xml:lang="en">Inverse of has evaluation result.</skos:definition>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <skos:prefLabel xml:lang="en">is evaluation result of</skos:prefLabel>
     <rdfs:label xml:lang="en">is evaluation result of</rdfs:label>
   </rdf:Description>
@@ -6388,7 +6389,7 @@ ASK {
 </pm:has_sparql_query>
     <skos:definition xml:lang="en">A provisional SPARQL ASK test for Tender Submitted, using explicit execution and document-version bindings.</skos:definition>
     <skos:prefLabel xml:lang="en">Tender Submission Test</skos:prefLabel>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <skos:scopeNote xml:lang="en">Required bindings: ?run is the selected tender execution IRI; ?version is the selected tender document-version IRI. No latest-version discovery is implied. Evaluate against the intended evidence dataset or snapshot. An unbound input is an evaluation error and must be rejected by the caller before execution. ASK true establishes the positive pattern in that dataset. ASK false means the pattern was not established: use Unsatisfied only when the relevant records are known complete and unambiguous for the selected run and version; otherwise use Unknown. Conflicting evidence requires assessment of the conflict and must not be silently resolved by a positive match. Runtime/query failures are Evaluation Error. These tests check recorded completed events, not workflow scheduling, vote unanimity, or absence of later revocation.</skos:scopeNote>
     <rdfs:label xml:lang="en">Tender Submission Test</rdfs:label>
     <pm:has_evaluation_method rdf:resource="https://in2use.com/process_model/SPARQL_Evaluation"/>
@@ -6552,7 +6553,7 @@ ASK {
     <skos:prefLabel xml:lang="en">ChatGPT Evaluation</skos:prefLabel>
     <skos:definition xml:lang="en">Assessment of a natural-language state definition and criteria by a configured OpenAI GPT model, initially invoked through AllegroGraph SPARQL. Record the actual model identifier on the evaluation record.</skos:definition>
     <rdfs:label xml:lang="en">ChatGPT Evaluation</rdfs:label>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
   </rdf:Description>
   <rdf:Description rdf:about="https://w3id.org/sulo/Unit">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -6613,7 +6614,7 @@ ASK {
     <owl:inverseOf rdf:resource="https://in2use.com/process_model/is_evaluation_result_of"/>
     <rdfs:domain rdf:resource="https://in2use.com/process_model/State_Evaluation"/>
     <skos:definition xml:lang="en">Relates an evaluation record to its result category. Unknown or Evaluation Error must not be treated as Unsatisfied.</skos:definition>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <rdfs:label xml:lang="en">has evaluation result</rdfs:label>
     <rdfs:range rdf:resource="https://in2use.com/process_model/Evaluation_Result"/>
   </rdf:Description>
@@ -6621,7 +6622,7 @@ ASK {
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:label xml:lang="en">precedes</rdfs:label>
     <rdfs:range rdf:resource="http://purl.org/net/p-plan#Step"/>
-    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model/"/>
+    <rdfs:isDefinedBy rdf:resource="https://in2use.com/process_model"/>
     <rdfs:comment xml:lang="en">Inverse of p-plan:isPrecededBy. This is planned precedence, not a timestamp relation between actual Activities. Immediate possible control-flow edges are modeled separately as StepTransitions.</rdfs:comment>
     <skos:prefLabel xml:lang="en">precedes</skos:prefLabel>
     <rdfs:domain rdf:resource="http://purl.org/net/p-plan#Step"/>

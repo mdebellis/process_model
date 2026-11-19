@@ -1,4 +1,8 @@
-"""Apply the reviewed naming map to a separate checkout of the baseline.
+"""Reproduce the historical v3 naming revision from its baseline.
+
+This generator intentionally retains that revision's slash-terminated ontology
+IRI. The current source uses a slashless ontology IRI; see docs/naming_conventions.md.
+Validate the current source with validation/validate_naming.py.
 
 Usage: python tools/standardize_names.py --baseline-ref 03dc687
 Requires RDFLib and lxml. Reads the baseline from git; writes only the current

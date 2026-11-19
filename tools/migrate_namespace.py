@@ -1,5 +1,9 @@
 """Migrate the pre-consolidation repository to its stable project namespace.
 
+Historical v2 generator: reproduces the ontology identity and names used then.
+For current identity/naming conventions, see docs/naming_conventions.md; validate
+the current source with validation/validate_naming.py.
+
 Usage: python tools/migrate_namespace.py --source-root OLD --target-root NEW
 Requires rdflib and lxml. OLD and NEW must be different directories.
 Only the ontology, query/helper sources, additions-only Turtle, active rule

@@ -1,7 +1,8 @@
 """Check naming, labels, unchanged RDF meaning, and query behavior.
 
 Run from any directory: python validation/validate_naming.py
-Requires RDFLib and lxml. Baseline defaults to the preceding GitHub revision.
+Requires RDFLib and lxml. The historical baseline is the pre-naming revision.
+Checks the current ontology identity separately from its entity namespace.
 Does not call an LLM; Pellet checks are recorded separately.
 """
 import argparse
@@ -20,6 +21,7 @@ from rdflib.compare import isomorphic
 from rdflib.plugins.sparql.parser import parseQuery
 
 PM = 'https://in2use.com/process_model/'
+ONTOLOGY_IRI = URIRef('https://in2use.com/process_model')
 SKOS = Namespace('http://www.w3.org/2004/02/skos/core#')
 SWRL = Namespace('http://www.w3.org/2003/11/swrl#')
 
@@ -42,8 +44,12 @@ def main():
     def check(name, passed, **details):
         results.append(dict(check=name, passed=bool(passed), **details))
     def rename(term):
+        if term == URIRef(PM):
+            return ONTOLOGY_IRI
         return mapping.get(term, term)
     def original(term):
+        if term == ONTOLOGY_IRI:
+            return URIRef(PM)
         return inverse.get(term, term)
 
     check('Unique naming map with no resource merges', len(rows) == len(mapping) == len(inverse)
@@ -52,9 +58,16 @@ def main():
     all_iris = {t for triple in after for t in triple if isinstance(t, URIRef)}
     check('No obsolete IRIs remain in RDF terms', not set(mapping) & all_iris)
     external_before = {t for triple in before for t in triple if isinstance(t, URIRef) and not str(t).startswith(PM)}
-    external_after = {t for triple in after for t in triple if isinstance(t, URIRef) and not str(t).startswith(PM)}
+    external_after = {t for triple in after for t in triple if isinstance(t, URIRef) and not str(t).startswith(PM) and t != ONTOLOGY_IRI}
     check('External IRIs unchanged', external_before == external_after)
-    check('Stable ontology identity', set(after.subjects(RDF.type, OWL.Ontology)) == {URIRef(PM)})
+    check('Ontology identity is distinct from the entity namespace',
+          set(after.subjects(RDF.type, OWL.Ontology)) == {ONTOLOGY_IRI}
+          and URIRef(PM) not in all_iris,
+          ontology_iri=str(ONTOLOGY_IRI), entity_namespace=PM)
+    definition_links = {(s, o) for s, o in after.subject_objects(RDFS.isDefinedBy) if str(s).startswith(PM)}
+    expected_links = {(rename(s), ONTOLOGY_IRI) for s in before.subjects(RDFS.isDefinedBy, URIRef(PM))}
+    check('Ontology definition references point to the corrected identity',
+          definition_links == expected_links, references=len(definition_links))
 
     entity_types = {OWL.Class, OWL.NamedIndividual, OWL.ObjectProperty, OWL.DatatypeProperty, OWL.AnnotationProperty, SWRL.Imp, SWRL.Variable}
     entities = {s for s, t in after.subject_objects(RDF.type) if t in entity_types and str(s).startswith(PM)}
@@ -107,6 +120,15 @@ def main():
             if undo:
                 s, p = original(s), original(p)
                 o = original(o) if isinstance(o, URIRef) else (Literal(undo_literal(str(o)), lang=o.language, datatype=o.datatype, normalize=False) if isinstance(o, Literal) else o)
+                # Undo the two explicit header-text corrections for comparison
+                # with the historical baseline; retain every other literal.
+                if s == URIRef(PM) and isinstance(o, Literal):
+                    value = str(o).replace(
+                        'The ontology IRI is https://in2use.com/process_model; project-defined entities use the namespace https://in2use.com/process_model/.',
+                        'The ontology and project-defined entities use https://in2use.com/process_model/.').replace(
+                        'The ontology IRI is https://in2use.com/process_model and the entity namespace is https://in2use.com/process_model/;',
+                        'The ontology and project-defined entities share https://in2use.com/process_model/;')
+                    o = Literal(value, lang=o.language, datatype=o.datatype, normalize=False)
             if p == OWL.inverseOf and str(s) > str(o):
                 s, o = o, s
             normalized.add((s, p, o))
@@ -182,7 +204,7 @@ def main():
         not any(c.tag == '{' + str(RDF) + '}type' for c in list(e)[i + 1:])
         for e in xml for i, child in enumerate(e) if child.tag != '{' + str(RDF) + '}type'))
     broken_links = []
-    output = args.output or root / 'validation/naming_validation.json'
+    output = args.output or root / 'validation/ontology_identity.json'
     for path in root.rglob('*.md'):
         for target in re.findall(r'\]\(([^)]+)\)', path.read_text()):
             if re.match(r'[a-z]+:', target) or target.startswith('#'):
@@ -192,10 +214,11 @@ def main():
                 broken_links.append([str(path.relative_to(root)), target])
     check('Relative Markdown links resolve', not broken_links, broken_links=broken_links)
     report = dict(passed=all(r['passed'] for r in results), baseline_commit=args.baseline_ref,
+                  ontology_iri=str(ONTOLOGY_IRI), entity_namespace=PM,
                   baseline_triples=len(before), current_triples=len(after), renamed_iris=len(rows),
                   renamed_by_kind=dict(Counter(r['kind'] for r in rows)),
                   ontology_sha256=hashlib.sha256(after_bytes).hexdigest(), checks=results,
-                  scope='No LLM invoked. Query labels intentionally changed. Reasoning recorded separately in naming_reasoning.json.')
+                  scope='Current source compared with the pre-naming baseline, allowing the documented naming changes and ontology-header correction. No LLM invoked. Current reasoning is recorded separately in ontology_identity_reasoning.json. Prior naming reports are retained unchanged.')
     output.write_text(json.dumps(report, indent=2) + '\n')
     print(json.dumps(dict(passed=report['passed'], checks=len(results), failures=[r['check'] for r in results if not r['passed']], output=str(output))))
     return 0 if report['passed'] else 1

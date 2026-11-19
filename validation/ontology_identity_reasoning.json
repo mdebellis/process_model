@@ -1,0 +1,183 @@
+{
+  "baseline_commit": "8cfff5fd59957dba5d7cb71107caa07b342f00d9",
+  "baseline_sha256": "3630e5f0a4f99ba15c9ceea34a7725c78b9701e64c687c578e31b4d57ba6b414",
+  "current_sha256": "1f3621db3a5a810bcd15d689cdba32d5415036e4d835424301c887eb754b732a",
+  "baseline_triples": 5505,
+  "current_triples": 5506,
+  "ontology_iri": "https://in2use.com/process_model",
+  "entity_namespace": "https://in2use.com/process_model/",
+  "complete_ontology_definition_links": 54,
+  "review_fragment_definition_links": 49,
+  "all_nonheader_assertions_identical_except_definition_targets": true,
+  "all_other_rdf_iris_unchanged": true,
+  "namespace_bindings_unchanged": true,
+  "historical_ontology_notes_preserved": true,
+  "review_fragment_only_definition_targets_changed": true,
+  "all_query_files_and_stored_queries_unchanged": true,
+  "passed": true,
+  "parser": "OWLAPI 4.5.29 (Protege 5.6.9)",
+  "reasoner": "Official Pellet plugin 2.3.0 implementation",
+  "pellet_checks": {
+    "expected_rule_counts_supplied": true,
+    "initial_load": {
+      "all_precomputations_pass": true,
+      "axioms": 4068,
+      "consistent": true,
+      "logical_axioms": 1296,
+      "passed": true,
+      "rule_content_checks_pass": true,
+      "rule_content_errors": [],
+      "rule_count": 10,
+      "rules": {
+        "[<http://www.w3.org/2006/time#intervalBefore>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+          "body_atoms": 11,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalContains>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=4;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalEquals>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=2;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=2;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalFinishes>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalMeets>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=2;data_property=4;object_property=4",
+          "body_atoms": 11,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalOverlaps>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=5;data_property=4;object_property=4",
+          "body_atoms": 13,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalStarts>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/ns/prov#wasAssociatedWith>]": {
+          "body_atom_kinds": "object_property=2",
+          "body_atoms": 2,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<https://in2use.com/process_model/has_flow_dependency>]": {
+          "body_atom_kinds": "class=2;different_individuals=1;object_property=4",
+          "body_atoms": 7,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<https://in2use.com/process_model/shares_input_variable>]": {
+          "body_atom_kinds": "class=2;different_individuals=1;object_property=4",
+          "body_atoms": 7,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        }
+      },
+      "unsatisfiable_named_classes": 0
+    },
+    "input_file": "process_model_with_examples.rdf",
+    "passed": true,
+    "save_reload": {
+      "all_precomputations_pass": true,
+      "axioms": 4068,
+      "consistent": true,
+      "logical_axioms": 1296,
+      "passed": true,
+      "rule_content_checks_pass": true,
+      "rule_content_errors": [],
+      "rule_count": 10,
+      "rules": {
+        "[<http://www.w3.org/2006/time#intervalBefore>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+          "body_atoms": 11,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalContains>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=4;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalEquals>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=2;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=2;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalFinishes>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalMeets>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=2;data_property=4;object_property=4",
+          "body_atoms": 11,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalOverlaps>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=5;data_property=4;object_property=4",
+          "body_atoms": 13,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalStarts>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/ns/prov#wasAssociatedWith>]": {
+          "body_atom_kinds": "object_property=2",
+          "body_atoms": 2,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<https://in2use.com/process_model/has_flow_dependency>]": {
+          "body_atom_kinds": "class=2;different_individuals=1;object_property=4",
+          "body_atoms": 7,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<https://in2use.com/process_model/shares_input_variable>]": {
+          "body_atom_kinds": "class=2;different_individuals=1;object_property=4",
+          "body_atoms": 7,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        }
+      },
+      "unsatisfiable_named_classes": 0
+    },
+    "save_reload_logical_axioms_equal": true
+  },
+  "allen_assertions": {
+    "before": 196,
+    "after": 196,
+    "identical": true
+  },
+  "execution_query03": {
+    "rows_before": 30,
+    "rows_after": 30,
+    "all_columns_identical": true
+  },
+  "scope": "Read-only validation of the edited RDF/XML. Entity IRIs, namespace bindings, logical content and all query sources are unchanged. No LLM invoked. Materialized inferences and logs remain outside the repository."
+}

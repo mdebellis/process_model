@@ -2,7 +2,7 @@
 
 Execution example prepared 5 November 2026 for Michael DeBellis. All execution data are synthetic demonstration data, not a record of a real tender. This page describes the execution layer of the [Figure 8 plan](figure8_model_notes.md).
 
-Current examples use `pm:` for `https://in2use.com/process_model/`, which is also the ontology IRI. Its label is **Process model with examples**. The [namespace migration notes](namespace_migration.md) explain the identifier changes. Historical reports and screenshots retain the earlier identifiers.
+Current examples use `pm:` for the entity namespace `https://in2use.com/process_model/`. The ontology IRI is `https://in2use.com/process_model`, without the trailing slash; its label is **Process model with examples**. The [naming guide](naming_conventions.md) explains the current convention and earlier identifier changes. Historical reports and screenshots retain the earlier identifiers.
 
 ## Open the RDF/XML file in Protégé
 
