@@ -1,0 +1,11 @@
+# head_predicate_key	body_atoms	head_atoms	body_atom_kinds	head_atom_kinds
+[<http://www.w3.org/2006/time#intervalBefore>]	11	1	builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4	object_property=1
+[<http://www.w3.org/2006/time#intervalContains>]	12	1	builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=4;data_property=4;object_property=4	object_property=1
+[<http://www.w3.org/2006/time#intervalEquals>]	12	1	builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=2;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=2;data_property=4;object_property=4	object_property=1
+[<http://www.w3.org/2006/time#intervalFinishes>]	12	1	builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4	object_property=1
+[<http://www.w3.org/2006/time#intervalMeets>]	11	1	builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=2;data_property=4;object_property=4	object_property=1
+[<http://www.w3.org/2006/time#intervalOverlaps>]	13	1	builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=5;data_property=4;object_property=4	object_property=1
+[<http://www.w3.org/2006/time#intervalStarts>]	12	1	builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4	object_property=1
+[<http://www.w3.org/ns/prov#wasAssociatedWith>]	2	1	object_property=2	object_property=1
+[<https://www.michaeldebellis.com/supply_chain_model/hasFlowDependency>]	7	1	class=2;different_individuals=1;object_property=4	object_property=1
+[<https://www.michaeldebellis.com/supply_chain_model/sharesInputVariable>]	7	1	class=2;different_individuals=1;object_property=4	object_property=1

@@ -4,7 +4,10 @@
 
 Open **process_model_with_examples.rdf** in Protégé. It is the complete updated
 ontology, including the existing tendering, Method Omega and OWL-Time examples.
-The RDF/XML format retains the existing named SWRL rules. The review archive
+Use the corrected type-first RDF/XML serialization described in the
+[compatibility report](../validation/rdfxml_compatibility.md). The original
+draft's export triggered a Protégé/OWLAPI parser issue despite passing the
+earlier CLI checks. The review archive
 contains additions-only Turtle, query examples, a small invocation helper and
 validation results; it does not contain another copy of the complete ontology.
 
@@ -132,6 +135,11 @@ Documentation checked:
 - [AllegroGraph LLM magic properties](https://franz.com/agraph/support/documentation/magic-properties.html)
 
 ## Validation
+
+The checks below describe the initial draft validation. The
+[RDF/XML compatibility regression](../validation/rdfxml_compatibility.md)
+additionally reproduces the reported Protégé inconsistency and verifies the
+corrected serialization with OWLAPI 4.5.29 and the official Pellet plug-in.
 
 - RDF/XML parsing and isomorphic roundtrip: passed.
 - Existing named assertions and anonymous structures preserved, except updated

@@ -1,0 +1,341 @@
+{
+  "original_owlapi3": {
+    "expected_rule_counts_supplied": false,
+    "initial_load": {
+      "all_precomputations_pass": true,
+      "axioms": 3893,
+      "consistent": true,
+      "logical_axioms": 1296,
+      "passed": true,
+      "rule_content_checks_pass": true,
+      "rule_content_errors": [],
+      "rule_count": 10,
+      "rules": {
+        "[<http://www.w3.org/2006/time#intervalBefore>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+          "body_atoms": 11,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalContains>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=4;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalEquals>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=2;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=2;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalFinishes>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalMeets>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=2;data_property=4;object_property=4",
+          "body_atoms": 11,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalOverlaps>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=5;data_property=4;object_property=4",
+          "body_atoms": 13,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalStarts>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/ns/prov#wasAssociatedWith>]": {
+          "body_atom_kinds": "object_property=2",
+          "body_atoms": 2,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<https://www.michaeldebellis.com/supply_chain_model/hasFlowDependency>]": {
+          "body_atom_kinds": "class=2;different_individuals=1;object_property=4",
+          "body_atoms": 7,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<https://www.michaeldebellis.com/supply_chain_model/sharesInputVariable>]": {
+          "body_atom_kinds": "class=2;different_individuals=1;object_property=4",
+          "body_atoms": 7,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        }
+      },
+      "unsatisfiable_named_classes": 0
+    },
+    "input_file": "process_model_with_examples.rdf",
+    "passed": true,
+    "process_exit_code": 0
+  },
+  "original_owlapi4": {
+    "expected_rule_counts_supplied": true,
+    "initial_load": {
+      "all_precomputations_pass": false,
+      "axioms": 4108,
+      "consistent": false,
+      "logical_axioms": 1296,
+      "passed": false,
+      "rule_content_checks_pass": false,
+      "rule_content_errors": [
+        "Empty body or head: Empty_Head_Rule_1",
+        "Empty body or head: Empty_Head_Rule_2",
+        "Empty body or head: Empty_Head_Rule_3",
+        "Empty body or head: Empty_Head_Rule_4",
+        "Empty body or head: Empty_Head_Rule_5",
+        "Empty body or head: Empty_Head_Rule_6",
+        "Empty body or head: Empty_Head_Rule_7",
+        "Empty body or head: Empty_Head_Rule_8",
+        "Empty body or head: [<http://www.w3.org/2006/time#intervalMeets>]",
+        "Empty body or head: [<http://www.w3.org/ns/prov#wasAssociatedWith>]",
+        "Changed or missing rule: [<http://www.w3.org/2006/time#intervalBefore>]",
+        "Changed or missing rule: [<http://www.w3.org/2006/time#intervalContains>]",
+        "Changed or missing rule: [<http://www.w3.org/2006/time#intervalEquals>]",
+        "Changed or missing rule: [<http://www.w3.org/2006/time#intervalFinishes>]",
+        "Changed or missing rule: [<http://www.w3.org/2006/time#intervalMeets>]",
+        "Changed or missing rule: [<http://www.w3.org/2006/time#intervalOverlaps>]",
+        "Changed or missing rule: [<http://www.w3.org/2006/time#intervalStarts>]",
+        "Changed or missing rule: [<http://www.w3.org/ns/prov#wasAssociatedWith>]",
+        "Changed or missing rule: [<https://www.michaeldebellis.com/supply_chain_model/hasFlowDependency>]",
+        "Changed or missing rule: [<https://www.michaeldebellis.com/supply_chain_model/sharesInputVariable>]",
+        "Unexpected rule: Empty_Head_Rule_1",
+        "Unexpected rule: Empty_Head_Rule_2",
+        "Unexpected rule: Empty_Head_Rule_3",
+        "Unexpected rule: Empty_Head_Rule_4",
+        "Unexpected rule: Empty_Head_Rule_5",
+        "Unexpected rule: Empty_Head_Rule_6",
+        "Unexpected rule: Empty_Head_Rule_7",
+        "Unexpected rule: Empty_Head_Rule_8"
+      ],
+      "rule_count": 10,
+      "rules": {
+        "Empty_Head_Rule_1": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+          "body_atoms": 11,
+          "head_atom_kinds": "",
+          "head_atoms": 0
+        },
+        "Empty_Head_Rule_2": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "",
+          "head_atoms": 0
+        },
+        "Empty_Head_Rule_3": {
+          "body_atom_kinds": "",
+          "body_atoms": 0,
+          "head_atom_kinds": "",
+          "head_atoms": 0
+        },
+        "Empty_Head_Rule_4": {
+          "body_atom_kinds": "",
+          "body_atoms": 0,
+          "head_atom_kinds": "",
+          "head_atoms": 0
+        },
+        "Empty_Head_Rule_5": {
+          "body_atom_kinds": "",
+          "body_atoms": 0,
+          "head_atom_kinds": "",
+          "head_atoms": 0
+        },
+        "Empty_Head_Rule_6": {
+          "body_atom_kinds": "",
+          "body_atoms": 0,
+          "head_atom_kinds": "",
+          "head_atoms": 0
+        },
+        "Empty_Head_Rule_7": {
+          "body_atom_kinds": "",
+          "body_atoms": 0,
+          "head_atom_kinds": "",
+          "head_atoms": 0
+        },
+        "Empty_Head_Rule_8": {
+          "body_atom_kinds": "class=2;different_individuals=1;object_property=4",
+          "body_atoms": 7,
+          "head_atom_kinds": "",
+          "head_atoms": 0
+        },
+        "[<http://www.w3.org/2006/time#intervalMeets>]": {
+          "body_atom_kinds": "",
+          "body_atoms": 0,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/ns/prov#wasAssociatedWith>]": {
+          "body_atom_kinds": "",
+          "body_atoms": 0,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        }
+      }
+    },
+    "input_file": "process_model_with_examples.rdf",
+    "passed": false,
+    "process_exit_code": 1
+  },
+  "fixed_owlapi4": {
+    "expected_rule_counts_supplied": true,
+    "initial_load": {
+      "all_precomputations_pass": true,
+      "axioms": 3869,
+      "consistent": true,
+      "logical_axioms": 1296,
+      "passed": true,
+      "rule_content_checks_pass": true,
+      "rule_content_errors": [],
+      "rule_count": 10,
+      "rules": {
+        "[<http://www.w3.org/2006/time#intervalBefore>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+          "body_atoms": 11,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalContains>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=4;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalEquals>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=2;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=2;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalFinishes>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalMeets>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=2;data_property=4;object_property=4",
+          "body_atoms": 11,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalOverlaps>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=5;data_property=4;object_property=4",
+          "body_atoms": 13,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalStarts>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/ns/prov#wasAssociatedWith>]": {
+          "body_atom_kinds": "object_property=2",
+          "body_atoms": 2,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<https://www.michaeldebellis.com/supply_chain_model/hasFlowDependency>]": {
+          "body_atom_kinds": "class=2;different_individuals=1;object_property=4",
+          "body_atoms": 7,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<https://www.michaeldebellis.com/supply_chain_model/sharesInputVariable>]": {
+          "body_atom_kinds": "class=2;different_individuals=1;object_property=4",
+          "body_atoms": 7,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        }
+      },
+      "unsatisfiable_named_classes": 0
+    },
+    "input_file": "types_first.rdf",
+    "passed": true,
+    "save_reload": {
+      "all_precomputations_pass": true,
+      "axioms": 3869,
+      "consistent": true,
+      "logical_axioms": 1296,
+      "passed": true,
+      "rule_content_checks_pass": true,
+      "rule_content_errors": [],
+      "rule_count": 10,
+      "rules": {
+        "[<http://www.w3.org/2006/time#intervalBefore>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+          "body_atoms": 11,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalContains>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=4;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalEquals>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=2;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=2;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalFinishes>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalMeets>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=2;data_property=4;object_property=4",
+          "body_atoms": 11,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalOverlaps>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=5;data_property=4;object_property=4",
+          "body_atoms": 13,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalStarts>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/ns/prov#wasAssociatedWith>]": {
+          "body_atom_kinds": "object_property=2",
+          "body_atoms": 2,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<https://www.michaeldebellis.com/supply_chain_model/hasFlowDependency>]": {
+          "body_atom_kinds": "class=2;different_individuals=1;object_property=4",
+          "body_atoms": 7,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<https://www.michaeldebellis.com/supply_chain_model/sharesInputVariable>]": {
+          "body_atom_kinds": "class=2;different_individuals=1;object_property=4",
+          "body_atoms": 7,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        }
+      },
+      "unsatisfiable_named_classes": 0
+    },
+    "save_reload_logical_axioms_equal": true,
+    "process_exit_code": 0
+  }
+}

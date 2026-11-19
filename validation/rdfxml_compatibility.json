@@ -1,0 +1,45 @@
+{
+  "result": "Confirmed parser compatibility failure; corrected serialization passes",
+  "parser": "OWLAPI 4.5.29 distributed with Protege 5.6.9",
+  "reasoner": "Official Pellet plugin 2.3.0 implementation",
+  "cause": "The RDF/XML streaming parser processed SWRL resources before their rdf:type declaration, producing rules with missing bodies or heads.",
+  "correction": "Serialize rdf:type before the other child properties of each rdf:Description.",
+  "rdf_graphs_isomorphic": true,
+  "triple_count_before": 5294,
+  "triple_count_after": 5294,
+  "original_sha256": "6f78d455dfe11f1bda7d2d4741146f72eb154464efbb152cc649607adf24dc5a",
+  "corrected_sha256": "311d8fbd516073d0e9bbcccfe08885cf6062a1292a590b517757eca342e6364f",
+  "original_owlapi3": {
+    "logical_axioms": 1296,
+    "rule_count": 10,
+    "consistent": true,
+    "all_precomputations_pass": true
+  },
+  "original_owlapi4": {
+    "axioms": 4108,
+    "logical_axioms": 1296,
+    "rule_count": 10,
+    "rules_with_empty_body_or_head": 10,
+    "consistent": false
+  },
+  "corrected_owlapi4": {
+    "axioms": 3869,
+    "logical_axioms": 1296,
+    "rule_count": 10,
+    "all_rule_atom_counts_and_kinds_match_original_owlapi3": true,
+    "consistent": true,
+    "all_precomputations_pass": true,
+    "unsatisfiable_named_classes": 0
+  },
+  "owlapi4_rdfxml_save_reload": {
+    "logical_axioms_identical": true,
+    "rule_count": 10,
+    "all_rule_atom_counts_and_kinds_preserved": true,
+    "consistent": true,
+    "all_precomputations_pass": true
+  },
+  "expected_counts_file": "expected_rule_atom_counts.tsv",
+  "detailed_evidence_file": "rdfxml_detailed_checks.json",
+  "harness_file": "Check_RDFXML_Rules.java",
+  "scope": "Checks use the complete supplied ontology and all ten SWRL rules. No rules or logical assertions were deleted or weakened. No reasoner libraries are included."
+}

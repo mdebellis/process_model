@@ -2,13 +2,13 @@
 
 Abstract model added 6 November 2026; documentation updated for the single-source repository layout.
 
-The combined ontology contains the Figure 8 tendering plan, its synthetic execution, and the Method Omega model from Michael's diagram. It contains **4,942 asserted triples**, including all ten complete SWRL rules and the qualified PROV usage declarations, with no exported inferences. The repository cleanup preserves that combined source without changing its RDF content.
+The combined ontology contains the Figure 8 tendering plan, its synthetic execution, and the Method Omega model from Michael's diagram. The Method Omega stage contained **4,942 asserted triples**; the current source contains **5,294 asserted triples** after the [state and goal extensions](../state_goal_extensions_review/README.md). It retains all ten complete SWRL rules and the qualified PROV usage declarations, with no exported inferences.
 
 ## Open and review
 
 Open [process_model_with_examples.rdf](../ontologies/process_model_with_examples.rdf) in Protégé. It is the complete combined ontology and the repository's only ontology source. Its ontology IRI remains `https://www.michaeldebellis.com/supply_chain_figure8`; renaming the file preserves the header, vocabulary IRIs, and individual IRIs.
 
-**Keep the source in RDF/XML.** The affected Protégé/OWLAPI Turtle parsing and saving route deleted named SWRL rule content; the RDF/XML route preserved it. The [execution notes](figure8_execution.md#open-the-rdfxml-file-in-protégé) describe the tested conditions. Turtle fragments below are explanatory notation only, not an alternative source file.
+**Keep the source in RDF/XML, with `rdf:type` elements first within each resource description.** The affected OWLAPI 4.5.29 parser can otherwise load named SWRL rules with empty bodies or heads; see the [RDF/XML compatibility report](../validation/rdfxml_compatibility.md). The affected Protégé/OWLAPI Turtle parsing and saving route also deleted named SWRL rule content; the [execution notes](figure8_execution.md#open-the-rdfxml-file-in-protégé) describe those earlier tests. Turtle fragments below are explanatory notation only, not an alternative source file.
 
 Run Pellet to see inverse properties and subclass classifications. For Gruff, the files in [queries/method_omega](../queries/method_omega/) also work on the asserted graph without exported inferences:
 
@@ -123,7 +123,7 @@ The original 6 November 2026 validation passed the following checks. These are h
 
 The [historical validation JSON](../validation/history/method_omega/validation_results.json) records the counts. The then-current input was graph-isomorphic to the corrected 4,498-triple Figure 8 source before the Method Omega additions. Local Pellet/OWLAPI checks did not test the installed Protégé UI or Gruff layout; no new reasoner run is implied by the repository cleanup.
 
-Current cleanup checks confirmed that the combined RDF/XML is byte-identical to the prior combined source, retains ten complete rules, and has the expected hierarchy. The four Method Omega queries returned 70, 78, and 17 graph triples, and 16 inventory rows respectively. These checks are recorded in [cleanup_verification.json](../validation/cleanup_verification.json).
+The historical cleanup checks confirmed that the then-current 4,942-triple RDF/XML was byte-identical to the prior combined source, retained ten complete rules, and had the expected hierarchy. The four Method Omega queries returned 70, 78, and 17 graph triples, and 16 inventory rows respectively. These checks are recorded in [cleanup_verification.json](../validation/cleanup_verification.json). See the [validation overview](../validation/README.md) for the later state extension and RDF/XML compatibility checks.
 
 ## Vocabulary references
 
