@@ -58,9 +58,9 @@ The following `pm:` properties and classes are local extensions, not P-Plan term
 
 There are ten asserted forward precedence relationships. The underlying P-Plan triples use successor-to-predecessor direction; `pm:precedes` supplies the forward inverse. Neither relation denotes an immediate next step, because P-Plan precedence is transitive.
 
-The twelve **StepTransition** individuals preserve the immediate possible arrows separately. Each is also a `pm:Finish_To_Start_Transition`, explicitly describing the requirement that the source occurrence completes before the target occurrence starts. The interpretation permits zero waiting time: finish at 11:00 and start at 11:00 are allowed; overlap is not. This is a declared scheduling constraint, not an executable rule or an actual Allen relation.
+The twelve **Step_Transition** individuals preserve the immediate possible arrows separately. Each is also a `pm:Finish_To_Start_Transition`, explicitly describing the requirement that the source occurrence completes before the target occurrence starts. The interpretation permits zero waiting time: finish at 11:00 and start at 11:00 are allowed; overlap is not. This is a declared scheduling constraint, not an executable rule or an actual Allen relation.
 
-The **Requirements Approved?** diamond is an instance of `pm:ExclusiveChoice`, not an extra work Step:
+The **Requirements Approved?** diamond is an instance of `pm:Exclusive_Choice`, not an extra work Step:
 
 - The decision is produced by `Review_Requirements` in the planned `Requirements_Review_Decision` Variable.
 - The Yes transition uses the existing `pm:Approved` outcome and reaches `Requirements_Acquisition_Completed`.
@@ -75,7 +75,7 @@ The diagram does not say which internal tasks must repeat after rejection. The m
 
 `Wireframes` and `Use_Cases` are expected deliverable **Variables**, not actual documents. Their producers are the MultiSteps shown in the diagram: `Create_Wireframes` and `Create_Use_Cases`. `Review_Requirements` has both Variables as inputs.
 
-The containing `Create_Detailed_Requirements` MultiStep exposes both through the local `pm:exposes_output_variable` property. This expresses the dotted flow at the enclosing level while retaining one producer per Variable. That matters because `pp:isOutputVarOf` is functional: assigning the same Variable to two producers would cause OWL to equate those producers, or cause inconsistency when they are explicitly different.
+The containing `Create_Detailed_Requirements` MultiStep exposes both through the local `pm:has_exposed_output_variable` property. This expresses the dotted flow at the enclosing level while retaining one producer per Variable. That matters because `pp:isOutputVarOf` is functional: assigning the same Variable to two producers would cause OWL to equate those producers, or cause inconsistency when they are explicitly different.
 
 Exposure is not another production event and is deliberately not a subproperty of `pp:hasOutputVar`. These Variables are associated with both Plans in which they are exposed or used; `pp:isVariableOfPlan` is not functional. Leaf-level production, actual documents and document versions remain unspecified.
 
@@ -83,7 +83,7 @@ The solid arrow from Create Wireframes to Create Use Cases supplies order only. 
 
 ## Expected duration
 
-P-Plan has no expected-duration property. The new object property **`pm:expected_duration`** applies to either a Plan or a Step and points to an OWL-Time `time:Duration`. It is optional, and **no estimate values are asserted**.
+P-Plan has no expected-duration property. The new object property **`pm:has_expected_duration`** applies to either a Plan or a Step and points to an OWL-Time `time:Duration`. It is optional, and **no estimate values are asserted**.
 
 For illustration only, a future estimate could be expressed as:
 
@@ -92,7 +92,7 @@ For illustration only, a future estimate could be expressed as:
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-pm:Develop_Wireframes pm:expected_duration [
+pm:Develop_Wireframes pm:has_expected_duration [
     a time:Duration ;
     time:numericDuration "6"^^xsd:decimal ;
     time:unitType time:unitHour

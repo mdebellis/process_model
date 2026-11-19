@@ -1,0 +1,71 @@
+{
+  "result": "PASS",
+  "baseline_commit": "03dc687f43dd18644318579e4adb7c263815af53",
+  "baseline_file": "ontologies/process_model_with_examples.rdf at baseline_commit",
+  "renamed_file": "ontologies/process_model_with_examples.rdf",
+  "iri_mapping_file": "docs/naming_migration.tsv",
+  "iri_renames": 175,
+  "baseline_sha256": "5f11c0651c8a85332de57fe1ea302b923743f316554f0ed5c79c2f9a6ab5f585",
+  "renamed_sha256": "3630e5f0a4f99ba15c9ceea34a7725c78b9701e64c687c578e31b4d57ba6b414",
+  "baseline_asserted_triples": 5299,
+  "renamed_asserted_triples": 5505,
+  "logical_preservation": {
+    "non_annotation_non_query_graph_equal_after_mapping_and_inverse_normalization": true,
+    "compared_triples_each": 3327,
+    "inverse_normalization": "The two inverseOf assertions for source and target steps were moved to their has_* property side. Named owl:inverseOf pairs are compared without direction because inverseOf is symmetric. The raw graph difference is exactly those two reorientations.",
+    "stored_sparql_queries": [
+      {
+        "test_iri": "https://in2use.com/process_model/Tender_Submission_Test",
+        "query_algebra_equal_after_iri_renaming": true
+      },
+      {
+        "test_iri": "https://in2use.com/process_model/Requirements_Readiness_Test",
+        "query_algebra_equal_after_iri_renaming": true
+      },
+      {
+        "test_iri": "https://in2use.com/process_model/Approved_Tender_Submission_Test",
+        "query_algebra_equal_after_iri_renaming": true
+      },
+      {
+        "test_iri": "https://in2use.com/process_model/Tender_Approval_Test",
+        "query_algebra_equal_after_iri_renaming": true
+      }
+    ],
+    "annotation_scope": "Updated English labels and other annotations are excluded from the logical comparison. Stored query literals are checked as parsed SPARQL algebra after IRI renaming."
+  },
+  "reasoner": "Official Pellet plugin 2.3.0 implementation",
+  "parser": "OWLAPI 4.5.29 distributed with Protege 5.6.9",
+  "pellet": {
+    "consistent": true,
+    "logical_axioms": 1296,
+    "complete_swrl_rules": 10,
+    "all_rule_atom_counts_and_kinds_match_mapped_baseline": true,
+    "all_precomputations_pass": true,
+    "unsatisfiable_named_classes": 0
+  },
+  "rdfxml_save_reload": {
+    "logical_axioms_identical": true,
+    "all_rule_atom_counts_and_kinds_preserved": true,
+    "consistent": true,
+    "all_precomputations_pass": true
+  },
+  "allen_inferences": {
+    "baseline_assertions": 196,
+    "renamed_assertions": 196,
+    "all_assertions_equal_under_iri_mapping": true,
+    "scope": "All thirteen Allen relations across all named individuals."
+  },
+  "query03": {
+    "baseline_rows": 30,
+    "renamed_rows": 30,
+    "distinct_directed_activity_pairs": 30,
+    "semantic_rows_equal_under_iri_mapping": true,
+    "comparison_columns": [
+      "activityA",
+      "relation",
+      "activityB"
+    ],
+    "label_note": "Labels were intentionally renamed and are not part of this semantic row comparison."
+  },
+  "scope": "The complete ontology was loaded with all ten SWRL rules. No LLM calls were made. Reasoner dependencies and materialized test exports were kept outside the repository."
+}

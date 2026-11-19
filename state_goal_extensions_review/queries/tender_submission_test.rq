@@ -3,12 +3,12 @@ PREFIX pp: <http://purl.org/net/p-plan#>
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX sulo: <https://w3id.org/sulo/>
 ASK {
-  VALUES (?run ?version) { (pm:TenderRun01 pm:Run01RevisedTender) }
+  VALUES (?run ?version) { (pm:Tender_Run_01 pm:Run_01_Revised_Tender) }
   ?run sulo:hasPart ?submission .
-  ?submission pp:correspondsToStep pm:t3SubmitTenderTask ;
+  ?submission pp:correspondsToStep pm:T3_Submit_Tender_Task ;
               prov:used ?version ;
               prov:endedAtTime ?submission_end .
-  ?submitted_copy pp:correspondsToVariable pm:SubmittedTenderVar ;
+  ?submitted_copy pp:correspondsToVariable pm:Submitted_Tender_Var ;
                   prov:wasGeneratedBy ?submission ;
                   prov:wasDerivedFrom ?version .
 }

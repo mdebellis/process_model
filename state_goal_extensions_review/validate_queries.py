@@ -25,7 +25,7 @@ def clone():
     return graph
 
 
-def case(name, test, expected, graph=BASE, run=PM.TenderRun01, version=PM.Run01RevisedTender):
+def case(name, test, expected, graph=BASE, run=PM.Tender_Run_01, version=PM.Run_01_Revised_Tender):
     actual = ask_tender_state(graph, PM[test], run=run, version=version)
     RESULTS.append({'case': name, 'expected': expected, 'actual': actual, 'passed': actual == expected})
     assert actual == expected, name
@@ -37,39 +37,39 @@ for test, query in BASE.subject_objects(PM.has_sparql_query):
 
 for name in ['Tender_Approval_Test', 'Tender_Submission_Test', 'Approved_Tender_Submission_Test']:
     case('Existing run: ' + name, name, True)
-    case('Different version: ' + name, name, False, version=PM.Run01InitialDraft)
+    case('Different version: ' + name, name, False, version=PM.Run_01_Initial_Draft)
     case('Different run: ' + name, name, False, run=URIRef('https://in2use.com/process_model/Regression_Another_Run'))
 
 graph = clone()
-graph.remove((PM.Run01Decision, PM.hasOutcome, PM.Approved))
+graph.remove((PM.Run_01_Decision, PM.has_outcome, PM.Approved))
 case('Missing approval evidence', 'Tender_Approval_Test', False, graph)
 case('Parent with missing approval evidence', 'Approved_Tender_Submission_Test', False, graph)
 case('Submission independently of approval', 'Tender_Submission_Test', True, graph)
 
-graph.add((PM.Run01Decision, PM.hasOutcome, PM.Rejected))
+graph.add((PM.Run_01_Decision, PM.has_outcome, PM.Rejected))
 case('Explicit rejection', 'Tender_Approval_Test', False, graph)
 
 graph = clone()
-graph.remove((PM.Run01Submit, PROV.endedAtTime, None))
+graph.remove((PM.Run_01_Submit, PROV.endedAtTime, None))
 case('Submission not recorded complete', 'Tender_Submission_Test', False, graph)
 
 graph = clone()
-graph.remove((PM.Run01Submit, PROV.used, PM.Run01Decision))
+graph.remove((PM.Run_01_Submit, PROV.used, PM.Run_01_Decision))
 case('Parent must link actual approval used', 'Approved_Tender_Submission_Test', False, graph)
 case('Approval subgoal remains independent', 'Tender_Approval_Test', True, graph)
 case('Submission subgoal remains independent', 'Tender_Submission_Test', True, graph)
 
 graph = clone()
-graph.remove((PM.Run01SubmittedTender, PROV.wasDerivedFrom, PM.Run01RevisedTender))
-graph.add((PM.Run01SubmittedTender, PROV.wasDerivedFrom, PM.Run01InitialDraft))
+graph.remove((PM.Run_01_Submitted_Tender, PROV.wasDerivedFrom, PM.Run_01_Revised_Tender))
+graph.add((PM.Run_01_Submitted_Tender, PROV.wasDerivedFrom, PM.Run_01_Initial_Draft))
 case('Submitted copy of wrong version', 'Tender_Submission_Test', False, graph)
 
 graph = clone()
-graph.remove((PM.TenderRun01, SULO.hasPart, PM.Run01Vote))
-graph.add((URIRef('https://in2use.com/process_model/Regression_Another_Run'), SULO.hasPart, PM.Run01Vote))
+graph.remove((PM.Tender_Run_01, SULO.hasPart, PM.Run_01_Vote))
+graph.add((URIRef('https://in2use.com/process_model/Regression_Another_Run'), SULO.hasPart, PM.Run_01_Vote))
 case('Approval from another execution cannot be borrowed', 'Approved_Tender_Submission_Test', False, graph)
 
-for run, version in [(None, PM.Run01RevisedTender), (PM.TenderRun01, None)]:
+for run, version in [(None, PM.Run_01_Revised_Tender), (PM.Tender_Run_01, None)]:
     try:
         ask_tender_state(BASE, PM.Tender_Approval_Test, run=run, version=version)
     except ValueError:
@@ -78,7 +78,7 @@ for run, version in [(None, PM.Run01RevisedTender), (PM.TenderRun01, None)]:
         raise AssertionError('Missing binding was not rejected')
 
 try:
-    ask_tender_state(BASE, PM.Requirements_Readiness_Test, run=PM.TenderRun01, version=PM.Run01RevisedTender)
+    ask_tender_state(BASE, PM.Requirements_Readiness_Test, run=PM.Tender_Run_01, version=PM.Run_01_Revised_Tender)
 except ValueError:
     RESULTS.append({'case': 'Do not interpret an LLM SELECT as deterministic ASK', 'passed': True})
 else:

@@ -1,5 +1,11 @@
 # One namespace for the process model
 
+This page records the historical namespace-only revision. The current source
+also includes the [naming cleanup](naming_conventions.md); the counts, local
+names, and validation results below describe the earlier snapshot. Clients
+updating from the original namespaces need the namespace map followed by the
+later naming map, as explained in that guide.
+
 18 November 2026. This revision updates the repository from commit
 `6a446c369bf2401e5107b6fa5fc5b5a945c2ac8c`.
 

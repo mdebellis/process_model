@@ -3,21 +3,21 @@ PREFIX pp: <http://purl.org/net/p-plan#>
 PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX sulo: <https://w3id.org/sulo/>
 ASK {
-  VALUES (?run ?version) { (pm:TenderRun01 pm:Run01RevisedTender) }
+  VALUES (?run ?version) { (pm:Tender_Run_01 pm:Run_01_Revised_Tender) }
   ?run sulo:hasPart ?review .
-  ?review pp:correspondsToStep pm:t12VoteForTenderTask ;
+  ?review pp:correspondsToStep pm:T12_Vote_For_Tender_Task ;
           prov:used ?version ;
           prov:endedAtTime ?review_end .
-  ?decision a pm:DecisionResult ;
-            pp:correspondsToVariable pm:PartnerDecisionVar ;
-            pm:hasOutcome pm:Approved ;
-            pm:aboutVersion ?version ;
+  ?decision a pm:Decision_Result ;
+            pp:correspondsToVariable pm:Partner_Decision_Var ;
+            pm:has_outcome pm:Approved ;
+            pm:has_subject_version ?version ;
             prov:wasGeneratedBy ?review .
   ?run sulo:hasPart ?submission .
-  ?submission pp:correspondsToStep pm:t3SubmitTenderTask ;
+  ?submission pp:correspondsToStep pm:T3_Submit_Tender_Task ;
               prov:used ?version ;
               prov:endedAtTime ?submission_end .
-  ?submitted_copy pp:correspondsToVariable pm:SubmittedTenderVar ;
+  ?submitted_copy pp:correspondsToVariable pm:Submitted_Tender_Var ;
                   prov:wasGeneratedBy ?submission ;
                   prov:wasDerivedFrom ?version .
   ?submission prov:used ?decision .

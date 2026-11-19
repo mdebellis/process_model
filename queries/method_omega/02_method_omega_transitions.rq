@@ -2,27 +2,27 @@ PREFIX pm: <https://in2use.com/process_model/>
 PREFIX pp: <http://purl.org/net/p-plan#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 CONSTRUCT {
-  ?from pm:hasOutgoingTransition ?transition; rdfs:label ?fromLabel.
-  ?transition a ?kind; pm:transitionTo ?to; rdfs:label ?transitionLabel;
-              pm:hasCondition ?condition.
+  ?from pm:is_source_step_of ?transition; rdfs:label ?fromLabel.
+  ?transition a ?kind; pm:has_target_step ?to; rdfs:label ?transitionLabel;
+              pm:has_condition ?condition.
   ?to rdfs:label ?toLabel.
-  ?condition rdfs:label ?conditionLabel; pm:expectedOutcome ?outcome.
+  ?condition rdfs:label ?conditionLabel; pm:has_expected_outcome ?outcome.
   ?outcome rdfs:label ?outcomeLabel.
-  ?choice a pm:ExclusiveChoice; rdfs:label ?choiceLabel; pm:hasAlternative ?transition.
+  ?choice a pm:Exclusive_Choice; rdfs:label ?choiceLabel; pm:has_alternative ?transition.
 } WHERE {
-  ?transition pm:transitionFrom ?from; pm:transitionTo ?to;
+  ?transition pm:has_source_step ?from; pm:has_target_step ?to;
               rdfs:label ?transitionLabel; a ?kind.
   pm:Method_Omega (^pp:isStepOfPlan/pp:isDecomposedAsPlan)* ?plan.
   ?from pp:isStepOfPlan ?plan.
-  FILTER(?kind IN (pm:Finish_To_Start_Transition, pm:ConditionalTransition))
+  FILTER(?kind IN (pm:Finish_To_Start_Transition, pm:Conditional_Transition))
   ?from rdfs:label ?fromLabel.
   ?to rdfs:label ?toLabel.
   # To show only the expanded Requirements Acquisition flow, uncomment:
   # ?from pp:isStepOfPlan pm:Requirements_Acquisition_Plan.
   OPTIONAL {
-    ?transition pm:hasCondition ?condition.
-    ?condition rdfs:label ?conditionLabel; pm:expectedOutcome ?outcome.
+    ?transition pm:has_condition ?condition.
+    ?condition rdfs:label ?conditionLabel; pm:has_expected_outcome ?outcome.
     ?outcome rdfs:label ?outcomeLabel.
   }
-  OPTIONAL { ?choice pm:hasAlternative ?transition; rdfs:label ?choiceLabel. }
+  OPTIONAL { ?choice pm:has_alternative ?transition; rdfs:label ?choiceLabel. }
 }

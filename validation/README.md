@@ -2,9 +2,15 @@
 
 The repository has one ontology source: [process_model_with_examples.rdf](../ontologies/process_model_with_examples.rdf). Validation records document checks on this source and the earlier stages from which it was assembled.
 
-## Current source and namespace migration
+## Current source and naming checks
 
-The current ontology contains **5,299 asserted triples**, including ten complete SWRL rules and the [state and goal extensions](../state_goal_extensions_review/README.md). Its ontology IRI and project-owned term namespace are `https://in2use.com/process_model/`. The [namespace migration notes](../docs/namespace_migration.md) explain the identifier changes; [namespace_migration.json](namespace_migration.json) records the checks on the migrated source. The increase from 5,294 triples consists of four role preferred labels and one migration change note.
+The current ontology contains **5,505 asserted triples**, including ten complete SWRL rules and the [state and goal extensions](../state_goal_extensions_review/README.md). Its ontology IRI and project-owned term namespace remain `https://in2use.com/process_model/`; `owl:versionInfo` is `process-model-v3-2026-11-18`.
+
+The [naming conventions](../docs/naming_conventions.md) explain the 175 IRI changes recorded in [naming_migration.tsv](../docs/naming_migration.tsv), direct English labels, and retention of replaced labels as alternatives. Two existing inverse-property declarations moved to their primary `has_` side; no new inverses or constraints were introduced. [naming_validation.json](naming_validation.json) records structural and query checks; [naming_reasoning.json](naming_reasoning.json) records parser and reasoner checks on this revision.
+
+## Earlier namespace migration
+
+The [namespace migration notes](../docs/namespace_migration.md), [namespace map](../docs/iri_migration.tsv), and [namespace_migration.json](namespace_migration.json) describe the prior 5,299-triple revision, before the naming cleanup. Its increase from 5,294 triples consisted of four role preferred labels and one migration change note. The namespace reasoning and inline-query reports likewise describe that earlier snapshot. Clients starting with pre-unification identifiers must apply the namespace map first and then the naming map; an IRI absent from the second map keeps its unified-namespace name.
 
 ## Earlier state and RDF/XML compatibility checks
 

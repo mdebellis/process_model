@@ -6,11 +6,11 @@ PREFIX sulo: <https://w3id.org/sulo/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 SELECT ?voteActivity ?decision ?outcome ?transition ?nextStep ?performedActivity WHERE {
-  pm:TenderRun01 sulo:hasPart ?voteActivity, ?performedActivity.
-  ?decision a pm:DecisionResult; prov:wasGeneratedBy ?voteActivity;
-    pp:correspondsToVariable ?variable; pm:hasOutcome ?outcome.
-  pm:SubmissionChoice pm:hasAlternative ?transition.
-  ?transition pm:hasCondition ?condition; pm:transitionTo ?nextStep.
-  ?condition pm:conditionVariable ?variable; pm:expectedOutcome ?outcome.
+  pm:Tender_Run_01 sulo:hasPart ?voteActivity, ?performedActivity.
+  ?decision a pm:Decision_Result; prov:wasGeneratedBy ?voteActivity;
+    pp:correspondsToVariable ?variable; pm:has_outcome ?outcome.
+  pm:Submission_Choice pm:has_alternative ?transition.
+  ?transition pm:has_condition ?condition; pm:has_target_step ?nextStep.
+  ?condition pm:has_condition_variable ?variable; pm:has_expected_outcome ?outcome.
   ?performedActivity pp:correspondsToStep ?nextStep.
 }

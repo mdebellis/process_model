@@ -5,12 +5,12 @@ CONSTRUCT {
   ?producer rdfs:label ?producerLabel; pp:hasOutputVar ?variable.
   ?variable a pp:Variable; rdfs:label ?variableLabel; pp:isInputVarOf ?consumer.
   ?consumer rdfs:label ?consumerLabel.
-  ?wrapper rdfs:label ?wrapperLabel; pm:exposes_output_variable ?variable.
+  ?wrapper rdfs:label ?wrapperLabel; pm:has_exposed_output_variable ?variable.
 } WHERE {
   ?producer pp:hasOutputVar ?variable; rdfs:label ?producerLabel.
   pm:Method_Omega (^pp:isStepOfPlan/pp:isDecomposedAsPlan)* ?plan.
   ?producer pp:isStepOfPlan ?plan.
   ?variable rdfs:label ?variableLabel.
   OPTIONAL { ?consumer pp:hasInputVar ?variable; rdfs:label ?consumerLabel. }
-  OPTIONAL { ?wrapper pm:exposes_output_variable ?variable; rdfs:label ?wrapperLabel. }
+  OPTIONAL { ?wrapper pm:has_exposed_output_variable ?variable; rdfs:label ?wrapperLabel. }
 }

@@ -6,7 +6,7 @@ PREFIX sulo: <https://w3id.org/sulo/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 SELECT ?activityA ?labelA ?relation ?activityB ?labelB WHERE {
-  pm:TenderRun01 sulo:hasPart ?activityA, ?activityB.
+  pm:Tender_Run_01 sulo:hasPart ?activityA, ?activityB.
   ?activityA pp:correspondsToStep ?stepA; rdfs:label ?labelA; time:hasTime ?intervalA.
   ?activityB pp:correspondsToStep ?stepB; rdfs:label ?labelB; time:hasTime ?intervalB.
   ?intervalA ?relation ?intervalB.

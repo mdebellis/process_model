@@ -8,11 +8,11 @@
 @prefix sulo: <https://w3id.org/sulo/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-pm:ApprovalCondition skos:definition "The decision artifact corresponding to the Partner Decision variable for the selected tender execution and review round has the explicit Approved outcome. The decision must concern the document version selected for evaluation."@en .
+pm:Approval_Condition skos:definition "The decision artifact corresponding to the Partner Decision variable for the selected tender execution and review round has the explicit Approved outcome. The decision must concern the document version selected for evaluation."@en .
 
 pm:Create_Detailed_Requirements pm:has_goal pm:Requirements_Ready_For_Review .
 
-pm:DecisionCondition rdfs:subClassOf pm:State_Description .
+pm:Decision_Condition rdfs:subClassOf pm:State_Description .
 
 pm:Evaluation_Error a owl:NamedIndividual,
         pm:Evaluation_Result ;
@@ -21,7 +21,7 @@ pm:Evaluation_Error a owl:NamedIndividual,
     skos:definition "The evaluation could not be completed or its output could not be interpreted according to the expected result contract. This is a technical evaluation outcome, not a truth value."@en ;
     skos:prefLabel "Evaluation Error"@en .
 
-pm:RejectionCondition skos:definition "The decision artifact corresponding to the Partner Decision variable for the selected tender execution and review round has the explicit Rejected outcome. Absence of an approval or a decision is not rejection."@en .
+pm:Rejection_Condition skos:definition "The decision artifact corresponding to the Partner Decision variable for the selected tender execution and review round has the explicit Rejected outcome. Absence of an approval or a decision is not rejection."@en .
 
 pm:Requirements_Approved_Condition skos:definition "The decision artifact corresponding to the Requirements Review Decision variable for the selected Method Omega execution and review round has the explicit Approved outcome."@en .
 
@@ -34,7 +34,7 @@ pm:Satisfied a owl:NamedIndividual,
     skos:definition "The condition is assessed as satisfied for the specified inputs and evidence under the test interpretation."@en ;
     skos:prefLabel "Satisfied"@en .
 
-pm:TenderingPlan pm:has_goal pm:Approved_Tender_Submitted .
+pm:Tendering_Plan pm:has_goal pm:Approved_Tender_Submitted .
 
 pm:Unknown a owl:NamedIndividual,
         pm:Evaluation_Result ;
@@ -212,19 +212,19 @@ PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX sulo: <https://w3id.org/sulo/>
 ASK {
   ?run sulo:hasPart ?review .
-  ?review pp:correspondsToStep pm:t12VoteForTenderTask ;
+  ?review pp:correspondsToStep pm:T12_Vote_For_Tender_Task ;
           prov:used ?version ;
           prov:endedAtTime ?review_end .
-  ?decision a pm:DecisionResult ;
-            pp:correspondsToVariable pm:PartnerDecisionVar ;
-            pm:hasOutcome pm:Approved ;
-            pm:aboutVersion ?version ;
+  ?decision a pm:Decision_Result ;
+            pp:correspondsToVariable pm:Partner_Decision_Var ;
+            pm:has_outcome pm:Approved ;
+            pm:has_subject_version ?version ;
             prov:wasGeneratedBy ?review .
   ?run sulo:hasPart ?submission .
-  ?submission pp:correspondsToStep pm:t3SubmitTenderTask ;
+  ?submission pp:correspondsToStep pm:T3_Submit_Tender_Task ;
               prov:used ?version ;
               prov:endedAtTime ?submission_end .
-  ?submitted_copy pp:correspondsToVariable pm:SubmittedTenderVar ;
+  ?submitted_copy pp:correspondsToVariable pm:Submitted_Tender_Var ;
                   prov:wasGeneratedBy ?submission ;
                   prov:wasDerivedFrom ?version .
   ?submission prov:used ?decision .
@@ -308,13 +308,13 @@ PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX sulo: <https://w3id.org/sulo/>
 ASK {
   ?run sulo:hasPart ?review .
-  ?review pp:correspondsToStep pm:t12VoteForTenderTask ;
+  ?review pp:correspondsToStep pm:T12_Vote_For_Tender_Task ;
           prov:used ?version ;
           prov:endedAtTime ?review_end .
-  ?decision a pm:DecisionResult ;
-            pp:correspondsToVariable pm:PartnerDecisionVar ;
-            pm:hasOutcome pm:Approved ;
-            pm:aboutVersion ?version ;
+  ?decision a pm:Decision_Result ;
+            pp:correspondsToVariable pm:Partner_Decision_Var ;
+            pm:has_outcome pm:Approved ;
+            pm:has_subject_version ?version ;
             prov:wasGeneratedBy ?review .
 }
 """^^xsd:string .
@@ -341,10 +341,10 @@ PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX sulo: <https://w3id.org/sulo/>
 ASK {
   ?run sulo:hasPart ?submission .
-  ?submission pp:correspondsToStep pm:t3SubmitTenderTask ;
+  ?submission pp:correspondsToStep pm:T3_Submit_Tender_Task ;
               prov:used ?version ;
               prov:endedAtTime ?submission_end .
-  ?submitted_copy pp:correspondsToVariable pm:SubmittedTenderVar ;
+  ?submitted_copy pp:correspondsToVariable pm:Submitted_Tender_Var ;
                   prov:wasGeneratedBy ?submission ;
                   prov:wasDerivedFrom ?version .
 }

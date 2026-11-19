@@ -22,16 +22,19 @@ All project-owned vocabulary and example individuals now use
 `https://in2use.com/process_model/`, abbreviated `pm:`. This is also the ontology
 IRI; its label is **Process model with examples**. The later
 [namespace migration](../docs/namespace_migration.md) updated the draft's local
-IRIs and query text while preserving standard vocabulary IRIs. The original
-validation reports retain the identifiers used when they were produced; the
-[migration report](../validation/namespace_migration.json) covers the current source.
+IRIs and query text while preserving standard vocabulary IRIs. The current
+[naming revision](../docs/naming_conventions.md) standardizes the remaining local
+names and labels; its version is `process-model-v3-2026-11-18`. The original
+validation and namespace reports retain the identifiers used when they were
+produced. Current checks are in [naming_validation.json](../validation/naming_validation.json)
+and [naming_reasoning.json](../validation/naming_reasoning.json).
 
 The supplied baseline contained 4,942 asserted triples but no State_Description
 or has_sub_state declarations. The state draft supplied those foundations and
-contained 5,294 triples before namespace migration. The current ontology contains
-5,299 asserted triples. The five additional triples are four role preferred
-labels and one migration change note. No inferred triples or runtime evaluation records have
-been added.
+contained 5,294 triples before namespace migration. The namespace revision
+contained 5,299 triples; the current naming revision contains **5,505 asserted
+triples**, with labels and change annotations accounting for the increase.
+No inferred triples or runtime evaluation records have been added.
 
 ## Vocabulary
 
@@ -68,9 +71,16 @@ appear on the primary side. English rdfs:label and skos:prefLabel values replace
 underscores with spaces. Classes remain primitive; no new equivalence,
 disjointness or functional-property constraints were introduced.
 
+These conventions now apply across the project-owned vocabulary, with the
+documented property exceptions `precedes` and symmetric `shares_input_variable`.
+Replaced labels are retained as `skos:altLabel`; standard external IRIs are
+unchanged. The [naming map](../docs/naming_migration.tsv) records this revision's
+175 IRI changes. For identifiers predating namespace unification, apply the
+[namespace map](../docs/iri_migration.tsv) first, then the naming map.
+
 ## Connection to the existing examples
 
-The existing supply-chain DecisionCondition class is now a subclass of
+The existing supply-chain Decision_Condition class is now a subclass of
 State_Description, retaining its original parents. Its four existing individuals
 have English skos:definition values. The namespace migration updates their IRIs;
 their outcomes and branch meanings remain unchanged. A missing decision still
@@ -94,8 +104,8 @@ declarative representation; this draft does not give all of them executable test
 
 ## Running the deterministic examples
 
-The three concrete files in `queries/` contain explicit VALUES for TenderRun01
-and Run01RevisedTender. Each returns true against the complete updated ontology
+The three concrete files in `queries/` contain explicit VALUES for `Tender_Run_01`
+and `Run_01_Revised_Tender`. Each returns true against the complete updated ontology
 with an RDFLib SPARQL processor. They are ordinary SPARQL queries suitable for
 testing in AllegroGraph as well; no AllegroGraph server execution was performed
 in this review.
@@ -146,8 +156,10 @@ The checks below describe the initial draft validation before namespace migratio
 [RDF/XML compatibility regression](../validation/rdfxml_compatibility.md)
 additionally reproduces the reported Protégé inconsistency and verifies the
 corrected serialization with OWLAPI 4.5.29 and the official Pellet plug-in. Both
-sets of reports describe the earlier IRIs. See the [namespace migration
-results](../validation/namespace_migration.json) for checks on the current source.
+sets of reports describe the earlier IRIs. The [namespace migration
+results](../validation/namespace_migration.json) describe the next stage, before
+the naming cleanup. See the current [naming and query results](../validation/naming_validation.json)
+and [reasoning results](../validation/naming_reasoning.json) for this revision.
 
 - RDF/XML parsing and isomorphic roundtrip: passed.
 - Existing named assertions and anonymous structures preserved, except updated

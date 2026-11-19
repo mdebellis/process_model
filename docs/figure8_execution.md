@@ -17,7 +17,7 @@ This establishes a failure in that parser/version/encoding combination, not the 
 - Restored seven temporal rules, two planned resource-flow rules, and the qualified-association rule from the uploaded intact `supply_chain_model(1).ttl`.
 - Restored seventeen SWRL variable declarations and removed damaged rule fragments and eight SWRL structural predicates incorrectly declared as annotation properties.
 - Preserved all 3,170 unrelated triples from the latest Figure 8 upload, including its plan, labels, and transition inverse properties. Updated ontology metadata to describe the additional example.
-- Added six `StepExecution` individuals and one overall `prov:Activity`, `TenderRun01` (now `pm:StepExecution` and `pm:TenderRun01`). The overall Activity contains the six executions through the existing `sulo:hasPart` property; it is neither a Plan nor a provenance Bundle.
+- Added six `Step_Execution` individuals and one overall `prov:Activity`, `Tender_Run_01` (now `pm:Step_Execution` and `pm:Tender_Run_01`). The overall Activity contains the six executions through the existing `sulo:hasPart` property; it is neither a Plan nor a provenance Bundle.
 - Added actual-example participants through qualified PROV associations; ten artifacts correspond to the ten planned Variables, including four messages and one approval decision.
 - Added seven `time:ProperInterval` individuals linked from Activities with `time:hasTime`. Interval endpoints have `time:inXSDDateTimeStamp` values. Direct `prov:startedAtTime` and `prov:endedAtTime` values on Activities support the Gruff timeline. Both representations denote the same instants.
 
@@ -29,12 +29,12 @@ All times are UTC on 2 November 2026.
 
 | Activity | Planned Step | Start | End | Participant |
 |---|---|---|---|---|
-| Run01CreateDraft | t1CreateTenderDraftTask | 09:00 | 11:00 | Lead supplier |
-| Run01ProvideInput | t222MakeInputTask | 11:30 | 13:00 | Invited partner |
-| Run01IncorporateInput | t2IncorporateInputsTask | 13:00 | 15:00 | Lead supplier |
-| Run01SendAndAwaitVote | t11SendTenderForVotingTask | 15:00 | 17:30 | Lead supplier |
-| Run01Vote | t12VoteForTenderTask | 15:15 | 17:00 | Invited partner |
-| Run01Submit | t3SubmitTenderTask | 17:30 | 18:00 | Lead supplier |
+| Run_01_Create_Draft | T1_Create_Tender_Draft_Task | 09:00 | 11:00 | Lead supplier |
+| Run_01_Provide_Input | T222_Make_Input_Task | 11:30 | 13:00 | Invited partner |
+| Run_01_Incorporate_Input | T2_Incorporate_Inputs_Task | 13:00 | 15:00 | Lead supplier |
+| Run_01_Send_And_Await_Vote | T11_Send_Tender_For_Voting_Task | 15:00 | 17:30 | Lead supplier |
+| Run_01_Vote | T12_Vote_For_Tender_Task | 15:15 | 17:00 | Invited partner |
+| Run_01_Submit | T3_Submit_Tender_Task | 17:30 | 18:00 | Lead supplier |
 
 Each task Activity has exactly one `pp:correspondsToStep` link. The original Steps remain planned descriptions. A future run would have new Activity/artifact/interval individuals referring to these same Steps and Variables.
 

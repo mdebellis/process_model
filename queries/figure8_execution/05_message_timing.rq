@@ -6,9 +6,9 @@ PREFIX sulo: <https://w3id.org/sulo/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 SELECT DISTINCT ?message ?messageLabel ?sender ?recipient ?producer ?generated ?consumer ?used WHERE {
-  pm:TenderRun01 sulo:hasPart ?producer, ?consumer.
+  pm:Tender_Run_01 sulo:hasPart ?producer, ?consumer.
   ?message a pm:Message; rdfs:label ?messageLabel;
-    pm:sender ?sender; pm:recipient ?recipient;
+    pm:has_sender ?sender; pm:has_recipient ?recipient;
     prov:wasGeneratedBy ?producer; prov:generatedAtTime ?generatedValue.
   ?consumer prov:qualifiedUsage ?usage.
   ?usage prov:entity ?message; prov:atTime ?usedValue.
