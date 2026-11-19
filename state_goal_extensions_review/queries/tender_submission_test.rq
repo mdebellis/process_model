@@ -1,0 +1,15 @@
+PREFIX fig: <https://www.michaeldebellis.com/supply_chain_figure8/>
+PREFIX sc: <https://www.michaeldebellis.com/supply_chain_model/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sulo: <https://w3id.org/sulo/>
+ASK {
+  VALUES (?run ?version) { (fig:TenderRun01 fig:Run01RevisedTender) }
+  ?run sulo:hasPart ?submission .
+  ?submission pp:correspondsToStep fig:t3SubmitTenderTask ;
+              prov:used ?version ;
+              prov:endedAtTime ?submission_end .
+  ?submitted_copy pp:correspondsToVariable fig:SubmittedTenderVar ;
+                  prov:wasGeneratedBy ?submission ;
+                  prov:wasDerivedFrom ?version .
+}

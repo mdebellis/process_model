@@ -1,0 +1,68 @@
+{
+  "triple_counts": {
+    "baseline": 4942,
+    "extension": 350,
+    "merged": 5294
+  },
+  "old_named_assertions_preserved": {
+    "passed": true,
+    "detail": []
+  },
+  "old_anonymous_structures_preserved": {
+    "passed": true,
+    "detail": {
+      "missing_components": 0
+    }
+  },
+  "ten_swrl_rules_preserved": {
+    "passed": true,
+    "detail": {
+      "baseline": 10,
+      "merged": 10
+    }
+  },
+  "rdf_xml_round_trip_isomorphic": {
+    "passed": true
+  },
+  "new_term_declarations": {
+    "passed": true,
+    "detail": []
+  },
+  "new_term_names": {
+    "passed": true,
+    "detail": []
+  },
+  "new_term_english_labels": {
+    "passed": true,
+    "detail": []
+  },
+  "new_term_count": 49,
+  "new_object_property_conventions": {
+    "passed": true,
+    "detail": []
+  },
+  "state_individuals_have_english_definitions": {
+    "passed": true,
+    "detail": {
+      "state_count": 8,
+      "missing": []
+    }
+  },
+  "legacy_decision_conditions_are_states": {
+    "passed": true
+  },
+  "no_invented_state_evaluation_records": {
+    "passed": true,
+    "detail": []
+  },
+  "goal_and_subgoal_entailments": {
+    "passed": true,
+    "detail": []
+  },
+  "general_states_not_automatically_goals": {
+    "passed": true,
+    "detail": []
+  },
+  "passed": true,
+  "failed_checks": []
+}

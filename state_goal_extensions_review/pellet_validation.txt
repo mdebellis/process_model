@@ -1,0 +1,24 @@
+Pellet validation of process_model_with_examples.rdf
+
+Result: PASS
+Full RDF/XML consistency check: Consistent: Yes (exit 0).
+Full RDF/XML classification: completed successfully (exit 0; 101 classes).
+No named class was reported equivalent to owl:Nothing.
+
+Loader: OWLAPIv3, using the Pellet distribution bundled with Owlready2 0.51.
+Java runtime: Java 21. The OWLAPIv3 loader avoids the incompatible Jena RDF/XML class.
+External imports were ignored; owl:imports statements in the tested file: 0.
+Triples in the tested file: 5294.
+SHA-256: 6f78d455dfe11f1bda7d2d4741146f72eb154464efbb152cc649607adf24dc5a
+
+Relevant inferred class hierarchy:
+  State_Description is below prov:Entity and sulo:InformationObject.
+  Goal and legacy supply_chain_model/DecisionCondition are below State_Description.
+  State_Evaluation and State_Test are below prov:Entity and sulo:InformationObject.
+
+Commands (classpath denotes the installed Owlready2 Pellet jar files):
+  java -Xmx2000M -cp <pellet-classpath> pellet.Pellet consistency --loader OWLAPIv3 --ignore-imports process_model_with_examples.rdf
+  java -Xmx2000M -cp <pellet-classpath> pellet.Pellet classify --loader OWLAPIv3 --ignore-imports process_model_with_examples.rdf
+
+Scope: this establishes consistency and class classification of the supplied ontology.
+It does not execute SPARQL query literals, call an LLM, or certify workflow behavior.

@@ -1,0 +1,148 @@
+{
+  "passed": true,
+  "checks": 26,
+  "results": [
+    {
+      "case": "Parse Tender_Submission_Test",
+      "passed": true
+    },
+    {
+      "case": "Parse Tender_Approval_Test",
+      "passed": true
+    },
+    {
+      "case": "Parse Approved_Tender_Submission_Test",
+      "passed": true
+    },
+    {
+      "case": "Parse Requirements_Readiness_Test",
+      "passed": true
+    },
+    {
+      "case": "Existing run: Tender_Approval_Test",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "case": "Different version: Tender_Approval_Test",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "case": "Different run: Tender_Approval_Test",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "case": "Existing run: Tender_Submission_Test",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "case": "Different version: Tender_Submission_Test",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "case": "Different run: Tender_Submission_Test",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "case": "Existing run: Approved_Tender_Submission_Test",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "case": "Different version: Approved_Tender_Submission_Test",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "case": "Different run: Approved_Tender_Submission_Test",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "case": "Missing approval evidence",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "case": "Parent with missing approval evidence",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "case": "Submission independently of approval",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "case": "Explicit rejection",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "case": "Submission not recorded complete",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "case": "Parent must link actual approval used",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "case": "Approval subgoal remains independent",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "case": "Submission subgoal remains independent",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "case": "Submitted copy of wrong version",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "case": "Approval from another execution cannot be borrowed",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "case": "Reject missing caller binding",
+      "passed": true
+    },
+    {
+      "case": "Reject missing caller binding",
+      "passed": true
+    },
+    {
+      "case": "Do not interpret an LLM SELECT as deterministic ASK",
+      "passed": true
+    }
+  ]
+}
