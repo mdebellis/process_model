@@ -21,4 +21,4 @@ The [naming conventions](docs/naming_conventions.md) describe the current ontolo
 
 The plan examples describe possible work. The tender execution is synthetic demonstration data. Queries generally operate on asserted data; the execution query for Allen relations requires reasoner results made available to the query engine. Loading SWRL rule definitions alone does not execute them.
 
-[Validation records](validation/README.md) distinguish the current ontology-identity checks from earlier naming, namespace migration, state extension, RDF/XML compatibility, cleanup, and reasoning checks. Screenshots and the illustrative tender timeline are in [images](images/). Earlier screenshots and reports retain the identifiers used when they were produced.
+[Validation records](validation/README.md) distinguish the current ontology-identity checks from earlier naming, namespace migration, state extension, RDF/XML compatibility, cleanup, and reasoning checks. Screenshots and the illustrative tender timeline are in [docs](docs/). Earlier screenshots and reports retain the identifiers used when they were produced.
