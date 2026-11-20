@@ -95,7 +95,7 @@ Query 02
 4. Enable **View → Optional Graph View Panes → Show Time Bar**.
 5. Click the square Time Chart button on the time bar and sort by the earliest date.
 
-The timeline uses literal dates on Activities. `time:hasBeginning` and `time:hasEnd` instead point to Instant nodes, so use the PROV predicates for these settings. The [tender execution timeline](../images/tender_execution_timeline.png) is an independent preview of the intended schedule, not a screenshot or verification of an installed Gruff UI. Times may be rendered in a local timezone by a viewer; the stored literals explicitly use UTC.
+The timeline uses literal dates on Activities. `time:hasBeginning` and `time:hasEnd` instead point to Instant nodes, so use the PROV predicates for these settings. The [tender execution timeline](../docs/tender_execution_timeline.png) is an independent preview of the intended schedule, not a screenshot or verification of an installed Gruff UI. Times may be rendered in a local timezone by a viewer; the stored literals explicitly use UTC.
 
 Menu reference: [Franz Gruff documentation, AllegroGraph 9.0.2](https://franz.com/agraph/support/documentation/9.0.2/gruff.html).
 
