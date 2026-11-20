@@ -1,0 +1,1133 @@
+# Customer Portal: a concrete Method Omega project Plan
+# Additive Turtle for import into the repository containing process_model_with_examples.rdf.
+# Source: https://github.com/mdebellis/process_model/blob/main/ontologies/process_model_with_examples.rdf
+# Source Git blob: af1cff7c87da34efbb96a112962f80a9521ccb0e
+# This file adds one project Plan, its four decomposition Plans, and its own 16 Steps.
+# All people and dates are fictional. Dates are PLANNED, not actual execution timestamps.
+# No existing resource is renamed, no source assertion is removed, and no SWRL rule is replaced.
+# The only new vocabulary is has_scheduled_time and its inverse is_scheduled_time_of.
+# Standard P-Plan/PROV/OWL-Time vocabulary keeps its original IRIs.
+#
+# Gruff: keep Method Omega displayed, then show subjects of incoming prov:wasDerivedFrom
+# triples to reveal Customer Portal Plan. Follow has_step for its immediate Steps.
+# Follow pp:isDecomposedAsPlan to its four project-specific decomposition Plans.
+# For dates: Step -> has_scheduled_time -> Interval -> time:hasBeginning / time:hasEnd
+# -> time:inXSDDateTimeStamp. The completion event uses a single time:Instant.
+# Assignments point to their Step through has_assigned_step; reveal incoming links to browse them.
+# Task inputs and outputs use pp:hasInputVar / pp:hasOutputVar.
+# Import once. This is an addition to the source ontology, not a standalone replacement.
+
+
+@prefix pm: <https://in2use.com/process_model/> .
+@prefix pp: <http://purl.org/net/p-plan#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+
+# Schedule property
+
+pm:has_scheduled_time a owl:ObjectProperty ;
+    rdfs:label "has scheduled time"@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( pp:Plan pp:Step ) ] ;
+    rdfs:isDefinedBy <https://in2use.com/process_model> ;
+    rdfs:range time:TemporalEntity ;
+    owl:inverseOf pm:is_scheduled_time_of ;
+    skos:definition "Relates a planned process specification or step to its scheduled interval or instant. This relation expresses intended timing and does not make the specification an Activity or a TemporalEntity or assert that execution occurred. Intervals may be shared by a composite step and its decomposition specification. Multiple scheduling alternatives require explicit context."@en ;
+    skos:prefLabel "has scheduled time"@en .
+
+pm:is_scheduled_time_of a owl:ObjectProperty ;
+    rdfs:label "is scheduled time of"@en ;
+    rdfs:isDefinedBy <https://in2use.com/process_model> ;
+    skos:definition "Relates a scheduled interval or instant to the planned process specification or step whose intended timing it describes."@en ;
+    skos:prefLabel "is scheduled time of"@en .
+
+
+# Plan and decompositions
+
+pm:Portal_Create_Use_Cases_Plan a pp:Plan,
+        owl:NamedIndividual ;
+    rdfs:label "Portal Create Use Cases Plan"@en ;
+    pp:isSubPlanOfPlan pm:Portal_Create_Detailed_Requirements_Plan ;
+    rdfs:comment "Project-specific decomposition within Customer Portal Plan. It is a planned specification derived from the corresponding reusable Method Omega definition, not an execution."@en ;
+    skos:prefLabel "Portal Create Use Cases Plan"@en ;
+    prov:wasDerivedFrom pm:Create_Use_Cases_Plan ;
+    pm:has_scheduled_time pm:Portal_Create_Use_Cases_Scheduled_Interval ;
+    pm:has_step pm:Portal_Use_Case_Interviews,
+        pm:Portal_Write_Use_Cases .
+
+pm:Portal_Create_Wireframes_Plan a pp:Plan,
+        owl:NamedIndividual ;
+    rdfs:label "Portal Create Wireframes Plan"@en ;
+    pp:isSubPlanOfPlan pm:Portal_Create_Detailed_Requirements_Plan ;
+    rdfs:comment "Project-specific decomposition within Customer Portal Plan. It is a planned specification derived from the corresponding reusable Method Omega definition, not an execution."@en ;
+    skos:prefLabel "Portal Create Wireframes Plan"@en ;
+    prov:wasDerivedFrom pm:Create_Wireframes_Plan ;
+    pm:has_scheduled_time pm:Portal_Create_Wireframes_Scheduled_Interval ;
+    pm:has_step pm:Portal_Develop_Wireframes,
+        pm:Portal_User_Wireframe_Interviews .
+
+pm:Customer_Portal_Plan a pp:Plan,
+        owl:NamedIndividual ;
+    rdfs:label "Customer Portal Plan"@en ;
+    rdfs:comment "A fictional project plan for developing a customer self-service portal with account access, support requests, and request-status tracking. It is derived from the reusable Method Omega specification. All people, responsibilities, deliverable slots, and dates in this example are illustrative."@en ;
+    skos:prefLabel "Customer Portal Plan"@en ;
+    skos:scopeNote "The baseline schedule runs from 1 February through 5 March 2027, with explicit UTC-08:00 offsets. It assumes the first requirements review leads to approval; this is a scheduling assumption, not an asserted decision outcome. The rejection and rework branch remains available and would require a revised schedule. No executions, actual document versions, evaluation results, effort estimates, or holiday-calendar calculations are asserted. Composite windows summarize their children and are not additional person-hours. The four opaque later phases retain the abstraction of Method Omega."@en ;
+    prov:wasDerivedFrom pm:Method_Omega ;
+    pm:has_scheduled_time pm:Customer_Portal_Scheduled_Interval ;
+    pm:has_step pm:Portal_Implementation,
+        pm:Portal_Requirements_Acquisition,
+        pm:Portal_Rollout,
+        pm:Portal_Technical_Design,
+        pm:Portal_Testing .
+
+pm:Portal_Requirements_Acquisition_Plan a pp:Plan,
+        owl:NamedIndividual ;
+    rdfs:label "Portal Requirements Acquisition Plan"@en ;
+    pp:isSubPlanOfPlan pm:Customer_Portal_Plan ;
+    rdfs:comment "Project-specific decomposition within Customer Portal Plan. It is a planned specification derived from the corresponding reusable Method Omega definition, not an execution."@en ;
+    skos:prefLabel "Portal Requirements Acquisition Plan"@en ;
+    prov:wasDerivedFrom pm:Requirements_Acquisition_Plan ;
+    pm:has_scheduled_time pm:Portal_Requirements_Acquisition_Scheduled_Interval ;
+    pm:has_step pm:Portal_Create_Detailed_Requirements,
+        pm:Portal_Create_Project_Narrative,
+        pm:Portal_Kickoff_Meeting,
+        pm:Portal_Requirements_Acquisition_Completed,
+        pm:Portal_Review_Requirements .
+
+pm:Portal_Create_Detailed_Requirements_Plan a pp:Plan,
+        owl:NamedIndividual ;
+    rdfs:label "Portal Create Detailed Requirements Plan"@en ;
+    pp:isSubPlanOfPlan pm:Portal_Requirements_Acquisition_Plan ;
+    rdfs:comment "Project-specific decomposition within Customer Portal Plan. It is a planned specification derived from the corresponding reusable Method Omega definition, not an execution."@en ;
+    skos:prefLabel "Portal Create Detailed Requirements Plan"@en ;
+    prov:wasDerivedFrom pm:Create_Detailed_Requirements_Plan ;
+    pm:has_scheduled_time pm:Portal_Create_Detailed_Requirements_Scheduled_Interval ;
+    pm:has_step pm:Portal_Create_Use_Cases,
+        pm:Portal_Create_Wireframes .
+
+
+# Project steps
+
+pm:Portal_Requirements_Acquisition_Completed a pp:Step,
+        owl:NamedIndividual,
+        pm:End_Event_Step ;
+    rdfs:label "Portal Requirements Acquisition Completed"@en ;
+    pp:isStepOfPlan pm:Portal_Requirements_Acquisition_Plan ;
+    rdfs:comment "A project-specific planned step in Customer Portal Plan. Its scheduled time and responsibility describe intended work, not an actual performance."@en ;
+    skos:prefLabel "Portal Requirements Acquisition Completed"@en ;
+    prov:wasDerivedFrom pm:Requirements_Acquisition_Completed ;
+    pm:has_scheduled_time pm:Portal_Requirements_Completion_Scheduled_Instant .
+
+pm:Portal_Create_Use_Cases a pp:MultiStep,
+        pp:Step,
+        owl:NamedIndividual,
+        pm:Task_Step ;
+    rdfs:label "Portal Create Use Cases"@en ;
+    pp:hasInputVar pm:Portal_Wireframes ;
+    pp:isDecomposedAsPlan pm:Portal_Create_Use_Cases_Plan ;
+    pp:isPrecededBy pm:Portal_Create_Wireframes ;
+    pp:isStepOfPlan pm:Portal_Create_Detailed_Requirements_Plan ;
+    rdfs:comment "A project-specific planned step in Customer Portal Plan. Its scheduled time and responsibility describe intended work, not an actual performance."@en ;
+    skos:prefLabel "Portal Create Use Cases"@en ;
+    prov:wasDerivedFrom pm:Create_Use_Cases ;
+    pm:has_exposed_output_variable pm:Portal_Use_Cases ;
+    pm:has_scheduled_time pm:Portal_Create_Use_Cases_Scheduled_Interval .
+
+pm:Portal_Create_Wireframes a pp:MultiStep,
+        pp:Step,
+        owl:NamedIndividual,
+        pm:Task_Step ;
+    rdfs:label "Portal Create Wireframes"@en ;
+    pp:isDecomposedAsPlan pm:Portal_Create_Wireframes_Plan ;
+    pp:isStepOfPlan pm:Portal_Create_Detailed_Requirements_Plan ;
+    rdfs:comment "A project-specific planned step in Customer Portal Plan. Its scheduled time and responsibility describe intended work, not an actual performance."@en ;
+    skos:prefLabel "Portal Create Wireframes"@en ;
+    prov:wasDerivedFrom pm:Create_Wireframes ;
+    pm:has_exposed_output_variable pm:Portal_Wireframes ;
+    pm:has_scheduled_time pm:Portal_Create_Wireframes_Scheduled_Interval ;
+    pm:precedes pm:Portal_Create_Use_Cases .
+
+pm:Portal_Develop_Wireframes a pp:Step,
+        owl:NamedIndividual,
+        pm:Task_Step ;
+    rdfs:label "Portal Develop Wireframes"@en ;
+    pp:hasInputVar pm:Portal_Wireframe_Interview_Notes_Var ;
+    pp:hasOutputVar pm:Portal_Wireframes ;
+    pp:isPrecededBy pm:Portal_User_Wireframe_Interviews ;
+    pp:isStepOfPlan pm:Portal_Create_Wireframes_Plan ;
+    rdfs:comment "A project-specific planned step in Customer Portal Plan. Its scheduled time and responsibility describe intended work, not an actual performance."@en ;
+    skos:prefLabel "Portal Develop Wireframes"@en ;
+    prov:wasDerivedFrom pm:Develop_Wireframes ;
+    pm:has_scheduled_time pm:Portal_Develop_Wireframes_Scheduled_Interval .
+
+pm:Portal_Kickoff_Meeting a pp:Step,
+        owl:NamedIndividual,
+        pm:Task_Step ;
+    rdfs:label "Portal Kickoff Meeting"@en ;
+    pp:hasInputVar pm:Portal_Project_Brief_Var ;
+    pp:hasOutputVar pm:Portal_Kickoff_Notes_Var ;
+    pp:isStepOfPlan pm:Portal_Requirements_Acquisition_Plan ;
+    rdfs:comment "A project-specific planned step in Customer Portal Plan. Its scheduled time and responsibility describe intended work, not an actual performance."@en ;
+    skos:prefLabel "Portal Kickoff Meeting"@en ;
+    prov:wasDerivedFrom pm:Kickoff_Meeting ;
+    pm:has_scheduled_time pm:Portal_Kickoff_Meeting_Scheduled_Interval ;
+    pm:precedes pm:Portal_Create_Project_Narrative .
+
+pm:Portal_Requirements_Acquisition a pp:MultiStep,
+        pp:Step,
+        owl:NamedIndividual,
+        pm:Task_Step ;
+    rdfs:label "Portal Requirements Acquisition"@en ;
+    pp:isDecomposedAsPlan pm:Portal_Requirements_Acquisition_Plan ;
+    pp:isStepOfPlan pm:Customer_Portal_Plan ;
+    rdfs:comment "A project-specific planned step in Customer Portal Plan. Its scheduled time and responsibility describe intended work, not an actual performance."@en ;
+    skos:prefLabel "Portal Requirements Acquisition"@en ;
+    prov:wasDerivedFrom pm:Requirements_Acquisition ;
+    pm:has_exposed_output_variable pm:Portal_Project_Narrative_Var,
+        pm:Portal_Requirements_Review_Decision,
+        pm:Portal_Use_Cases,
+        pm:Portal_Wireframes ;
+    pm:has_scheduled_time pm:Portal_Requirements_Acquisition_Scheduled_Interval ;
+    pm:precedes pm:Portal_Technical_Design .
+
+pm:Portal_Review_Requirements a pp:Step,
+        owl:NamedIndividual,
+        pm:Task_Step ;
+    rdfs:label "Portal Review Requirements"@en ;
+    pp:hasInputVar pm:Portal_Use_Cases,
+        pm:Portal_Wireframes ;
+    pp:hasOutputVar pm:Portal_Requirements_Review_Decision ;
+    pp:isPrecededBy pm:Portal_Create_Detailed_Requirements ;
+    pp:isStepOfPlan pm:Portal_Requirements_Acquisition_Plan ;
+    rdfs:comment "A project-specific planned step in Customer Portal Plan. Its scheduled time and responsibility describe intended work, not an actual performance."@en ;
+    skos:prefLabel "Portal Review Requirements"@en ;
+    prov:wasDerivedFrom pm:Review_Requirements ;
+    pm:has_scheduled_time pm:Portal_Review_Requirements_Scheduled_Interval .
+
+pm:Portal_Rollout a pp:MultiStep,
+        pp:Step,
+        owl:NamedIndividual,
+        pm:Task_Step ;
+    rdfs:label "Portal Rollout"@en ;
+    pp:hasInputVar pm:Portal_Application_Build_Var,
+        pm:Portal_Test_Report_Var ;
+    pp:hasOutputVar pm:Portal_Deployment_Record_Var ;
+    pp:isPrecededBy pm:Portal_Testing ;
+    pp:isStepOfPlan pm:Customer_Portal_Plan ;
+    rdfs:comment "A project-specific planned step in Customer Portal Plan. Its scheduled time and responsibility describe intended work, not an actual performance."@en ;
+    skos:prefLabel "Portal Rollout"@en ;
+    prov:wasDerivedFrom pm:Rollout ;
+    pm:has_scheduled_time pm:Portal_Rollout_Scheduled_Interval .
+
+pm:Portal_Use_Case_Interviews a pp:Step,
+        owl:NamedIndividual,
+        pm:Task_Step ;
+    rdfs:label "Portal Use Case Interviews"@en ;
+    pp:hasInputVar pm:Portal_Project_Narrative_Var,
+        pm:Portal_Wireframes ;
+    pp:hasOutputVar pm:Portal_Use_Case_Interview_Notes_Var ;
+    pp:isStepOfPlan pm:Portal_Create_Use_Cases_Plan ;
+    rdfs:comment "A project-specific planned step in Customer Portal Plan. Its scheduled time and responsibility describe intended work, not an actual performance."@en ;
+    skos:prefLabel "Portal Use Case Interviews"@en ;
+    prov:wasDerivedFrom pm:Use_Case_Interviews ;
+    pm:has_scheduled_time pm:Portal_Use_Case_Interviews_Scheduled_Interval ;
+    pm:precedes pm:Portal_Write_Use_Cases .
+
+pm:Portal_User_Wireframe_Interviews a pp:Step,
+        owl:NamedIndividual,
+        pm:Task_Step ;
+    rdfs:label "Portal User Wireframe Interviews"@en ;
+    pp:hasInputVar pm:Portal_Project_Narrative_Var ;
+    pp:hasOutputVar pm:Portal_Wireframe_Interview_Notes_Var ;
+    pp:isStepOfPlan pm:Portal_Create_Wireframes_Plan ;
+    rdfs:comment "A project-specific planned step in Customer Portal Plan. Its scheduled time and responsibility describe intended work, not an actual performance."@en ;
+    skos:prefLabel "Portal User Wireframe Interviews"@en ;
+    prov:wasDerivedFrom pm:User_Wireframe_Interviews ;
+    pm:has_scheduled_time pm:Portal_User_Wireframe_Interviews_Scheduled_Interval ;
+    pm:precedes pm:Portal_Develop_Wireframes .
+
+pm:Portal_Write_Use_Cases a pp:Step,
+        owl:NamedIndividual,
+        pm:Task_Step ;
+    rdfs:label "Portal Write Use Cases"@en ;
+    pp:hasInputVar pm:Portal_Use_Case_Interview_Notes_Var,
+        pm:Portal_Wireframes ;
+    pp:hasOutputVar pm:Portal_Use_Cases ;
+    pp:isPrecededBy pm:Portal_Use_Case_Interviews ;
+    pp:isStepOfPlan pm:Portal_Create_Use_Cases_Plan ;
+    rdfs:comment "A project-specific planned step in Customer Portal Plan. Its scheduled time and responsibility describe intended work, not an actual performance."@en ;
+    skos:prefLabel "Portal Write Use Cases"@en ;
+    prov:wasDerivedFrom pm:Write_Use_Cases ;
+    pm:has_scheduled_time pm:Portal_Write_Use_Cases_Scheduled_Interval .
+
+pm:Portal_Create_Detailed_Requirements a pp:MultiStep,
+        pp:Step,
+        owl:NamedIndividual,
+        pm:Task_Step ;
+    rdfs:label "Portal Create Detailed Requirements"@en ;
+    pp:hasInputVar pm:Portal_Project_Narrative_Var ;
+    pp:isDecomposedAsPlan pm:Portal_Create_Detailed_Requirements_Plan ;
+    pp:isPrecededBy pm:Portal_Create_Project_Narrative ;
+    pp:isStepOfPlan pm:Portal_Requirements_Acquisition_Plan ;
+    rdfs:comment "A project-specific planned step in Customer Portal Plan. Its scheduled time and responsibility describe intended work, not an actual performance."@en ;
+    skos:prefLabel "Portal Create Detailed Requirements"@en ;
+    prov:wasDerivedFrom pm:Create_Detailed_Requirements ;
+    pm:has_exposed_output_variable pm:Portal_Use_Cases,
+        pm:Portal_Wireframes ;
+    pm:has_goal pm:Requirements_Ready_For_Review ;
+    pm:has_scheduled_time pm:Portal_Create_Detailed_Requirements_Scheduled_Interval ;
+    pm:precedes pm:Portal_Review_Requirements .
+
+pm:Portal_Create_Project_Narrative a pp:Step,
+        owl:NamedIndividual,
+        pm:Task_Step ;
+    rdfs:label "Portal Create Project Narrative"@en ;
+    pp:hasInputVar pm:Portal_Kickoff_Notes_Var ;
+    pp:hasOutputVar pm:Portal_Project_Narrative_Var ;
+    pp:isPrecededBy pm:Portal_Kickoff_Meeting ;
+    pp:isStepOfPlan pm:Portal_Requirements_Acquisition_Plan ;
+    rdfs:comment "A project-specific planned step in Customer Portal Plan. Its scheduled time and responsibility describe intended work, not an actual performance."@en ;
+    skos:prefLabel "Portal Create Project Narrative"@en ;
+    prov:wasDerivedFrom pm:Create_Project_Narrative ;
+    pm:has_scheduled_time pm:Portal_Create_Project_Narrative_Scheduled_Interval ;
+    pm:precedes pm:Portal_Create_Detailed_Requirements .
+
+pm:Portal_Implementation a pp:MultiStep,
+        pp:Step,
+        owl:NamedIndividual,
+        pm:Task_Step ;
+    rdfs:label "Portal Implementation"@en ;
+    pp:hasInputVar pm:Portal_Technical_Design_Var ;
+    pp:hasOutputVar pm:Portal_Application_Build_Var ;
+    pp:isPrecededBy pm:Portal_Technical_Design ;
+    pp:isStepOfPlan pm:Customer_Portal_Plan ;
+    rdfs:comment "A project-specific planned step in Customer Portal Plan. Its scheduled time and responsibility describe intended work, not an actual performance."@en ;
+    skos:prefLabel "Portal Implementation"@en ;
+    prov:wasDerivedFrom pm:Implementation ;
+    pm:has_scheduled_time pm:Portal_Implementation_Scheduled_Interval ;
+    pm:precedes pm:Portal_Testing .
+
+pm:Portal_Technical_Design a pp:MultiStep,
+        pp:Step,
+        owl:NamedIndividual,
+        pm:Task_Step ;
+    rdfs:label "Portal Technical Design"@en ;
+    pp:hasInputVar pm:Portal_Requirements_Review_Decision,
+        pm:Portal_Use_Cases,
+        pm:Portal_Wireframes ;
+    pp:hasOutputVar pm:Portal_Technical_Design_Var ;
+    pp:isPrecededBy pm:Portal_Requirements_Acquisition ;
+    pp:isStepOfPlan pm:Customer_Portal_Plan ;
+    rdfs:comment "A project-specific planned step in Customer Portal Plan. Its scheduled time and responsibility describe intended work, not an actual performance."@en ;
+    skos:prefLabel "Portal Technical Design"@en ;
+    prov:wasDerivedFrom pm:Technical_Design ;
+    pm:has_scheduled_time pm:Portal_Technical_Design_Scheduled_Interval ;
+    pm:precedes pm:Portal_Implementation .
+
+pm:Portal_Testing a pp:MultiStep,
+        pp:Step,
+        owl:NamedIndividual,
+        pm:Task_Step ;
+    rdfs:label "Portal Testing"@en ;
+    pp:hasInputVar pm:Portal_Application_Build_Var ;
+    pp:hasOutputVar pm:Portal_Test_Report_Var ;
+    pp:isPrecededBy pm:Portal_Implementation ;
+    pp:isStepOfPlan pm:Customer_Portal_Plan ;
+    rdfs:comment "A project-specific planned step in Customer Portal Plan. Its scheduled time and responsibility describe intended work, not an actual performance."@en ;
+    skos:prefLabel "Portal Testing"@en ;
+    prov:wasDerivedFrom pm:Testing ;
+    pm:has_scheduled_time pm:Portal_Testing_Scheduled_Interval ;
+    pm:precedes pm:Portal_Rollout .
+
+
+# Input and output variables
+
+pm:Portal_Application_Build_Var a pp:Variable,
+        owl:NamedIndividual ;
+    rdfs:label "Portal Application Build Var"@en ;
+    pp:isVariableOfPlan pm:Customer_Portal_Plan ;
+    rdfs:comment "Expected deployable application build, not an actual generated software artifact. This is a planned resource slot, not a document instance."@en ;
+    skos:prefLabel "Portal Application Build Var"@en .
+
+pm:Portal_Deployment_Record_Var a pp:Variable,
+        owl:NamedIndividual ;
+    rdfs:label "Portal Deployment Record Var"@en ;
+    pp:isVariableOfPlan pm:Customer_Portal_Plan ;
+    rdfs:comment "Expected deployment and handover record, not evidence that rollout has occurred. This is a planned resource slot, not a document instance."@en ;
+    skos:prefLabel "Portal Deployment Record Var"@en .
+
+pm:Portal_Kickoff_Notes_Var a pp:Variable,
+        owl:NamedIndividual ;
+    rdfs:label "Portal Kickoff Notes Var"@en ;
+    pp:isVariableOfPlan pm:Customer_Portal_Plan,
+        pm:Portal_Requirements_Acquisition_Plan ;
+    rdfs:comment "Expected notes recording scope, stakeholders, and open questions from the kickoff. This is a planned resource slot, not a document instance."@en ;
+    skos:prefLabel "Portal Kickoff Notes Var"@en .
+
+pm:Portal_Project_Brief_Var a pp:Variable,
+        owl:NamedIndividual ;
+    rdfs:label "Portal Project Brief Var"@en ;
+    pp:isVariableOfPlan pm:Customer_Portal_Plan,
+        pm:Portal_Requirements_Acquisition_Plan ;
+    rdfs:comment "Externally supplied project-brief slot; this Plan does not assign it an internal producer. This is a planned resource slot, not a document instance."@en ;
+    skos:prefLabel "Portal Project Brief Var"@en .
+
+pm:Portal_Project_Narrative_Var a pp:Variable,
+        owl:NamedIndividual ;
+    rdfs:label "Portal Project Narrative Var"@en ;
+    pp:isVariableOfPlan pm:Customer_Portal_Plan,
+        pm:Portal_Create_Use_Cases_Plan,
+        pm:Portal_Create_Wireframes_Plan,
+        pm:Portal_Requirements_Acquisition_Plan ;
+    rdfs:comment "Expected project narrative used to guide detailed requirements work and interviews. This is a planned resource slot, not a document instance."@en ;
+    skos:prefLabel "Portal Project Narrative Var"@en .
+
+pm:Portal_Requirements_Review_Decision a pp:Variable,
+        owl:NamedIndividual,
+        pm:Decision_Variable ;
+    rdfs:label "Portal Requirements Review Decision"@en ;
+    pp:isVariableOfPlan pm:Customer_Portal_Plan,
+        pm:Portal_Requirements_Acquisition_Plan ;
+    rdfs:comment "Expected requirements-review decision slot. It has no actual Approved or Rejected value in this plan. This is a planned resource slot, not a document instance."@en ;
+    skos:prefLabel "Portal Requirements Review Decision"@en ;
+    prov:wasDerivedFrom pm:Requirements_Review_Decision .
+
+pm:Portal_Technical_Design_Var a pp:Variable,
+        owl:NamedIndividual ;
+    rdfs:label "Portal Technical Design Var"@en ;
+    pp:isVariableOfPlan pm:Customer_Portal_Plan ;
+    rdfs:comment "Expected technical design covering portal components, data, and interfaces. This is a planned resource slot, not a document instance."@en ;
+    skos:prefLabel "Portal Technical Design Var"@en .
+
+pm:Portal_Test_Report_Var a pp:Variable,
+        owl:NamedIndividual ;
+    rdfs:label "Portal Test Report Var"@en ;
+    pp:isVariableOfPlan pm:Customer_Portal_Plan ;
+    rdfs:comment "Expected test report; the plan does not assert a passing test result. This is a planned resource slot, not a document instance."@en ;
+    skos:prefLabel "Portal Test Report Var"@en .
+
+pm:Portal_Use_Case_Interview_Notes_Var a pp:Variable,
+        owl:NamedIndividual ;
+    rdfs:label "Portal Use Case Interview Notes Var"@en ;
+    pp:isVariableOfPlan pm:Customer_Portal_Plan,
+        pm:Portal_Create_Use_Cases_Plan ;
+    rdfs:comment "Expected notes about user goals, alternative flows, and error cases. This is a planned resource slot, not a document instance."@en ;
+    skos:prefLabel "Portal Use Case Interview Notes Var"@en .
+
+pm:Portal_Use_Cases a pp:Variable,
+        owl:NamedIndividual ;
+    rdfs:label "Portal Use Cases"@en ;
+    pp:isVariableOfPlan pm:Customer_Portal_Plan,
+        pm:Portal_Create_Detailed_Requirements_Plan,
+        pm:Portal_Create_Use_Cases_Plan,
+        pm:Portal_Requirements_Acquisition_Plan ;
+    rdfs:comment "Expected use cases. This project assigns production to Write Use Cases; the enclosing composite steps expose this same Variable without becoming additional producers. This is a planned resource slot, not a document instance."@en ;
+    skos:prefLabel "Portal Use Cases"@en ;
+    prov:wasDerivedFrom pm:Use_Cases .
+
+pm:Portal_Wireframe_Interview_Notes_Var a pp:Variable,
+        owl:NamedIndividual ;
+    rdfs:label "Portal Wireframe Interview Notes Var"@en ;
+    pp:isVariableOfPlan pm:Customer_Portal_Plan,
+        pm:Portal_Create_Wireframes_Plan ;
+    rdfs:comment "Expected interview notes about portal screens and user interactions. This is a planned resource slot, not a document instance."@en ;
+    skos:prefLabel "Portal Wireframe Interview Notes Var"@en .
+
+pm:Portal_Wireframes a pp:Variable,
+        owl:NamedIndividual ;
+    rdfs:label "Portal Wireframes"@en ;
+    pp:isVariableOfPlan pm:Customer_Portal_Plan,
+        pm:Portal_Create_Detailed_Requirements_Plan,
+        pm:Portal_Create_Use_Cases_Plan,
+        pm:Portal_Create_Wireframes_Plan,
+        pm:Portal_Requirements_Acquisition_Plan ;
+    rdfs:comment "Expected wireframes. This project refines the template by assigning production to Develop Wireframes; the enclosing composite steps expose this same Variable without becoming additional producers. Using these wireframes as input to the use-case work is also a project-specific refinement; it is not a dependency asserted by the reusable Method Omega model. This is a planned resource slot, not a document instance."@en ;
+    skos:prefLabel "Portal Wireframes"@en ;
+    prov:wasDerivedFrom pm:Wireframes .
+
+
+# People and roles
+
+pm:Alex_Morgan a owl:NamedIndividual,
+        prov:Person ;
+    rdfs:label "Alex Morgan"@en ;
+    rdfs:comment "A fictional person used only in the Customer Portal planning example."@en ;
+    skos:prefLabel "Alex Morgan"@en .
+
+pm:Jordan_Lee a owl:NamedIndividual,
+        prov:Person ;
+    rdfs:label "Jordan Lee"@en ;
+    rdfs:comment "A fictional person used only in the Customer Portal planning example."@en ;
+    skos:prefLabel "Jordan Lee"@en .
+
+pm:Portal_Business_Analyst_Role a owl:NamedIndividual,
+        pm:Collaboration_Role ;
+    rdfs:label "Portal Business Analyst Role"@en ;
+    rdfs:comment "A contextual planned responsibility in the Customer Portal project."@en ;
+    skos:prefLabel "Portal Business Analyst Role"@en .
+
+pm:Portal_Developer_Role a owl:NamedIndividual,
+        pm:Collaboration_Role ;
+    rdfs:label "Portal Developer Role"@en ;
+    rdfs:comment "A contextual planned responsibility in the Customer Portal project."@en ;
+    skos:prefLabel "Portal Developer Role"@en .
+
+pm:Portal_Project_Manager_Role a owl:NamedIndividual,
+        pm:Collaboration_Role ;
+    rdfs:label "Portal Project Manager Role"@en ;
+    rdfs:comment "A contextual planned responsibility in the Customer Portal project."@en ;
+    skos:prefLabel "Portal Project Manager Role"@en .
+
+pm:Portal_Quality_Engineer_Role a owl:NamedIndividual,
+        pm:Collaboration_Role ;
+    rdfs:label "Portal Quality Engineer Role"@en ;
+    rdfs:comment "A contextual planned responsibility in the Customer Portal project."@en ;
+    skos:prefLabel "Portal Quality Engineer Role"@en .
+
+pm:Portal_User_Experience_Designer_Role a owl:NamedIndividual,
+        pm:Collaboration_Role ;
+    rdfs:label "Portal User Experience Designer Role"@en ;
+    rdfs:comment "A contextual planned responsibility in the Customer Portal project."@en ;
+    skos:prefLabel "Portal User Experience Designer Role"@en .
+
+pm:Priya_Shah a owl:NamedIndividual,
+        prov:Person ;
+    rdfs:label "Priya Shah"@en ;
+    rdfs:comment "A fictional person used only in the Customer Portal planning example."@en ;
+    skos:prefLabel "Priya Shah"@en .
+
+pm:Sam_Rivera a owl:NamedIndividual,
+        prov:Person ;
+    rdfs:label "Sam Rivera"@en ;
+    rdfs:comment "A fictional person used only in the Customer Portal planning example."@en ;
+    skos:prefLabel "Sam Rivera"@en .
+
+pm:Taylor_Chen a owl:NamedIndividual,
+        prov:Person ;
+    rdfs:label "Taylor Chen"@en ;
+    rdfs:comment "A fictional person used only in the Customer Portal planning example."@en ;
+    skos:prefLabel "Taylor Chen"@en .
+
+
+# Planned assignments
+
+pm:Portal_Create_Detailed_Requirements_Assignment a owl:NamedIndividual,
+        pm:Planned_Assignment ;
+    rdfs:label "Portal Create Detailed Requirements Assignment"@en ;
+    rdfs:comment "An intended responsibility assignment for the baseline plan, not evidence of participation or execution."@en ;
+    skos:prefLabel "Portal Create Detailed Requirements Assignment"@en ;
+    pm:has_assigned_agent pm:Priya_Shah ;
+    pm:has_assigned_role pm:Portal_Business_Analyst_Role ;
+    pm:has_assigned_step pm:Portal_Create_Detailed_Requirements .
+
+pm:Portal_Create_Project_Narrative_Assignment a owl:NamedIndividual,
+        pm:Planned_Assignment ;
+    rdfs:label "Portal Create Project Narrative Assignment"@en ;
+    rdfs:comment "An intended responsibility assignment for the baseline plan, not evidence of participation or execution."@en ;
+    skos:prefLabel "Portal Create Project Narrative Assignment"@en ;
+    pm:has_assigned_agent pm:Priya_Shah ;
+    pm:has_assigned_role pm:Portal_Business_Analyst_Role ;
+    pm:has_assigned_step pm:Portal_Create_Project_Narrative .
+
+pm:Portal_Create_Use_Cases_Assignment a owl:NamedIndividual,
+        pm:Planned_Assignment ;
+    rdfs:label "Portal Create Use Cases Assignment"@en ;
+    rdfs:comment "An intended responsibility assignment for the baseline plan, not evidence of participation or execution."@en ;
+    skos:prefLabel "Portal Create Use Cases Assignment"@en ;
+    pm:has_assigned_agent pm:Priya_Shah ;
+    pm:has_assigned_role pm:Portal_Business_Analyst_Role ;
+    pm:has_assigned_step pm:Portal_Create_Use_Cases .
+
+pm:Portal_Create_Wireframes_Assignment a owl:NamedIndividual,
+        pm:Planned_Assignment ;
+    rdfs:label "Portal Create Wireframes Assignment"@en ;
+    rdfs:comment "An intended responsibility assignment for the baseline plan, not evidence of participation or execution."@en ;
+    skos:prefLabel "Portal Create Wireframes Assignment"@en ;
+    pm:has_assigned_agent pm:Jordan_Lee ;
+    pm:has_assigned_role pm:Portal_User_Experience_Designer_Role ;
+    pm:has_assigned_step pm:Portal_Create_Wireframes .
+
+pm:Portal_Develop_Wireframes_Assignment a owl:NamedIndividual,
+        pm:Planned_Assignment ;
+    rdfs:label "Portal Develop Wireframes Assignment"@en ;
+    rdfs:comment "An intended responsibility assignment for the baseline plan, not evidence of participation or execution."@en ;
+    skos:prefLabel "Portal Develop Wireframes Assignment"@en ;
+    pm:has_assigned_agent pm:Jordan_Lee ;
+    pm:has_assigned_role pm:Portal_User_Experience_Designer_Role ;
+    pm:has_assigned_step pm:Portal_Develop_Wireframes .
+
+pm:Portal_Implementation_Assignment a owl:NamedIndividual,
+        pm:Planned_Assignment ;
+    rdfs:label "Portal Implementation Assignment"@en ;
+    rdfs:comment "An intended responsibility assignment for the baseline plan, not evidence of participation or execution."@en ;
+    skos:prefLabel "Portal Implementation Assignment"@en ;
+    pm:has_assigned_agent pm:Sam_Rivera ;
+    pm:has_assigned_role pm:Portal_Developer_Role ;
+    pm:has_assigned_step pm:Portal_Implementation .
+
+pm:Portal_Kickoff_Meeting_Assignment a owl:NamedIndividual,
+        pm:Planned_Assignment ;
+    rdfs:label "Portal Kickoff Meeting Assignment"@en ;
+    rdfs:comment "An intended responsibility assignment for the baseline plan, not evidence of participation or execution."@en ;
+    skos:prefLabel "Portal Kickoff Meeting Assignment"@en ;
+    pm:has_assigned_agent pm:Alex_Morgan ;
+    pm:has_assigned_role pm:Portal_Project_Manager_Role ;
+    pm:has_assigned_step pm:Portal_Kickoff_Meeting .
+
+pm:Portal_Requirements_Acquisition_Assignment a owl:NamedIndividual,
+        pm:Planned_Assignment ;
+    rdfs:label "Portal Requirements Acquisition Assignment"@en ;
+    rdfs:comment "An intended responsibility assignment for the baseline plan, not evidence of participation or execution."@en ;
+    skos:prefLabel "Portal Requirements Acquisition Assignment"@en ;
+    pm:has_assigned_agent pm:Priya_Shah ;
+    pm:has_assigned_role pm:Portal_Business_Analyst_Role ;
+    pm:has_assigned_step pm:Portal_Requirements_Acquisition .
+
+pm:Portal_Review_Requirements_Assignment a owl:NamedIndividual,
+        pm:Planned_Assignment ;
+    rdfs:label "Portal Review Requirements Assignment"@en ;
+    rdfs:comment "An intended responsibility assignment for the baseline plan, not evidence of participation or execution."@en ;
+    skos:prefLabel "Portal Review Requirements Assignment"@en ;
+    pm:has_assigned_agent pm:Alex_Morgan ;
+    pm:has_assigned_role pm:Portal_Project_Manager_Role ;
+    pm:has_assigned_step pm:Portal_Review_Requirements .
+
+pm:Portal_Rollout_Assignment a owl:NamedIndividual,
+        pm:Planned_Assignment ;
+    rdfs:label "Portal Rollout Assignment"@en ;
+    rdfs:comment "An intended responsibility assignment for the baseline plan, not evidence of participation or execution."@en ;
+    skos:prefLabel "Portal Rollout Assignment"@en ;
+    pm:has_assigned_agent pm:Sam_Rivera ;
+    pm:has_assigned_role pm:Portal_Developer_Role ;
+    pm:has_assigned_step pm:Portal_Rollout .
+
+pm:Portal_Technical_Design_Assignment a owl:NamedIndividual,
+        pm:Planned_Assignment ;
+    rdfs:label "Portal Technical Design Assignment"@en ;
+    rdfs:comment "An intended responsibility assignment for the baseline plan, not evidence of participation or execution."@en ;
+    skos:prefLabel "Portal Technical Design Assignment"@en ;
+    pm:has_assigned_agent pm:Sam_Rivera ;
+    pm:has_assigned_role pm:Portal_Developer_Role ;
+    pm:has_assigned_step pm:Portal_Technical_Design .
+
+pm:Portal_Testing_Assignment a owl:NamedIndividual,
+        pm:Planned_Assignment ;
+    rdfs:label "Portal Testing Assignment"@en ;
+    rdfs:comment "An intended responsibility assignment for the baseline plan, not evidence of participation or execution."@en ;
+    skos:prefLabel "Portal Testing Assignment"@en ;
+    pm:has_assigned_agent pm:Taylor_Chen ;
+    pm:has_assigned_role pm:Portal_Quality_Engineer_Role ;
+    pm:has_assigned_step pm:Portal_Testing .
+
+pm:Portal_Use_Case_Interviews_Assignment a owl:NamedIndividual,
+        pm:Planned_Assignment ;
+    rdfs:label "Portal Use Case Interviews Assignment"@en ;
+    rdfs:comment "An intended responsibility assignment for the baseline plan, not evidence of participation or execution."@en ;
+    skos:prefLabel "Portal Use Case Interviews Assignment"@en ;
+    pm:has_assigned_agent pm:Priya_Shah ;
+    pm:has_assigned_role pm:Portal_Business_Analyst_Role ;
+    pm:has_assigned_step pm:Portal_Use_Case_Interviews .
+
+pm:Portal_User_Wireframe_Interviews_Assignment a owl:NamedIndividual,
+        pm:Planned_Assignment ;
+    rdfs:label "Portal User Wireframe Interviews Assignment"@en ;
+    rdfs:comment "An intended responsibility assignment for the baseline plan, not evidence of participation or execution."@en ;
+    skos:prefLabel "Portal User Wireframe Interviews Assignment"@en ;
+    pm:has_assigned_agent pm:Jordan_Lee ;
+    pm:has_assigned_role pm:Portal_User_Experience_Designer_Role ;
+    pm:has_assigned_step pm:Portal_User_Wireframe_Interviews .
+
+pm:Portal_Write_Use_Cases_Assignment a owl:NamedIndividual,
+        pm:Planned_Assignment ;
+    rdfs:label "Portal Write Use Cases Assignment"@en ;
+    rdfs:comment "An intended responsibility assignment for the baseline plan, not evidence of participation or execution."@en ;
+    skos:prefLabel "Portal Write Use Cases Assignment"@en ;
+    pm:has_assigned_agent pm:Priya_Shah ;
+    pm:has_assigned_role pm:Portal_Business_Analyst_Role ;
+    pm:has_assigned_step pm:Portal_Write_Use_Cases .
+
+
+# Transitions and decisions
+
+pm:Portal_Create_Detailed_Requirements_To_Review_Requirements a owl:NamedIndividual,
+        pm:Finish_To_Start_Transition,
+        pm:Step_Transition ;
+    rdfs:label "Portal Create Detailed Requirements To Review Requirements"@en ;
+    skos:prefLabel "Portal Create Detailed Requirements To Review Requirements"@en ;
+    prov:wasDerivedFrom pm:Create_Detailed_Requirements_To_Review_Requirements ;
+    pm:has_source_step pm:Portal_Create_Detailed_Requirements ;
+    pm:has_target_step pm:Portal_Review_Requirements .
+
+pm:Portal_Create_Project_Narrative_To_Create_Detailed_Requirements a owl:NamedIndividual,
+        pm:Finish_To_Start_Transition,
+        pm:Step_Transition ;
+    rdfs:label "Portal Create Project Narrative To Create Detailed Requirements"@en ;
+    skos:prefLabel "Portal Create Project Narrative To Create Detailed Requirements"@en ;
+    prov:wasDerivedFrom pm:Create_Project_Narrative_To_Create_Detailed_Requirements ;
+    pm:has_source_step pm:Portal_Create_Project_Narrative ;
+    pm:has_target_step pm:Portal_Create_Detailed_Requirements .
+
+pm:Portal_Create_Wireframes_To_Create_Use_Cases a owl:NamedIndividual,
+        pm:Finish_To_Start_Transition,
+        pm:Step_Transition ;
+    rdfs:label "Portal Create Wireframes To Create Use Cases"@en ;
+    skos:prefLabel "Portal Create Wireframes To Create Use Cases"@en ;
+    prov:wasDerivedFrom pm:Create_Wireframes_To_Create_Use_Cases ;
+    pm:has_source_step pm:Portal_Create_Wireframes ;
+    pm:has_target_step pm:Portal_Create_Use_Cases .
+
+pm:Portal_Implementation_To_Testing a owl:NamedIndividual,
+        pm:Finish_To_Start_Transition,
+        pm:Step_Transition ;
+    rdfs:label "Portal Implementation To Testing"@en ;
+    skos:prefLabel "Portal Implementation To Testing"@en ;
+    prov:wasDerivedFrom pm:Implementation_To_Testing ;
+    pm:has_source_step pm:Portal_Implementation ;
+    pm:has_target_step pm:Portal_Testing .
+
+pm:Portal_Kickoff_Meeting_To_Create_Project_Narrative a owl:NamedIndividual,
+        pm:Finish_To_Start_Transition,
+        pm:Step_Transition ;
+    rdfs:label "Portal Kickoff Meeting To Create Project Narrative"@en ;
+    skos:prefLabel "Portal Kickoff Meeting To Create Project Narrative"@en ;
+    prov:wasDerivedFrom pm:Kickoff_Meeting_To_Create_Project_Narrative ;
+    pm:has_source_step pm:Portal_Kickoff_Meeting ;
+    pm:has_target_step pm:Portal_Create_Project_Narrative .
+
+pm:Portal_Requirements_Acquisition_To_Technical_Design a owl:NamedIndividual,
+        pm:Finish_To_Start_Transition,
+        pm:Step_Transition ;
+    rdfs:label "Portal Requirements Acquisition To Technical Design"@en ;
+    skos:prefLabel "Portal Requirements Acquisition To Technical Design"@en ;
+    prov:wasDerivedFrom pm:Requirements_Acquisition_To_Technical_Design ;
+    pm:has_source_step pm:Portal_Requirements_Acquisition ;
+    pm:has_target_step pm:Portal_Technical_Design .
+
+pm:Portal_Requirements_Approved_Choice a owl:NamedIndividual,
+        pm:Exclusive_Choice ;
+    rdfs:label "Portal Requirements Approved Choice"@en ;
+    rdfs:comment "The project-specific requirements-review branch. Approval permits completion; rejection leads to a new pass through detailed requirements and review. Neither outcome is asserted by this plan."@en ;
+    skos:prefLabel "Portal Requirements Approved Choice"@en ;
+    prov:wasDerivedFrom pm:Requirements_Approved_Choice ;
+    pm:has_alternative pm:Portal_Approval_To_Requirements_Completion,
+        pm:Portal_Rejection_To_Requirements_Rework ;
+    pm:has_choice_source_step pm:Portal_Review_Requirements .
+
+pm:Portal_Technical_Design_To_Implementation a owl:NamedIndividual,
+        pm:Finish_To_Start_Transition,
+        pm:Step_Transition ;
+    rdfs:label "Portal Technical Design To Implementation"@en ;
+    skos:prefLabel "Portal Technical Design To Implementation"@en ;
+    prov:wasDerivedFrom pm:Technical_Design_To_Implementation ;
+    pm:has_source_step pm:Portal_Technical_Design ;
+    pm:has_target_step pm:Portal_Implementation .
+
+pm:Portal_Testing_To_Rollout a owl:NamedIndividual,
+        pm:Finish_To_Start_Transition,
+        pm:Step_Transition ;
+    rdfs:label "Portal Testing To Rollout"@en ;
+    skos:prefLabel "Portal Testing To Rollout"@en ;
+    prov:wasDerivedFrom pm:Testing_To_Rollout ;
+    pm:has_source_step pm:Portal_Testing ;
+    pm:has_target_step pm:Portal_Rollout .
+
+pm:Portal_Use_Case_Interviews_To_Write_Use_Cases a owl:NamedIndividual,
+        pm:Finish_To_Start_Transition,
+        pm:Step_Transition ;
+    rdfs:label "Portal Use Case Interviews To Write Use Cases"@en ;
+    skos:prefLabel "Portal Use Case Interviews To Write Use Cases"@en ;
+    prov:wasDerivedFrom pm:Use_Case_Interviews_To_Write_Use_Cases ;
+    pm:has_source_step pm:Portal_Use_Case_Interviews ;
+    pm:has_target_step pm:Portal_Write_Use_Cases .
+
+pm:Portal_User_Wireframe_Interviews_To_Develop_Wireframes a owl:NamedIndividual,
+        pm:Finish_To_Start_Transition,
+        pm:Step_Transition ;
+    rdfs:label "Portal User Wireframe Interviews To Develop Wireframes"@en ;
+    skos:prefLabel "Portal User Wireframe Interviews To Develop Wireframes"@en ;
+    prov:wasDerivedFrom pm:User_Wireframe_Interviews_To_Develop_Wireframes ;
+    pm:has_source_step pm:Portal_User_Wireframe_Interviews ;
+    pm:has_target_step pm:Portal_Develop_Wireframes .
+
+pm:Portal_Approval_To_Requirements_Completion a owl:NamedIndividual,
+        pm:Conditional_Transition,
+        pm:Finish_To_Start_Transition,
+        pm:Step_Transition ;
+    rdfs:label "Portal Approval To Requirements Completion"@en ;
+    skos:prefLabel "Portal Approval To Requirements Completion"@en ;
+    prov:wasDerivedFrom pm:Approval_To_Requirements_Completion ;
+    pm:has_condition pm:Portal_Requirements_Approved_Condition ;
+    pm:has_source_step pm:Portal_Review_Requirements ;
+    pm:has_target_step pm:Portal_Requirements_Acquisition_Completed .
+
+pm:Portal_Rejection_To_Requirements_Rework a owl:NamedIndividual,
+        pm:Conditional_Transition,
+        pm:Finish_To_Start_Transition,
+        pm:Step_Transition ;
+    rdfs:label "Portal Rejection To Requirements Rework"@en ;
+    rdfs:comment "A conditional return to a later requirements-development pass. It does not add a reverse precedence assertion, and the baseline timestamps do not schedule this possible later pass."@en ;
+    skos:prefLabel "Portal Rejection To Requirements Rework"@en ;
+    prov:wasDerivedFrom pm:Rejection_To_Requirements_Rework ;
+    pm:has_condition pm:Portal_Requirements_Not_Approved_Condition ;
+    pm:has_source_step pm:Portal_Review_Requirements ;
+    pm:has_target_step pm:Portal_Create_Detailed_Requirements .
+
+pm:Portal_Requirements_Approved_Condition a owl:NamedIndividual,
+        pm:Decision_Condition ;
+    rdfs:label "Portal Requirements Approved Condition"@en ;
+    skos:definition "The decision artifact bound to Portal Requirements Review Decision in a future execution of this project and review round has the explicit Approved outcome. The plan does not assert that the condition currently holds; a missing decision is not rejection."@en ;
+    skos:prefLabel "Portal Requirements Approved Condition"@en ;
+    prov:wasDerivedFrom pm:Requirements_Approved_Condition ;
+    pm:has_condition_variable pm:Portal_Requirements_Review_Decision ;
+    pm:has_expected_outcome pm:Approved .
+
+pm:Portal_Requirements_Not_Approved_Condition a owl:NamedIndividual,
+        pm:Decision_Condition ;
+    rdfs:label "Portal Requirements Not Approved Condition"@en ;
+    skos:definition "The decision artifact bound to Portal Requirements Review Decision in a future execution of this project and review round has the explicit Rejected outcome. The plan does not assert that the condition currently holds; a missing decision is not rejection."@en ;
+    skos:prefLabel "Portal Requirements Not Approved Condition"@en ;
+    prov:wasDerivedFrom pm:Requirements_Not_Approved_Condition ;
+    pm:has_condition_variable pm:Portal_Requirements_Review_Decision ;
+    pm:has_expected_outcome pm:Rejected .
+
+
+# Scheduled times
+
+pm:Customer_Portal_Scheduled_Interval a owl:NamedIndividual,
+        time:ProperInterval ;
+    rdfs:label "Customer Portal Scheduled Interval"@en ;
+    rdfs:comment "An interval in the illustrative baseline schedule. Temporal relations inferred between these schedule intervals describe intended timing, not actual executions."@en ;
+    skos:prefLabel "Customer Portal Scheduled Interval"@en ;
+    time:hasBeginning pm:Customer_Portal_Scheduled_Interval_Start ;
+    time:hasEnd pm:Customer_Portal_Scheduled_Interval_End .
+
+pm:Portal_Create_Detailed_Requirements_Scheduled_Interval a owl:NamedIndividual,
+        time:ProperInterval ;
+    rdfs:label "Portal Create Detailed Requirements Scheduled Interval"@en ;
+    rdfs:comment "An interval in the illustrative baseline schedule. Temporal relations inferred between these schedule intervals describe intended timing, not actual executions."@en ;
+    skos:prefLabel "Portal Create Detailed Requirements Scheduled Interval"@en ;
+    time:hasBeginning pm:Portal_Create_Detailed_Requirements_Scheduled_Interval_Start ;
+    time:hasEnd pm:Portal_Create_Detailed_Requirements_Scheduled_Interval_End .
+
+pm:Portal_Create_Project_Narrative_Scheduled_Interval a owl:NamedIndividual,
+        time:ProperInterval ;
+    rdfs:label "Portal Create Project Narrative Scheduled Interval"@en ;
+    rdfs:comment "An interval in the illustrative baseline schedule. Temporal relations inferred between these schedule intervals describe intended timing, not actual executions."@en ;
+    skos:prefLabel "Portal Create Project Narrative Scheduled Interval"@en ;
+    time:hasBeginning pm:Portal_Create_Project_Narrative_Scheduled_Interval_Start ;
+    time:hasEnd pm:Portal_Create_Project_Narrative_Scheduled_Interval_End .
+
+pm:Portal_Create_Use_Cases_Scheduled_Interval a owl:NamedIndividual,
+        time:ProperInterval ;
+    rdfs:label "Portal Create Use Cases Scheduled Interval"@en ;
+    rdfs:comment "An interval in the illustrative baseline schedule. Temporal relations inferred between these schedule intervals describe intended timing, not actual executions."@en ;
+    skos:prefLabel "Portal Create Use Cases Scheduled Interval"@en ;
+    time:hasBeginning pm:Portal_Create_Use_Cases_Scheduled_Interval_Start ;
+    time:hasEnd pm:Portal_Create_Use_Cases_Scheduled_Interval_End .
+
+pm:Portal_Create_Wireframes_Scheduled_Interval a owl:NamedIndividual,
+        time:ProperInterval ;
+    rdfs:label "Portal Create Wireframes Scheduled Interval"@en ;
+    rdfs:comment "An interval in the illustrative baseline schedule. Temporal relations inferred between these schedule intervals describe intended timing, not actual executions."@en ;
+    skos:prefLabel "Portal Create Wireframes Scheduled Interval"@en ;
+    time:hasBeginning pm:Portal_Create_Wireframes_Scheduled_Interval_Start ;
+    time:hasEnd pm:Portal_Create_Wireframes_Scheduled_Interval_End .
+
+pm:Portal_Develop_Wireframes_Scheduled_Interval a owl:NamedIndividual,
+        time:ProperInterval ;
+    rdfs:label "Portal Develop Wireframes Scheduled Interval"@en ;
+    rdfs:comment "An interval in the illustrative baseline schedule. Temporal relations inferred between these schedule intervals describe intended timing, not actual executions."@en ;
+    skos:prefLabel "Portal Develop Wireframes Scheduled Interval"@en ;
+    time:hasBeginning pm:Portal_Develop_Wireframes_Scheduled_Interval_Start ;
+    time:hasEnd pm:Portal_Develop_Wireframes_Scheduled_Interval_End .
+
+pm:Portal_Implementation_Scheduled_Interval a owl:NamedIndividual,
+        time:ProperInterval ;
+    rdfs:label "Portal Implementation Scheduled Interval"@en ;
+    rdfs:comment "An interval in the illustrative baseline schedule. Temporal relations inferred between these schedule intervals describe intended timing, not actual executions."@en ;
+    skos:prefLabel "Portal Implementation Scheduled Interval"@en ;
+    time:hasBeginning pm:Portal_Implementation_Scheduled_Interval_Start ;
+    time:hasEnd pm:Portal_Implementation_Scheduled_Interval_End .
+
+pm:Portal_Kickoff_Meeting_Scheduled_Interval a owl:NamedIndividual,
+        time:ProperInterval ;
+    rdfs:label "Portal Kickoff Meeting Scheduled Interval"@en ;
+    rdfs:comment "An interval in the illustrative baseline schedule. Temporal relations inferred between these schedule intervals describe intended timing, not actual executions."@en ;
+    skos:prefLabel "Portal Kickoff Meeting Scheduled Interval"@en ;
+    time:hasBeginning pm:Portal_Kickoff_Meeting_Scheduled_Interval_Start ;
+    time:hasEnd pm:Portal_Kickoff_Meeting_Scheduled_Interval_End .
+
+pm:Portal_Requirements_Acquisition_Scheduled_Interval a owl:NamedIndividual,
+        time:ProperInterval ;
+    rdfs:label "Portal Requirements Acquisition Scheduled Interval"@en ;
+    rdfs:comment "An interval in the illustrative baseline schedule. Temporal relations inferred between these schedule intervals describe intended timing, not actual executions."@en ;
+    skos:prefLabel "Portal Requirements Acquisition Scheduled Interval"@en ;
+    time:hasBeginning pm:Portal_Requirements_Acquisition_Scheduled_Interval_Start ;
+    time:hasEnd pm:Portal_Requirements_Acquisition_Scheduled_Interval_End .
+
+pm:Portal_Requirements_Completion_Scheduled_Instant a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Requirements Completion Scheduled Instant"@en ;
+    skos:prefLabel "Portal Requirements Completion Scheduled Instant"@en ;
+    time:inXSDDateTimeStamp "2027-02-12T17:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Review_Requirements_Scheduled_Interval a owl:NamedIndividual,
+        time:ProperInterval ;
+    rdfs:label "Portal Review Requirements Scheduled Interval"@en ;
+    rdfs:comment "An interval in the illustrative baseline schedule. Temporal relations inferred between these schedule intervals describe intended timing, not actual executions."@en ;
+    skos:prefLabel "Portal Review Requirements Scheduled Interval"@en ;
+    time:hasBeginning pm:Portal_Review_Requirements_Scheduled_Interval_Start ;
+    time:hasEnd pm:Portal_Review_Requirements_Scheduled_Interval_End .
+
+pm:Portal_Rollout_Scheduled_Interval a owl:NamedIndividual,
+        time:ProperInterval ;
+    rdfs:label "Portal Rollout Scheduled Interval"@en ;
+    rdfs:comment "An interval in the illustrative baseline schedule. Temporal relations inferred between these schedule intervals describe intended timing, not actual executions."@en ;
+    skos:prefLabel "Portal Rollout Scheduled Interval"@en ;
+    time:hasBeginning pm:Portal_Rollout_Scheduled_Interval_Start ;
+    time:hasEnd pm:Portal_Rollout_Scheduled_Interval_End .
+
+pm:Portal_Technical_Design_Scheduled_Interval a owl:NamedIndividual,
+        time:ProperInterval ;
+    rdfs:label "Portal Technical Design Scheduled Interval"@en ;
+    rdfs:comment "An interval in the illustrative baseline schedule. Temporal relations inferred between these schedule intervals describe intended timing, not actual executions."@en ;
+    skos:prefLabel "Portal Technical Design Scheduled Interval"@en ;
+    time:hasBeginning pm:Portal_Technical_Design_Scheduled_Interval_Start ;
+    time:hasEnd pm:Portal_Technical_Design_Scheduled_Interval_End .
+
+pm:Portal_Testing_Scheduled_Interval a owl:NamedIndividual,
+        time:ProperInterval ;
+    rdfs:label "Portal Testing Scheduled Interval"@en ;
+    rdfs:comment "An interval in the illustrative baseline schedule. Temporal relations inferred between these schedule intervals describe intended timing, not actual executions."@en ;
+    skos:prefLabel "Portal Testing Scheduled Interval"@en ;
+    time:hasBeginning pm:Portal_Testing_Scheduled_Interval_Start ;
+    time:hasEnd pm:Portal_Testing_Scheduled_Interval_End .
+
+pm:Portal_Use_Case_Interviews_Scheduled_Interval a owl:NamedIndividual,
+        time:ProperInterval ;
+    rdfs:label "Portal Use Case Interviews Scheduled Interval"@en ;
+    rdfs:comment "An interval in the illustrative baseline schedule. Temporal relations inferred between these schedule intervals describe intended timing, not actual executions."@en ;
+    skos:prefLabel "Portal Use Case Interviews Scheduled Interval"@en ;
+    time:hasBeginning pm:Portal_Use_Case_Interviews_Scheduled_Interval_Start ;
+    time:hasEnd pm:Portal_Use_Case_Interviews_Scheduled_Interval_End .
+
+pm:Portal_User_Wireframe_Interviews_Scheduled_Interval a owl:NamedIndividual,
+        time:ProperInterval ;
+    rdfs:label "Portal User Wireframe Interviews Scheduled Interval"@en ;
+    rdfs:comment "An interval in the illustrative baseline schedule. Temporal relations inferred between these schedule intervals describe intended timing, not actual executions."@en ;
+    skos:prefLabel "Portal User Wireframe Interviews Scheduled Interval"@en ;
+    time:hasBeginning pm:Portal_User_Wireframe_Interviews_Scheduled_Interval_Start ;
+    time:hasEnd pm:Portal_User_Wireframe_Interviews_Scheduled_Interval_End .
+
+pm:Portal_Write_Use_Cases_Scheduled_Interval a owl:NamedIndividual,
+        time:ProperInterval ;
+    rdfs:label "Portal Write Use Cases Scheduled Interval"@en ;
+    rdfs:comment "An interval in the illustrative baseline schedule. Temporal relations inferred between these schedule intervals describe intended timing, not actual executions."@en ;
+    skos:prefLabel "Portal Write Use Cases Scheduled Interval"@en ;
+    time:hasBeginning pm:Portal_Write_Use_Cases_Scheduled_Interval_Start ;
+    time:hasEnd pm:Portal_Write_Use_Cases_Scheduled_Interval_End .
+
+pm:Customer_Portal_Scheduled_Interval_End a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Customer Portal Scheduled Interval End"@en ;
+    skos:prefLabel "Customer Portal Scheduled Interval End"@en ;
+    time:inXSDDateTimeStamp "2027-03-05T17:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Customer_Portal_Scheduled_Interval_Start a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Customer Portal Scheduled Interval Start"@en ;
+    skos:prefLabel "Customer Portal Scheduled Interval Start"@en ;
+    time:inXSDDateTimeStamp "2027-02-01T09:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Create_Detailed_Requirements_Scheduled_Interval_End a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Create Detailed Requirements Scheduled Interval End"@en ;
+    skos:prefLabel "Portal Create Detailed Requirements Scheduled Interval End"@en ;
+    time:inXSDDateTimeStamp "2027-02-10T17:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Create_Detailed_Requirements_Scheduled_Interval_Start a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Create Detailed Requirements Scheduled Interval Start"@en ;
+    skos:prefLabel "Portal Create Detailed Requirements Scheduled Interval Start"@en ;
+    time:inXSDDateTimeStamp "2027-02-03T09:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Create_Project_Narrative_Scheduled_Interval_End a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Create Project Narrative Scheduled Interval End"@en ;
+    skos:prefLabel "Portal Create Project Narrative Scheduled Interval End"@en ;
+    time:inXSDDateTimeStamp "2027-02-02T17:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Create_Project_Narrative_Scheduled_Interval_Start a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Create Project Narrative Scheduled Interval Start"@en ;
+    skos:prefLabel "Portal Create Project Narrative Scheduled Interval Start"@en ;
+    time:inXSDDateTimeStamp "2027-02-01T10:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Create_Use_Cases_Scheduled_Interval_End a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Create Use Cases Scheduled Interval End"@en ;
+    skos:prefLabel "Portal Create Use Cases Scheduled Interval End"@en ;
+    time:inXSDDateTimeStamp "2027-02-10T17:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Create_Use_Cases_Scheduled_Interval_Start a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Create Use Cases Scheduled Interval Start"@en ;
+    skos:prefLabel "Portal Create Use Cases Scheduled Interval Start"@en ;
+    time:inXSDDateTimeStamp "2027-02-08T09:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Create_Wireframes_Scheduled_Interval_End a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Create Wireframes Scheduled Interval End"@en ;
+    skos:prefLabel "Portal Create Wireframes Scheduled Interval End"@en ;
+    time:inXSDDateTimeStamp "2027-02-05T17:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Create_Wireframes_Scheduled_Interval_Start a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Create Wireframes Scheduled Interval Start"@en ;
+    skos:prefLabel "Portal Create Wireframes Scheduled Interval Start"@en ;
+    time:inXSDDateTimeStamp "2027-02-03T09:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Develop_Wireframes_Scheduled_Interval_End a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Develop Wireframes Scheduled Interval End"@en ;
+    skos:prefLabel "Portal Develop Wireframes Scheduled Interval End"@en ;
+    time:inXSDDateTimeStamp "2027-02-05T17:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Develop_Wireframes_Scheduled_Interval_Start a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Develop Wireframes Scheduled Interval Start"@en ;
+    skos:prefLabel "Portal Develop Wireframes Scheduled Interval Start"@en ;
+    time:inXSDDateTimeStamp "2027-02-03T13:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Implementation_Scheduled_Interval_End a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Implementation Scheduled Interval End"@en ;
+    skos:prefLabel "Portal Implementation Scheduled Interval End"@en ;
+    time:inXSDDateTimeStamp "2027-02-26T17:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Implementation_Scheduled_Interval_Start a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Implementation Scheduled Interval Start"@en ;
+    skos:prefLabel "Portal Implementation Scheduled Interval Start"@en ;
+    time:inXSDDateTimeStamp "2027-02-18T09:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Kickoff_Meeting_Scheduled_Interval_End a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Kickoff Meeting Scheduled Interval End"@en ;
+    skos:prefLabel "Portal Kickoff Meeting Scheduled Interval End"@en ;
+    time:inXSDDateTimeStamp "2027-02-01T10:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Kickoff_Meeting_Scheduled_Interval_Start a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Kickoff Meeting Scheduled Interval Start"@en ;
+    skos:prefLabel "Portal Kickoff Meeting Scheduled Interval Start"@en ;
+    time:inXSDDateTimeStamp "2027-02-01T09:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Requirements_Acquisition_Scheduled_Interval_End a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Requirements Acquisition Scheduled Interval End"@en ;
+    skos:prefLabel "Portal Requirements Acquisition Scheduled Interval End"@en ;
+    time:inXSDDateTimeStamp "2027-02-12T17:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Requirements_Acquisition_Scheduled_Interval_Start a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Requirements Acquisition Scheduled Interval Start"@en ;
+    skos:prefLabel "Portal Requirements Acquisition Scheduled Interval Start"@en ;
+    time:inXSDDateTimeStamp "2027-02-01T09:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Review_Requirements_Scheduled_Interval_End a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Review Requirements Scheduled Interval End"@en ;
+    skos:prefLabel "Portal Review Requirements Scheduled Interval End"@en ;
+    time:inXSDDateTimeStamp "2027-02-12T16:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Review_Requirements_Scheduled_Interval_Start a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Review Requirements Scheduled Interval Start"@en ;
+    skos:prefLabel "Portal Review Requirements Scheduled Interval Start"@en ;
+    time:inXSDDateTimeStamp "2027-02-11T09:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Rollout_Scheduled_Interval_End a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Rollout Scheduled Interval End"@en ;
+    skos:prefLabel "Portal Rollout Scheduled Interval End"@en ;
+    time:inXSDDateTimeStamp "2027-03-05T17:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Rollout_Scheduled_Interval_Start a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Rollout Scheduled Interval Start"@en ;
+    skos:prefLabel "Portal Rollout Scheduled Interval Start"@en ;
+    time:inXSDDateTimeStamp "2027-03-04T09:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Technical_Design_Scheduled_Interval_End a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Technical Design Scheduled Interval End"@en ;
+    skos:prefLabel "Portal Technical Design Scheduled Interval End"@en ;
+    time:inXSDDateTimeStamp "2027-02-17T17:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Technical_Design_Scheduled_Interval_Start a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Technical Design Scheduled Interval Start"@en ;
+    skos:prefLabel "Portal Technical Design Scheduled Interval Start"@en ;
+    time:inXSDDateTimeStamp "2027-02-15T09:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Testing_Scheduled_Interval_End a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Testing Scheduled Interval End"@en ;
+    skos:prefLabel "Portal Testing Scheduled Interval End"@en ;
+    time:inXSDDateTimeStamp "2027-03-03T17:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Testing_Scheduled_Interval_Start a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Testing Scheduled Interval Start"@en ;
+    skos:prefLabel "Portal Testing Scheduled Interval Start"@en ;
+    time:inXSDDateTimeStamp "2027-03-01T09:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Use_Case_Interviews_Scheduled_Interval_End a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Use Case Interviews Scheduled Interval End"@en ;
+    skos:prefLabel "Portal Use Case Interviews Scheduled Interval End"@en ;
+    time:inXSDDateTimeStamp "2027-02-08T12:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Use_Case_Interviews_Scheduled_Interval_Start a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Use Case Interviews Scheduled Interval Start"@en ;
+    skos:prefLabel "Portal Use Case Interviews Scheduled Interval Start"@en ;
+    time:inXSDDateTimeStamp "2027-02-08T09:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_User_Wireframe_Interviews_Scheduled_Interval_End a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal User Wireframe Interviews Scheduled Interval End"@en ;
+    skos:prefLabel "Portal User Wireframe Interviews Scheduled Interval End"@en ;
+    time:inXSDDateTimeStamp "2027-02-03T12:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_User_Wireframe_Interviews_Scheduled_Interval_Start a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal User Wireframe Interviews Scheduled Interval Start"@en ;
+    skos:prefLabel "Portal User Wireframe Interviews Scheduled Interval Start"@en ;
+    time:inXSDDateTimeStamp "2027-02-03T09:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Write_Use_Cases_Scheduled_Interval_End a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Write Use Cases Scheduled Interval End"@en ;
+    skos:prefLabel "Portal Write Use Cases Scheduled Interval End"@en ;
+    time:inXSDDateTimeStamp "2027-02-10T17:00:00-08:00"^^xsd:dateTimeStamp .
+
+pm:Portal_Write_Use_Cases_Scheduled_Interval_Start a owl:NamedIndividual,
+        time:Instant ;
+    rdfs:label "Portal Write Use Cases Scheduled Interval Start"@en ;
+    skos:prefLabel "Portal Write Use Cases Scheduled Interval Start"@en ;
+    time:inXSDDateTimeStamp "2027-02-08T13:00:00-08:00"^^xsd:dateTimeStamp .
+
+
+# Distinct individuals
+
+[] a owl:AllDifferent ;
+    owl:distinctMembers ( pm:Alex_Morgan pm:Create_Detailed_Requirements pm:Create_Detailed_Requirements_Plan pm:Create_Project_Narrative pm:Create_Use_Cases pm:Create_Use_Cases_Plan pm:Create_Wireframes pm:Create_Wireframes_Plan pm:Customer_Portal_Plan pm:Develop_Wireframes pm:Implementation pm:Jordan_Lee pm:Kickoff_Meeting pm:Method_Omega pm:Portal_Application_Build_Var pm:Portal_Create_Detailed_Requirements pm:Portal_Create_Detailed_Requirements_Plan pm:Portal_Create_Project_Narrative pm:Portal_Create_Use_Cases pm:Portal_Create_Use_Cases_Plan pm:Portal_Create_Wireframes pm:Portal_Create_Wireframes_Plan pm:Portal_Deployment_Record_Var pm:Portal_Develop_Wireframes pm:Portal_Implementation pm:Portal_Kickoff_Meeting pm:Portal_Kickoff_Notes_Var pm:Portal_Project_Brief_Var pm:Portal_Project_Narrative_Var pm:Portal_Requirements_Acquisition pm:Portal_Requirements_Acquisition_Completed pm:Portal_Requirements_Acquisition_Plan pm:Portal_Requirements_Review_Decision pm:Portal_Review_Requirements pm:Portal_Rollout pm:Portal_Technical_Design pm:Portal_Technical_Design_Var pm:Portal_Test_Report_Var pm:Portal_Testing pm:Portal_Use_Case_Interview_Notes_Var pm:Portal_Use_Case_Interviews pm:Portal_Use_Cases pm:Portal_User_Wireframe_Interviews pm:Portal_Wireframe_Interview_Notes_Var pm:Portal_Wireframes pm:Portal_Write_Use_Cases pm:Priya_Shah pm:Requirements_Acquisition pm:Requirements_Acquisition_Completed pm:Requirements_Acquisition_Plan pm:Requirements_Review_Decision pm:Review_Requirements pm:Rollout pm:Sam_Rivera pm:Taylor_Chen pm:Technical_Design pm:Testing pm:Use_Case_Interviews pm:Use_Cases pm:User_Wireframe_Interviews pm:Wireframes pm:Write_Use_Cases ) .
