@@ -1,6 +1,7 @@
 # Method Omega SPARQL and Gruff Examples
 
 ### Query For Model Hierarchy
+This is for *Method Omega*, the methodology for the consulting firm. 
 
 ```
 PREFIX pm: <https://in2use.com/process_model/>
@@ -25,7 +26,8 @@ WHERE {
 ### Gruff Visualization of Model Hierarchy
 <img width="993" height="843" alt="image" src="https://github.com/user-attachments/assets/74195dd6-9b51-44fb-9724-e147a815f12a" />
 
-### Query For Task Hierarchy
+### Query For Plan Hierarchy
+This is for *Method Omega* applied to a client for a project to build a `Customer Portal`. This and the following queries and graphs are for a planed project that hasn't started to execute yet. 
 
 ```
 PREFIX pm: <https://in2use.com/process_model/>
@@ -59,3 +61,40 @@ ORDER BY ?subject ?predicate ?object
 ### Gruff Visualization of Task Hierarchy
 
 <img width="1067" height="858" alt="image" src="https://github.com/user-attachments/assets/ad065e56-bcfc-4bb9-9a23-6a25b169b705" />
+
+### Query for Develop Wireframes, Write Use Cases, and Review Requirements, with inputs, outputs, people, and roles:
+
+```
+PREFIX pm: <https://in2use.com/process_model/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+
+SELECT DISTINCT ?subject ?predicate ?object
+WHERE {
+  VALUES ?step {
+    pm:Portal_Develop_Wireframes
+    pm:Portal_Write_Use_Cases
+    pm:Portal_Review_Requirements
+  }
+
+  {
+    VALUES ?predicate {
+      pp:hasInputVar
+      pp:hasOutputVar
+    }
+    ?step ?predicate ?object .
+    BIND(?step AS ?subject)
+  }
+  UNION
+  {
+    ?subject pm:has_assigned_step ?step .
+    VALUES ?predicate {
+      pm:has_assigned_step
+      pm:has_assigned_agent
+      pm:has_assigned_role
+    }
+    ?subject ?predicate ?object .
+  }
+}
+ORDER BY ?subject ?predicate ?object
+```
+
