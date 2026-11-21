@@ -26,6 +26,9 @@ WHERE {
 ### Gruff Visualization of Model Hierarchy
 <img width="993" height="843" alt="image" src="https://github.com/user-attachments/assets/74195dd6-9b51-44fb-9724-e147a815f12a" />
 
+### BPMN Overview of Method Omega
+<img width="2000" height="950" alt="01_Methodology_Overview" src="https://github.com/user-attachments/assets/5aa97626-e7eb-4de2-a0b7-e30231477a49" />
+
 ### Query For Plan Hierarchy
 This is for *Method Omega* applied to a client for a project to build a `Customer Portal`. This and the following queries and graphs are for a planed project that hasn't started to execute yet. 
 
