@@ -97,4 +97,5 @@ WHERE {
 }
 ORDER BY ?subject ?predicate ?object
 ```
+<img width="1119" height="656" alt="image" src="https://github.com/user-attachments/assets/c37d5026-b882-4b0d-9aa2-0177d689064b" />
 
