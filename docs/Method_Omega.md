@@ -105,3 +105,39 @@ ORDER BY ?subject ?predicate ?object
 ```
 <img width="1119" height="656" alt="image" src="https://github.com/user-attachments/assets/c37d5026-b882-4b0d-9aa2-0177d689064b" />
 
+### Query for Sequential Flows in the Methodology
+
+| Level | Sequential flow |
+|---|---|
+| Method Omega | Requirements Acquisition → Technical Design → Implementation → Testing → Rollout |
+| Requirements Acquisition | Kickoff Meeting → Create Project Narrative → Create Detailed Requirements → Review Requirements |
+| Create Detailed Requirements | Create Wireframes → Create Use Cases |
+| Create Wireframes | User Wireframe Interviews → Develop Wireframes |
+| Create Use Cases | Use Case Interviews → Write Use Cases |
+
+```
+PREFIX pm: <https://in2use.com/process_model/>
+
+CONSTRUCT {
+  ?source pm:is_source_step_of ?transition .
+  ?transition pm:has_target_step ?target .
+  ?transition pm:has_condition ?condition .
+}
+WHERE {
+  VALUES ?plan {
+    pm:Method_Omega
+    pm:Requirements_Acquisition_Plan
+    pm:Create_Detailed_Requirements_Plan
+    pm:Create_Wireframes_Plan
+    pm:Create_Use_Cases_Plan
+  }
+
+  ?plan pm:has_step ?source .
+  ?source pm:is_source_step_of ?transition .
+  ?transition pm:has_target_step ?target .
+
+  OPTIONAL {
+    ?transition pm:has_condition ?condition .
+  }
+}
+```
