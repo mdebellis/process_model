@@ -141,3 +141,4 @@ WHERE {
   }
 }
 ```
+<img width="1556" height="905" alt="image" src="https://github.com/user-attachments/assets/e754494c-e10b-42d6-9fd4-0c6e870e3c56" />
