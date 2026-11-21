@@ -22,6 +22,9 @@ WHERE {
   OPTIONAL {?step pp:isDecomposedAsPlan ?subplan .}}
 ```
 
+### Gruff Visualization of Model Hierarchy
+<img width="993" height="843" alt="image" src="https://github.com/user-attachments/assets/74195dd6-9b51-44fb-9724-e147a815f12a" />
+
 ### Query For Task Hierarchy
 
 ```
