@@ -63,7 +63,13 @@ ORDER BY ?subject ?predicate ?object
 <img width="1067" height="858" alt="image" src="https://github.com/user-attachments/assets/ad065e56-bcfc-4bb9-9a23-6a25b169b705" />
 
 ### Query for Develop Wireframes, Write Use Cases, and Review Requirements, with inputs, outputs, people, and roles:
-
+| Person | Assigned role | Examples of assigned work |
+|---|---|---|
+| Alex Morgan | Project Manager | Kickoff Meeting; Review Requirements |
+| Priya Shah | Business Analyst | Requirements Acquisition; Write Use Cases |
+| Jordan Lee | User Experience Designer | Wireframe Interviews; Develop Wireframes |
+| Sam Rivera | Developer | Technical Design; Implementation; Rollout |
+| Taylor Chen | Quality Engineer | Testing |
 ```
 PREFIX pm: <https://in2use.com/process_model/>
 PREFIX pp: <http://purl.org/net/p-plan#>
