@@ -26,6 +26,25 @@ WHERE {
 ### Gruff Visualization of Model Hierarchy
 <img width="993" height="843" alt="image" src="https://github.com/user-attachments/assets/74195dd6-9b51-44fb-9724-e147a815f12a" />
 
+## BPMN Diagrams for Method Omega
+
+### BPMN Overview of Method Omega
+<img width="2000" height="950" alt="01_Methodology_Overview" src="https://github.com/user-attachments/assets/5aa97626-e7eb-4de2-a0b7-e30231477a49" />
+
+### BPMN Requirements Review
+<img width="2000" height="950" alt="02_Requirements_Review_And_Rework" src="https://github.com/user-attachments/assets/091da400-32c8-428a-a281-9af8fe8f7236" />
+
+### BPMN Requirements Decomposition
+<img width="2000" height="1288" alt="03_Detailed_Requirements_Decompositions" src="https://github.com/user-attachments/assets/4cb9bc23-cb79-47d3-a5ca-f9ffd70969cc" />
+
+
+### BPMN Customer Portal Plan
+<img width="2000" height="1125" alt="04_Customer_Portal_Plan" src="https://github.com/user-attachments/assets/fdb03911-0790-47be-b751-03dc21cccdfb" />
+
+### BPMN Customer Portal Resources
+<img width="2000" height="1325" alt="05_Customer_Portal_Resources" src="https://github.com/user-attachments/assets/5e435fc1-14e1-4f60-8401-417bc924c37b" />
+
+
 ### Query For Plan Hierarchy
 This is for *Method Omega* applied to a client for a project to build a `Customer Portal`. This and the following queries and graphs are for a planed project that hasn't started to execute yet. 
 

@@ -2,14 +2,6 @@
 
 18 November 2026
 
-Open [process_model_with_examples.rdf](../ontologies/process_model_with_examples.rdf) in Protégé. It is the complete updated
-ontology, including the existing tendering, Method Omega and OWL-Time examples.
-Use the corrected type-first RDF/XML serialization described in the
-[compatibility report](../validation/rdfxml_compatibility.md). The original
-draft's export triggered a Protégé/OWLAPI parser issue despite passing the
-earlier CLI checks. The review archive
-contains additions-only Turtle, query examples, a small invocation helper and
-validation results; it does not contain another copy of the complete ontology.
 
 ## Scope of this draft
 
