@@ -37,10 +37,10 @@
      xmlns:vdbprop="http://franz.com/vdb/prop/"
      xmlns:vdbcluster="http://franz.com/vdb/cluster/">
     <owl:Ontology about="https://in2use.com/process_model">
-        <dcterms:created datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-22</dcterms:created>
+        <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-22</dcterms:created>
         <dcterms:creator resource="https://orcid.org/0000-0002-8824-9577"/>
         <dcterms:description xml:lang="en">Self-contained experimental process ontology combining a collaborative tendering plan and its synthetic execution, the abstract Method Omega development methodology, temporal reasoning examples, and provisional state and goal tests. The ontology IRI is https://in2use.com/process_model; project-defined entities use the namespace https://in2use.com/process_model/. Reused external vocabulary retains its original IRIs. The model includes ten SWRL rules and SPARQL tests; it does not implement a workflow engine. No Method Omega execution, LLM evaluation record or materialized inference is included.</dcterms:description>
-        <dcterms:modified datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-18</dcterms:modified>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-18</dcterms:modified>
         <dcterms:source resource="https://doi.org/10.1080/00207543.2023.2242508"/>
         <dcterms:source resource="https://in2use.com/process_model/Source_Schema_Metadata"/>
         <dcterms:source resource="https://www.michaeldebellis.com/supply_chain_model"/>
@@ -1795,11 +1795,11 @@ DBPedia provides a set of resources corresponding to the IANA timezones, with a 
         <rdfs:seeAlso resource="http://www.w3.org/ns/prov#specializationOf"/>
         <ns1:category>expanded</ns1:category>
         <ns1:component>alternate</ns1:component>
-        <ns1:constraints datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig</ns1:constraints>
+        <ns1:constraints rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig</ns1:constraints>
         <ns1:definition xml:lang="en">Two alternate entities present aspects of the same thing. These aspects may be the same or different, and the alternate entities may or may not overlap in time.</ns1:definition>
-        <ns1:dm datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-alternate</ns1:dm>
+        <ns1:dm rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-alternate</ns1:dm>
         <ns1:inverse>alternateOf</ns1:inverse>
-        <ns1:n datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-alternate</ns1:n>
+        <ns1:n rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-alternate</ns1:n>
     </owl:ObjectProperty>
     
 
@@ -2010,11 +2010,11 @@ DBPedia provides a set of resources corresponding to the IANA timezones, with a 
         <rdfs:seeAlso resource="http://www.w3.org/ns/prov#alternateOf"/>
         <ns1:category>expanded</ns1:category>
         <ns1:component>alternate</ns1:component>
-        <ns1:constraints datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig</ns1:constraints>
+        <ns1:constraints rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig</ns1:constraints>
         <ns1:definition xml:lang="en">An entity that is a specialization of another shares all aspects of the latter, and additionally presents more specific aspects of the same thing as the latter. In particular, the lifetime of the entity being specialized contains that of any specialization. Examples of aspects include a time period, an abstraction, and a context associated with the entity.</ns1:definition>
-        <ns1:dm datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-specialization</ns1:dm>
+        <ns1:dm rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-specialization</ns1:dm>
         <ns1:inverse>generalizationOf</ns1:inverse>
-        <ns1:n datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-specialization</ns1:n>
+        <ns1:n rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-specialization</ns1:n>
     </owl:ObjectProperty>
     
 
@@ -3223,7 +3223,7 @@ El rango de esta propiedad no está especificado, por tanto, se puede reemplazar
         <rdfs:comment xml:lang="en">Position of an instant, expressed using xsd:dateTime</rdfs:comment>
         <rdfs:label xml:lang="es">en fecha-tiempo XSD</rdfs:label>
         <rdfs:label xml:lang="en">in XSD Date-Time</rdfs:label>
-        <owl:deprecated datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
         <skos:definition xml:lang="es">Posición de un instante, expresado utilizando xsd:dateTime.</skos:definition>
         <skos:definition xml:lang="en">Position of an instant, expressed using xsd:dateTime</skos:definition>
         <skos:note xml:lang="es">La propiedad &apos;en fecha-hora XSD&apos; ha sido reemplazada por &apos;en fecha-sello de tiempo XSD&apos; que hace obligatorio el campo &apos;huso horario&apos;.</skos:note>
@@ -3451,7 +3451,7 @@ The range of this property is not specified, so can be replaced by any specific 
         <rdfs:comment xml:lang="en">Value of DateTimeInterval expressed as a compact value.</rdfs:comment>
         <rdfs:label xml:lang="en">has XSD date-time</rdfs:label>
         <rdfs:label xml:lang="es">tiene fecha-hora XSD</rdfs:label>
-        <owl:deprecated datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
         <skos:note xml:lang="en">Using xsd:dateTime in this place means that the duration of the interval is implicit: it corresponds to the length of the smallest non-zero element of the date-time literal. However, this rule cannot be used for intervals whose duration is more than one rank smaller than the starting time - e.g. the first minute or second of a day, the first hour of a month, or the first day of a year. In these cases the desired interval cannot be distinguished from the interval corresponding to the next rank up. Because of this essential ambiguity, use of this property is not recommended and it is deprecated.</skos:note>
         <skos:note>enUtilizando xsd:dateTime en este lugar significa que la duración del intervalo está implícita: se corresponde con la longitud del elemento más pequeño distinto de cero del literal fecha-hora. Sin embargo, esta regla no se puede utilizar para intervalos cuya duración es mayor que un rango más pequeño que el tiempo de comienzo - p.ej. el primer minuto o segundo del día, la primera hora del mes, o el primer día del año. En estos casos el intervalo deseado no se puede distinguir del intervalo correspondiente al próximo rango más alto. Debido a esta ambigüedad esencial, no se recomienda el uso de esta propiedad y está desaprobada.</skos:note>
     </owl:DatatypeProperty>
@@ -3578,7 +3578,7 @@ The range of this property is not specified, so can be replaced by any specific 
         <ns1:category>expanded</ns1:category>
         <ns1:component>entities-activities</ns1:component>
         <ns1:definition xml:lang="en">Provides a value that is a direct representation of an entity.</ns1:definition>
-        <ns1:dm datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-attribute-value</ns1:dm>
+        <ns1:dm rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-attribute-value</ns1:dm>
         <ns1:editorialNote>The editor&apos;s definition comes from http://www.w3.org/TR/rdf-primer/#rdfvalue</ns1:editorialNote>
         <ns1:editorialNote xml:lang="en">This property serves the same purpose as rdf:value, but has been reintroduced to avoid some of the definitional ambiguity in the RDF specification (specifically, &apos;may be used in describing structured values&apos;).</ns1:editorialNote>
     </owl:DatatypeProperty>
@@ -3883,13 +3883,13 @@ In the original OWL-Time the following constraint appeared:
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#unitType"/>
-                <owl:cardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#numericDuration"/>
-                <owl:cardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="es">Duración de una extensión temporal expresada como un número escalado por una unidad temporal.</rdfs:comment>
@@ -3975,73 +3975,73 @@ In the original OWL-Time the following constraint appeared:
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#unitType"/>
-                <owl:cardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#dayOfWeek"/>
-                <owl:maxCardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#monthOfYear"/>
-                <owl:maxCardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#timeZone"/>
-                <owl:maxCardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#day"/>
-                <owl:maxCardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#dayOfYear"/>
-                <owl:maxCardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#hour"/>
-                <owl:maxCardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#minute"/>
-                <owl:maxCardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#month"/>
-                <owl:maxCardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#second"/>
-                <owl:maxCardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#week"/>
-                <owl:maxCardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#year"/>
-                <owl:maxCardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="es">Descripción de fecha y hora estructurada con valores separados para los distintos elementos de un sistema calendario-reloj.</rdfs:comment>
@@ -4063,49 +4063,49 @@ In the original OWL-Time the following constraint appeared:
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#hasTRS"/>
-                <owl:cardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#days"/>
-                <owl:maxCardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#hours"/>
-                <owl:maxCardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#minutes"/>
-                <owl:maxCardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#months"/>
-                <owl:maxCardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#seconds"/>
-                <owl:maxCardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#weeks"/>
-                <owl:maxCardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#years"/>
-                <owl:maxCardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+                <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="es">Descripción de extensión temporal estructurada con valores separados para los distintos elementos de un sistema de horario-calendario.</rdfs:comment>
@@ -4162,11 +4162,11 @@ In the original OWL-Time the following constraint appeared:
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#month"/>
-                <owl:hasValue datatype="http://www.w3.org/2001/XMLSchema#gMonth">--01</owl:hasValue>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#gMonth">--01</owl:hasValue>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:label>January</rdfs:label>
-        <owl:deprecated datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
         <skos:historyNote>This class was present in the 2006 version of OWL-Time. It was presented as an example of how DateTimeDescription could be specialized, but does not belong in the revised ontology. </skos:historyNote>
     </owl:Class>
     
@@ -4185,43 +4185,43 @@ In the original OWL-Time the following constraint appeared:
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#day"/>
-                <owl:cardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#hour"/>
-                <owl:cardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#minute"/>
-                <owl:cardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#month"/>
-                <owl:cardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#second"/>
-                <owl:cardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#week"/>
-                <owl:cardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#year"/>
-                <owl:cardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="es">El mes del año.</rdfs:comment>
@@ -4314,7 +4314,7 @@ This is a stub class, representing the set of all temporal reference systems.</s
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#hasTRS"/>
-                <owl:cardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A position on a time-line</rdfs:comment>
@@ -4365,11 +4365,11 @@ In the original OWL-Time the following constraint appeared:
                 <owl:unionOf parseType="Collection">
                     <owl:Restriction>
                         <owl:onProperty resource="http://www.w3.org/2006/time#nominalPosition"/>
-                        <owl:cardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty resource="http://www.w3.org/2006/time#numericPosition"/>
-                        <owl:cardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
                     </owl:Restriction>
                 </owl:unionOf>
             </owl:Class>
@@ -4430,48 +4430,48 @@ Detailed guidance about working with time zones is given in http://www.w3.org/TR
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#days"/>
-                <owl:cardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#hours"/>
-                <owl:cardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#minutes"/>
-                <owl:cardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#months"/>
-                <owl:cardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#seconds"/>
-                <owl:cardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#weeks"/>
-                <owl:cardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty resource="http://www.w3.org/2006/time#years"/>
-                <owl:cardinality datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment>Year duration</rdfs:comment>
         <rdfs:label xml:lang="en">Year</rdfs:label>
-        <owl:deprecated datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
+        <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
         <skos:definition>Year duration</skos:definition>
         <skos:historyNote>Year was proposed in the 2006 version of OWL-Time as an example of how DurationDescription could be specialized to allow for a duration to be restricted to a number of years. 
 
@@ -4501,10 +4501,10 @@ It is deprecated in this edition of OWL-Time. </skos:historyNote>
         <rdfs:label>Activity</rdfs:label>
         <ns1:category>starting-point</ns1:category>
         <ns1:component>entities-activities</ns1:component>
-        <ns1:constraints datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig</ns1:constraints>
+        <ns1:constraints rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig</ns1:constraints>
         <ns1:definition>An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.</ns1:definition>
-        <ns1:dm datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Activity</ns1:dm>
-        <ns1:n datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Activity</ns1:n>
+        <ns1:dm rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Activity</ns1:dm>
+        <ns1:n rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Activity</ns1:n>
     </owl:Class>
     
 
@@ -4518,8 +4518,8 @@ It is deprecated in this edition of OWL-Time. </skos:historyNote>
         <ns1:category>starting-point</ns1:category>
         <ns1:component>agents-responsibility</ns1:component>
         <ns1:definition xml:lang="en">An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent&apos;s activity. </ns1:definition>
-        <ns1:dm datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent</ns1:dm>
-        <ns1:n datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Agent</ns1:n>
+        <ns1:dm rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent</ns1:dm>
+        <ns1:n rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Agent</ns1:n>
     </owl:Class>
     
 
@@ -4585,10 +4585,10 @@ It is deprecated in this edition of OWL-Time. </skos:historyNote>
         <rdfs:label>Entity</rdfs:label>
         <ns1:category>starting-point</ns1:category>
         <ns1:component>entities-activities</ns1:component>
-        <ns1:constraints datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig</ns1:constraints>
+        <ns1:constraints rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig</ns1:constraints>
         <ns1:definition xml:lang="en">An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary. </ns1:definition>
-        <ns1:dm datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-entity</ns1:dm>
-        <ns1:n datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Entity</ns1:n>
+        <ns1:dm rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-entity</ns1:dm>
+        <ns1:n rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Entity</ns1:n>
     </owl:Class>
     
 
@@ -4625,7 +4625,7 @@ It is deprecated in this edition of OWL-Time. </skos:historyNote>
         <skos:prefLabel xml:lang="en">Instantaneous Event</skos:prefLabel>
         <ns1:category>qualified</ns1:category>
         <ns1:component>entities-activities</ns1:component>
-        <ns1:constraints datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#dfn-event</ns1:constraints>
+        <ns1:constraints rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#dfn-event</ns1:constraints>
         <ns1:definition xml:lang="en">The PROV data model is implicitly based on a notion of instantaneous events (or just events), that mark transitions in the world. Events include generation, usage, or invalidation of entities, as well as starting or ending of activities. This notion of event is not first-class in the data model, but it is useful for explaining its other concepts and its semantics.</ns1:definition>
     </owl:Class>
     
@@ -4641,8 +4641,8 @@ It is deprecated in this edition of OWL-Time. </skos:historyNote>
         <skos:historyNote xml:lang="en">I made prov:Location a subclass of sulo:Spatial_Object MD 7/20/26</skos:historyNote>
         <ns1:category>expanded</ns1:category>
         <ns1:definition xml:lang="en">A location can be an identifiable geographic place (ISO 19112), but it can also be a non-geographic place such as a directory, row, or column. As such, there are numerous ways in which location can be expressed, such as by a coordinate, address, landmark, and so forth.</ns1:definition>
-        <ns1:dm datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-attribute-location</ns1:dm>
-        <ns1:n datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-attribute</ns1:n>
+        <ns1:dm rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-attribute-location</ns1:dm>
+        <ns1:n rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-attribute</ns1:n>
     </owl:Class>
     
 
@@ -4656,8 +4656,8 @@ It is deprecated in this edition of OWL-Time. </skos:historyNote>
         <ns1:category>expanded</ns1:category>
         <ns1:component>agents-responsibility</ns1:component>
         <ns1:definition>An organization is a social or legal institution such as a company, society, etc.</ns1:definition>
-        <ns1:dm datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent</ns1:dm>
-        <ns1:n datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-types</ns1:n>
+        <ns1:dm rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent</ns1:dm>
+        <ns1:n rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-types</ns1:n>
     </owl:Class>
     
 
@@ -4671,8 +4671,8 @@ It is deprecated in this edition of OWL-Time. </skos:historyNote>
         <ns1:category>expanded</ns1:category>
         <ns1:component>agents-responsibility</ns1:component>
         <ns1:definition xml:lang="en">Person agents are people.</ns1:definition>
-        <ns1:dm datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent</ns1:dm>
-        <ns1:n datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-types</ns1:n>
+        <ns1:dm rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent</ns1:dm>
+        <ns1:n rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-types</ns1:n>
     </owl:Class>
     
 
@@ -4688,8 +4688,8 @@ It is deprecated in this edition of OWL-Time. </skos:historyNote>
         <ns1:category>qualified</ns1:category>
         <ns1:component>agents-responsibility</ns1:component>
         <ns1:definition>A plan is an entity that represents a set of actions or steps intended by one or more agents to achieve some goals.</ns1:definition>
-        <ns1:dm datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Association</ns1:dm>
-        <ns1:n datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Association</ns1:n>
+        <ns1:dm rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Association</ns1:dm>
+        <ns1:n rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Association</ns1:n>
     </owl:Class>
     
 
@@ -4703,8 +4703,8 @@ It is deprecated in this edition of OWL-Time. </skos:historyNote>
         <ns1:category>qualified</ns1:category>
         <ns1:component>agents-responsibility</ns1:component>
         <ns1:definition xml:lang="en">A role is the function of an entity or agent with respect to an activity, in the context of a usage, generation, invalidation, association, start, and end.</ns1:definition>
-        <ns1:dm datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-attribute-role</ns1:dm>
-        <ns1:n datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-attribute</ns1:n>
+        <ns1:dm rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-attribute-role</ns1:dm>
+        <ns1:n rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-attribute</ns1:n>
     </owl:Class>
     
 
@@ -4718,8 +4718,8 @@ It is deprecated in this edition of OWL-Time. </skos:historyNote>
         <ns1:category>expanded</ns1:category>
         <ns1:component>agents-responsibility</ns1:component>
         <ns1:definition xml:lang="en">A software agent is running software.</ns1:definition>
-        <ns1:dm datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent</ns1:dm>
-        <ns1:n datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-types</ns1:n>
+        <ns1:dm rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent</ns1:dm>
+        <ns1:n rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-types</ns1:n>
     </owl:Class>
     
 
@@ -5217,7 +5217,7 @@ It is deprecated in this edition of OWL-Time. </skos:historyNote>
                         <owl:onDatatype resource="http://www.w3.org/2001/XMLSchema#decimal"/>
                         <owl:withRestrictions parseType="Collection">
                             <Description>
-                                <xsd:minInclusive datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</xsd:minInclusive>
+                                <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.0</xsd:minInclusive>
                             </Description>
                         </owl:withRestrictions>
                     </rdfs:Datatype>
@@ -5682,13 +5682,13 @@ It is deprecated in this edition of OWL-Time. </skos:historyNote>
 
     <owl:NamedIndividual about="http://www.w3.org/2006/time#unitDay">
         <type resource="http://www.w3.org/2006/time#TemporalUnit"/>
-        <ns2:days datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns2:days>
-        <ns2:hours datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:hours>
-        <ns2:minutes datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:minutes>
-        <ns2:months datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:months>
-        <ns2:seconds datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:seconds>
-        <ns2:weeks datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:weeks>
-        <ns2:years datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:years>
+        <ns2:days rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns2:days>
+        <ns2:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:hours>
+        <ns2:minutes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:minutes>
+        <ns2:months rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:months>
+        <ns2:seconds rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:seconds>
+        <ns2:weeks rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:weeks>
+        <ns2:years rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:years>
         <rdfs:label xml:lang="en">Day (unit of temporal duration)</rdfs:label>
         <skos:prefLabel xml:lang="de">Tag</skos:prefLabel>
         <skos:prefLabel xml:lang="nl">dag</skos:prefLabel>
@@ -5710,13 +5710,13 @@ It is deprecated in this edition of OWL-Time. </skos:historyNote>
 
     <owl:NamedIndividual about="http://www.w3.org/2006/time#unitHour">
         <type resource="http://www.w3.org/2006/time#TemporalUnit"/>
-        <ns2:days datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:days>
-        <ns2:hours datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns2:hours>
-        <ns2:minutes datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:minutes>
-        <ns2:months datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:months>
-        <ns2:seconds datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:seconds>
-        <ns2:weeks datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:weeks>
-        <ns2:years datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:years>
+        <ns2:days rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:days>
+        <ns2:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns2:hours>
+        <ns2:minutes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:minutes>
+        <ns2:months rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:months>
+        <ns2:seconds rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:seconds>
+        <ns2:weeks rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:weeks>
+        <ns2:years rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:years>
         <rdfs:label xml:lang="en">Hour (unit of temporal duration)</rdfs:label>
         <skos:prefLabel xml:lang="de">Stunde</skos:prefLabel>
         <skos:prefLabel xml:lang="pl">godzina</skos:prefLabel>
@@ -5739,13 +5739,13 @@ It is deprecated in this edition of OWL-Time. </skos:historyNote>
 
     <owl:NamedIndividual about="http://www.w3.org/2006/time#unitMinute">
         <type resource="http://www.w3.org/2006/time#TemporalUnit"/>
-        <ns2:days datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:days>
-        <ns2:hours datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:hours>
-        <ns2:minutes datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns2:minutes>
-        <ns2:months datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:months>
-        <ns2:seconds datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:seconds>
-        <ns2:weeks datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:weeks>
-        <ns2:years datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:years>
+        <ns2:days rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:days>
+        <ns2:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:hours>
+        <ns2:minutes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns2:minutes>
+        <ns2:months rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:months>
+        <ns2:seconds rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:seconds>
+        <ns2:weeks rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:weeks>
+        <ns2:years rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:years>
         <rdfs:label xml:lang="en">Minute (unit of temporal duration)</rdfs:label>
         <skos:prefLabel xml:lang="de">Minute</skos:prefLabel>
         <skos:prefLabel xml:lang="pl">minuta</skos:prefLabel>
@@ -5768,13 +5768,13 @@ It is deprecated in this edition of OWL-Time. </skos:historyNote>
 
     <owl:NamedIndividual about="http://www.w3.org/2006/time#unitMonth">
         <type resource="http://www.w3.org/2006/time#TemporalUnit"/>
-        <ns2:days datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:days>
-        <ns2:hours datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:hours>
-        <ns2:minutes datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:minutes>
-        <ns2:months datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns2:months>
-        <ns2:seconds datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:seconds>
-        <ns2:weeks datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:weeks>
-        <ns2:years datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:years>
+        <ns2:days rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:days>
+        <ns2:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:hours>
+        <ns2:minutes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:minutes>
+        <ns2:months rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns2:months>
+        <ns2:seconds rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:seconds>
+        <ns2:weeks rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:weeks>
+        <ns2:years rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:years>
         <rdfs:label xml:lang="en">Month (unit of temporal duration)</rdfs:label>
         <skos:prefLabel xml:lang="de">Monat</skos:prefLabel>
         <skos:prefLabel xml:lang="nl">maand</skos:prefLabel>
@@ -5796,13 +5796,13 @@ It is deprecated in this edition of OWL-Time. </skos:historyNote>
 
     <owl:NamedIndividual about="http://www.w3.org/2006/time#unitSecond">
         <type resource="http://www.w3.org/2006/time#TemporalUnit"/>
-        <ns2:days datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:days>
-        <ns2:hours datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:hours>
-        <ns2:minutes datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:minutes>
-        <ns2:months datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:months>
-        <ns2:seconds datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns2:seconds>
-        <ns2:weeks datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:weeks>
-        <ns2:years datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:years>
+        <ns2:days rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:days>
+        <ns2:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:hours>
+        <ns2:minutes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:minutes>
+        <ns2:months rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:months>
+        <ns2:seconds rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns2:seconds>
+        <ns2:weeks rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:weeks>
+        <ns2:years rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:years>
         <rdfs:label xml:lang="en">Second (unit of temporal duration)</rdfs:label>
         <skos:prefLabel xml:lang="de">Sekunde</skos:prefLabel>
         <skos:prefLabel xml:lang="pl">Sekundę</skos:prefLabel>
@@ -5824,13 +5824,13 @@ It is deprecated in this edition of OWL-Time. </skos:historyNote>
 
     <owl:NamedIndividual about="http://www.w3.org/2006/time#unitWeek">
         <type resource="http://www.w3.org/2006/time#TemporalUnit"/>
-        <ns2:days datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:days>
-        <ns2:hours datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:hours>
-        <ns2:minutes datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:minutes>
-        <ns2:months datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:months>
-        <ns2:seconds datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:seconds>
-        <ns2:weeks datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns2:weeks>
-        <ns2:years datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:years>
+        <ns2:days rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:days>
+        <ns2:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:hours>
+        <ns2:minutes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:minutes>
+        <ns2:months rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:months>
+        <ns2:seconds rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:seconds>
+        <ns2:weeks rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns2:weeks>
+        <ns2:years rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:years>
         <rdfs:label xml:lang="en">Week (unit of temporal duration)</rdfs:label>
         <skos:prefLabel xml:lang="de">Woche</skos:prefLabel>
         <skos:prefLabel xml:lang="fr">semaine</skos:prefLabel>
@@ -5853,13 +5853,13 @@ It is deprecated in this edition of OWL-Time. </skos:historyNote>
 
     <owl:NamedIndividual about="http://www.w3.org/2006/time#unitYear">
         <type resource="http://www.w3.org/2006/time#TemporalUnit"/>
-        <ns2:days datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:days>
-        <ns2:hours datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:hours>
-        <ns2:minutes datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:minutes>
-        <ns2:months datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:months>
-        <ns2:seconds datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:seconds>
-        <ns2:weeks datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:weeks>
-        <ns2:years datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns2:years>
+        <ns2:days rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:days>
+        <ns2:hours rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:hours>
+        <ns2:minutes rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:minutes>
+        <ns2:months rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:months>
+        <ns2:seconds rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:seconds>
+        <ns2:weeks rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</ns2:weeks>
+        <ns2:years rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns2:years>
         <rdfs:label xml:lang="en">Year (unit of temporal duration)</rdfs:label>
         <skos:prefLabel xml:lang="kr">1 년</skos:prefLabel>
         <skos:prefLabel xml:lang="jp">1年</skos:prefLabel>
@@ -6026,7 +6026,7 @@ ASK {
     <!-- https://in2use.com/process_model/April_12_1861 -->
 
     <owl:NamedIndividual about="https://in2use.com/process_model/April_12_1861">
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">1861-04-12T00:00:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">1861-04-12T00:00:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">April 12 1861</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6035,7 +6035,7 @@ ASK {
     <!-- https://in2use.com/process_model/August_7_1945 -->
 
     <owl:NamedIndividual about="https://in2use.com/process_model/August_7_1945">
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">1945-08-07T00:00:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">1945-08-07T00:00:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">August 7 1945</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6044,10 +6044,10 @@ ASK {
     <!-- https://in2use.com/process_model/Base_Model_Metadata -->
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Base_Model_Metadata">
-        <dcterms:created datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-22</dcterms:created>
+        <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-22</dcterms:created>
         <dcterms:creator resource="https://orcid.org/0000-0002-8824-9577"/>
         <dcterms:description xml:lang="en">Self-contained experimental merge of Bro_Pro (Big_Bro/SULO, a PROV-O subset and P-Plan) with OWL-Time. Seven direct-date SWRL rules derive all thirteen Allen base relations using the retained inverse axioms; one additional SWRL rule propagates qualified PROV associations. No catalog or owl:imports resolution is required.</dcterms:description>
-        <dcterms:modified datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-22</dcterms:modified>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-22</dcterms:modified>
         <dcterms:source resource="https://in2use.com/process_model/Merged_Source_Metadata"/>
         <dcterms:title xml:lang="en">Process model: Bro_Pro with OWL-Time and Allen interval rules</dcterms:title>
         <rdfs:comment xml:lang="en">Temporal rule contract: each interval needs one unambiguous beginning and end, each represented by an instant with a timezone-qualified xsd:dateTimeStamp value using time:inXSDDateTimeStamp. Rules require positive duration and complete timestamps; they do not reason over uncertain or undated endpoints. Allen equality does not imply owl:sameAs. PROV literal start/end properties alone do not supply these endpoint paths. SULO temporal quantities have not been equated with OWL-Time entities. Legacy named temporal examples are retained.</rdfs:comment>
@@ -6296,7 +6296,7 @@ ASK {
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Customer_Portal_Scheduled_Interval_End">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-03-05T17:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-03-05T17:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Customer Portal Scheduled Interval End</rdfs:label>
         <skos:prefLabel xml:lang="en">Customer Portal Scheduled Interval End</skos:prefLabel>
     </owl:NamedIndividual>
@@ -6307,7 +6307,7 @@ ASK {
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Customer_Portal_Scheduled_Interval_Start">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-01T09:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-01T09:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Customer Portal Scheduled Interval Start</rdfs:label>
         <skos:prefLabel xml:lang="en">Customer Portal Scheduled Interval Start</skos:prefLabel>
     </owl:NamedIndividual>
@@ -6477,7 +6477,7 @@ ASK {
     <!-- https://in2use.com/process_model/July_1_1863 -->
 
     <owl:NamedIndividual about="https://in2use.com/process_model/July_1_1863">
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">1863-07-01T00:00:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">1863-07-01T00:00:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">July 1 1863</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6486,7 +6486,7 @@ ASK {
     <!-- https://in2use.com/process_model/July_3_1863 -->
 
     <owl:NamedIndividual about="https://in2use.com/process_model/July_3_1863">
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">1863-07-03T00:00:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">1863-07-03T00:00:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">July 3 1863</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6495,7 +6495,7 @@ ASK {
     <!-- https://in2use.com/process_model/July_4_1946 -->
 
     <owl:NamedIndividual about="https://in2use.com/process_model/July_4_1946">
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">1946-07-04T00:00:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">1946-07-04T00:00:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">July 4 1946</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6504,7 +6504,7 @@ ASK {
     <!-- https://in2use.com/process_model/June_25_1940 -->
 
     <owl:NamedIndividual about="https://in2use.com/process_model/June_25_1940">
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">1940-06-25T00:00:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">1940-06-25T00:00:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">June 25 1940</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6549,7 +6549,7 @@ ASK {
     <!-- https://in2use.com/process_model/May_10_1940 -->
 
     <owl:NamedIndividual about="https://in2use.com/process_model/May_10_1940">
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">1940-05-10T00:00:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">1940-05-10T00:00:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">May 10 1940</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6558,7 +6558,7 @@ ASK {
     <!-- https://in2use.com/process_model/May_26_1865 -->
 
     <owl:NamedIndividual about="https://in2use.com/process_model/May_26_1865">
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">1865-05-26T00:00:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">1865-05-26T00:00:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">May 26 1865</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6576,13 +6576,13 @@ ASK {
         <dcterms:contributor xml:lang="en">Michael DeBellis Orcid ID: 0000-0002-8824-9577</dcterms:contributor>
         <dcterms:created>2024-11-11</dcterms:created>
         <dcterms:created>2025-11-28</dcterms:created>
-        <dcterms:created datatype="http://www.w3.org/2001/XMLSchema#date">2006-09-27</dcterms:created>
-        <dcterms:created datatype="http://www.w3.org/2001/XMLSchema#date">2012-11-10</dcterms:created>
+        <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2006-09-27</dcterms:created>
+        <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2012-11-10</dcterms:created>
         <dcterms:creator resource="http://orcid.org/0000-0002-3884-3420"/>
         <dcterms:creator resource="https://en.wikipedia.org/wiki/Jerry_Hobbs"/>
         <dcterms:creator resource="mailto:panfeng66@gmail.com"/>
-        <dcterms:creator datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://delicias.dia.fi.upm.es/members/DGarijo#me</dcterms:creator>
-        <dcterms:creator datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.isi.edu/~gil/</dcterms:creator>
+        <dcterms:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://delicias.dia.fi.upm.es/members/DGarijo#me</dcterms:creator>
+        <dcterms:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.isi.edu/~gil/</dcterms:creator>
         <dcterms:description xml:lang="en">Basic_Bro  provides core metadata annotation properties by reusing SKOS and DCTERMS. It is the foundational module used by all BRO layers and includes only annotation and datatype properties, with no classes or object properties.</dcterms:description>
         <dcterms:description xml:lang="en">PROV extension for linking Plans and parts of plans to their respective executions.</dcterms:description>
         <dcterms:isVersionOf resource="http://www.w3.org/TR/owl-time"/>
@@ -6593,8 +6593,8 @@ ASK {
         <dcterms:license resource="https://www.apache.org/licenses/LICENSE-2.0"/>
         <dcterms:license>http://creativecommons.org/licenses/by-nc-sa/2.0/</dcterms:license>
         <dcterms:modified>2026-05-19</dcterms:modified>
-        <dcterms:modified datatype="http://www.w3.org/2001/XMLSchema#date">2013-05-17</dcterms:modified>
-        <dcterms:modified datatype="http://www.w3.org/2001/XMLSchema#date">2017-04-06</dcterms:modified>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2013-05-17</dcterms:modified>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2017-04-06</dcterms:modified>
         <dcterms:publisher resource="https://orcid.org/0000-0003-4727-9435"/>
         <dcterms:rights xml:lang="en">Copyright © 2006-2017 W3C, OGC. W3C and OGC liability, trademark and document use rules apply.</dcterms:rights>
         <dcterms:title xml:lang="en">Basic Reusable Ontology 1 big_bro</dcterms:title>
@@ -6684,7 +6684,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
     <!-- https://in2use.com/process_model/October_28_1944 -->
 
     <owl:NamedIndividual about="https://in2use.com/process_model/October_28_1944">
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">1944-10-28T00:00:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">1944-10-28T00:00:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">October 28 1944</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6693,7 +6693,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
     <!-- https://in2use.com/process_model/October_6_1939 -->
 
     <owl:NamedIndividual about="https://in2use.com/process_model/October_6_1939">
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">1939-10-06T00:00:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">1939-10-06T00:00:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">October 6 1939</rdfs:label>
     </owl:NamedIndividual>
     
@@ -6868,7 +6868,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Create_Detailed_Requirements_Scheduled_Interval_End">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-10T17:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-10T17:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Create Detailed Requirements Scheduled Interval End</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Create Detailed Requirements Scheduled Interval End</skos:prefLabel>
     </owl:NamedIndividual>
@@ -6879,7 +6879,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Create_Detailed_Requirements_Scheduled_Interval_Start">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-03T09:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-03T09:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Create Detailed Requirements Scheduled Interval Start</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Create Detailed Requirements Scheduled Interval Start</skos:prefLabel>
     </owl:NamedIndividual>
@@ -6950,7 +6950,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Create_Project_Narrative_Scheduled_Interval_End">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-02T17:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-02T17:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Create Project Narrative Scheduled Interval End</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Create Project Narrative Scheduled Interval End</skos:prefLabel>
     </owl:NamedIndividual>
@@ -6961,7 +6961,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Create_Project_Narrative_Scheduled_Interval_Start">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-01T10:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-01T10:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Create Project Narrative Scheduled Interval Start</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Create Project Narrative Scheduled Interval Start</skos:prefLabel>
     </owl:NamedIndividual>
@@ -7049,7 +7049,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Create_Use_Cases_Scheduled_Interval_End">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-10T17:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-10T17:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Create Use Cases Scheduled Interval End</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Create Use Cases Scheduled Interval End</skos:prefLabel>
     </owl:NamedIndividual>
@@ -7060,7 +7060,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Create_Use_Cases_Scheduled_Interval_Start">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-08T09:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-08T09:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Create Use Cases Scheduled Interval Start</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Create Use Cases Scheduled Interval Start</skos:prefLabel>
     </owl:NamedIndividual>
@@ -7133,7 +7133,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Create_Wireframes_Scheduled_Interval_End">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-05T17:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-05T17:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Create Wireframes Scheduled Interval End</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Create Wireframes Scheduled Interval End</skos:prefLabel>
     </owl:NamedIndividual>
@@ -7144,7 +7144,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Create_Wireframes_Scheduled_Interval_Start">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-03T09:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-03T09:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Create Wireframes Scheduled Interval Start</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Create Wireframes Scheduled Interval Start</skos:prefLabel>
     </owl:NamedIndividual>
@@ -7226,7 +7226,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Develop_Wireframes_Scheduled_Interval_End">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-05T17:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-05T17:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Develop Wireframes Scheduled Interval End</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Develop Wireframes Scheduled Interval End</skos:prefLabel>
     </owl:NamedIndividual>
@@ -7237,7 +7237,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Develop_Wireframes_Scheduled_Interval_Start">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-03T13:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-03T13:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Develop Wireframes Scheduled Interval Start</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Develop Wireframes Scheduled Interval Start</skos:prefLabel>
     </owl:NamedIndividual>
@@ -7306,7 +7306,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Implementation_Scheduled_Interval_End">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-26T17:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-26T17:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Implementation Scheduled Interval End</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Implementation Scheduled Interval End</skos:prefLabel>
     </owl:NamedIndividual>
@@ -7317,7 +7317,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Implementation_Scheduled_Interval_Start">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-18T09:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-18T09:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Implementation Scheduled Interval Start</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Implementation Scheduled Interval Start</skos:prefLabel>
     </owl:NamedIndividual>
@@ -7387,7 +7387,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Kickoff_Meeting_Scheduled_Interval_End">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-01T10:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-01T10:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Kickoff Meeting Scheduled Interval End</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Kickoff Meeting Scheduled Interval End</skos:prefLabel>
     </owl:NamedIndividual>
@@ -7398,7 +7398,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Kickoff_Meeting_Scheduled_Interval_Start">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-01T09:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-01T09:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Kickoff Meeting Scheduled Interval Start</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Kickoff Meeting Scheduled Interval Start</skos:prefLabel>
     </owl:NamedIndividual>
@@ -7586,7 +7586,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Requirements_Acquisition_Scheduled_Interval_End">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-12T17:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-12T17:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Requirements Acquisition Scheduled Interval End</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Requirements Acquisition Scheduled Interval End</skos:prefLabel>
     </owl:NamedIndividual>
@@ -7597,7 +7597,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Requirements_Acquisition_Scheduled_Interval_Start">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-01T09:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-01T09:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Requirements Acquisition Scheduled Interval Start</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Requirements Acquisition Scheduled Interval Start</skos:prefLabel>
     </owl:NamedIndividual>
@@ -7651,7 +7651,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Requirements_Completion_Scheduled_Instant">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-12T17:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-12T17:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Requirements Completion Scheduled Instant</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Requirements Completion Scheduled Instant</skos:prefLabel>
     </owl:NamedIndividual>
@@ -7737,7 +7737,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Review_Requirements_Scheduled_Interval_End">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-12T16:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-12T16:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Review Requirements Scheduled Interval End</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Review Requirements Scheduled Interval End</skos:prefLabel>
     </owl:NamedIndividual>
@@ -7748,7 +7748,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Review_Requirements_Scheduled_Interval_Start">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-11T09:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-11T09:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Review Requirements Scheduled Interval Start</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Review Requirements Scheduled Interval Start</skos:prefLabel>
     </owl:NamedIndividual>
@@ -7806,7 +7806,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Rollout_Scheduled_Interval_End">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-03-05T17:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-03-05T17:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Rollout Scheduled Interval End</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Rollout Scheduled Interval End</skos:prefLabel>
     </owl:NamedIndividual>
@@ -7817,7 +7817,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Rollout_Scheduled_Interval_Start">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-03-04T09:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-03-04T09:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Rollout Scheduled Interval Start</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Rollout Scheduled Interval Start</skos:prefLabel>
     </owl:NamedIndividual>
@@ -7877,7 +7877,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Technical_Design_Scheduled_Interval_End">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-17T17:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-17T17:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Technical Design Scheduled Interval End</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Technical Design Scheduled Interval End</skos:prefLabel>
     </owl:NamedIndividual>
@@ -7888,7 +7888,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Technical_Design_Scheduled_Interval_Start">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-15T09:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-15T09:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Technical Design Scheduled Interval Start</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Technical Design Scheduled Interval Start</skos:prefLabel>
     </owl:NamedIndividual>
@@ -7984,7 +7984,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Testing_Scheduled_Interval_End">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-03-03T17:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-03-03T17:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Testing Scheduled Interval End</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Testing Scheduled Interval End</skos:prefLabel>
     </owl:NamedIndividual>
@@ -7995,7 +7995,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Testing_Scheduled_Interval_Start">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-03-01T09:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-03-01T09:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Testing Scheduled Interval Start</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Testing Scheduled Interval Start</skos:prefLabel>
     </owl:NamedIndividual>
@@ -8079,7 +8079,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Use_Case_Interviews_Scheduled_Interval_End">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-08T12:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-08T12:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Use Case Interviews Scheduled Interval End</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Use Case Interviews Scheduled Interval End</skos:prefLabel>
     </owl:NamedIndividual>
@@ -8090,7 +8090,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Use_Case_Interviews_Scheduled_Interval_Start">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-08T09:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-08T09:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Use Case Interviews Scheduled Interval Start</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Use Case Interviews Scheduled Interval Start</skos:prefLabel>
     </owl:NamedIndividual>
@@ -8187,7 +8187,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_User_Wireframe_Interviews_Scheduled_Interval_End">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-03T12:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-03T12:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal User Wireframe Interviews Scheduled Interval End</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal User Wireframe Interviews Scheduled Interval End</skos:prefLabel>
     </owl:NamedIndividual>
@@ -8198,7 +8198,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_User_Wireframe_Interviews_Scheduled_Interval_Start">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-03T09:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-03T09:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal User Wireframe Interviews Scheduled Interval Start</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal User Wireframe Interviews Scheduled Interval Start</skos:prefLabel>
     </owl:NamedIndividual>
@@ -8299,7 +8299,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Write_Use_Cases_Scheduled_Interval_End">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-10T17:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-10T17:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Write Use Cases Scheduled Interval End</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Write Use Cases Scheduled Interval End</skos:prefLabel>
     </owl:NamedIndividual>
@@ -8310,7 +8310,7 @@ Ontology engineering by Simon J D Cox</skos:historyNote>
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Portal_Write_Use_Cases_Scheduled_Interval_Start">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-08T13:00:00-08:00</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-08T13:00:00-08:00</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Portal Write Use Cases Scheduled Interval Start</rdfs:label>
         <skos:prefLabel xml:lang="en">Portal Write Use Cases Scheduled Interval Start</skos:prefLabel>
     </owl:NamedIndividual>
@@ -8600,7 +8600,7 @@ SELECT ?response WHERE {
     <owl:NamedIndividual about="https://in2use.com/process_model/Run_01_Call_For_Tender">
         <type resource="https://in2use.com/process_model/Document_Version"/>
         <ns4:correspondsToVariable resource="https://in2use.com/process_model/Call_For_Tender_Var"/>
-        <ns1:generatedAtTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T08:45:00Z</ns1:generatedAtTime>
+        <ns1:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T08:45:00Z</ns1:generatedAtTime>
         <rdfs:comment xml:lang="en">External input, generated before this illustrative run; its producing activity is outside the example.</rdfs:comment>
         <rdfs:label xml:lang="en">Run 01 Call For Tender</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Call for tender</skos:altLabel>
@@ -8614,7 +8614,7 @@ SELECT ?response WHERE {
         <type resource="https://in2use.com/process_model/Document_Version"/>
         <ns4:correspondsToVariable resource="https://in2use.com/process_model/Partner_Contribution_Var"/>
         <ns1:wasGeneratedBy resource="https://in2use.com/process_model/Run_01_Provide_Input"/>
-        <ns1:generatedAtTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T12:55:00Z</ns1:generatedAtTime>
+        <ns1:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T12:55:00Z</ns1:generatedAtTime>
         <rdfs:label xml:lang="en">Run 01 Contribution</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Partner contribution</skos:altLabel>
     </owl:NamedIndividual>
@@ -8630,7 +8630,7 @@ SELECT ?response WHERE {
         <ns3:has_payload resource="https://in2use.com/process_model/Run_01_Contribution"/>
         <ns3:has_recipient resource="https://in2use.com/process_model/Lead_Supplier"/>
         <ns3:has_sender resource="https://in2use.com/process_model/Invited_Partner"/>
-        <ns1:generatedAtTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T13:00:00Z</ns1:generatedAtTime>
+        <ns1:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T13:00:00Z</ns1:generatedAtTime>
         <rdfs:label xml:lang="en">Run 01 Contribution Message</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Partner contribution message</skos:altLabel>
     </owl:NamedIndividual>
@@ -8646,8 +8646,8 @@ SELECT ?response WHERE {
         <ns1:qualifiedAssociation resource="https://in2use.com/process_model/Run_01_Create_Draft_Association"/>
         <ns1:qualifiedUsage resource="https://in2use.com/process_model/Run_01_Create_Draft_Uses_Call_For_Tender"/>
         <ns1:used resource="https://in2use.com/process_model/Run_01_Call_For_Tender"/>
-        <ns1:endedAtTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T11:00:00Z</ns1:endedAtTime>
-        <ns1:startedAtTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T09:00:00Z</ns1:startedAtTime>
+        <ns1:endedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T11:00:00Z</ns1:endedAtTime>
+        <ns1:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T09:00:00Z</ns1:startedAtTime>
         <rdfs:label xml:lang="en">Run 01 Create Draft</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Create tender draft</skos:altLabel>
     </owl:NamedIndividual>
@@ -8671,7 +8671,7 @@ SELECT ?response WHERE {
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Run_01_Create_Draft_End">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T11:00:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T11:00:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Run 01 Create Draft End</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Create tender draft end</skos:altLabel>
     </owl:NamedIndividual>
@@ -8694,7 +8694,7 @@ SELECT ?response WHERE {
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Run_01_Create_Draft_Start">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T09:00:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T09:00:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Run 01 Create Draft Start</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Create tender draft start</skos:altLabel>
     </owl:NamedIndividual>
@@ -8706,7 +8706,7 @@ SELECT ?response WHERE {
     <owl:NamedIndividual about="https://in2use.com/process_model/Run_01_Create_Draft_Uses_Call_For_Tender">
         <type resource="http://www.w3.org/ns/prov#Usage"/>
         <ns1:entity resource="https://in2use.com/process_model/Run_01_Call_For_Tender"/>
-        <ns1:atTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T09:00:00Z</ns1:atTime>
+        <ns1:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T09:00:00Z</ns1:atTime>
         <rdfs:label xml:lang="en">Run 01 Create Draft Uses Call For Tender</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: CreateDraft uses CallForTender</skos:altLabel>
     </owl:NamedIndividual>
@@ -8721,7 +8721,7 @@ SELECT ?response WHERE {
         <ns1:wasGeneratedBy resource="https://in2use.com/process_model/Run_01_Vote"/>
         <ns3:has_outcome resource="https://in2use.com/process_model/Approved"/>
         <ns3:has_subject_version resource="https://in2use.com/process_model/Run_01_Revised_Tender"/>
-        <ns1:generatedAtTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T16:55:00Z</ns1:generatedAtTime>
+        <ns1:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T16:55:00Z</ns1:generatedAtTime>
         <rdfs:label xml:lang="en">Run 01 Decision</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Approval decision</skos:altLabel>
     </owl:NamedIndividual>
@@ -8737,7 +8737,7 @@ SELECT ?response WHERE {
         <ns3:has_payload resource="https://in2use.com/process_model/Run_01_Initial_Draft"/>
         <ns3:has_recipient resource="https://in2use.com/process_model/Invited_Partner"/>
         <ns3:has_sender resource="https://in2use.com/process_model/Lead_Supplier"/>
-        <ns1:generatedAtTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T11:00:00Z</ns1:generatedAtTime>
+        <ns1:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T11:00:00Z</ns1:generatedAtTime>
         <rdfs:label xml:lang="en">Run 01 Draft Message</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Initial draft message</skos:altLabel>
     </owl:NamedIndividual>
@@ -8757,8 +8757,8 @@ SELECT ?response WHERE {
         <ns1:used resource="https://in2use.com/process_model/Run_01_Contribution"/>
         <ns1:used resource="https://in2use.com/process_model/Run_01_Contribution_Message"/>
         <ns1:used resource="https://in2use.com/process_model/Run_01_Initial_Draft"/>
-        <ns1:endedAtTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T15:00:00Z</ns1:endedAtTime>
-        <ns1:startedAtTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T13:00:00Z</ns1:startedAtTime>
+        <ns1:endedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T15:00:00Z</ns1:endedAtTime>
+        <ns1:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T13:00:00Z</ns1:startedAtTime>
         <rdfs:label xml:lang="en">Run 01 Incorporate Input</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Incorporate partner input</skos:altLabel>
     </owl:NamedIndividual>
@@ -8782,7 +8782,7 @@ SELECT ?response WHERE {
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Run_01_Incorporate_Input_End">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T15:00:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T15:00:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Run 01 Incorporate Input End</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Incorporate partner input end</skos:altLabel>
     </owl:NamedIndividual>
@@ -8805,7 +8805,7 @@ SELECT ?response WHERE {
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Run_01_Incorporate_Input_Start">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T13:00:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T13:00:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Run 01 Incorporate Input Start</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Incorporate partner input start</skos:altLabel>
     </owl:NamedIndividual>
@@ -8817,7 +8817,7 @@ SELECT ?response WHERE {
     <owl:NamedIndividual about="https://in2use.com/process_model/Run_01_Incorporate_Input_Uses_Contribution">
         <type resource="http://www.w3.org/ns/prov#Usage"/>
         <ns1:entity resource="https://in2use.com/process_model/Run_01_Contribution"/>
-        <ns1:atTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T13:00:00Z</ns1:atTime>
+        <ns1:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T13:00:00Z</ns1:atTime>
         <rdfs:label xml:lang="en">Run 01 Incorporate Input Uses Contribution</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: IncorporateInput uses Contribution</skos:altLabel>
     </owl:NamedIndividual>
@@ -8829,7 +8829,7 @@ SELECT ?response WHERE {
     <owl:NamedIndividual about="https://in2use.com/process_model/Run_01_Incorporate_Input_Uses_Contribution_Message">
         <type resource="http://www.w3.org/ns/prov#Usage"/>
         <ns1:entity resource="https://in2use.com/process_model/Run_01_Contribution_Message"/>
-        <ns1:atTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T13:00:00Z</ns1:atTime>
+        <ns1:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T13:00:00Z</ns1:atTime>
         <rdfs:label xml:lang="en">Run 01 Incorporate Input Uses Contribution Message</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: IncorporateInput uses ContributionMessage</skos:altLabel>
     </owl:NamedIndividual>
@@ -8841,7 +8841,7 @@ SELECT ?response WHERE {
     <owl:NamedIndividual about="https://in2use.com/process_model/Run_01_Incorporate_Input_Uses_Initial_Draft">
         <type resource="http://www.w3.org/ns/prov#Usage"/>
         <ns1:entity resource="https://in2use.com/process_model/Run_01_Initial_Draft"/>
-        <ns1:atTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T13:00:00Z</ns1:atTime>
+        <ns1:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T13:00:00Z</ns1:atTime>
         <rdfs:label xml:lang="en">Run 01 Incorporate Input Uses Initial Draft</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: IncorporateInput uses InitialDraft</skos:altLabel>
     </owl:NamedIndividual>
@@ -8855,7 +8855,7 @@ SELECT ?response WHERE {
         <ns4:correspondsToVariable resource="https://in2use.com/process_model/Initial_Draft_Var"/>
         <ns1:wasGeneratedBy resource="https://in2use.com/process_model/Run_01_Create_Draft"/>
         <ns3:has_document_series resource="https://in2use.com/process_model/Run_01_Tender_Documents"/>
-        <ns1:generatedAtTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T10:55:00Z</ns1:generatedAtTime>
+        <ns1:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T10:55:00Z</ns1:generatedAtTime>
         <ns3:has_version_identifier>1</ns3:has_version_identifier>
         <rdfs:label xml:lang="en">Run 01 Initial Draft</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Initial tender draft</skos:altLabel>
@@ -8874,8 +8874,8 @@ SELECT ?response WHERE {
         <ns1:qualifiedUsage resource="https://in2use.com/process_model/Run_01_Provide_Input_Uses_Initial_Draft"/>
         <ns1:used resource="https://in2use.com/process_model/Run_01_Draft_Message"/>
         <ns1:used resource="https://in2use.com/process_model/Run_01_Initial_Draft"/>
-        <ns1:endedAtTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T13:00:00Z</ns1:endedAtTime>
-        <ns1:startedAtTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T11:30:00Z</ns1:startedAtTime>
+        <ns1:endedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T13:00:00Z</ns1:endedAtTime>
+        <ns1:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T11:30:00Z</ns1:startedAtTime>
         <rdfs:label xml:lang="en">Run 01 Provide Input</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Provide partner input</skos:altLabel>
     </owl:NamedIndividual>
@@ -8899,7 +8899,7 @@ SELECT ?response WHERE {
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Run_01_Provide_Input_End">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T13:00:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T13:00:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Run 01 Provide Input End</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Provide partner input end</skos:altLabel>
     </owl:NamedIndividual>
@@ -8922,7 +8922,7 @@ SELECT ?response WHERE {
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Run_01_Provide_Input_Start">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T11:30:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T11:30:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Run 01 Provide Input Start</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Provide partner input start</skos:altLabel>
     </owl:NamedIndividual>
@@ -8934,7 +8934,7 @@ SELECT ?response WHERE {
     <owl:NamedIndividual about="https://in2use.com/process_model/Run_01_Provide_Input_Uses_Draft_Message">
         <type resource="http://www.w3.org/ns/prov#Usage"/>
         <ns1:entity resource="https://in2use.com/process_model/Run_01_Draft_Message"/>
-        <ns1:atTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T11:30:00Z</ns1:atTime>
+        <ns1:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T11:30:00Z</ns1:atTime>
         <rdfs:label xml:lang="en">Run 01 Provide Input Uses Draft Message</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: ProvideInput uses DraftMessage</skos:altLabel>
     </owl:NamedIndividual>
@@ -8946,7 +8946,7 @@ SELECT ?response WHERE {
     <owl:NamedIndividual about="https://in2use.com/process_model/Run_01_Provide_Input_Uses_Initial_Draft">
         <type resource="http://www.w3.org/ns/prov#Usage"/>
         <ns1:entity resource="https://in2use.com/process_model/Run_01_Initial_Draft"/>
-        <ns1:atTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T11:30:00Z</ns1:atTime>
+        <ns1:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T11:30:00Z</ns1:atTime>
         <rdfs:label xml:lang="en">Run 01 Provide Input Uses Initial Draft</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: ProvideInput uses InitialDraft</skos:altLabel>
     </owl:NamedIndividual>
@@ -8962,7 +8962,7 @@ SELECT ?response WHERE {
         <ns1:wasGeneratedBy resource="https://in2use.com/process_model/Run_01_Incorporate_Input"/>
         <ns3:has_document_series resource="https://in2use.com/process_model/Run_01_Tender_Documents"/>
         <ns3:has_previous_version resource="https://in2use.com/process_model/Run_01_Initial_Draft"/>
-        <ns1:generatedAtTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T14:55:00Z</ns1:generatedAtTime>
+        <ns1:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T14:55:00Z</ns1:generatedAtTime>
         <ns3:has_version_identifier>2</ns3:has_version_identifier>
         <rdfs:label xml:lang="en">Run 01 Revised Tender</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Revised tender</skos:altLabel>
@@ -8981,8 +8981,8 @@ SELECT ?response WHERE {
         <ns1:qualifiedUsage resource="https://in2use.com/process_model/Run_01_Send_And_Await_Vote_Uses_Vote_Message"/>
         <ns1:used resource="https://in2use.com/process_model/Run_01_Revised_Tender"/>
         <ns1:used resource="https://in2use.com/process_model/Run_01_Vote_Message"/>
-        <ns1:endedAtTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T17:30:00Z</ns1:endedAtTime>
-        <ns1:startedAtTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T15:00:00Z</ns1:startedAtTime>
+        <ns1:endedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T17:30:00Z</ns1:endedAtTime>
+        <ns1:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T15:00:00Z</ns1:startedAtTime>
         <rdfs:comment xml:lang="en">Includes sending at 15:00Z and waiting for the partner reply, used at 17:15Z; ends at 17:30Z. The partner voting Activity occurs strictly within this interval. Its returning vote is received during execution, not required at the start.</rdfs:comment>
         <rdfs:label xml:lang="en">Run 01 Send And Await Vote</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Send tender and await vote</skos:altLabel>
@@ -9007,7 +9007,7 @@ SELECT ?response WHERE {
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Run_01_Send_And_Await_Vote_End">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T17:30:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T17:30:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Run 01 Send And Await Vote End</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Send tender and await vote end</skos:altLabel>
     </owl:NamedIndividual>
@@ -9030,7 +9030,7 @@ SELECT ?response WHERE {
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Run_01_Send_And_Await_Vote_Start">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T15:00:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T15:00:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Run 01 Send And Await Vote Start</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Send tender and await vote start</skos:altLabel>
     </owl:NamedIndividual>
@@ -9042,7 +9042,7 @@ SELECT ?response WHERE {
     <owl:NamedIndividual about="https://in2use.com/process_model/Run_01_Send_And_Await_Vote_Uses_Revised_Tender">
         <type resource="http://www.w3.org/ns/prov#Usage"/>
         <ns1:entity resource="https://in2use.com/process_model/Run_01_Revised_Tender"/>
-        <ns1:atTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T15:00:00Z</ns1:atTime>
+        <ns1:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T15:00:00Z</ns1:atTime>
         <rdfs:label xml:lang="en">Run 01 Send And Await Vote Uses Revised Tender</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: SendAndAwaitVote uses RevisedTender</skos:altLabel>
     </owl:NamedIndividual>
@@ -9054,7 +9054,7 @@ SELECT ?response WHERE {
     <owl:NamedIndividual about="https://in2use.com/process_model/Run_01_Send_And_Await_Vote_Uses_Vote_Message">
         <type resource="http://www.w3.org/ns/prov#Usage"/>
         <ns1:entity resource="https://in2use.com/process_model/Run_01_Vote_Message"/>
-        <ns1:atTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T17:15:00Z</ns1:atTime>
+        <ns1:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T17:15:00Z</ns1:atTime>
         <rdfs:label xml:lang="en">Run 01 Send And Await Vote Uses Vote Message</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: SendAndAwaitVote uses VoteMessage</skos:altLabel>
     </owl:NamedIndividual>
@@ -9072,8 +9072,8 @@ SELECT ?response WHERE {
         <ns1:qualifiedUsage resource="https://in2use.com/process_model/Run_01_Submit_Uses_Revised_Tender"/>
         <ns1:used resource="https://in2use.com/process_model/Run_01_Decision"/>
         <ns1:used resource="https://in2use.com/process_model/Run_01_Revised_Tender"/>
-        <ns1:endedAtTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T18:00:00Z</ns1:endedAtTime>
-        <ns1:startedAtTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T17:30:00Z</ns1:startedAtTime>
+        <ns1:endedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T18:00:00Z</ns1:endedAtTime>
+        <ns1:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T17:30:00Z</ns1:startedAtTime>
         <rdfs:label xml:lang="en">Run 01 Submit</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Submit approved tender</skos:altLabel>
     </owl:NamedIndividual>
@@ -9097,7 +9097,7 @@ SELECT ?response WHERE {
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Run_01_Submit_End">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T18:00:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T18:00:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Run 01 Submit End</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Submit approved tender end</skos:altLabel>
     </owl:NamedIndividual>
@@ -9120,7 +9120,7 @@ SELECT ?response WHERE {
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Run_01_Submit_Start">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T17:30:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T17:30:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Run 01 Submit Start</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Submit approved tender start</skos:altLabel>
     </owl:NamedIndividual>
@@ -9132,7 +9132,7 @@ SELECT ?response WHERE {
     <owl:NamedIndividual about="https://in2use.com/process_model/Run_01_Submit_Uses_Decision">
         <type resource="http://www.w3.org/ns/prov#Usage"/>
         <ns1:entity resource="https://in2use.com/process_model/Run_01_Decision"/>
-        <ns1:atTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T17:30:00Z</ns1:atTime>
+        <ns1:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T17:30:00Z</ns1:atTime>
         <rdfs:label xml:lang="en">Run 01 Submit Uses Decision</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Submit uses Decision</skos:altLabel>
     </owl:NamedIndividual>
@@ -9144,7 +9144,7 @@ SELECT ?response WHERE {
     <owl:NamedIndividual about="https://in2use.com/process_model/Run_01_Submit_Uses_Revised_Tender">
         <type resource="http://www.w3.org/ns/prov#Usage"/>
         <ns1:entity resource="https://in2use.com/process_model/Run_01_Revised_Tender"/>
-        <ns1:atTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T17:30:00Z</ns1:atTime>
+        <ns1:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T17:30:00Z</ns1:atTime>
         <rdfs:label xml:lang="en">Run 01 Submit Uses Revised Tender</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Submit uses RevisedTender</skos:altLabel>
     </owl:NamedIndividual>
@@ -9159,7 +9159,7 @@ SELECT ?response WHERE {
         <ns1:wasDerivedFrom resource="https://in2use.com/process_model/Run_01_Revised_Tender"/>
         <ns1:wasGeneratedBy resource="https://in2use.com/process_model/Run_01_Submit"/>
         <ns3:has_document_series resource="https://in2use.com/process_model/Run_01_Tender_Documents"/>
-        <ns1:generatedAtTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T17:55:00Z</ns1:generatedAtTime>
+        <ns1:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T17:55:00Z</ns1:generatedAtTime>
         <ns3:has_version_identifier>submitted copy</ns3:has_version_identifier>
         <rdfs:label xml:lang="en">Run 01 Submitted Tender</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Submitted tender copy</skos:altLabel>
@@ -9188,8 +9188,8 @@ SELECT ?response WHERE {
         <ns1:qualifiedUsage resource="https://in2use.com/process_model/Run_01_Vote_Uses_Voting_Request"/>
         <ns1:used resource="https://in2use.com/process_model/Run_01_Revised_Tender"/>
         <ns1:used resource="https://in2use.com/process_model/Run_01_Voting_Request"/>
-        <ns1:endedAtTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T17:00:00Z</ns1:endedAtTime>
-        <ns1:startedAtTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T15:15:00Z</ns1:startedAtTime>
+        <ns1:endedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T17:00:00Z</ns1:endedAtTime>
+        <ns1:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T15:15:00Z</ns1:startedAtTime>
         <rdfs:label xml:lang="en">Run 01 Vote</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Vote on tender submission</skos:altLabel>
     </owl:NamedIndividual>
@@ -9213,7 +9213,7 @@ SELECT ?response WHERE {
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Run_01_Vote_End">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T17:00:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T17:00:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Run 01 Vote End</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Vote on tender submission end</skos:altLabel>
     </owl:NamedIndividual>
@@ -9241,7 +9241,7 @@ SELECT ?response WHERE {
         <ns3:has_payload resource="https://in2use.com/process_model/Run_01_Decision"/>
         <ns3:has_recipient resource="https://in2use.com/process_model/Lead_Supplier"/>
         <ns3:has_sender resource="https://in2use.com/process_model/Invited_Partner"/>
-        <ns1:generatedAtTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T17:00:00Z</ns1:generatedAtTime>
+        <ns1:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T17:00:00Z</ns1:generatedAtTime>
         <rdfs:label xml:lang="en">Run 01 Vote Message</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Approval reply message</skos:altLabel>
     </owl:NamedIndividual>
@@ -9252,7 +9252,7 @@ SELECT ?response WHERE {
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Run_01_Vote_Start">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T15:15:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T15:15:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Run 01 Vote Start</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Vote on tender submission start</skos:altLabel>
     </owl:NamedIndividual>
@@ -9264,7 +9264,7 @@ SELECT ?response WHERE {
     <owl:NamedIndividual about="https://in2use.com/process_model/Run_01_Vote_Uses_Revised_Tender">
         <type resource="http://www.w3.org/ns/prov#Usage"/>
         <ns1:entity resource="https://in2use.com/process_model/Run_01_Revised_Tender"/>
-        <ns1:atTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T15:15:00Z</ns1:atTime>
+        <ns1:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T15:15:00Z</ns1:atTime>
         <rdfs:label xml:lang="en">Run 01 Vote Uses Revised Tender</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Vote uses RevisedTender</skos:altLabel>
     </owl:NamedIndividual>
@@ -9276,7 +9276,7 @@ SELECT ?response WHERE {
     <owl:NamedIndividual about="https://in2use.com/process_model/Run_01_Vote_Uses_Voting_Request">
         <type resource="http://www.w3.org/ns/prov#Usage"/>
         <ns1:entity resource="https://in2use.com/process_model/Run_01_Voting_Request"/>
-        <ns1:atTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T15:15:00Z</ns1:atTime>
+        <ns1:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T15:15:00Z</ns1:atTime>
         <rdfs:label xml:lang="en">Run 01 Vote Uses Voting Request</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Vote uses VotingRequest</skos:altLabel>
     </owl:NamedIndividual>
@@ -9292,7 +9292,7 @@ SELECT ?response WHERE {
         <ns3:has_payload resource="https://in2use.com/process_model/Run_01_Revised_Tender"/>
         <ns3:has_recipient resource="https://in2use.com/process_model/Invited_Partner"/>
         <ns3:has_sender resource="https://in2use.com/process_model/Lead_Supplier"/>
-        <ns1:generatedAtTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T15:00:00Z</ns1:generatedAtTime>
+        <ns1:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T15:00:00Z</ns1:generatedAtTime>
         <rdfs:label xml:lang="en">Run 01 Voting Request</rdfs:label>
         <skos:altLabel xml:lang="en">Run 01: Voting request message</skos:altLabel>
     </owl:NamedIndividual>
@@ -9337,7 +9337,7 @@ SELECT ?response WHERE {
     <!-- https://in2use.com/process_model/September_1_1939 -->
 
     <owl:NamedIndividual about="https://in2use.com/process_model/September_1_1939">
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">1939-09-01T00:00:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">1939-09-01T00:00:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">September 1 1939</rdfs:label>
     </owl:NamedIndividual>
     
@@ -9346,7 +9346,7 @@ SELECT ?response WHERE {
     <!-- https://in2use.com/process_model/September_2_1945 -->
 
     <owl:NamedIndividual about="https://in2use.com/process_model/September_2_1945">
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">1945-09-02T00:00:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">1945-09-02T00:00:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">September 2 1945</rdfs:label>
     </owl:NamedIndividual>
     
@@ -9355,10 +9355,10 @@ SELECT ?response WHERE {
     <!-- https://in2use.com/process_model/Source_Schema_Metadata -->
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Source_Schema_Metadata">
-        <dcterms:created datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-22</dcterms:created>
+        <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-22</dcterms:created>
         <dcterms:creator resource="https://orcid.org/0000-0002-8824-9577"/>
         <dcterms:description xml:lang="en">Self-contained experimental extension of the corrected process_model base, prepared for collaborative supply-chain tendering. Reuses P-Plan for planned steps and resource variables, PROV for actual executions and artifacts, and OWL-Time for dated intervals. Adds contextual role assignments, document versions, messages and explicit decision branches. Inspired by Figures 6 and 8 of Kazantsev et al. (2024).</dcterms:description>
-        <dcterms:modified datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-22</dcterms:modified>
+        <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-22</dcterms:modified>
         <dcterms:source resource="https://doi.org/10.1080/00207543.2023.2242508"/>
         <dcterms:source resource="https://in2use.com/process_model/Base_Model_Metadata"/>
         <dcterms:source resource="https://www.michaeldebellis.com/process_model"/>
@@ -9751,8 +9751,8 @@ ASK {
         <ns10:hasPart resource="https://in2use.com/process_model/Run_01_Send_And_Await_Vote"/>
         <ns10:hasPart resource="https://in2use.com/process_model/Run_01_Submit"/>
         <ns10:hasPart resource="https://in2use.com/process_model/Run_01_Vote"/>
-        <ns1:endedAtTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T18:00:00Z</ns1:endedAtTime>
-        <ns1:startedAtTime datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T09:00:00Z</ns1:startedAtTime>
+        <ns1:endedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T18:00:00Z</ns1:endedAtTime>
+        <ns1:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2026-11-02T09:00:00Z</ns1:startedAtTime>
         <rdfs:comment xml:lang="en">Synthetic completed execution for demonstration; no real tender or actual organizational history is asserted. This overall Activity has six task executions as SULO process parts. It is not a Plan or a provenance Bundle.</rdfs:comment>
         <rdfs:label xml:lang="en">Tender Run 01</rdfs:label>
         <skos:altLabel xml:lang="en">Tender run 01 — illustrative approved tender</skos:altLabel>
@@ -9777,7 +9777,7 @@ ASK {
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Tender_Run_01_End">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T18:00:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T18:00:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Tender Run 01 End</rdfs:label>
         <skos:altLabel xml:lang="en">Tender run 01 end</skos:altLabel>
     </owl:NamedIndividual>
@@ -9800,7 +9800,7 @@ ASK {
 
     <owl:NamedIndividual about="https://in2use.com/process_model/Tender_Run_01_Start">
         <type resource="http://www.w3.org/2006/time#Instant"/>
-        <ns2:inXSDDateTimeStamp datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T09:00:00Z</ns2:inXSDDateTimeStamp>
+        <ns2:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2026-11-02T09:00:00Z</ns2:inXSDDateTimeStamp>
         <rdfs:label xml:lang="en">Tender Run 01 Start</rdfs:label>
         <skos:altLabel xml:lang="en">Tender run 01 start</skos:altLabel>
     </owl:NamedIndividual>
@@ -10416,7 +10416,7 @@ ASK {
         <type resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </Description>
     <Description>
-        <ns11:isRuleEnabled datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns11:isRuleEnabled>
+        <ns11:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns11:isRuleEnabled>
         <rdfs:comment xml:lang="en">Infers shared planned input between explicitly distinct collaboration steps in the same plan. Shared input does not by itself imply contention or an exclusive choice.</rdfs:comment>
         <rdfs:label xml:lang="en">Same Plan Shared Input</rdfs:label>
         <skos:altLabel>SamePlan_SharedInput</skos:altLabel>
@@ -10526,7 +10526,7 @@ ASK {
         </swrl:head>
     </Description>
     <Description>
-        <ns11:isRuleEnabled datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns11:isRuleEnabled>
+        <ns11:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns11:isRuleEnabled>
         <rdfs:comment xml:lang="en">Infers a candidate producer-to-consumer dependency when explicitly distinct collaboration steps in the same plan share an output/input variable. No branch or execution-order inference is made.</rdfs:comment>
         <rdfs:label xml:lang="en">Same Plan Flow Dependency</rdfs:label>
         <skos:altLabel>SamePlan_FlowDependency</skos:altLabel>
@@ -10636,7 +10636,7 @@ ASK {
         </swrl:head>
     </Description>
     <Description>
-        <ns11:isRuleEnabled datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns11:isRuleEnabled>
+        <ns11:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns11:isRuleEnabled>
         <rdfs:comment xml:lang="en">Allen interval relation: a.start = b.start and a.end = b.end. Compares time:inXSDDateTimeStamp values directly; both intervals must have beginning/end timestamps with start &lt; end. Equal timestamps may belong to distinct instant individuals. No instant-to-instant ordering is materialized. Inverse relations are supplied by the retained OWL-Time inverse-property axioms.</rdfs:comment>
         <rdfs:label xml:lang="en">Interval Equals Direct Dates</rdfs:label>
         <skos:altLabel>IntervalEquals_DirectDates</skos:altLabel>
@@ -10822,7 +10822,7 @@ ASK {
         </swrl:head>
     </Description>
     <Description>
-        <ns11:isRuleEnabled datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns11:isRuleEnabled>
+        <ns11:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns11:isRuleEnabled>
         <rdfs:comment xml:lang="en">Allen interval relation: b.start &lt; a.start and a.end = b.end. Compares time:inXSDDateTimeStamp values directly; both intervals must have beginning/end timestamps with start &lt; end. Equal timestamps may belong to distinct instant individuals. No instant-to-instant ordering is materialized. Inverse relations are supplied by the retained OWL-Time inverse-property axioms.</rdfs:comment>
         <rdfs:label xml:lang="en">Interval Finishes Direct Dates</rdfs:label>
         <skos:altLabel>IntervalFinishes_DirectDates</skos:altLabel>
@@ -11008,7 +11008,7 @@ ASK {
         </swrl:head>
     </Description>
     <Description>
-        <ns11:isRuleEnabled datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns11:isRuleEnabled>
+        <ns11:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns11:isRuleEnabled>
         <rdfs:comment xml:lang="en">Allen interval relation: a.end = b.start. Compares time:inXSDDateTimeStamp values directly; both intervals must have beginning/end timestamps with start &lt; end. Equal timestamps may belong to distinct instant individuals. No instant-to-instant ordering is materialized. Inverse relations are supplied by the retained OWL-Time inverse-property axioms.</rdfs:comment>
         <rdfs:label xml:lang="en">Interval Meets Direct Dates</rdfs:label>
         <skos:altLabel>IntervalMeets_DirectDates</skos:altLabel>
@@ -11179,7 +11179,7 @@ ASK {
         </swrl:head>
     </Description>
     <Description>
-        <ns11:isRuleEnabled datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns11:isRuleEnabled>
+        <ns11:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns11:isRuleEnabled>
         <rdfs:comment xml:lang="en">Allen interval relation: a.start = b.start and a.end &lt; b.end. Compares time:inXSDDateTimeStamp values directly; both intervals must have beginning/end timestamps with start &lt; end. Equal timestamps may belong to distinct instant individuals. No instant-to-instant ordering is materialized. Inverse relations are supplied by the retained OWL-Time inverse-property axioms.</rdfs:comment>
         <rdfs:label xml:lang="en">Interval Starts Direct Dates</rdfs:label>
         <skos:altLabel>IntervalStarts_DirectDates</skos:altLabel>
@@ -11365,7 +11365,7 @@ ASK {
         </swrl:head>
     </Description>
     <Description>
-        <ns11:isRuleEnabled datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns11:isRuleEnabled>
+        <ns11:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns11:isRuleEnabled>
         <rdfs:comment xml:lang="en">Allen interval relation: a.start &lt; b.start &lt; a.end &lt; b.end. Compares time:inXSDDateTimeStamp values directly; both intervals must have beginning/end timestamps with start &lt; end. Equal timestamps may belong to distinct instant individuals. No instant-to-instant ordering is materialized. Inverse relations are supplied by the retained OWL-Time inverse-property axioms.</rdfs:comment>
         <rdfs:label xml:lang="en">Interval Overlaps Direct Dates</rdfs:label>
         <skos:altLabel>IntervalOverlaps_DirectDates</skos:altLabel>
@@ -11566,7 +11566,7 @@ ASK {
         </swrl:head>
     </Description>
     <Description>
-        <ns11:isRuleEnabled datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns11:isRuleEnabled>
+        <ns11:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns11:isRuleEnabled>
         <rdfs:comment xml:lang="en">Allen interval relation: a.end &lt; b.start. Compares time:inXSDDateTimeStamp values directly; both intervals must have beginning/end timestamps with start &lt; end. Equal timestamps may belong to distinct instant individuals. No instant-to-instant ordering is materialized. Inverse relations are supplied by the retained OWL-Time inverse-property axioms.</rdfs:comment>
         <rdfs:label xml:lang="en">Interval Before Direct Dates</rdfs:label>
         <skos:altLabel>IntervalBefore_DirectDates</skos:altLabel>
@@ -11737,7 +11737,7 @@ ASK {
         </swrl:head>
     </Description>
     <Description>
-        <ns11:isRuleEnabled datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns11:isRuleEnabled>
+        <ns11:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns11:isRuleEnabled>
         <rdfs:comment xml:lang="en">Allen interval relation: a.start &lt; b.start and b.end &lt; a.end. Compares time:inXSDDateTimeStamp values directly; both intervals must have beginning/end timestamps with start &lt; end. Equal timestamps may belong to distinct instant individuals. No instant-to-instant ordering is materialized. Inverse relations are supplied by the retained OWL-Time inverse-property axioms.</rdfs:comment>
         <rdfs:label xml:lang="en">Interval Contains Direct Dates</rdfs:label>
         <skos:altLabel>IntervalContains_DirectDates</skos:altLabel>
@@ -11923,7 +11923,7 @@ ASK {
         </swrl:head>
     </Description>
     <Description>
-        <ns11:isRuleEnabled datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns11:isRuleEnabled>
+        <ns11:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</ns11:isRuleEnabled>
         <rdfs:comment xml:lang="en">SWRL equivalent of the standard PROV-O property chain: qualifiedAssociation / agent implies wasAssociatedWith. Retains the lightweight PROV subset and makes qualified agent/role/plan associations usable without adding a PROV property-chain axiom.</rdfs:comment>
         <rdfs:label xml:lang="en">Qualified Association Agent</rdfs:label>
         <skos:altLabel>QualifiedAssociation_Agent</skos:altLabel>
