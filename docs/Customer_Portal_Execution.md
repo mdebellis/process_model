@@ -165,4 +165,9 @@ The following graphs are from AllegroGraph Gruff and correspond to some of the q
 
 <img width="1130" height="517" alt="image" src="https://github.com/user-attachments/assets/d598e0ed-db7a-404b-910d-164f96234630" />
 
+### Query 05b Allen Intervals
+This query is easier to visualize because Gruff doesn't graph multiple predicates very well.
+<img width="1162" height="768" alt="image" src="https://github.com/user-attachments/assets/6ec07ee8-fa10-41b1-9aff-bc38424f9b68" />
+
+
 
