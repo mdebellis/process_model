@@ -55,7 +55,8 @@ Gruff visualizations of the queries in the previous section. Note: for some quer
 
 ### Frame Evidence
 
-<img width="1115" height="542" alt="image" src="https://github.com/user-attachments/assets/77f7436e-54ce-45cc-aae8-c50404d4ec60" />
+<img width="1108" height="541" alt="image" src="https://github.com/user-attachments/assets/af62ad4b-abf0-40b4-babb-2ab368a3e179" />
+
 
 ## Four objects with distinct jobs
 
