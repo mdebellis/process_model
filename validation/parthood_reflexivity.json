@@ -1,0 +1,233 @@
+{
+  "date": "2026-11-23",
+  "source": "ontologies/process_model_with_examples.rdf",
+  "baseline_commit": "af260f2bef0ae1671314f236636e995dae331433",
+  "scope": "Omit the two global parthood reflexivity axioms from the reused SULO subset; preserve other logic and all example data.",
+  "rdf_graph_checks": {
+    "baseline_triples": 7158,
+    "candidate_triples": 7159,
+    "baseline_sha256": "6948ef8e2e025a785cfcc9df7c58f14ff64f637c29d0bc823c6fbe57d959890f",
+    "candidate_sha256": "b4092489aa207797c9f009a0c86827b14bf85dcf6214cff8b25e6ff89f0219ed",
+    "graph_changes_exactly_expected": true,
+    "removed_logical_triples": [
+      [
+        "https://w3id.org/sulo/hasPart",
+        "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "http://www.w3.org/2002/07/owl#ReflexiveProperty"
+      ],
+      [
+        "https://w3id.org/sulo/isPartOf",
+        "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+        "http://www.w3.org/2002/07/owl#ReflexiveProperty"
+      ]
+    ],
+    "remaining_global_reflexivity_declarations": 0,
+    "asserted_self_links": {
+      "hasPart": 0,
+      "isPartOf": 0,
+      "contains": 0,
+      "isIn": 0
+    },
+    "owl_imports": 0
+  },
+  "reasoner": {
+    "owlapi": "4.5.29",
+    "pellet": "2.3.0, Prot\u00e9g\u00e9-compatible owlapi3 interface"
+  },
+  "owlapi_swrl_and_roundtrip_checks": {
+    "expected_rule_counts_supplied": true,
+    "initial_load": {
+      "all_precomputations_pass": true,
+      "axioms": 5589,
+      "consistent": true,
+      "logical_axioms": 2089,
+      "passed": true,
+      "rule_content_checks_pass": true,
+      "rule_content_errors": [],
+      "rule_count": 10,
+      "rules": {
+        "[<http://www.w3.org/2006/time#intervalBefore>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+          "body_atoms": 11,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalContains>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=4;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalEquals>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=2;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=2;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalFinishes>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalMeets>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=2;data_property=4;object_property=4",
+          "body_atoms": 11,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalOverlaps>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=5;data_property=4;object_property=4",
+          "body_atoms": 13,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalStarts>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/ns/prov#wasAssociatedWith>]": {
+          "body_atom_kinds": "object_property=2",
+          "body_atoms": 2,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<https://in2use.com/process_model/has_flow_dependency>]": {
+          "body_atom_kinds": "class=2;different_individuals=1;object_property=4",
+          "body_atoms": 7,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<https://in2use.com/process_model/shares_input_variable>]": {
+          "body_atom_kinds": "class=2;different_individuals=1;object_property=4",
+          "body_atoms": 7,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        }
+      },
+      "unsatisfiable_named_classes": 0
+    },
+    "input_file": "process_model_with_examples.rdf",
+    "passed": true,
+    "save_reload": {
+      "all_precomputations_pass": true,
+      "axioms": 5589,
+      "consistent": true,
+      "logical_axioms": 2089,
+      "passed": true,
+      "rule_content_checks_pass": true,
+      "rule_content_errors": [],
+      "rule_count": 10,
+      "rules": {
+        "[<http://www.w3.org/2006/time#intervalBefore>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+          "body_atoms": 11,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalContains>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=4;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalEquals>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=2;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=2;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalFinishes>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalMeets>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=2;data_property=4;object_property=4",
+          "body_atoms": 11,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalOverlaps>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=5;data_property=4;object_property=4",
+          "body_atoms": 13,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/2006/time#intervalStarts>]": {
+          "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+          "body_atoms": 12,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<http://www.w3.org/ns/prov#wasAssociatedWith>]": {
+          "body_atom_kinds": "object_property=2",
+          "body_atoms": 2,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<https://in2use.com/process_model/has_flow_dependency>]": {
+          "body_atom_kinds": "class=2;different_individuals=1;object_property=4",
+          "body_atoms": 7,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        },
+        "[<https://in2use.com/process_model/shares_input_variable>]": {
+          "body_atom_kinds": "class=2;different_individuals=1;object_property=4",
+          "body_atoms": 7,
+          "head_atom_kinds": "object_property=1",
+          "head_atoms": 1
+        }
+      },
+      "unsatisfiable_named_classes": 0
+    },
+    "save_reload_logical_axioms_equal": true
+  },
+  "named_inference_comparison": {
+    "all_other_named_object_property_entailments_unchanged": 4941,
+    "data_property_entailments_unchanged": 205,
+    "logical_axioms_added": [],
+    "logical_axioms_after": 2089,
+    "logical_axioms_before": 2091,
+    "logical_axioms_removed": [
+      "ReflexiveObjectProperty(<https://w3id.org/sulo/hasPart>)",
+      "ReflexiveObjectProperty(<https://w3id.org/sulo/isPartOf>)"
+    ],
+    "named_class_entailments_unchanged": 2040,
+    "named_individuals_checked": 402,
+    "nonself_part_relations_before_and_after": {
+      "https://w3id.org/sulo/contains": 36,
+      "https://w3id.org/sulo/hasDirectPart": 11,
+      "https://w3id.org/sulo/hasPart": 36,
+      "https://w3id.org/sulo/isDirectPartOf": 11,
+      "https://w3id.org/sulo/isIn": 36,
+      "https://w3id.org/sulo/isPartOf": 36
+    },
+    "passed": true,
+    "same_individual_entailments_unchanged": 402,
+    "self_links_after": {
+      "https://w3id.org/sulo/contains": 0,
+      "https://w3id.org/sulo/hasPart": 0,
+      "https://w3id.org/sulo/isIn": 0,
+      "https://w3id.org/sulo/isPartOf": 0
+    },
+    "self_links_before": {
+      "https://w3id.org/sulo/contains": 402,
+      "https://w3id.org/sulo/hasPart": 402,
+      "https://w3id.org/sulo/isIn": 402,
+      "https://w3id.org/sulo/isPartOf": 402
+    },
+    "swrl_rules_unchanged": 10
+  },
+  "limits": [
+    "Checks used the local OWLAPI/Pellet environment, not a live Prot\u00e9g\u00e9 GUI or AllegroGraph repository.",
+    "Inference comparison covers named individuals and signature properties, excluding built-in top and bottom properties; it does not enumerate anonymous domain elements.",
+    "Removing reflexivity does not assert irreflexivity. Future explicit self-links or parthood cycles can yield self-links.",
+    "Previously materialized or exported assertions must be replaced or regenerated separately.",
+    "Importing the full SULO ontology can reintroduce the omitted axioms."
+  ],
+  "passed": true
+}
