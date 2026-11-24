@@ -40,7 +40,7 @@ scope execution use materialized `sulo:hasPart`; the execution tree displays
 `sulo:hasDirectPart`. In Gruff, press **M** to toggle link labels.
 
 ## Gruff Visualizations of SPARQL Queries 2-5
-
+Gruff visualizations of the queries in the previous section. Note: for some queries it was necessary to use a small font. To see a bigger version of any diagram just left click on it. Also, the has_explanation natural language property was defined as a "tooltip". That way when you hover over a node as in the State Evaluation graph, the value for that property shows up as a grey box above the node. 
 ### Subgoal Hierarchy
 
 <img width="1058" height="373" alt="image" src="https://github.com/user-attachments/assets/3797e813-127a-4613-9efc-7f8fba7218cf" />
