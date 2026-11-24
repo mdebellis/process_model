@@ -45,6 +45,11 @@ scope execution use materialized `sulo:hasPart`; the execution tree displays
 
 <img width="1058" height="373" alt="image" src="https://github.com/user-attachments/assets/3797e813-127a-4613-9efc-7f8fba7218cf" />
 
+### Conditions and Tests
+
+<img width="1261" height="636" alt="image" src="https://github.com/user-attachments/assets/52d24ce5-ef02-4f99-9153-9daf87be41b0" />
+
+
 
 ## Four objects with distinct jobs
 
