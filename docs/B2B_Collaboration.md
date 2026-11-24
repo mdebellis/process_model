@@ -39,6 +39,13 @@ edges or attach interval predicates directly to Activities. Queries that
 scope execution use materialized `sulo:hasPart`; the execution tree displays
 `sulo:hasDirectPart`. In Gruff, press **M** to toggle link labels.
 
+## Gruff Visualizations of SPARQL Queries 2-5
+
+### Subgoal Hierarchy
+
+<img width="1058" height="373" alt="image" src="https://github.com/user-attachments/assets/3797e813-127a-4613-9efc-7f8fba7218cf" />
+
+
 ## Four objects with distinct jobs
 
 | Individual | Meaning |
