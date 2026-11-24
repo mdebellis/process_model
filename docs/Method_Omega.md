@@ -168,4 +168,4 @@ WHERE {
 
 The [execution walkthrough](Customer_Portal_Execution.md) adds the third level: what happened in a fictional execution of the Customer Portal Plan. It is a snapshot at **10 February 2027, 12:00 UTC-08:00**, with completed, ongoing, and unstarted work. The methodology and project plan remain unchanged.
 
-Use the [execution queries](../queries/customer_portal_execution/) for a Gruff hierarchy, planned versus actual dates, actual people and deliverables, deviations, and inferred Allen interval relations. The graph queries return existing triples; property paths only select which nodes to display.
+Use the [execution queries](../queries/customer_portal_execution/) for a Gruff hierarchy, planned versus actual dates, actual people and deliverables, deviations, and inferred Allen interval relations. Run the reasoner before using the Customer Portal execution queries. They use materialized `sulo:hasPart` relationships to select descendants and return existing triples; the execution tree displays direct hierarchy edges.

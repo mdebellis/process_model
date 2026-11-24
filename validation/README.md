@@ -2,6 +2,12 @@
 
 The repository has one ontology source: [process_model_with_examples.rdf](../ontologies/process_model_with_examples.rdf). Validation records document checks on this source and the earlier stages from which it was assembled.
 
+## Current execution query checks
+
+The [execution query report](customer_portal_execution_queries.json) checks all five Customer Portal queries against the unchanged ontology plus named object-property and class entailments from OWLAPI 4.5.29/Pellet. Execution scoping now uses materialized `sulo:hasPart` relationships instead of `hasDirectPart` property paths. Queries that include the root select it explicitly, without relying on reflexive self-links.
+
+The revised queries return the same results as their previous versions after reasoning: 11 direct hierarchy edges, 16 plan/actual rows, 88 artifact/participant triples, five timing findings, and 30 actual Allen relation pairs. The tree keeps both root edges and displays only existing `hasDirectPart` assertions. These are RDFLib query checks over reasoner output, not a live Gruff test. The plan-decomposition path in query 02 remains separate from execution parthood.
+
 ## Current parthood checks
 
 The source contains **7,159 asserted triples**. The [parthood report](parthood_reflexivity.json) records the removal of the two `owl:ReflexiveProperty` declarations on `sulo:hasPart` and `sulo:isPartOf`, with explanatory English annotations. SULO's original descriptions remain as `skos:historyNote` values. All other logical axioms, example assertions, and ten complete SWRL rules are unchanged.

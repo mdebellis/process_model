@@ -1,3 +1,4 @@
+# Requires materialized hasPart inferences visible to the query engine.
 # Requires inferred Allen assertions visible to this query engine.
 # Only actual intervals of this execution with both endpoints are considered.
 # Scheduled intervals and unfinished actual intervals are excluded.
@@ -7,7 +8,7 @@ PREFIX time: <http://www.w3.org/2006/time#>
 
 SELECT DISTINCT ?execution ?interval ?relation ?otherInterval ?otherExecution
 WHERE {
-  pm:Customer_Portal_Execution sulo:hasDirectPart+ ?execution, ?otherExecution .
+  pm:Customer_Portal_Execution sulo:hasPart ?execution, ?otherExecution .
   FILTER(?execution != ?otherExecution)
   ?execution time:hasTime ?interval .
   ?otherExecution time:hasTime ?otherInterval .

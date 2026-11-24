@@ -29,8 +29,11 @@ does not generally prove that work has not started.
 
 The execution tree uses actual `sulo:hasDirectPart` assertions. Its root has
 Requirements Acquisition and Technical Design as direct parts. The requirements
-branch contains the recorded composite and leaf performances. A property path
-may select descendants for a query, but it does not add new hierarchy edges.
+branch contains the recorded composite and leaf performances. Queries use
+materialized `sulo:hasPart` relationships to select descendants, then return
+the existing direct edges for the tree. The root is included explicitly:
+removing global reflexivity means `hasPart` does not automatically select
+the root as its own part.
 This is an Activity hierarchy in the same ontology, not a named graph,
 `prov:Bundle`, or invented graph-membership relation.
 
@@ -76,16 +79,19 @@ approval, rejection, or LLM evaluation.
 
 ## Queries
 
-| File | Purpose | Result on the asserted snapshot |
+| File | Purpose | Result after reasoning |
 |---|---|---|
 | [01_execution_tree.rq](../queries/customer_portal_execution/01_execution_tree.rq) | Actual parent/child edges as `?subject ?predicate ?object`; suitable for a graph view | 11 edges |
 | [02_plan_and_actual.rq](../queries/customer_portal_execution/02_plan_and_actual.rq) | All planned Steps, baseline dates, recorded actual dates, and record status | 16 rows |
 | [03_actual_inputs_outputs_and_people.rq](../queries/customer_portal_execution/03_actual_inputs_outputs_and_people.rq) | Actual artifact and qualified-association triples, including correspondence to project Steps and Variables | 88 triples |
 | [04_timing_deviations.rq](../queries/customer_portal_execution/04_timing_deviations.rq) | Early/late timestamps and unconditional finish-to-start transitions lacking a timely recorded predecessor end | 5 findings |
-| [05_actual_allen_relations.rq](../queries/customer_portal_execution/05_actual_allen_relations.rq) | Inferred Allen relations between the completed actual intervals of this execution | 0 rows before inference |
+| [05_actual_allen_relations.rq](../queries/customer_portal_execution/05_actual_allen_relations.rq) | Inferred Allen relations between the completed actual intervals of this execution | 30 ordered pairs |
 
-The first four queries operate on asserted data. The graph queries return real
-triples; they do not synthesize direct person links or ancestor/descendant edges.
+All five execution queries assume the reasoner has run and its inferred
+`hasPart` triples are visible to the query engine. The graph queries return
+existing triples; the hierarchy query displays `hasDirectPart` edges, while
+`hasPart` is used only to select the descendants. No property-path edge is
+returned or invented.
 The plan/actual table reports **Started; no end recorded** from the available
 timestamps. The scenario documents the five ongoing performances; the query
 label alone does not establish a universal completion rule. The planned

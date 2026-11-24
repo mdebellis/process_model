@@ -1,3 +1,4 @@
+# Requires materialized hasPart inferences visible to the query engine.
 # Actual use, production, participants/roles, and correspondence to the project plan.
 # Every row is an existing triple: no direct activity-to-person or output edge is invented.
 PREFIX pm: <https://in2use.com/process_model/>
@@ -7,7 +8,11 @@ PREFIX sulo: <https://w3id.org/sulo/>
 
 SELECT DISTINCT ?subject ?predicate ?object
 WHERE {
-  pm:Customer_Portal_Execution sulo:hasDirectPart* ?activity .
+  {
+    { VALUES ?activity { pm:Customer_Portal_Execution } }
+    UNION
+    { pm:Customer_Portal_Execution sulo:hasPart ?activity . }
+  }
   {
     VALUES ?predicate { prov:used prov:qualifiedAssociation pp:correspondsToStep }
     ?activity ?predicate ?object .

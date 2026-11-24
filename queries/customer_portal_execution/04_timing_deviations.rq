@@ -1,3 +1,4 @@
+# Requires materialized hasPart inferences visible to the query engine.
 # Comparisons of recorded actual timestamps with the unchanged baseline schedule.
 # The third branch checks explicit finish-to-start transitions, not transitive precedence.
 # "No predecessor end recorded" is a missing-evidence finding, not an OWL contradiction.
@@ -11,7 +12,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 SELECT DISTINCT ?finding ?step ?execution ?scheduledTime ?actualTime
                 ?predecessorStep ?predecessorExecution ?predecessorEnd ?transition
 WHERE {
-  pm:Customer_Portal_Execution sulo:hasDirectPart+ ?execution .
+  pm:Customer_Portal_Execution sulo:hasPart ?execution .
   ?execution pp:correspondsToStep ?step .
   {
     ?step pm:has_scheduled_time/time:hasBeginning/time:inXSDDateTimeStamp ?scheduledTime .
@@ -39,7 +40,7 @@ WHERE {
     # Conditional alternatives require their own branch-selection evidence.
     FILTER NOT EXISTS { ?transition pm:has_condition ?condition . }
     OPTIONAL {
-      pm:Customer_Portal_Execution sulo:hasDirectPart+ ?predecessorExecution .
+      pm:Customer_Portal_Execution sulo:hasPart ?predecessorExecution .
       ?predecessorExecution pp:correspondsToStep ?predecessorStep .
       OPTIONAL { ?predecessorExecution prov:endedAtTime ?predecessorEnd . }
     }

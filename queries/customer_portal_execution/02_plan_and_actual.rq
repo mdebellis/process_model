@@ -1,3 +1,4 @@
+# Requires materialized hasPart inferences visible to the query engine.
 # All project steps, including steps without an execution record.
 # Missing records are not proof that work has not started.
 # scheduledInstant keeps the planned completion milestone distinct from an interval.
@@ -21,7 +22,7 @@ WHERE {
     OPTIONAL { ?schedule time:inXSDDateTimeStamp ?scheduledInstant . }
   }
   OPTIONAL {
-    pm:Customer_Portal_Execution sulo:hasDirectPart+ ?execution .
+    pm:Customer_Portal_Execution sulo:hasPart ?execution .
     ?execution pp:correspondsToStep ?step .
     OPTIONAL { ?execution prov:startedAtTime ?actualStart . }
     OPTIONAL { ?execution prov:endedAtTime ?actualEnd . }
