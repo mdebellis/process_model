@@ -4,13 +4,7 @@ Abstract model added 6 November 2026; documentation updated for the single-sourc
 
 The combined ontology contains the Figure 8 tendering plan, its synthetic execution, and the Method Omega model from Michael's diagram. The Method Omega stage contained **4,942 asserted triples**; the current source contains **5,299 asserted triples** after the [state and goal extensions](../state_goal_extensions_review/README.md) and [namespace migration](namespace_migration.md). It retains all ten complete SWRL rules and the qualified PROV usage declarations, with no exported inferences.
 
-## Open and review
-
-Open [process_model_with_examples.rdf](../ontologies/process_model_with_examples.rdf) in Protégé. It is the complete combined ontology and the repository's only ontology source. Its ontology label is **Process model with examples**. Its ontology IRI is `https://in2use.com/process_model` (no trailing slash); the entity namespace is `https://in2use.com/process_model/`. The [naming guide](naming_conventions.md) explains this distinction and the earlier namespace and naming changes. Standard vocabulary IRIs are preserved.
-
-**Keep the source in RDF/XML, with `rdf:type` elements first within each resource description.** The affected OWLAPI 4.5.29 parser can otherwise load named SWRL rules with empty bodies or heads; see the [RDF/XML compatibility report](../validation/rdfxml_compatibility.md). The affected Protégé/OWLAPI Turtle parsing and saving route also deleted named SWRL rule content; the [execution notes](figure8_execution.md#open-the-rdfxml-file-in-protégé) describe those earlier tests. Turtle fragments below are explanatory notation only, not an alternative source file.
-
-Run Pellet to see inverse properties and subclass classifications. For Gruff, the files in [queries/method_omega](../queries/method_omega/) also work on the asserted graph without exported inferences:
+## Queries and Results
 
 | Query | Result |
 |---|---|
