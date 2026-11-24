@@ -1,29 +1,10 @@
 # Figure 8 synthetic execution and temporal reasoning
 
-Execution example prepared 5 November 2026 for Michael DeBellis. All execution data are synthetic demonstration data, not a record of a real tender. This page describes the execution layer of the [Figure 8 plan](figure8_model_notes.md).
+All execution data are synthetic demonstration data, not a record of a real tender. This page describes the execution layer of the [Figure 8 plan](figure8_model_notes.md).
 
 Current examples use `pm:` for the entity namespace `https://in2use.com/process_model/`. The ontology IRI is `https://in2use.com/process_model`, without the trailing slash; its label is **Process model with examples**. The [naming guide](naming_conventions.md) explains the current convention and earlier identifier changes. Historical reports and screenshots retain the earlier identifiers.
 
-## Open the RDF/XML file in Protégé
-
-**Open [process_model_with_examples.rdf](../ontologies/process_model_with_examples.rdf) in Protégé and retain RDF/XML when saving.** It is the repository's single ontology source, containing the reusable model, restored rules, Figure 8 plan and execution, Method Omega, and the state and goal extensions. This source can also be imported directly into AllegroGraph. Preserve `rdf:type` elements before other properties within resource descriptions; the [RDF/XML compatibility report](../validation/rdfxml_compatibility.md) explains why this ordering is needed for the affected OWLAPI parser.
-
-**Do not convert the source to Turtle for editing in the affected Protégé/OWLAPI installation: that route deleted SWRL rule content.** A test using OWLAPI 4.5.29, matching the generator identified in the damaged upload, reproduced ten empty SWRL rules from both the intact donor and restored Turtle. The same model in RDF/XML loaded, saved, and reloaded with all ten complete rules and their annotations. SWRLTab was not involved in this reproduction. Moving named rules after variable declarations or removing AtomList typing did not solve the Turtle failure. Experimental anonymous-rule Turtle worked, but the supplied source preserves the named rule IRIs.
-
-This establishes a failure in that parser/version/encoding combination, not the release that introduced it or the cause of a particular SWRLTab update. OWLAPI saves can turn named SWRL rule nodes into anonymous nodes while retaining their labels and executable content; keep the supplied named-rule source as the reference. The repository now keeps the combined RDF/XML source and the [historical validation reports](../validation/history/figure8/), rather than separate donor and recovery ontologies.
-
-## Historical repair and execution additions on 5 November 2026
-
-- Restored seven temporal rules, two planned resource-flow rules, and the qualified-association rule from the uploaded intact `supply_chain_model(1).ttl`.
-- Restored seventeen SWRL variable declarations and removed damaged rule fragments and eight SWRL structural predicates incorrectly declared as annotation properties.
-- Preserved all 3,170 unrelated triples from the latest Figure 8 upload, including its plan, labels, and transition inverse properties. Updated ontology metadata to describe the additional example.
-- Added six `Step_Execution` individuals and one overall `prov:Activity`, `Tender_Run_01` (now `pm:Step_Execution` and `pm:Tender_Run_01`). The overall Activity contains the six executions through the existing `sulo:hasPart` property; it is neither a Plan nor a provenance Bundle.
-- Added actual-example participants through qualified PROV associations; ten artifacts correspond to the ten planned Variables, including four messages and one approval decision.
-- Added seven `time:ProperInterval` individuals linked from Activities with `time:hasTime`. Interval endpoints have `time:inXSDDateTimeStamp` values. Direct `prov:startedAtTime` and `prov:endedAtTime` values on Activities support the Gruff timeline. Both representations denote the same instants.
-
-That execution addition introduced no custom classes/properties, SHACL constraints, or stored Allen inferences. The current combined source includes the standard PROV declarations needed by the qualified-usage records; these were omitted from the first delivery. The execution addition retained the namespaces and naming conventions in use at that time; the later namespace migration changed the project-owned IRIs.
-
-## Read the example
+## The example
 
 All times are UTC on 2 November 2026.
 
@@ -88,7 +69,7 @@ Query 02
 <br>
 
 ## Gruff timeline
-
+This currently isn't working, not sure why. 
 1. Display the result graph from query 2, including the Activity date triples.
 2. Set **Visual Graph Options → Time Bar → Start Time Predicate** to `http://www.w3.org/ns/prov#startedAtTime`.
 3. Set **End Time Predicate** to `http://www.w3.org/ns/prov#endedAtTime`.
@@ -99,16 +80,3 @@ The timeline uses literal dates on Activities. `time:hasBeginning` and `time:has
 
 Menu reference: [Franz Gruff documentation, AllegroGraph 9.0.2](https://franz.com/agraph/support/documentation/9.0.2/gruff.html).
 
-## Historical validation
-
-These findings record the November 2026 execution-model checks, before Method Omega was added. They describe the historical test results, rather than a new reasoner run during repository cleanup.
-
-- RDFLib parsed both formats and confirmed graph equivalence. Validation reports record the triple counts for the original example and subsequent declaration repair.
-- All ten restored rule subgraphs match the donor; other source triples are preserved apart from the documented rule repair and ontology metadata update.
-- Pellet loaded and extracted inferences successfully. All 49 ordered pairs among seven demonstration intervals have exactly the expected Allen relation.
-- A separate regression checked 484 ordered interval pairs, all thirteen Allen relations, invalid/reversed/incomplete interval controls, timezone equivalence, and absence of unintended merging from equal time values.
-- Six task correspondences, ten artifacts, four messages, twelve qualified usages, seven actual-agent inferences, and ten planned flow dependencies passed checks. Generation precedes use and recorded events fall within the relevant Activities.
-- No Plan was inferred to be an Activity; no replacement execution was added.
-- OWLAPI 4.5.29 read/save/reload preserved all ten rule bodies/heads and annotations through the RDF/XML route. The Turtle failure was reproduced separately. This does not test the installed SWRLTab UI.
-
-Validation summaries are retained under [validation/history/figure8](../validation/history/figure8/). The single ontology source excludes regression fixtures and materialized inferred triples. Donor ontologies, recovery snapshots, and obsolete build files are no longer shipped. See the [validation guide](../validation/README.md) for the distinction between historical reports and current namespace migration checks.
