@@ -61,6 +61,7 @@
         <skos:note xml:lang="en">Figure 8 returns the partner vote to t11SendTenderForVotingTask. This model interprets that task as sending the voting request and awaiting the reply. Consequently t11 and t12 have resource dependencies in both directions; these describe a request/reply exchange, not a control-flow loop or a reason to assert each task precedes the other. An executable refinement may split sending and receiving into separate steps. The replacement branch ends where the figure ends; no retry loop is added.</skos:note>
         <skos:scopeNote xml:lang="en">Figure 8 plan content follows the cited paper and its accompanying text; the dated tender run is explicitly synthetic. Method Omega follows Michael DeBellis&apos;s supplied diagram and conventions, with modeling choices explained on its individuals. Existing Time examples remain. These are review examples, not a workflow engine or records of real projects.</skos:scopeNote>
         <skos:scopeNote xml:lang="en">State/goal extensions are a first draft. SPARQL is a provisional executable representation. The LLM template calls the configured OpenAI model through AllegroGraph and requires actual evidence plus context; it is not a formal condition expression. No LLM was called and no evaluation record was fabricated. The ontology IRI is https://in2use.com/process_model and the entity namespace is https://in2use.com/process_model/; reused external vocabulary keeps its original IRIs.</skos:scopeNote>
+        <skos:changeNote xml:lang="en">2026-11-23 (ChatGPT): Omitted the owl:ReflexiveProperty axioms for sulo:hasPart and sulo:isPartOf from the reused SULO subset to avoid automatic self-parthood and inherited contains/isIn self-links. Retained transitivity, inverses, subproperty relationships, and all example assertions and SWRL rules. This is a deliberate omission from SULO, not an irreflexivity assertion. Importing the full SULO ontology would restore its reflexivity requirements. Preserved the original property descriptions as history notes.</skos:changeNote>
     </owl:Ontology>
     
 
@@ -2933,8 +2934,8 @@ http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#term-Revision 23 April 
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/sulo/contains"/>
         <owl:inverseOf rdf:resource="https://w3id.org/sulo/isPartOf"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
-        <rdfs:comment>has part is a transitive, reflexive and antisymmetric relation between a whole and itself or a whole and its part.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a whole to a part. This process-model module retains transitivity and the inverse isPartOf relationship but omits SULO's global reflexivity requirement. Self-parthood is neither required nor prohibited.</rdfs:comment>
+        <skos:historyNote xml:lang="en">Original SULO description, retained for provenance: has part is a transitive, reflexive and antisymmetric relation between a whole and itself or a whole and its part.</skos:historyNote>
         <rdfs:label xml:lang="en">has part</rdfs:label>
     </owl:ObjectProperty>
     
@@ -3014,8 +3015,8 @@ http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#term-Revision 23 April 
     <owl:ObjectProperty rdf:about="https://w3id.org/sulo/isPartOf">
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/sulo/isIn"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
-        <rdfs:comment xml:lang="en">is part of is a transitive, reflexive and antisymmetric relation between a part and itself or a part and a whole.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Relates a part to a whole. This process-model module retains transitivity and the inverse hasPart relationship but omits SULO's global reflexivity requirement. Self-parthood is neither required nor prohibited.</rdfs:comment>
+        <skos:historyNote xml:lang="en">Original SULO description, retained for provenance: is part of is a transitive, reflexive and antisymmetric relation between a part and itself or a part and a whole.</skos:historyNote>
         <rdfs:label xml:lang="en">is part of</rdfs:label>
     </owl:ObjectProperty>
     

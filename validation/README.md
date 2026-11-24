@@ -2,9 +2,19 @@
 
 The repository has one ontology source: [process_model_with_examples.rdf](../ontologies/process_model_with_examples.rdf). Validation records document checks on this source and the earlier stages from which it was assembled.
 
-## Current Customer Portal execution checks
+## Current parthood checks
 
-The source now contains **7,158 asserted triples**, including the unchanged ten SWRL rules. The [Customer Portal execution report](customer_portal_execution.json) checks the fictional execution snapshot, preservation of the existing ontology, OWLAPI 4.5.29/Pellet parsing and reasoning, and Allen relations on completed actual intervals. The [execution walkthrough](../docs/Customer_Portal_Execution.md) describes the scenario and query expectations. All data remains in the default graph and the existing namespace.
+The source contains **7,159 asserted triples**. The [parthood report](parthood_reflexivity.json) records the removal of the two `owl:ReflexiveProperty` declarations on `sulo:hasPart` and `sulo:isPartOf`, with explanatory English annotations. SULO's original descriptions remain as `skos:historyNote` values. All other logical axioms, example assertions, and ten complete SWRL rules are unchanged.
+
+This is a deliberate subset of SULO: parthood remains transitive, with the same inverse and subproperty relationships, but global self-parthood is no longer required. This also removes the inherited self-links through `sulo:contains` and `sulo:isIn`. The ontology does not assert irreflexivity or rename SULO terms. Loading full SULO axioms alongside this module would restore reflexivity. The direct-part hierarchy used for execution visualizations is unchanged.
+
+The comparison uses OWLAPI 4.5.29 and the Protégé Pellet implementation. It checks consistency, all seven inference precomputations, complete SWRL rules, RDF/XML round-trip preservation, and inferred relationships before and after the change. The report distinguishes removal of the four kinds of self-links from preservation of all other named object-property, class, data-property, and same-individual entailments.
+
+Previously exported or materialized self-links remain stored assertions until removed. Regenerate inference exports from this asserted source; when testing in AllegroGraph, load into a clean repository or otherwise replace the old source and materialized results, rather than adding the corrected file to them. These checks do not operate on a live AllegroGraph repository or the user's Protégé installation.
+
+## Customer Portal execution addition
+
+At the execution addition, the source contained **7,158 asserted triples**, including the unchanged ten SWRL rules. The [Customer Portal execution report](customer_portal_execution.json) checks the fictional execution snapshot, preservation of the existing ontology, OWLAPI 4.5.29/Pellet parsing and reasoning, and Allen relations on completed actual intervals at that revision. The [execution walkthrough](../docs/Customer_Portal_Execution.md) describes the scenario and query expectations. All data remains in the default graph and the existing namespace.
 
 ## Historical ontology-identity checks
 
