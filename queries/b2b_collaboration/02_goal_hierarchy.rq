@@ -14,6 +14,6 @@ WHERE {
     pm:Lavatory_Other_Components_Available pm:Lavatory_Frame_Manufactured
     pm:Lavatory_Frame_Design_Ready pm:Lavatory_Frame_Transfer_Arranged
   }
-  VALUES ?relation { pm:has_sub_goal pm:has_responsible_agent }
+  VALUES ?relation { pm:has_sub_goal }
   ?goal ?relation ?object .
 }
