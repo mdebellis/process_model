@@ -1,20 +1,6 @@
 
 # Figure 8 collaborative tendering model
 
-## Files and starting point
-
-Open [process_model_with_examples.rdf](../ontologies/process_model_with_examples.rdf) in Protégé. This is the repository's single, self-contained ontology source. It includes the reusable vocabulary, the Figure 8 plan, its synthetic execution, and Method Omega. It does not require imports, catalog files, or separately opening a schema.
-
-Keep the source in **RDF/XML**. Opening and saving the named-rule Turtle representation in the affected Protégé/OWLAPI installation deleted SWRL rule content; the RDF/XML route preserved it. See the [execution notes](figure8_execution.md#open-the-rdfxml-file-in-protégé) for the tested conditions.
-
-This page explains the Figure 8 **planned workflow**. The [dated execution](figure8_execution.md) is a separate set of synthetic individuals in the same ontology.
-
-- The ontology IRI is `https://in2use.com/process_model`, without a trailing slash. The namespace for all project-owned vocabulary and examples is `https://in2use.com/process_model/`, abbreviated `pm:` below.
-- The ontology label is **Process model with examples**.
-- The main plan individual is `pm:Tendering_Plan`.
-
-The [namespace migration notes](namespace_migration.md) explain the changes from the earlier supply-chain and Method Omega identifiers. Standard P-Plan, PROV, SULO, and OWL-Time IRIs are unchanged. The reusable role classes are `pm:Partner_Role` and `pm:Lead_Supplier_Role`; the Figure 8 role individuals are `pm:Tendering_Partner_Role` and `pm:Tendering_Lead_Supplier_Role`. Distinct names preserve the distinction between role classes and the contextual roles in this example.
-
 ## Source and scope
 
 Kazantsev, DeBellis, Quboa, Sampaio, Mehandjiev and Stalker, An ontology-guided approach to process formation and coordination of demand-driven collaborations, International Journal of Production Research 62(9), 3398-3414 (2024), DOI 10.1080/00207543.2023.2242508. The model follows Figure 8 on printed page 3408 and the accompanying explanation on page 3407.
