@@ -2,9 +2,25 @@
 
 The repository has one ontology source: [process_model_with_examples.rdf](../ontologies/process_model_with_examples.rdf). Validation records document checks on this source and the earlier stages from which it was assembled.
 
-## Current execution query checks
+## Current Allen graph query checks
 
-The [execution query report](customer_portal_execution_queries.json) checks all five Customer Portal queries against the unchanged ontology plus named object-property and class entailments from OWLAPI 4.5.29/Pellet. Execution scoping now uses materialized `sulo:hasPart` relationships instead of `hasDirectPart` property paths. Queries that include the root select it explicitly, without relying on reflexive self-links.
+The [Allen graph report](customer_portal_allen_graph.json) checks the graph
+companion, [05b_actual_allen_graph.rq](../queries/customer_portal_execution/05b_actual_allen_graph.rq),
+against the unchanged ontology and the previously exported Pellet
+entailments. It returns 15 existing Allen triples between six completed
+actual intervals, using one member of each inverse pair. All 15 unordered
+interval pairs from query 05 remain represented. The full table still
+returns 30 ordered relations. No ontology triples or inference rules change.
+
+The checks also exercise the symmetric-equality display filter and confirm
+that scheduled intervals, intervals outside this execution, and ongoing
+intervals without a recorded end are excluded. Verification uses RDFLib;
+it does not claim a live Gruff rendering test. The walkthrough documents
+Gruff's multiple-predicate lines and the link-label toggle.
+
+## Execution query scoping checks
+
+The [execution query report](customer_portal_execution_queries.json) checks the original five Customer Portal queries against the unchanged ontology plus named object-property and class entailments from OWLAPI 4.5.29/Pellet. Execution scoping uses materialized `sulo:hasPart` relationships instead of `hasDirectPart` property paths. Queries that include the root select it explicitly, without relying on reflexive self-links.
 
 The revised queries return the same results as their previous versions after reasoning: 11 direct hierarchy edges, 16 plan/actual rows, 88 artifact/participant triples, five timing findings, and 30 actual Allen relation pairs. The tree keeps both root edges and displays only existing `hasDirectPart` assertions. These are RDFLib query checks over reasoner output, not a live Gruff test. The plan-decomposition path in query 02 remains separate from execution parthood.
 

@@ -1,3 +1,5 @@
+# Full results table, including inverse relations and Activity context.
+# For a clearer Gruff graph, use 05b_actual_allen_graph.rq.
 # Requires materialized hasPart inferences visible to the query engine.
 # Requires inferred Allen assertions visible to this query engine.
 # Only actual intervals of this execution with both endpoints are considered.

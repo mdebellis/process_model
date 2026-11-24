@@ -1,0 +1,47 @@
+# Graph companion to 05_actual_allen_relations.rq (the full results table).
+# Requires materialized hasPart and Allen inferences visible to the query engine.
+# Return only existing interval-to-interval triples; no Activity or hierarchy edges.
+# Select one predicate from each inverse pair, and one direction for intervalEquals.
+# In this snapshot: six completed actual intervals, fifteen displayed relations.
+# Gruff: use Create Visual Graph, then press M to toggle link labels.
+PREFIX pm: <https://in2use.com/process_model/>
+PREFIX sulo: <https://w3id.org/sulo/>
+PREFIX time: <http://www.w3.org/2006/time#>
+
+CONSTRUCT {
+  ?interval ?relation ?otherInterval .
+}
+WHERE {
+  {
+    SELECT DISTINCT ?interval
+    WHERE {
+      pm:Customer_Portal_Execution sulo:hasPart ?execution .
+      ?execution time:hasTime ?interval .
+      ?interval time:hasBeginning ?beginning ; time:hasEnd ?ending .
+      ?beginning time:inXSDDateTimeStamp ?start .
+      ?ending time:inXSDDateTimeStamp ?end .
+    }
+  }
+  {
+    SELECT DISTINCT ?otherInterval
+    WHERE {
+      pm:Customer_Portal_Execution sulo:hasPart ?otherExecution .
+      ?otherExecution time:hasTime ?otherInterval .
+      ?otherInterval time:hasBeginning ?otherBeginning ; time:hasEnd ?otherEnding .
+      ?otherBeginning time:inXSDDateTimeStamp ?otherStart .
+      ?otherEnding time:inXSDDateTimeStamp ?otherEnd .
+    }
+  }
+  FILTER(?interval != ?otherInterval)
+  VALUES ?relation {
+    time:intervalBefore
+    time:intervalMeets
+    time:intervalOverlaps
+    time:intervalStarts
+    time:intervalDuring
+    time:intervalFinishes
+    time:intervalEquals
+  }
+  ?interval ?relation ?otherInterval .
+  FILTER(?relation != time:intervalEquals || STR(?interval) < STR(?otherInterval))
+}

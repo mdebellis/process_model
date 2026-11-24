@@ -85,9 +85,10 @@ approval, rejection, or LLM evaluation.
 | [02_plan_and_actual.rq](../queries/customer_portal_execution/02_plan_and_actual.rq) | All planned Steps, baseline dates, recorded actual dates, and record status | 16 rows |
 | [03_actual_inputs_outputs_and_people.rq](../queries/customer_portal_execution/03_actual_inputs_outputs_and_people.rq) | Actual artifact and qualified-association triples, including correspondence to project Steps and Variables | 88 triples |
 | [04_timing_deviations.rq](../queries/customer_portal_execution/04_timing_deviations.rq) | Early/late timestamps and unconditional finish-to-start transitions lacking a timely recorded predecessor end | 5 findings |
-| [05_actual_allen_relations.rq](../queries/customer_portal_execution/05_actual_allen_relations.rq) | Inferred Allen relations between the completed actual intervals of this execution | 30 ordered pairs |
+| [05_actual_allen_relations.rq](../queries/customer_portal_execution/05_actual_allen_relations.rq) | Full results table: Activities, actual intervals, and inferred Allen relations in both directions | 30 ordered pairs |
+| [05b_actual_allen_graph.rq](../queries/customer_portal_execution/05b_actual_allen_graph.rq) | Gruff graph: existing Allen triples between completed actual intervals, selecting one direction from each inverse pair | 15 relations between 6 interval nodes |
 
-All five execution queries assume the reasoner has run and its inferred
+All execution queries assume the reasoner has run and its inferred
 `hasPart` triples are visible to the query engine. The graph queries return
 existing triples; the hierarchy query displays `hasDirectPart` edges, while
 `hasPart` is used only to select the descendants. No property-path edge is
@@ -109,7 +110,50 @@ Loading rule definitions alone does not run them. It uses only actual intervals
 with both endpoints, excluding planned schedules and unfinished performances.
 No rule or query invents completion, executes a workflow, or calls an LLM.
 
-The Allen query was also checked with the 30 reasoner-inferred relations between the six completed actual intervals: it returns all 30 ordered, non-self pairs.
+### Viewing the Allen relations in Gruff
+
+Query 05 is the full table. It includes inverse pairs such as A
+`time:intervalBefore` B and B `time:intervalAfter` A. Gruff can draw these
+as one line with the legend entry **Multiple Predicates**. Hover over such
+a line to see its predicates. This is a display choice, not missing inferences.
+
+Use **05b_actual_allen_graph.rq** and **Create Visual Graph** for the graph
+view. Its `CONSTRUCT` returns only existing Allen triples between the six
+completed actual intervals. The Activity nodes and `hasPart`/`hasTime` links
+are used to select the intervals but are not returned. Selecting one member
+of each inverse pair reduces 30 ordered relations to 15 displayed relations;
+the graph uses `intervalBefore`, `intervalMeets`, `intervalOverlaps`,
+`intervalStarts`, `intervalDuring`, `intervalFinishes`, and `intervalEquals`.
+For symmetric `intervalEquals`, IRI ordering selects one direction. This
+ordering is only a display convention, not a temporal comparison. All
+underlying inference triples remain available in the store and in query 05.
+
+In Graph View, press **M**, or use **Visual Graph Options > Link Labels >
+Draw Link Labels**, to show predicate labels. Start with **Create Visual
+Graph**, rather than adding to the earlier graph, so its inverse links are
+not retained. If generating a graph from a `SELECT` query, turn off
+**Query Options > Include More Triples in Visual Graphs** to avoid adding
+other connections beyond the matching query patterns. See the
+[Gruff documentation](https://franz.com/agraph/support/documentation/gruff.html).
+
+In this snapshot the graph contains 12 `intervalBefore` links and three
+other links:
+
+- Kickoff Meeting interval **meets** Create Project Narrative interval.
+- User Wireframe Interviews interval **starts** Create Wireframes interval.
+- Develop Wireframes interval **finishes** Create Wireframes interval.
+
+For a small demonstration of the last three relations, temporarily remove
+`time:intervalBefore` from the graph query's `VALUES` list. This filters the
+view only; it does not remove data or change the ontology.
+
+The [Allen graph checks](../validation/customer_portal_allen_graph.json)
+verify all 15 returned triples against Pellet's inferred graph, preservation
+of all 15 unordered interval pairs, and exclusion of schedules and incomplete
+intervals. The full table still returns all 30 ordered, non-self pairs. These
+are query checks using RDFLib, not a live Gruff rendering test. If the
+inferences are already loaded, this query addition requires no ontology
+reload or new reasoning run.
 
 ## Visualizations of Queries
 The following graphs are from AllegroGraph Gruff and correspond to some of the queries in the section above. Some queries created very busy graphs and aren't shown. 
