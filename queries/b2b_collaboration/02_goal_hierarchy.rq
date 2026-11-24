@@ -1,0 +1,19 @@
+# Existing goal-decomposition and responsibility edges only.
+# The root is selected explicitly and no property-path pseudo-edge is returned.
+PREFIX pm: <https://in2use.com/process_model/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sulo: <https://w3id.org/sulo/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+CONSTRUCT { ?goal ?relation ?object . }
+WHERE {
+  VALUES ?goal {
+    pm:Lavatory_Module_Delivered pm:Lavatory_Module_Assembled
+    pm:Lavatory_Cover_Ready pm:Lavatory_Frame_Available
+    pm:Lavatory_Other_Components_Available pm:Lavatory_Frame_Manufactured
+    pm:Lavatory_Frame_Design_Ready pm:Lavatory_Frame_Transfer_Arranged
+  }
+  VALUES ?relation { pm:has_sub_goal pm:has_responsible_agent }
+  ?goal ?relation ?object .
+}

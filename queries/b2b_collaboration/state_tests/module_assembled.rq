@@ -1,0 +1,41 @@
+# Runnable example at the snapshot cutoff; change as_of to inspect an earlier event time.
+PREFIX pm: <https://in2use.com/process_model/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sulo: <https://w3id.org/sulo/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+ASK {
+  VALUES (?run ?as_of) { (pm:Lavatory_Collaboration_Execution "2027-03-04T12:00:00Z"^^xsd:dateTime) }
+?run prov:qualifiedAssociation ?run_association .
+?run_association prov:hadPlan pm:Lavatory_Collaboration_Plan .
+?run sulo:hasPart ?frame_activity .
+?frame_activity pp:correspondsToStep pm:Lavatory_Make_Frame ; prov:endedAtTime ?frame_end .
+pm:Lavatory_Frame_01 pp:correspondsToVariable pm:Lavatory_Frame_Var ; prov:wasGeneratedBy ?frame_activity ; prov:generatedAtTime ?frame_generated .
+FILTER(xsd:dateTime(STR(?frame_end)) <= xsd:dateTime(STR(?as_of)))
+FILTER(xsd:dateTime(STR(?frame_generated)) <= xsd:dateTime(STR(?as_of)))
+?run sulo:hasPart ?transfer_decision_activity .
+?transfer_decision_activity pp:correspondsToStep pm:Lavatory_Coordinate_Frame_Transfer ; prov:endedAtTime ?transfer_decision_end .
+pm:Lavatory_Frame_Transfer_Decision_01 pp:correspondsToVariable pm:Lavatory_Transfer_Decision_Var ; prov:wasGeneratedBy ?transfer_decision_activity ; prov:generatedAtTime ?transfer_decision_generated .
+FILTER(xsd:dateTime(STR(?transfer_decision_end)) <= xsd:dateTime(STR(?as_of)))
+FILTER(xsd:dateTime(STR(?transfer_decision_generated)) <= xsd:dateTime(STR(?as_of)))
+?transfer_decision_activity prov:used pm:Lavatory_Frame_01, pm:Lavatory_Frame_Transport_Proposal_V1 .
+pm:Lavatory_Frame_Transfer_Decision_01 pm:has_outcome pm:Approved ; pm:has_subject_version pm:Lavatory_Frame_Transport_Proposal_V1 .
+FILTER NOT EXISTS { pm:Lavatory_Frame_Transfer_Decision_01 pm:has_outcome ?conflicting_outcome . FILTER(?conflicting_outcome != pm:Approved) }
+?run sulo:hasPart ?frame_receipt_activity .
+?frame_receipt_activity pp:correspondsToStep pm:Lavatory_Transfer_Frame ; prov:endedAtTime ?frame_receipt_end .
+pm:Lavatory_Frame_Receipt_01 pp:correspondsToVariable pm:Lavatory_Frame_Receipt_Var ; prov:wasGeneratedBy ?frame_receipt_activity ; prov:generatedAtTime ?frame_receipt_generated .
+FILTER(xsd:dateTime(STR(?frame_receipt_end)) <= xsd:dateTime(STR(?as_of)))
+FILTER(xsd:dateTime(STR(?frame_receipt_generated)) <= xsd:dateTime(STR(?as_of)))
+?frame_receipt_activity prov:used pm:Lavatory_Frame_01, pm:Lavatory_Frame_Transfer_Decision_01 .
+pm:Lavatory_Frame_Receipt_01 pm:has_received_resource pm:Lavatory_Frame_01 ; pm:has_receiving_agent pm:Turbo_Co .
+pm:Lavatory_Other_Components_Receipt_01 a pm:Resource_Receipt ; pm:has_received_resource pm:Lavatory_Other_Components_01 ; pm:has_receiving_agent pm:Turbo_Co ; prov:generatedAtTime ?other_receipt_time .
+pm:Lavatory_Other_Components_01 pp:correspondsToVariable pm:Lavatory_Other_Components_Var ; prov:generatedAtTime ?other_components_time .
+FILTER(xsd:dateTime(STR(?other_receipt_time)) <= xsd:dateTime(STR(?as_of)))
+FILTER(xsd:dateTime(STR(?other_components_time)) <= xsd:dateTime(STR(?as_of)))
+?run sulo:hasPart ?assembly .
+?assembly pp:correspondsToStep pm:Lavatory_Assemble_Module ; prov:used pm:Lavatory_Frame_01, pm:Lavatory_Other_Components_01, pm:Lavatory_Frame_Receipt_01 ; prov:endedAtTime ?assembly_end .
+?module a pm:Lavatory_Module ; pp:correspondsToVariable pm:Lavatory_Module_Var ; prov:wasGeneratedBy ?assembly ; prov:generatedAtTime ?module_generated .
+FILTER(xsd:dateTime(STR(?assembly_end)) <= xsd:dateTime(STR(?as_of)))
+FILTER(xsd:dateTime(STR(?module_generated)) <= xsd:dateTime(STR(?as_of)))
+}

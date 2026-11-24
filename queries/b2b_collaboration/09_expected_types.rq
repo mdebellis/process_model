@@ -1,0 +1,15 @@
+# A validation table: zero rows is the expected result after type inference.
+# Annotation values are class IRIs; this does not make the Variables instances of those classes.
+PREFIX pm: <https://in2use.com/process_model/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sulo: <https://w3id.org/sulo/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT DISTINCT ?entity ?variable ?expectedType
+WHERE {
+  ?variable pp:isVariableOfPlan pm:Lavatory_Collaboration_Plan ; pm:has_expected_type ?expectedType .
+  ?entity pp:correspondsToVariable ?variable .
+  FILTER NOT EXISTS { ?entity a ?expectedType . }
+}
+ORDER BY ?variable ?entity

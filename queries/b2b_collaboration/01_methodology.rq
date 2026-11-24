@@ -1,0 +1,13 @@
+# Operational methodology; change the root to Collaboration_Design_Methodology for T1-T5.
+PREFIX pm: <https://in2use.com/process_model/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sulo: <https://w3id.org/sulo/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+CONSTRUCT { ?plan pm:has_step ?step . ?step pm:has_goal ?goal . }
+WHERE {
+  VALUES ?plan { pm:B2B_Collaboration_Methodology }
+  ?plan pm:has_step ?step .
+  OPTIONAL { ?step pm:has_goal ?goal . }
+}

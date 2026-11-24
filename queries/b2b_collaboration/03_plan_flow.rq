@@ -1,0 +1,18 @@
+# Direct prerequisite transitions, including the approval guard.
+# Multiple incoming prerequisites are jointly required, not an exclusive choice.
+PREFIX pm: <https://in2use.com/process_model/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sulo: <https://w3id.org/sulo/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+CONSTRUCT {
+  ?source pm:is_source_step_of ?transition .
+  ?transition pm:has_target_step ?target ; pm:has_condition ?condition .
+}
+WHERE {
+  pm:Lavatory_Collaboration_Plan pm:has_step ?source .
+  ?source pm:is_source_step_of ?transition .
+  ?transition pm:has_target_step ?target .
+  OPTIONAL { ?transition pm:has_condition ?condition . }
+}

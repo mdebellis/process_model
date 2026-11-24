@@ -1,0 +1,14 @@
+# Only recorded Activities; requires materialized hasPart to scope descendants.
+PREFIX pm: <https://in2use.com/process_model/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sulo: <https://w3id.org/sulo/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+CONSTRUCT { ?parent sulo:hasDirectPart ?child . }
+WHERE {
+  { VALUES ?parent { pm:Lavatory_Collaboration_Execution } }
+  UNION
+  { pm:Lavatory_Collaboration_Execution sulo:hasPart ?parent . }
+  ?parent sulo:hasDirectPart ?child .
+}

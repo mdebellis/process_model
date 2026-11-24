@@ -1,0 +1,20 @@
+# Runnable example at the snapshot cutoff; change as_of to inspect an earlier event time.
+PREFIX pm: <https://in2use.com/process_model/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sulo: <https://w3id.org/sulo/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+ASK {
+  VALUES (?run ?as_of) { (pm:Lavatory_Collaboration_Execution "2027-03-04T12:00:00Z"^^xsd:dateTime) }
+?run prov:qualifiedAssociation ?run_association .
+?run_association prov:hadPlan pm:Lavatory_Collaboration_Plan .
+?run sulo:hasPart ?transfer_decision_activity .
+?transfer_decision_activity pp:correspondsToStep pm:Lavatory_Coordinate_Frame_Transfer ; prov:endedAtTime ?transfer_decision_end .
+pm:Lavatory_Frame_Transfer_Decision_01 pp:correspondsToVariable pm:Lavatory_Transfer_Decision_Var ; prov:wasGeneratedBy ?transfer_decision_activity ; prov:generatedAtTime ?transfer_decision_generated .
+FILTER(xsd:dateTime(STR(?transfer_decision_end)) <= xsd:dateTime(STR(?as_of)))
+FILTER(xsd:dateTime(STR(?transfer_decision_generated)) <= xsd:dateTime(STR(?as_of)))
+?transfer_decision_activity prov:used pm:Lavatory_Frame_01, pm:Lavatory_Frame_Transport_Proposal_V1 .
+pm:Lavatory_Frame_Transfer_Decision_01 pm:has_outcome pm:Approved ; pm:has_subject_version pm:Lavatory_Frame_Transport_Proposal_V1 .
+FILTER NOT EXISTS { pm:Lavatory_Frame_Transfer_Decision_01 pm:has_outcome ?conflicting_outcome . FILTER(?conflicting_outcome != pm:Approved) }
+}

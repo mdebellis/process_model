@@ -1,0 +1,18 @@
+# Focused view of manufacture, transfer and assembly conditions.
+PREFIX pm: <https://in2use.com/process_model/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sulo: <https://w3id.org/sulo/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+CONSTRUCT {
+  ?step ?relation ?state .
+  ?state pm:has_state_test ?test ; pm:has_sub_state ?component .
+}
+WHERE {
+  VALUES ?step { pm:Lavatory_Make_Frame pm:Lavatory_Transfer_Frame pm:Lavatory_Assemble_Module }
+  VALUES ?relation { pm:has_precondition pm:has_postcondition }
+  ?step ?relation ?state .
+  OPTIONAL { ?state pm:has_state_test ?test . }
+  OPTIONAL { ?state pm:has_sub_state ?component . }
+}

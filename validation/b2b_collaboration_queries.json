@@ -1,0 +1,292 @@
+{
+  "date": "2026-11-24",
+  "source": "process_model_with_examples.rdf",
+  "source_sha256": "0c91bcd125d4b9e48d2544e32c5098d4d23cf57c583bfb7e1b269f0dab9ed530",
+  "source_triples": 9314,
+  "materialized_test_graph_triples": 19365,
+  "query_engine": "RDFLib",
+  "passed": true,
+  "check_count": 118,
+  "checks": [
+    "Replay Lavatory_Transfer_Arrangement_Approved_Evaluation",
+    "Evidence predates Lavatory_Transfer_Arrangement_Approved_Evaluation / Lavatory_Frame_Design_V1",
+    "Evidence predates Lavatory_Transfer_Arrangement_Approved_Evaluation / Lavatory_Frame_01",
+    "Evidence predates Lavatory_Transfer_Arrangement_Approved_Evaluation / Lavatory_Frame_Transport_Proposal_V1",
+    "Evidence predates Lavatory_Transfer_Arrangement_Approved_Evaluation / Lavatory_Frame_Transfer_Decision_01",
+    "Evidence predates Lavatory_Transfer_Arrangement_Approved_Evaluation / Lavatory_Other_Components_01",
+    "Evidence predates Lavatory_Transfer_Arrangement_Approved_Evaluation / Lavatory_Other_Components_Receipt_01",
+    "Replay Lavatory_Assembly_Enabled_After_Transfer_Evaluation",
+    "Evidence predates Lavatory_Assembly_Enabled_After_Transfer_Evaluation / Lavatory_Frame_Design_V1",
+    "Evidence predates Lavatory_Assembly_Enabled_After_Transfer_Evaluation / Lavatory_Frame_01",
+    "Evidence predates Lavatory_Assembly_Enabled_After_Transfer_Evaluation / Lavatory_Frame_Transport_Proposal_V1",
+    "Evidence predates Lavatory_Assembly_Enabled_After_Transfer_Evaluation / Lavatory_Frame_Transfer_Decision_01",
+    "Evidence predates Lavatory_Assembly_Enabled_After_Transfer_Evaluation / Lavatory_Frame_Receipt_01",
+    "Evidence predates Lavatory_Assembly_Enabled_After_Transfer_Evaluation / Lavatory_Transport_Cover_01",
+    "Evidence predates Lavatory_Assembly_Enabled_After_Transfer_Evaluation / Lavatory_Other_Components_01",
+    "Evidence predates Lavatory_Assembly_Enabled_After_Transfer_Evaluation / Lavatory_Other_Components_Receipt_01",
+    "Replay Lavatory_Module_Not_Yet_Assembled_Evaluation",
+    "Evidence predates Lavatory_Module_Not_Yet_Assembled_Evaluation / Lavatory_Frame_Design_V1",
+    "Evidence predates Lavatory_Module_Not_Yet_Assembled_Evaluation / Lavatory_Frame_01",
+    "Evidence predates Lavatory_Module_Not_Yet_Assembled_Evaluation / Lavatory_Frame_Transport_Proposal_V1",
+    "Evidence predates Lavatory_Module_Not_Yet_Assembled_Evaluation / Lavatory_Frame_Transfer_Decision_01",
+    "Evidence predates Lavatory_Module_Not_Yet_Assembled_Evaluation / Lavatory_Frame_Receipt_01",
+    "Evidence predates Lavatory_Module_Not_Yet_Assembled_Evaluation / Lavatory_Transport_Cover_01",
+    "Evidence predates Lavatory_Module_Not_Yet_Assembled_Evaluation / Lavatory_Other_Components_01",
+    "Evidence predates Lavatory_Module_Not_Yet_Assembled_Evaluation / Lavatory_Other_Components_Receipt_01",
+    "Replay Lavatory_Frame_Manufactured_Before_Transfer_Evaluation",
+    "Evidence predates Lavatory_Frame_Manufactured_Before_Transfer_Evaluation / Lavatory_Frame_Design_V1",
+    "Evidence predates Lavatory_Frame_Manufactured_Before_Transfer_Evaluation / Lavatory_Frame_01",
+    "Evidence predates Lavatory_Frame_Manufactured_Before_Transfer_Evaluation / Lavatory_Frame_Transport_Proposal_V1",
+    "Evidence predates Lavatory_Frame_Manufactured_Before_Transfer_Evaluation / Lavatory_Other_Components_01",
+    "Evidence predates Lavatory_Frame_Manufactured_Before_Transfer_Evaluation / Lavatory_Other_Components_Receipt_01",
+    "Replay Lavatory_Module_Not_Yet_Delivered_Evaluation",
+    "Evidence predates Lavatory_Module_Not_Yet_Delivered_Evaluation / Lavatory_Frame_Design_V1",
+    "Evidence predates Lavatory_Module_Not_Yet_Delivered_Evaluation / Lavatory_Frame_01",
+    "Evidence predates Lavatory_Module_Not_Yet_Delivered_Evaluation / Lavatory_Frame_Transport_Proposal_V1",
+    "Evidence predates Lavatory_Module_Not_Yet_Delivered_Evaluation / Lavatory_Frame_Transfer_Decision_01",
+    "Evidence predates Lavatory_Module_Not_Yet_Delivered_Evaluation / Lavatory_Frame_Receipt_01",
+    "Evidence predates Lavatory_Module_Not_Yet_Delivered_Evaluation / Lavatory_Transport_Cover_01",
+    "Evidence predates Lavatory_Module_Not_Yet_Delivered_Evaluation / Lavatory_Other_Components_01",
+    "Evidence predates Lavatory_Module_Not_Yet_Delivered_Evaluation / Lavatory_Other_Components_Receipt_01",
+    "Replay Lavatory_Assembly_Blocked_Before_Transfer_Evaluation",
+    "Evidence predates Lavatory_Assembly_Blocked_Before_Transfer_Evaluation / Lavatory_Frame_Design_V1",
+    "Evidence predates Lavatory_Assembly_Blocked_Before_Transfer_Evaluation / Lavatory_Frame_01",
+    "Evidence predates Lavatory_Assembly_Blocked_Before_Transfer_Evaluation / Lavatory_Frame_Transport_Proposal_V1",
+    "Evidence predates Lavatory_Assembly_Blocked_Before_Transfer_Evaluation / Lavatory_Other_Components_01",
+    "Evidence predates Lavatory_Assembly_Blocked_Before_Transfer_Evaluation / Lavatory_Other_Components_Receipt_01",
+    "Replay Lavatory_Frame_Unavailable_Before_Transfer_Evaluation",
+    "Evidence predates Lavatory_Frame_Unavailable_Before_Transfer_Evaluation / Lavatory_Frame_Design_V1",
+    "Evidence predates Lavatory_Frame_Unavailable_Before_Transfer_Evaluation / Lavatory_Frame_01",
+    "Evidence predates Lavatory_Frame_Unavailable_Before_Transfer_Evaluation / Lavatory_Frame_Transport_Proposal_V1",
+    "Evidence predates Lavatory_Frame_Unavailable_Before_Transfer_Evaluation / Lavatory_Other_Components_01",
+    "Evidence predates Lavatory_Frame_Unavailable_Before_Transfer_Evaluation / Lavatory_Other_Components_Receipt_01",
+    "Replay Lavatory_Frame_Available_After_Transfer_Evaluation",
+    "Evidence predates Lavatory_Frame_Available_After_Transfer_Evaluation / Lavatory_Frame_Design_V1",
+    "Evidence predates Lavatory_Frame_Available_After_Transfer_Evaluation / Lavatory_Frame_01",
+    "Evidence predates Lavatory_Frame_Available_After_Transfer_Evaluation / Lavatory_Frame_Transport_Proposal_V1",
+    "Evidence predates Lavatory_Frame_Available_After_Transfer_Evaluation / Lavatory_Frame_Transfer_Decision_01",
+    "Evidence predates Lavatory_Frame_Available_After_Transfer_Evaluation / Lavatory_Frame_Receipt_01",
+    "Evidence predates Lavatory_Frame_Available_After_Transfer_Evaluation / Lavatory_Transport_Cover_01",
+    "Evidence predates Lavatory_Frame_Available_After_Transfer_Evaluation / Lavatory_Other_Components_01",
+    "Evidence predates Lavatory_Frame_Available_After_Transfer_Evaluation / Lavatory_Other_Components_Receipt_01",
+    "Eight synthetic evaluations replayed",
+    "Manufactured before available",
+    "No receipt before its event time",
+    "Receipt established at its event time",
+    "Assembly enabled after transfer",
+    "Manufacture not completed early",
+    "Different run cannot borrow evidence",
+    "Wrong received resource blocks readiness",
+    "Wrong receipt recipient blocks readiness",
+    "Missing other components blocks conjunction",
+    "Rejected proposal does not authorize transfer",
+    "Approval for another proposal is insufficient",
+    "Invalid/missing caller binding rejected",
+    "Invalid/missing caller binding rejected",
+    "Invalid/missing caller binding rejected",
+    "Conflicting evidence rejected before ASK categorization",
+    "Completed continuation satisfies parent goal",
+    "Delivery of wrong resource does not satisfy parent goal",
+    "Start precondition Lavatory_Assemble_Module_Execution / Lavatory_Assembly_Inputs_Ready",
+    "Start precondition Lavatory_Coordinate_Frame_Transfer_Execution / Lavatory_Frame_Manufactured",
+    "Start precondition Lavatory_Make_Frame_Execution / Lavatory_Frame_Design_Ready",
+    "Start precondition Lavatory_Transfer_Frame_Execution / Lavatory_Frame_Manufactured",
+    "Start precondition Lavatory_Transfer_Frame_Execution / Lavatory_Frame_Transfer_Arranged",
+    "Existing edges only: 01_methodology.rq",
+    "Existing edges only: 02_goal_hierarchy.rq",
+    "All goal and supplier edges returned",
+    "Existing edges only: 03_plan_flow.rq",
+    "Existing edges only: 04_conditions_and_tests.rq",
+    "Seven planned steps in comparison",
+    "Eight assessments in table",
+    "Existing edges only: 07_execution_tree.rq",
+    "Six recorded operational Activities",
+    "Existing edges only: 08_frame_evidence.rq",
+    "No expected-type mismatches",
+    "Existing edges only: 10_readiness_history_graph.rq",
+    "Runnable state test assembly_inputs_ready",
+    "Runnable state test cover_ready",
+    "Runnable state test delivery_inputs_ready",
+    "Runnable state test frame_available",
+    "Runnable state test frame_design_ready",
+    "Runnable state test frame_manufactured",
+    "Runnable state test frame_transfer_arranged",
+    "Runnable state test module_assembled",
+    "Runnable state test module_delivered",
+    "Runnable state test other_components_available",
+    "Variable not typed as expected artifact: Lavatory_Other_Components_Var",
+    "Variable not typed as expected artifact: Lavatory_Frame_Var",
+    "Variable not typed as expected artifact: Lavatory_Transport_Proposal_Var",
+    "Variable not typed as expected artifact: Lavatory_Frame_Receipt_Var",
+    "Variable not typed as expected artifact: Lavatory_Cover_Var",
+    "Variable not typed as expected artifact: Lavatory_Frame_Design_Var",
+    "Variable not typed as expected artifact: Lavatory_Delivery_Receipt_Var",
+    "Variable not typed as expected artifact: Lavatory_Transfer_Decision_Var",
+    "Variable not typed as expected artifact: Lavatory_Module_Var",
+    "No pre-created delivery Activity",
+    "No fabricated completed module",
+    "No reflexive root parthood"
+  ],
+  "state_evaluations": [
+    {
+      "evaluation": "https://in2use.com/process_model/Lavatory_Transfer_Arrangement_Approved_Evaluation",
+      "satisfied": true
+    },
+    {
+      "evaluation": "https://in2use.com/process_model/Lavatory_Assembly_Enabled_After_Transfer_Evaluation",
+      "satisfied": true
+    },
+    {
+      "evaluation": "https://in2use.com/process_model/Lavatory_Module_Not_Yet_Assembled_Evaluation",
+      "satisfied": false
+    },
+    {
+      "evaluation": "https://in2use.com/process_model/Lavatory_Frame_Manufactured_Before_Transfer_Evaluation",
+      "satisfied": true
+    },
+    {
+      "evaluation": "https://in2use.com/process_model/Lavatory_Module_Not_Yet_Delivered_Evaluation",
+      "satisfied": false
+    },
+    {
+      "evaluation": "https://in2use.com/process_model/Lavatory_Assembly_Blocked_Before_Transfer_Evaluation",
+      "satisfied": false
+    },
+    {
+      "evaluation": "https://in2use.com/process_model/Lavatory_Frame_Unavailable_Before_Transfer_Evaluation",
+      "satisfied": false
+    },
+    {
+      "evaluation": "https://in2use.com/process_model/Lavatory_Frame_Available_After_Transfer_Evaluation",
+      "satisfied": true
+    }
+  ],
+  "preconditions_at_actual_starts": [
+    {
+      "activity": "https://in2use.com/process_model/Lavatory_Assemble_Module_Execution",
+      "state": "https://in2use.com/process_model/Lavatory_Assembly_Inputs_Ready",
+      "satisfied_at_start": true
+    },
+    {
+      "activity": "https://in2use.com/process_model/Lavatory_Coordinate_Frame_Transfer_Execution",
+      "state": "https://in2use.com/process_model/Lavatory_Frame_Manufactured",
+      "satisfied_at_start": true
+    },
+    {
+      "activity": "https://in2use.com/process_model/Lavatory_Make_Frame_Execution",
+      "state": "https://in2use.com/process_model/Lavatory_Frame_Design_Ready",
+      "satisfied_at_start": true
+    },
+    {
+      "activity": "https://in2use.com/process_model/Lavatory_Transfer_Frame_Execution",
+      "state": "https://in2use.com/process_model/Lavatory_Frame_Manufactured",
+      "satisfied_at_start": true
+    },
+    {
+      "activity": "https://in2use.com/process_model/Lavatory_Transfer_Frame_Execution",
+      "state": "https://in2use.com/process_model/Lavatory_Frame_Transfer_Arranged",
+      "satisfied_at_start": true
+    }
+  ],
+  "demonstration_queries": [
+    {
+      "query": "01_methodology.rq",
+      "results": 14,
+      "kind": "CONSTRUCT"
+    },
+    {
+      "query": "02_goal_hierarchy.rq",
+      "results": 15,
+      "kind": "CONSTRUCT"
+    },
+    {
+      "query": "03_plan_flow.rq",
+      "results": 13,
+      "kind": "CONSTRUCT"
+    },
+    {
+      "query": "04_conditions_and_tests.rq",
+      "results": 20,
+      "kind": "CONSTRUCT"
+    },
+    {
+      "query": "05_plan_and_execution.rq",
+      "results": 7,
+      "kind": "SELECT"
+    },
+    {
+      "query": "06_state_evaluations.rq",
+      "results": 8,
+      "kind": "SELECT"
+    },
+    {
+      "query": "07_execution_tree.rq",
+      "results": 6,
+      "kind": "CONSTRUCT"
+    },
+    {
+      "query": "08_frame_evidence.rq",
+      "results": 14,
+      "kind": "CONSTRUCT"
+    },
+    {
+      "query": "09_expected_types.rq",
+      "results": 0,
+      "kind": "SELECT"
+    },
+    {
+      "query": "10_readiness_history_graph.rq",
+      "results": 8,
+      "kind": "CONSTRUCT"
+    }
+  ],
+  "state_test_queries": [
+    {
+      "query": "assembly_inputs_ready.rq",
+      "satisfied": true
+    },
+    {
+      "query": "cover_ready.rq",
+      "satisfied": true
+    },
+    {
+      "query": "delivery_inputs_ready.rq",
+      "satisfied": false
+    },
+    {
+      "query": "frame_available.rq",
+      "satisfied": true
+    },
+    {
+      "query": "frame_design_ready.rq",
+      "satisfied": true
+    },
+    {
+      "query": "frame_manufactured.rq",
+      "satisfied": true
+    },
+    {
+      "query": "frame_transfer_arranged.rq",
+      "satisfied": true
+    },
+    {
+      "query": "module_assembled.rq",
+      "satisfied": false
+    },
+    {
+      "query": "module_delivered.rq",
+      "satisfied": false
+    },
+    {
+      "query": "other_components_available.rq",
+      "satisfied": true
+    }
+  ],
+  "limits": [
+    "Synthetic scenario; dates and detailed operational choices are illustrative.",
+    "False is Unsatisfied only under the documented complete and unambiguous evidence contract; otherwise Unknown.",
+    "No live AllegroGraph/Gruff execution or LLM invocation.",
+    "Receipt-based availability assumes no withdrawal, revocation, consumption or competing allocation before assembly.",
+    "T1-T5 design-method execution, supplier matching, shared-input allocation and shared-output iterations remain future extensions."
+  ]
+}

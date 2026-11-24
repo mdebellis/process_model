@@ -1,0 +1,24 @@
+# The same physical frame survives transfer; transfer generates a receipt.
+PREFIX pm: <https://in2use.com/process_model/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sulo: <https://w3id.org/sulo/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+CONSTRUCT {
+  ?execution prov:used ?input .
+  ?output prov:wasGeneratedBy ?execution .
+  pm:Lavatory_Frame_Receipt_01 pm:has_received_resource pm:Lavatory_Frame_01 ;
+                             pm:has_receiving_agent pm:Turbo_Co .
+  pm:Lavatory_Frame_Transfer_Decision_01 pm:has_outcome ?outcome .
+}
+WHERE {
+  VALUES ?execution {
+    pm:Lavatory_Make_Frame_Execution pm:Lavatory_Coordinate_Frame_Transfer_Execution
+    pm:Lavatory_Transfer_Frame_Execution pm:Lavatory_Assemble_Module_Execution
+  }
+  OPTIONAL { ?execution prov:used ?input . }
+  OPTIONAL { ?output prov:wasGeneratedBy ?execution . }
+  pm:Lavatory_Frame_Receipt_01 pm:has_received_resource pm:Lavatory_Frame_01 ; pm:has_receiving_agent pm:Turbo_Co .
+  pm:Lavatory_Frame_Transfer_Decision_01 pm:has_outcome ?outcome .
+}

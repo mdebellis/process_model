@@ -1,0 +1,15 @@
+# Assessment records are synthetic, reproducible example data, not OWL-inferred truth values.
+PREFIX pm: <https://in2use.com/process_model/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sulo: <https://w3id.org/sulo/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?state ?evaluation ?at ?result ?explanation
+WHERE {
+  ?state pm:has_state_evaluation ?evaluation .
+  ?evaluation pm:has_evaluated_execution pm:Lavatory_Collaboration_Execution ;
+              pm:has_evaluation_time ?at ; pm:has_evaluation_result ?result ;
+              pm:has_evaluation_explanation ?explanation .
+}
+ORDER BY ?at ?state

@@ -1,0 +1,17 @@
+# Four historical assessments of frame/assembly readiness and their explicit results.
+# All edges exist in the ontology; times/explanations are in query 06's table.
+PREFIX pm: <https://in2use.com/process_model/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sulo: <https://w3id.org/sulo/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+CONSTRUCT {
+  ?state pm:has_state_evaluation ?evaluation .
+  ?evaluation pm:has_evaluation_result ?result .
+}
+WHERE {
+  VALUES ?state { pm:Lavatory_Frame_Available pm:Lavatory_Assembly_Inputs_Ready }
+  ?state pm:has_state_evaluation ?evaluation .
+  ?evaluation pm:has_evaluated_execution pm:Lavatory_Collaboration_Execution ; pm:has_evaluation_result ?result .
+}

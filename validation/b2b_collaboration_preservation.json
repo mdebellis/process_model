@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-24",
+  "base_commit": "e93f66b4d1ab720d42224db704b6a71a3f1084fc",
+  "source": "ontologies/process_model_with_examples.rdf",
+  "source_sha256": "0c91bcd125d4b9e48d2544e32c5098d4d23cf57c583bfb7e1b269f0dab9ed530",
+  "base_triples": 7159,
+  "added_triples": 2155,
+  "source_triples": 9314,
+  "base_rdfxml_preserved_byte_for_byte_before_append": true,
+  "combined_graph_equals_original_plus_additions": true,
+  "existing_named_entailments_unchanged": true,
+  "existing_named_entailments_compared": 8572,
+  "new_vocabulary_and_instance_names_checked": 207,
+  "english_direct_labels_and_annotations_pass": true,
+  "object_property_inverse_domain_range_conventions_pass": true,
+  "no_new_reflexivity_or_change_to_contains_hierarchy": true,
+  "pplan_single_producer_and_correspondence_checks_pass": true,
+  "expected_type_is_annotation_property": true,
+  "customer_portal_query_regressions": [
+    {
+      "query": "01_execution_tree.rq",
+      "results": 11,
+      "unchanged": true
+    },
+    {
+      "query": "05b_actual_allen_graph.rq",
+      "results": 15,
+      "unchanged": true
+    }
+  ],
+  "passed": true
+}

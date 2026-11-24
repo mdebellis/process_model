@@ -1,0 +1,17 @@
+# Runnable example at the snapshot cutoff; change as_of to inspect an earlier event time.
+PREFIX pm: <https://in2use.com/process_model/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sulo: <https://w3id.org/sulo/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+ASK {
+  VALUES (?run ?as_of) { (pm:Lavatory_Collaboration_Execution "2027-03-04T12:00:00Z"^^xsd:dateTime) }
+?run prov:qualifiedAssociation ?run_association .
+?run_association prov:hadPlan pm:Lavatory_Collaboration_Plan .
+?run sulo:hasPart ?frame_design_activity .
+?frame_design_activity pp:correspondsToStep pm:Lavatory_Plan_Frame ; prov:endedAtTime ?frame_design_end .
+pm:Lavatory_Frame_Design_V1 pp:correspondsToVariable pm:Lavatory_Frame_Design_Var ; prov:wasGeneratedBy ?frame_design_activity ; prov:generatedAtTime ?frame_design_generated .
+FILTER(xsd:dateTime(STR(?frame_design_end)) <= xsd:dateTime(STR(?as_of)))
+FILTER(xsd:dateTime(STR(?frame_design_generated)) <= xsd:dateTime(STR(?as_of)))
+}

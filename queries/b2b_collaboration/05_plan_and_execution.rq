@@ -1,0 +1,23 @@
+# Table at the final snapshot. No execution recorded is not a general proof of not-started work.
+PREFIX pm: <https://in2use.com/process_model/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sulo: <https://w3id.org/sulo/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT DISTINCT ?step ?supplier ?scheduledStart ?scheduledEnd ?execution ?actualStart ?actualEnd ?status
+WHERE {
+  pm:Lavatory_Collaboration_Plan pm:has_step ?step .
+  ?assignment pm:has_assigned_step ?step ; pm:has_assigned_agent ?supplier .
+  ?step pm:has_scheduled_time ?schedule .
+  ?schedule time:hasBeginning ?sb ; time:hasEnd ?se .
+  ?sb time:inXSDDateTimeStamp ?scheduledStart .
+  ?se time:inXSDDateTimeStamp ?scheduledEnd .
+  OPTIONAL {
+    pm:Lavatory_Collaboration_Execution sulo:hasPart ?execution .
+    ?execution pp:correspondsToStep ?step ; prov:startedAtTime ?actualStart .
+    OPTIONAL { ?execution prov:endedAtTime ?actualEnd . }
+  }
+  BIND(IF(!BOUND(?execution), "No execution recorded", IF(BOUND(?actualEnd), "End recorded", "Started; no end recorded")) AS ?status)
+}
+ORDER BY ?scheduledStart ?step

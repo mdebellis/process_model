@@ -2,6 +2,13 @@
 
 18 November 2026
 
+**Historical first-draft review.** The current combined ontology also includes
+the Customer Portal execution and the [B2B collaboration](../docs/B2B_Collaboration.md).
+The B2B addition exercises these state classes with explicit preconditions,
+postconditions, ten SPARQL tests, and eight synthetic assessment records. Use
+the [current validation index](../validation/README.md) for current-source
+checks; counts and reports below describe the earlier state-extension stage.
+
 
 ## Scope of this draft
 
@@ -20,16 +27,16 @@ IRIs and query text while preserving standard vocabulary IRIs. The current
 names and labels and the subsequent ontology-identity correction. The current
 version is `process-model-v4-2026-11-18`. The original
 validation and namespace reports retain the identifiers used when they were
-produced. Current checks are in [ontology_identity.json](../validation/ontology_identity.json)
+produced. Checks at that revision are in [ontology_identity.json](../validation/ontology_identity.json)
 and [ontology_identity_reasoning.json](../validation/ontology_identity_reasoning.json).
 
 The supplied baseline contained 4,942 asserted triples but no State_Description
 or has_sub_state declarations. The state draft supplied those foundations and
 contained 5,294 triples before namespace migration. The namespace revision
 contained 5,299 triples; the naming revision contained 5,505 triples, with labels
-and change annotations accounting for the increase. The current source contains
+and change annotations accounting for the increase. At the ontology-identity revision, the source contained
 **5,506 asserted triples**, including one further ontology-identity change note.
-No inferred triples or runtime evaluation records have been added.
+That first draft added no inferred triples or runtime evaluation records; later examples are described in the current validation index.
 
 ## Vocabulary
 
@@ -69,9 +76,9 @@ disjointness or functional-property constraints were introduced.
 These conventions now apply across the project-owned vocabulary, with the
 documented property exceptions `precedes` and symmetric `shares_input_variable`.
 Replaced labels are retained as `skos:altLabel`; standard external IRIs are
-unchanged. The [naming map](../docs/naming_migration.tsv) records the earlier naming revision's
+unchanged. The historical naming map (`naming_migration.tsv`) records the earlier naming revision's
 175 IRI changes. For identifiers predating namespace unification, apply the
-[namespace map](../docs/iri_migration.tsv) first, then the naming map.
+historical namespace map (`iri_migration.tsv`) first, then the naming map.
 References to the ontology itself use the slashless ontology IRI; the entity
 namespace and all query prefixes retain their trailing slash.
 
@@ -127,8 +134,9 @@ failed query does not automatically trigger an LLM fallback.
 `queries/chatgpt_requirements_readiness_template.rq` selects one explicit state
 and test. Bind `evidence_text` and `context_text` as string literals before running
 it. Supply actual document contents or excerpts with evidence identifiers, version
-identifiers, the relevant execution and project expectations. The ontology contains
-planned document slots, not those documents or a Method Omega execution.
+identifiers, the relevant execution and project expectations. At this first-draft stage the ontology contained only planned document slots.
+The later Customer Portal execution adds illustrative artifact individuals, but
+does not supply their document contents for an LLM assessment.
 
 The query reads the state's definition and the test's criteria and calls the
 documented AllegroGraph `llm:response` **function**, which returns one text response.
@@ -155,7 +163,7 @@ additionally reproduces the reported Protégé inconsistency and verifies the
 corrected serialization with OWLAPI 4.5.29 and the official Pellet plug-in. Both
 sets of reports describe the earlier IRIs. The [namespace migration
 results](../validation/namespace_migration.json) describe the next stage, before
-the naming cleanup. See the current [structural and query results](../validation/ontology_identity.json)
+the naming cleanup. See the ontology-identity revision’s [structural and query results](../validation/ontology_identity.json)
 and [reasoning results](../validation/ontology_identity_reasoning.json) after the ontology-identity correction.
 
 - RDF/XML parsing and isomorphic roundtrip: passed.
