@@ -110,3 +110,9 @@ with both endpoints, excluding planned schedules and unfinished performances.
 No rule or query invents completion, executes a workflow, or calls an LLM.
 
 The Allen query was also checked with the 30 reasoner-inferred relations between the six completed actual intervals: it returns all 30 ordered, non-self pairs.
+
+## Visualizations of Queries
+The following graphs are from AllegroGraph Gruff and correspond to the queries in the section above.
+### Query 01 Execution Tree
+<img width="1085" height="547" alt="Execution_Tree2" src="https://github.com/user-attachments/assets/66c3f0e1-d22d-433d-9ab4-ac1043ff3b03" />
+
