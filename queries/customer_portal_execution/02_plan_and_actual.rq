@@ -1,0 +1,36 @@
+# All project steps, including steps without an execution record.
+# Missing records are not proof that work has not started.
+# scheduledInstant keeps the planned completion milestone distinct from an interval.
+PREFIX pm: <https://in2use.com/process_model/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sulo: <https://w3id.org/sulo/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?step ?stepLabel ?scheduledStart ?scheduledEnd ?scheduledInstant
+                ?execution ?actualStart ?actualEnd ?recordStatus
+WHERE {
+  pm:Customer_Portal_Plan
+    (pm:has_step/pp:isDecomposedAsPlan)*/pm:has_step ?step .
+  OPTIONAL { ?step rdfs:label ?stepLabel . }
+  OPTIONAL {
+    ?step pm:has_scheduled_time ?schedule .
+    OPTIONAL { ?schedule time:hasBeginning/time:inXSDDateTimeStamp ?scheduledStart . }
+    OPTIONAL { ?schedule time:hasEnd/time:inXSDDateTimeStamp ?scheduledEnd . }
+    OPTIONAL { ?schedule time:inXSDDateTimeStamp ?scheduledInstant . }
+  }
+  OPTIONAL {
+    pm:Customer_Portal_Execution sulo:hasDirectPart+ ?execution .
+    ?execution pp:correspondsToStep ?step .
+    OPTIONAL { ?execution prov:startedAtTime ?actualStart . }
+    OPTIONAL { ?execution prov:endedAtTime ?actualEnd . }
+  }
+  BIND(
+    IF(!BOUND(?execution), "No execution recorded",
+      IF(BOUND(?actualEnd), "End recorded",
+        IF(BOUND(?actualStart), "Started; no end recorded", "Execution record without times")))
+    AS ?recordStatus
+  )
+}
+ORDER BY ?scheduledStart ?scheduledInstant ?step ?execution

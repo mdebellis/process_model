@@ -1,0 +1,37 @@
+# Actual use, production, participants/roles, and correspondence to the project plan.
+# Every row is an existing triple: no direct activity-to-person or output edge is invented.
+PREFIX pm: <https://in2use.com/process_model/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sulo: <https://w3id.org/sulo/>
+
+SELECT DISTINCT ?subject ?predicate ?object
+WHERE {
+  pm:Customer_Portal_Execution sulo:hasDirectPart* ?activity .
+  {
+    VALUES ?predicate { prov:used prov:qualifiedAssociation pp:correspondsToStep }
+    ?activity ?predicate ?object .
+    BIND(?activity AS ?subject)
+  }
+  UNION
+  {
+    ?activity prov:qualifiedAssociation ?subject .
+    VALUES ?predicate { prov:agent prov:hadRole prov:hadPlan }
+    ?subject ?predicate ?object .
+  }
+  UNION
+  {
+    ?subject prov:wasGeneratedBy ?activity .
+    BIND(prov:wasGeneratedBy AS ?predicate)
+    BIND(?activity AS ?object)
+  }
+  UNION
+  {
+    { ?activity prov:used ?subject . }
+    UNION
+    { ?subject prov:wasGeneratedBy ?activity . }
+    VALUES ?predicate { pp:correspondsToVariable prov:generatedAtTime }
+    ?subject ?predicate ?object .
+  }
+}
+ORDER BY ?subject ?predicate ?object

@@ -46,7 +46,7 @@ WHERE {
 
 
 ### Query For Plan Hierarchy
-This is for *Method Omega* applied to a client for a project to build a `Customer Portal`. This and the following queries and graphs are for a planed project that hasn't started to execute yet. 
+This is for *Method Omega* applied to a client for a project to build a `Customer Portal`. This and the following queries and graphs describe the planned specification and baseline schedule. The ontology now also includes a separate [Customer Portal execution snapshot](Customer_Portal_Execution.md); the plan is retained for comparison. 
 
 ```
 PREFIX pm: <https://in2use.com/process_model/>
@@ -161,3 +161,11 @@ WHERE {
 }
 ```
 <img width="1556" height="905" alt="image" src="https://github.com/user-attachments/assets/e754494c-e10b-42d6-9fd4-0c6e870e3c56" />
+
+
+
+## Customer Portal Execution
+
+The [execution walkthrough](Customer_Portal_Execution.md) adds the third level: what happened in a fictional execution of the Customer Portal Plan. It is a snapshot at **10 February 2027, 12:00 UTC-08:00**, with completed, ongoing, and unstarted work. The methodology and project plan remain unchanged.
+
+Use the [execution queries](../queries/customer_portal_execution/) for a Gruff hierarchy, planned versus actual dates, actual people and deliverables, deviations, and inferred Allen interval relations. The graph queries return existing triples; property paths only select which nodes to display.

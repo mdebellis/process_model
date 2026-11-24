@@ -11970,9 +11970,738 @@ ASK {
             </rdf:Description>
         </swrl:head>
     </rdf:Description>
+
+<!-- Customer Portal synthetic execution snapshot: 2027-02-10T12:00:00-08:00 -->
+<rdf:Description xmlns:pp="http://purl.org/net/p-plan#" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Kickoff_Meeting_Execution">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="https://in2use.com/process_model/Step_Execution" />
+    <rdfs:label xml:lang="en">Portal Kickoff Meeting Execution</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Kickoff Meeting Execution</skos:prefLabel>
+    <pp:correspondsToStep rdf:resource="https://in2use.com/process_model/Portal_Kickoff_Meeting" />
+    <time:hasTime rdf:resource="https://in2use.com/process_model/Portal_Kickoff_Meeting_Execution_Interval" />
+    <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-01T09:00:00-08:00</prov:startedAtTime>
+    <prov:endedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-01T10:00:00-08:00</prov:endedAtTime>
+    <prov:qualifiedAssociation rdf:resource="https://in2use.com/process_model/Portal_Kickoff_Meeting_Execution_Association" />
+    <prov:wasAssociatedWith rdf:resource="https://in2use.com/process_model/Alex_Morgan" />
+    <rdfs:comment xml:lang="en">Completed in the fictional snapshot at 2027-02-10T12:00:00-08:00. Correspondence is to the project-specific planned Step, whose derivation links to Method Omega.</rdfs:comment>
+    <prov:used rdf:resource="https://in2use.com/process_model/Portal_Project_Brief_V1" />
+    <prov:qualifiedUsage rdf:resource="https://in2use.com/process_model/Portal_Kickoff_Meeting_Execution_Uses_Project_Brief" />
+  </rdf:Description>
+  <rdf:Description xmlns:pp="http://purl.org/net/p-plan#" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Write_Use_Cases_Execution">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="https://in2use.com/process_model/Step_Execution" />
+    <rdfs:label xml:lang="en">Portal Write Use Cases Execution</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Write Use Cases Execution</skos:prefLabel>
+    <pp:correspondsToStep rdf:resource="https://in2use.com/process_model/Portal_Write_Use_Cases" />
+    <time:hasTime rdf:resource="https://in2use.com/process_model/Portal_Write_Use_Cases_Execution_Interval" />
+    <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-08T13:00:00-08:00</prov:startedAtTime>
+    <prov:qualifiedAssociation rdf:resource="https://in2use.com/process_model/Portal_Write_Use_Cases_Execution_Association" />
+    <prov:wasAssociatedWith rdf:resource="https://in2use.com/process_model/Priya_Shah" />
+    <rdfs:comment xml:lang="en">In progress in the fictional snapshot at 2027-02-10T12:00:00-08:00. Correspondence is to the project-specific planned Step, whose derivation links to Method Omega.</rdfs:comment>
+    <prov:used rdf:resource="https://in2use.com/process_model/Portal_Use_Case_Interview_Notes_V1" />
+    <prov:used rdf:resource="https://in2use.com/process_model/Portal_Wireframes_V1" />
+    <prov:qualifiedUsage rdf:resource="https://in2use.com/process_model/Portal_Write_Use_Cases_Execution_Uses_Use_Case_Interview_Notes" />
+    <prov:qualifiedUsage rdf:resource="https://in2use.com/process_model/Portal_Write_Use_Cases_Execution_Uses_Wireframes" />
+  </rdf:Description>
+  <rdf:Description xmlns:pp="http://purl.org/net/p-plan#" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:sulo="https://w3id.org/sulo/" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Create_Use_Cases_Execution">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="https://in2use.com/process_model/Step_Execution" />
+    <rdfs:label xml:lang="en">Portal Create Use Cases Execution</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Create Use Cases Execution</skos:prefLabel>
+    <pp:correspondsToStep rdf:resource="https://in2use.com/process_model/Portal_Create_Use_Cases" />
+    <time:hasTime rdf:resource="https://in2use.com/process_model/Portal_Create_Use_Cases_Execution_Interval" />
+    <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-08T09:00:00-08:00</prov:startedAtTime>
+    <prov:qualifiedAssociation rdf:resource="https://in2use.com/process_model/Portal_Create_Use_Cases_Execution_Association" />
+    <prov:wasAssociatedWith rdf:resource="https://in2use.com/process_model/Priya_Shah" />
+    <rdfs:comment xml:lang="en">In progress in the fictional snapshot at 2027-02-10T12:00:00-08:00. Correspondence is to the project-specific planned Step, whose derivation links to Method Omega.</rdfs:comment>
+    <sulo:hasDirectPart rdf:resource="https://in2use.com/process_model/Portal_Use_Case_Interviews_Execution" />
+    <sulo:hasDirectPart rdf:resource="https://in2use.com/process_model/Portal_Write_Use_Cases_Execution" />
+    <prov:used rdf:resource="https://in2use.com/process_model/Portal_Wireframes_V1" />
+    <prov:qualifiedUsage rdf:resource="https://in2use.com/process_model/Portal_Create_Use_Cases_Execution_Uses_Wireframes" />
+  </rdf:Description>
+  <rdf:Description xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Customer_Portal_Execution_Association">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <rdfs:label xml:lang="en">Customer Portal Execution Association</rdfs:label>
+    <skos:prefLabel xml:lang="en">Customer Portal Execution Association</skos:prefLabel>
+    <prov:agent rdf:resource="https://in2use.com/process_model/Alex_Morgan" />
+    <prov:hadRole rdf:resource="https://in2use.com/process_model/Portal_Project_Manager_Role" />
+    <prov:hadPlan rdf:resource="https://in2use.com/process_model/Customer_Portal_Plan" />
+  </rdf:Description>
+  <rdf:Description xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Create_Detailed_Requirements_Execution_Uses_Project_Narrative">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Usage" />
+    <rdfs:label xml:lang="en">Portal Create Detailed Requirements Execution Uses Project Narrative</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Create Detailed Requirements Execution Uses Project Narrative</skos:prefLabel>
+    <prov:entity rdf:resource="https://in2use.com/process_model/Portal_Project_Narrative_V1" />
+    <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-03T09:00:00-08:00</prov:atTime>
+  </rdf:Description>
+  <rdf:Description xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Create_Use_Cases_Execution_Association">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <rdfs:label xml:lang="en">Portal Create Use Cases Execution Association</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Create Use Cases Execution Association</skos:prefLabel>
+    <prov:agent rdf:resource="https://in2use.com/process_model/Priya_Shah" />
+    <prov:hadRole rdf:resource="https://in2use.com/process_model/Portal_Business_Analyst_Role" />
+    <prov:hadPlan rdf:resource="https://in2use.com/process_model/Portal_Create_Detailed_Requirements_Plan" />
+  </rdf:Description>
+  <rdf:Description xmlns:pp="http://purl.org/net/p-plan#" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:sulo="https://w3id.org/sulo/" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Create_Detailed_Requirements_Execution">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="https://in2use.com/process_model/Step_Execution" />
+    <rdfs:label xml:lang="en">Portal Create Detailed Requirements Execution</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Create Detailed Requirements Execution</skos:prefLabel>
+    <pp:correspondsToStep rdf:resource="https://in2use.com/process_model/Portal_Create_Detailed_Requirements" />
+    <time:hasTime rdf:resource="https://in2use.com/process_model/Portal_Create_Detailed_Requirements_Execution_Interval" />
+    <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-03T09:00:00-08:00</prov:startedAtTime>
+    <prov:qualifiedAssociation rdf:resource="https://in2use.com/process_model/Portal_Create_Detailed_Requirements_Execution_Association" />
+    <prov:wasAssociatedWith rdf:resource="https://in2use.com/process_model/Priya_Shah" />
+    <rdfs:comment xml:lang="en">In progress in the fictional snapshot at 2027-02-10T12:00:00-08:00. Correspondence is to the project-specific planned Step, whose derivation links to Method Omega.</rdfs:comment>
+    <sulo:hasDirectPart rdf:resource="https://in2use.com/process_model/Portal_Create_Wireframes_Execution" />
+    <sulo:hasDirectPart rdf:resource="https://in2use.com/process_model/Portal_Create_Use_Cases_Execution" />
+    <prov:used rdf:resource="https://in2use.com/process_model/Portal_Project_Narrative_V1" />
+    <prov:qualifiedUsage rdf:resource="https://in2use.com/process_model/Portal_Create_Detailed_Requirements_Execution_Uses_Project_Narrative" />
+  </rdf:Description>
+  <rdf:Description xmlns:pp="http://purl.org/net/p-plan#" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:sulo="https://w3id.org/sulo/" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Create_Wireframes_Execution">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="https://in2use.com/process_model/Step_Execution" />
+    <rdfs:label xml:lang="en">Portal Create Wireframes Execution</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Create Wireframes Execution</skos:prefLabel>
+    <pp:correspondsToStep rdf:resource="https://in2use.com/process_model/Portal_Create_Wireframes" />
+    <time:hasTime rdf:resource="https://in2use.com/process_model/Portal_Create_Wireframes_Execution_Interval" />
+    <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-03T09:00:00-08:00</prov:startedAtTime>
+    <prov:endedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-05T16:00:00-08:00</prov:endedAtTime>
+    <prov:qualifiedAssociation rdf:resource="https://in2use.com/process_model/Portal_Create_Wireframes_Execution_Association" />
+    <prov:wasAssociatedWith rdf:resource="https://in2use.com/process_model/Jordan_Lee" />
+    <rdfs:comment xml:lang="en">Completed in the fictional snapshot at 2027-02-10T12:00:00-08:00. Correspondence is to the project-specific planned Step, whose derivation links to Method Omega.</rdfs:comment>
+    <sulo:hasDirectPart rdf:resource="https://in2use.com/process_model/Portal_User_Wireframe_Interviews_Execution" />
+    <sulo:hasDirectPart rdf:resource="https://in2use.com/process_model/Portal_Develop_Wireframes_Execution" />
+  </rdf:Description>
+  <rdf:Description xmlns:pp="http://purl.org/net/p-plan#" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:sulo="https://w3id.org/sulo/" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Requirements_Acquisition_Execution">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="https://in2use.com/process_model/Step_Execution" />
+    <rdfs:label xml:lang="en">Portal Requirements Acquisition Execution</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Requirements Acquisition Execution</skos:prefLabel>
+    <pp:correspondsToStep rdf:resource="https://in2use.com/process_model/Portal_Requirements_Acquisition" />
+    <time:hasTime rdf:resource="https://in2use.com/process_model/Portal_Requirements_Acquisition_Execution_Interval" />
+    <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-01T09:00:00-08:00</prov:startedAtTime>
+    <prov:qualifiedAssociation rdf:resource="https://in2use.com/process_model/Portal_Requirements_Acquisition_Execution_Association" />
+    <prov:wasAssociatedWith rdf:resource="https://in2use.com/process_model/Priya_Shah" />
+    <rdfs:comment xml:lang="en">In progress in the fictional snapshot at 2027-02-10T12:00:00-08:00. Correspondence is to the project-specific planned Step, whose derivation links to Method Omega.</rdfs:comment>
+    <sulo:hasDirectPart rdf:resource="https://in2use.com/process_model/Portal_Kickoff_Meeting_Execution" />
+    <sulo:hasDirectPart rdf:resource="https://in2use.com/process_model/Portal_Create_Project_Narrative_Execution" />
+    <sulo:hasDirectPart rdf:resource="https://in2use.com/process_model/Portal_Create_Detailed_Requirements_Execution" />
+  </rdf:Description>
+  <rdf:Description xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Create_Detailed_Requirements_Execution_Association">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <rdfs:label xml:lang="en">Portal Create Detailed Requirements Execution Association</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Create Detailed Requirements Execution Association</skos:prefLabel>
+    <prov:agent rdf:resource="https://in2use.com/process_model/Priya_Shah" />
+    <prov:hadRole rdf:resource="https://in2use.com/process_model/Portal_Business_Analyst_Role" />
+    <prov:hadPlan rdf:resource="https://in2use.com/process_model/Portal_Requirements_Acquisition_Plan" />
+  </rdf:Description>
+  <rdf:Description xmlns:ns5="https://in2use.com/process_model/" xmlns:pp="http://purl.org/net/p-plan#" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Use_Case_Interview_Notes_V1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="https://in2use.com/process_model/Document_Version" />
+    <rdfs:label xml:lang="en">Portal Use Case Interview Notes V1</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Use Case Interview Notes V1</skos:prefLabel>
+    <pp:correspondsToVariable rdf:resource="https://in2use.com/process_model/Portal_Use_Case_Interview_Notes_Var" />
+    <prov:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-08T12:00:00-08:00</prov:generatedAtTime>
+    <ns5:has_document_series rdf:resource="https://in2use.com/process_model/Portal_Use_Case_Interview_Notes_Document_Series" />
+    <rdfs:comment xml:lang="en">Fictional artifact version representing the project Variable Portal_Use_Case_Interview_Notes_Var. The example describes its provenance; it does not include document contents or claim a quality assessment.</rdfs:comment>
+    <prov:wasGeneratedBy rdf:resource="https://in2use.com/process_model/Portal_Use_Case_Interviews_Execution" />
+    <prov:wasDerivedFrom rdf:resource="https://in2use.com/process_model/Portal_Project_Narrative_V1" />
+    <prov:wasDerivedFrom rdf:resource="https://in2use.com/process_model/Portal_Wireframes_V1" />
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Kickoff_Meeting_Execution_Interval_End">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant" />
+    <rdfs:label xml:lang="en">Portal Kickoff Meeting Execution Interval End</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Kickoff Meeting Execution Interval End</skos:prefLabel>
+    <time:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-01T10:00:00-08:00</time:inXSDDateTimeStamp>
+  </rdf:Description>
+  <rdf:Description xmlns:ns5="https://in2use.com/process_model/" xmlns:pp="http://purl.org/net/p-plan#" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Project_Brief_V1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="https://in2use.com/process_model/Document_Version" />
+    <rdfs:label xml:lang="en">Portal Project Brief V1</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Project Brief V1</skos:prefLabel>
+    <pp:correspondsToVariable rdf:resource="https://in2use.com/process_model/Portal_Project_Brief_Var" />
+    <prov:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-01T08:00:00-08:00</prov:generatedAtTime>
+    <ns5:has_document_series rdf:resource="https://in2use.com/process_model/Portal_Project_Brief_Document_Series" />
+    <rdfs:comment xml:lang="en">Fictional artifact version representing the project Variable Portal_Project_Brief_Var. The example describes its provenance; it does not include document contents or claim a quality assessment.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Externally supplied project brief available before kickoff. Its producing activity and author are outside this example.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Requirements_Acquisition_Execution_Interval_Start">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant" />
+    <rdfs:label xml:lang="en">Portal Requirements Acquisition Execution Interval Start</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Requirements Acquisition Execution Interval Start</skos:prefLabel>
+    <time:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-01T09:00:00-08:00</time:inXSDDateTimeStamp>
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Wireframe_Interview_Notes_Document_Series">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="https://in2use.com/process_model/Document_Series" />
+    <rdfs:label xml:lang="en">Portal Wireframe Interview Notes Document Series</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Wireframe Interview Notes Document Series</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Create_Project_Narrative_Execution_Association">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <rdfs:label xml:lang="en">Portal Create Project Narrative Execution Association</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Create Project Narrative Execution Association</skos:prefLabel>
+    <prov:agent rdf:resource="https://in2use.com/process_model/Priya_Shah" />
+    <prov:hadRole rdf:resource="https://in2use.com/process_model/Portal_Business_Analyst_Role" />
+    <prov:hadPlan rdf:resource="https://in2use.com/process_model/Portal_Requirements_Acquisition_Plan" />
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Write_Use_Cases_Execution_Interval_Start">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant" />
+    <rdfs:label xml:lang="en">Portal Write Use Cases Execution Interval Start</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Write Use Cases Execution Interval Start</skos:prefLabel>
+    <time:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-08T13:00:00-08:00</time:inXSDDateTimeStamp>
+  </rdf:Description>
+  <rdf:Description xmlns:ns5="https://in2use.com/process_model/" xmlns:pp="http://purl.org/net/p-plan#" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Kickoff_Notes_V1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="https://in2use.com/process_model/Document_Version" />
+    <rdfs:label xml:lang="en">Portal Kickoff Notes V1</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Kickoff Notes V1</skos:prefLabel>
+    <pp:correspondsToVariable rdf:resource="https://in2use.com/process_model/Portal_Kickoff_Notes_Var" />
+    <prov:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-01T10:00:00-08:00</prov:generatedAtTime>
+    <ns5:has_document_series rdf:resource="https://in2use.com/process_model/Portal_Kickoff_Notes_Document_Series" />
+    <rdfs:comment xml:lang="en">Fictional artifact version representing the project Variable Portal_Kickoff_Notes_Var. The example describes its provenance; it does not include document contents or claim a quality assessment.</rdfs:comment>
+    <prov:wasGeneratedBy rdf:resource="https://in2use.com/process_model/Portal_Kickoff_Meeting_Execution" />
+    <prov:wasDerivedFrom rdf:resource="https://in2use.com/process_model/Portal_Project_Brief_V1" />
+  </rdf:Description>
+  <rdf:Description xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Requirements_Acquisition_Execution_Association">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <rdfs:label xml:lang="en">Portal Requirements Acquisition Execution Association</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Requirements Acquisition Execution Association</skos:prefLabel>
+    <prov:agent rdf:resource="https://in2use.com/process_model/Priya_Shah" />
+    <prov:hadRole rdf:resource="https://in2use.com/process_model/Portal_Business_Analyst_Role" />
+    <prov:hadPlan rdf:resource="https://in2use.com/process_model/Customer_Portal_Plan" />
+  </rdf:Description>
+  <rdf:Description xmlns:ns5="https://in2use.com/process_model/" xmlns:pp="http://purl.org/net/p-plan#" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Project_Narrative_V1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="https://in2use.com/process_model/Document_Version" />
+    <rdfs:label xml:lang="en">Portal Project Narrative V1</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Project Narrative V1</skos:prefLabel>
+    <pp:correspondsToVariable rdf:resource="https://in2use.com/process_model/Portal_Project_Narrative_Var" />
+    <prov:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-02T18:00:00-08:00</prov:generatedAtTime>
+    <ns5:has_document_series rdf:resource="https://in2use.com/process_model/Portal_Project_Narrative_Document_Series" />
+    <rdfs:comment xml:lang="en">Fictional artifact version representing the project Variable Portal_Project_Narrative_Var. The example describes its provenance; it does not include document contents or claim a quality assessment.</rdfs:comment>
+    <prov:wasGeneratedBy rdf:resource="https://in2use.com/process_model/Portal_Create_Project_Narrative_Execution" />
+    <prov:wasDerivedFrom rdf:resource="https://in2use.com/process_model/Portal_Kickoff_Notes_V1" />
+  </rdf:Description>
+  <rdf:Description xmlns:pp="http://purl.org/net/p-plan#" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Create_Project_Narrative_Execution">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="https://in2use.com/process_model/Step_Execution" />
+    <rdfs:label xml:lang="en">Portal Create Project Narrative Execution</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Create Project Narrative Execution</skos:prefLabel>
+    <pp:correspondsToStep rdf:resource="https://in2use.com/process_model/Portal_Create_Project_Narrative" />
+    <time:hasTime rdf:resource="https://in2use.com/process_model/Portal_Create_Project_Narrative_Execution_Interval" />
+    <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-01T10:00:00-08:00</prov:startedAtTime>
+    <prov:endedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-02T18:00:00-08:00</prov:endedAtTime>
+    <prov:qualifiedAssociation rdf:resource="https://in2use.com/process_model/Portal_Create_Project_Narrative_Execution_Association" />
+    <prov:wasAssociatedWith rdf:resource="https://in2use.com/process_model/Priya_Shah" />
+    <rdfs:comment xml:lang="en">Completed in the fictional snapshot at 2027-02-10T12:00:00-08:00. Correspondence is to the project-specific planned Step, whose derivation links to Method Omega.</rdfs:comment>
+    <prov:used rdf:resource="https://in2use.com/process_model/Portal_Kickoff_Notes_V1" />
+    <prov:qualifiedUsage rdf:resource="https://in2use.com/process_model/Portal_Create_Project_Narrative_Execution_Uses_Kickoff_Notes" />
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Use_Case_Interviews_Execution_Interval">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#ProperInterval" />
+    <rdfs:label xml:lang="en">Portal Use Case Interviews Execution Interval</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Use Case Interviews Execution Interval</skos:prefLabel>
+    <rdfs:comment xml:lang="en">Actual timing in a fictional execution snapshot. A missing end means no end is recorded; the snapshot date is not an activity end.</rdfs:comment>
+    <time:hasBeginning rdf:resource="https://in2use.com/process_model/Portal_Use_Case_Interviews_Execution_Interval_Start" />
+    <time:hasEnd rdf:resource="https://in2use.com/process_model/Portal_Use_Case_Interviews_Execution_Interval_End" />
+  </rdf:Description>
+  <rdf:Description xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_User_Wireframe_Interviews_Execution_Association">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <rdfs:label xml:lang="en">Portal User Wireframe Interviews Execution Association</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal User Wireframe Interviews Execution Association</skos:prefLabel>
+    <prov:agent rdf:resource="https://in2use.com/process_model/Jordan_Lee" />
+    <prov:hadRole rdf:resource="https://in2use.com/process_model/Portal_User_Experience_Designer_Role" />
+    <prov:hadPlan rdf:resource="https://in2use.com/process_model/Portal_Create_Wireframes_Plan" />
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Create_Wireframes_Execution_Interval">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#ProperInterval" />
+    <rdfs:label xml:lang="en">Portal Create Wireframes Execution Interval</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Create Wireframes Execution Interval</skos:prefLabel>
+    <rdfs:comment xml:lang="en">Actual timing in a fictional execution snapshot. A missing end means no end is recorded; the snapshot date is not an activity end.</rdfs:comment>
+    <time:hasBeginning rdf:resource="https://in2use.com/process_model/Portal_Create_Wireframes_Execution_Interval_Start" />
+    <time:hasEnd rdf:resource="https://in2use.com/process_model/Portal_Create_Wireframes_Execution_Interval_End" />
+  </rdf:Description>
+  <rdf:Description xmlns:ns5="https://in2use.com/process_model/" xmlns:pp="http://purl.org/net/p-plan#" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Wireframe_Interview_Notes_V1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="https://in2use.com/process_model/Document_Version" />
+    <rdfs:label xml:lang="en">Portal Wireframe Interview Notes V1</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Wireframe Interview Notes V1</skos:prefLabel>
+    <pp:correspondsToVariable rdf:resource="https://in2use.com/process_model/Portal_Wireframe_Interview_Notes_Var" />
+    <prov:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-03T12:00:00-08:00</prov:generatedAtTime>
+    <ns5:has_document_series rdf:resource="https://in2use.com/process_model/Portal_Wireframe_Interview_Notes_Document_Series" />
+    <rdfs:comment xml:lang="en">Fictional artifact version representing the project Variable Portal_Wireframe_Interview_Notes_Var. The example describes its provenance; it does not include document contents or claim a quality assessment.</rdfs:comment>
+    <prov:wasGeneratedBy rdf:resource="https://in2use.com/process_model/Portal_User_Wireframe_Interviews_Execution" />
+    <prov:wasDerivedFrom rdf:resource="https://in2use.com/process_model/Portal_Project_Narrative_V1" />
+  </rdf:Description>
+  <rdf:Description xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Write_Use_Cases_Execution_Uses_Use_Case_Interview_Notes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Usage" />
+    <rdfs:label xml:lang="en">Portal Write Use Cases Execution Uses Use Case Interview Notes</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Write Use Cases Execution Uses Use Case Interview Notes</skos:prefLabel>
+    <prov:entity rdf:resource="https://in2use.com/process_model/Portal_Use_Case_Interview_Notes_V1" />
+    <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-08T13:00:00-08:00</prov:atTime>
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Requirements_Acquisition_Execution_Interval">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#ProperInterval" />
+    <rdfs:label xml:lang="en">Portal Requirements Acquisition Execution Interval</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Requirements Acquisition Execution Interval</skos:prefLabel>
+    <rdfs:comment xml:lang="en">Actual timing in a fictional execution snapshot. A missing end means no end is recorded; the snapshot date is not an activity end.</rdfs:comment>
+    <time:hasBeginning rdf:resource="https://in2use.com/process_model/Portal_Requirements_Acquisition_Execution_Interval_Start" />
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Write_Use_Cases_Execution_Interval">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#ProperInterval" />
+    <rdfs:label xml:lang="en">Portal Write Use Cases Execution Interval</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Write Use Cases Execution Interval</skos:prefLabel>
+    <rdfs:comment xml:lang="en">Actual timing in a fictional execution snapshot. A missing end means no end is recorded; the snapshot date is not an activity end.</rdfs:comment>
+    <time:hasBeginning rdf:resource="https://in2use.com/process_model/Portal_Write_Use_Cases_Execution_Interval_Start" />
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Create_Wireframes_Execution_Interval_End">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant" />
+    <rdfs:label xml:lang="en">Portal Create Wireframes Execution Interval End</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Create Wireframes Execution Interval End</skos:prefLabel>
+    <time:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-05T16:00:00-08:00</time:inXSDDateTimeStamp>
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Wireframes_Document_Series">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="https://in2use.com/process_model/Document_Series" />
+    <rdfs:label xml:lang="en">Portal Wireframes Document Series</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Wireframes Document Series</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description xmlns:pp="http://purl.org/net/p-plan#" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_User_Wireframe_Interviews_Execution">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="https://in2use.com/process_model/Step_Execution" />
+    <rdfs:label xml:lang="en">Portal User Wireframe Interviews Execution</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal User Wireframe Interviews Execution</skos:prefLabel>
+    <pp:correspondsToStep rdf:resource="https://in2use.com/process_model/Portal_User_Wireframe_Interviews" />
+    <time:hasTime rdf:resource="https://in2use.com/process_model/Portal_User_Wireframe_Interviews_Execution_Interval" />
+    <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-03T09:00:00-08:00</prov:startedAtTime>
+    <prov:endedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-03T12:00:00-08:00</prov:endedAtTime>
+    <prov:qualifiedAssociation rdf:resource="https://in2use.com/process_model/Portal_User_Wireframe_Interviews_Execution_Association" />
+    <prov:wasAssociatedWith rdf:resource="https://in2use.com/process_model/Jordan_Lee" />
+    <rdfs:comment xml:lang="en">Completed in the fictional snapshot at 2027-02-10T12:00:00-08:00. Correspondence is to the project-specific planned Step, whose derivation links to Method Omega.</rdfs:comment>
+    <prov:used rdf:resource="https://in2use.com/process_model/Portal_Project_Narrative_V1" />
+    <prov:qualifiedUsage rdf:resource="https://in2use.com/process_model/Portal_User_Wireframe_Interviews_Execution_Uses_Project_Narrative" />
+  </rdf:Description>
+  <rdf:Description xmlns:pp="http://purl.org/net/p-plan#" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Technical_Design_Execution">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="https://in2use.com/process_model/Step_Execution" />
+    <rdfs:label xml:lang="en">Portal Technical Design Execution</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Technical Design Execution</skos:prefLabel>
+    <pp:correspondsToStep rdf:resource="https://in2use.com/process_model/Portal_Technical_Design" />
+    <time:hasTime rdf:resource="https://in2use.com/process_model/Portal_Technical_Design_Execution_Interval" />
+    <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-10T10:00:00-08:00</prov:startedAtTime>
+    <prov:qualifiedAssociation rdf:resource="https://in2use.com/process_model/Portal_Technical_Design_Execution_Association" />
+    <prov:wasAssociatedWith rdf:resource="https://in2use.com/process_model/Sam_Rivera" />
+    <rdfs:comment xml:lang="en">In progress in the fictional snapshot at 2027-02-10T12:00:00-08:00. Correspondence is to the project-specific planned Step, whose derivation links to Method Omega.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Intentional plan deviation: exploratory technical design begins while requirements acquisition is still in progress, before the planned finish-to-start predecessor has completed. Only the existing wireframes and project narrative are used; no approval decision or completed use cases are asserted. This records what happened, not permission granted by the plan.</rdfs:comment>
+    <prov:used rdf:resource="https://in2use.com/process_model/Portal_Wireframes_V1" />
+    <prov:used rdf:resource="https://in2use.com/process_model/Portal_Project_Narrative_V1" />
+    <prov:qualifiedUsage rdf:resource="https://in2use.com/process_model/Portal_Technical_Design_Execution_Uses_Wireframes" />
+    <prov:qualifiedUsage rdf:resource="https://in2use.com/process_model/Portal_Technical_Design_Execution_Uses_Project_Narrative" />
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Develop_Wireframes_Execution_Interval">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#ProperInterval" />
+    <rdfs:label xml:lang="en">Portal Develop Wireframes Execution Interval</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Develop Wireframes Execution Interval</skos:prefLabel>
+    <rdfs:comment xml:lang="en">Actual timing in a fictional execution snapshot. A missing end means no end is recorded; the snapshot date is not an activity end.</rdfs:comment>
+    <time:hasBeginning rdf:resource="https://in2use.com/process_model/Portal_Develop_Wireframes_Execution_Interval_Start" />
+    <time:hasEnd rdf:resource="https://in2use.com/process_model/Portal_Develop_Wireframes_Execution_Interval_End" />
+  </rdf:Description>
+  <rdf:Description xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Kickoff_Meeting_Execution_Uses_Project_Brief">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Usage" />
+    <rdfs:label xml:lang="en">Portal Kickoff Meeting Execution Uses Project Brief</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Kickoff Meeting Execution Uses Project Brief</skos:prefLabel>
+    <prov:entity rdf:resource="https://in2use.com/process_model/Portal_Project_Brief_V1" />
+    <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-01T09:00:00-08:00</prov:atTime>
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Use_Case_Interviews_Execution_Interval_Start">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant" />
+    <rdfs:label xml:lang="en">Portal Use Case Interviews Execution Interval Start</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Use Case Interviews Execution Interval Start</skos:prefLabel>
+    <time:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-08T09:00:00-08:00</time:inXSDDateTimeStamp>
+  </rdf:Description>
+  <rdf:Description xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Use_Case_Interviews_Execution_Uses_Project_Narrative">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Usage" />
+    <rdfs:label xml:lang="en">Portal Use Case Interviews Execution Uses Project Narrative</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Use Case Interviews Execution Uses Project Narrative</skos:prefLabel>
+    <prov:entity rdf:resource="https://in2use.com/process_model/Portal_Project_Narrative_V1" />
+    <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-08T09:00:00-08:00</prov:atTime>
+  </rdf:Description>
+  <rdf:Description xmlns:ns5="https://in2use.com/process_model/" xmlns:pp="http://purl.org/net/p-plan#" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Wireframes_V1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="https://in2use.com/process_model/Document_Version" />
+    <rdfs:label xml:lang="en">Portal Wireframes V1</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Wireframes V1</skos:prefLabel>
+    <pp:correspondsToVariable rdf:resource="https://in2use.com/process_model/Portal_Wireframes" />
+    <prov:generatedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-05T16:00:00-08:00</prov:generatedAtTime>
+    <ns5:has_document_series rdf:resource="https://in2use.com/process_model/Portal_Wireframes_Document_Series" />
+    <rdfs:comment xml:lang="en">Fictional artifact version representing the project Variable Portal_Wireframes. The example describes its provenance; it does not include document contents or claim a quality assessment.</rdfs:comment>
+    <prov:wasGeneratedBy rdf:resource="https://in2use.com/process_model/Portal_Develop_Wireframes_Execution" />
+    <prov:wasDerivedFrom rdf:resource="https://in2use.com/process_model/Portal_Wireframe_Interview_Notes_V1" />
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Develop_Wireframes_Execution_Interval_Start">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant" />
+    <rdfs:label xml:lang="en">Portal Develop Wireframes Execution Interval Start</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Develop Wireframes Execution Interval Start</skos:prefLabel>
+    <time:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-03T13:00:00-08:00</time:inXSDDateTimeStamp>
+  </rdf:Description>
+  <rdf:Description xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Write_Use_Cases_Execution_Association">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <rdfs:label xml:lang="en">Portal Write Use Cases Execution Association</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Write Use Cases Execution Association</skos:prefLabel>
+    <prov:agent rdf:resource="https://in2use.com/process_model/Priya_Shah" />
+    <prov:hadRole rdf:resource="https://in2use.com/process_model/Portal_Business_Analyst_Role" />
+    <prov:hadPlan rdf:resource="https://in2use.com/process_model/Portal_Create_Use_Cases_Plan" />
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Technical_Design_Execution_Interval_Start">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant" />
+    <rdfs:label xml:lang="en">Portal Technical Design Execution Interval Start</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Technical Design Execution Interval Start</skos:prefLabel>
+    <time:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-10T10:00:00-08:00</time:inXSDDateTimeStamp>
+  </rdf:Description>
+  <rdf:Description xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Use_Case_Interviews_Execution_Uses_Wireframes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Usage" />
+    <rdfs:label xml:lang="en">Portal Use Case Interviews Execution Uses Wireframes</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Use Case Interviews Execution Uses Wireframes</skos:prefLabel>
+    <prov:entity rdf:resource="https://in2use.com/process_model/Portal_Wireframes_V1" />
+    <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-08T09:00:00-08:00</prov:atTime>
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Create_Project_Narrative_Execution_Interval_End">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant" />
+    <rdfs:label xml:lang="en">Portal Create Project Narrative Execution Interval End</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Create Project Narrative Execution Interval End</skos:prefLabel>
+    <time:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-02T18:00:00-08:00</time:inXSDDateTimeStamp>
+  </rdf:Description>
+  <rdf:Description xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Develop_Wireframes_Execution_Association">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <rdfs:label xml:lang="en">Portal Develop Wireframes Execution Association</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Develop Wireframes Execution Association</skos:prefLabel>
+    <prov:agent rdf:resource="https://in2use.com/process_model/Jordan_Lee" />
+    <prov:hadRole rdf:resource="https://in2use.com/process_model/Portal_User_Experience_Designer_Role" />
+    <prov:hadPlan rdf:resource="https://in2use.com/process_model/Portal_Create_Wireframes_Plan" />
+  </rdf:Description>
+  <rdf:Description xmlns:pp="http://purl.org/net/p-plan#" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Use_Case_Interviews_Execution">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="https://in2use.com/process_model/Step_Execution" />
+    <rdfs:label xml:lang="en">Portal Use Case Interviews Execution</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Use Case Interviews Execution</skos:prefLabel>
+    <pp:correspondsToStep rdf:resource="https://in2use.com/process_model/Portal_Use_Case_Interviews" />
+    <time:hasTime rdf:resource="https://in2use.com/process_model/Portal_Use_Case_Interviews_Execution_Interval" />
+    <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-08T09:00:00-08:00</prov:startedAtTime>
+    <prov:endedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-08T12:00:00-08:00</prov:endedAtTime>
+    <prov:qualifiedAssociation rdf:resource="https://in2use.com/process_model/Portal_Use_Case_Interviews_Execution_Association" />
+    <prov:wasAssociatedWith rdf:resource="https://in2use.com/process_model/Priya_Shah" />
+    <rdfs:comment xml:lang="en">Completed in the fictional snapshot at 2027-02-10T12:00:00-08:00. Correspondence is to the project-specific planned Step, whose derivation links to Method Omega.</rdfs:comment>
+    <prov:used rdf:resource="https://in2use.com/process_model/Portal_Project_Narrative_V1" />
+    <prov:used rdf:resource="https://in2use.com/process_model/Portal_Wireframes_V1" />
+    <prov:qualifiedUsage rdf:resource="https://in2use.com/process_model/Portal_Use_Case_Interviews_Execution_Uses_Project_Narrative" />
+    <prov:qualifiedUsage rdf:resource="https://in2use.com/process_model/Portal_Use_Case_Interviews_Execution_Uses_Wireframes" />
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Kickoff_Meeting_Execution_Interval_Start">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant" />
+    <rdfs:label xml:lang="en">Portal Kickoff Meeting Execution Interval Start</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Kickoff Meeting Execution Interval Start</skos:prefLabel>
+    <time:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-01T09:00:00-08:00</time:inXSDDateTimeStamp>
+  </rdf:Description>
+  <rdf:Description xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Technical_Design_Execution_Uses_Wireframes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Usage" />
+    <rdfs:label xml:lang="en">Portal Technical Design Execution Uses Wireframes</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Technical Design Execution Uses Wireframes</skos:prefLabel>
+    <prov:entity rdf:resource="https://in2use.com/process_model/Portal_Wireframes_V1" />
+    <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-10T10:00:00-08:00</prov:atTime>
+  </rdf:Description>
+  <rdf:Description xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Technical_Design_Execution_Association">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <rdfs:label xml:lang="en">Portal Technical Design Execution Association</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Technical Design Execution Association</skos:prefLabel>
+    <prov:agent rdf:resource="https://in2use.com/process_model/Sam_Rivera" />
+    <prov:hadRole rdf:resource="https://in2use.com/process_model/Portal_Developer_Role" />
+    <prov:hadPlan rdf:resource="https://in2use.com/process_model/Customer_Portal_Plan" />
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Use_Case_Interview_Notes_Document_Series">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="https://in2use.com/process_model/Document_Series" />
+    <rdfs:label xml:lang="en">Portal Use Case Interview Notes Document Series</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Use Case Interview Notes Document Series</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Create_Project_Narrative_Execution_Interval_Start">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant" />
+    <rdfs:label xml:lang="en">Portal Create Project Narrative Execution Interval Start</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Create Project Narrative Execution Interval Start</skos:prefLabel>
+    <time:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-01T10:00:00-08:00</time:inXSDDateTimeStamp>
+  </rdf:Description>
+  <rdf:Description xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Develop_Wireframes_Execution_Uses_Wireframe_Interview_Notes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Usage" />
+    <rdfs:label xml:lang="en">Portal Develop Wireframes Execution Uses Wireframe Interview Notes</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Develop Wireframes Execution Uses Wireframe Interview Notes</skos:prefLabel>
+    <prov:entity rdf:resource="https://in2use.com/process_model/Portal_Wireframe_Interview_Notes_V1" />
+    <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-03T13:00:00-08:00</prov:atTime>
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Kickoff_Meeting_Execution_Interval">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#ProperInterval" />
+    <rdfs:label xml:lang="en">Portal Kickoff Meeting Execution Interval</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Kickoff Meeting Execution Interval</skos:prefLabel>
+    <rdfs:comment xml:lang="en">Actual timing in a fictional execution snapshot. A missing end means no end is recorded; the snapshot date is not an activity end.</rdfs:comment>
+    <time:hasBeginning rdf:resource="https://in2use.com/process_model/Portal_Kickoff_Meeting_Execution_Interval_Start" />
+    <time:hasEnd rdf:resource="https://in2use.com/process_model/Portal_Kickoff_Meeting_Execution_Interval_End" />
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_User_Wireframe_Interviews_Execution_Interval_Start">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant" />
+    <rdfs:label xml:lang="en">Portal User Wireframe Interviews Execution Interval Start</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal User Wireframe Interviews Execution Interval Start</skos:prefLabel>
+    <time:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-03T09:00:00-08:00</time:inXSDDateTimeStamp>
+  </rdf:Description>
+  <rdf:Description xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Write_Use_Cases_Execution_Uses_Wireframes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Usage" />
+    <rdfs:label xml:lang="en">Portal Write Use Cases Execution Uses Wireframes</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Write Use Cases Execution Uses Wireframes</skos:prefLabel>
+    <prov:entity rdf:resource="https://in2use.com/process_model/Portal_Wireframes_V1" />
+    <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-08T13:00:00-08:00</prov:atTime>
+  </rdf:Description>
+  <rdf:Description xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_User_Wireframe_Interviews_Execution_Uses_Project_Narrative">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Usage" />
+    <rdfs:label xml:lang="en">Portal User Wireframe Interviews Execution Uses Project Narrative</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal User Wireframe Interviews Execution Uses Project Narrative</skos:prefLabel>
+    <prov:entity rdf:resource="https://in2use.com/process_model/Portal_Project_Narrative_V1" />
+    <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-03T09:00:00-08:00</prov:atTime>
+  </rdf:Description>
+  <rdf:Description xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Create_Wireframes_Execution_Association">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <rdfs:label xml:lang="en">Portal Create Wireframes Execution Association</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Create Wireframes Execution Association</skos:prefLabel>
+    <prov:agent rdf:resource="https://in2use.com/process_model/Jordan_Lee" />
+    <prov:hadRole rdf:resource="https://in2use.com/process_model/Portal_User_Experience_Designer_Role" />
+    <prov:hadPlan rdf:resource="https://in2use.com/process_model/Portal_Create_Detailed_Requirements_Plan" />
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_User_Wireframe_Interviews_Execution_Interval_End">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant" />
+    <rdfs:label xml:lang="en">Portal User Wireframe Interviews Execution Interval End</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal User Wireframe Interviews Execution Interval End</skos:prefLabel>
+    <time:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-03T12:00:00-08:00</time:inXSDDateTimeStamp>
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_User_Wireframe_Interviews_Execution_Interval">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#ProperInterval" />
+    <rdfs:label xml:lang="en">Portal User Wireframe Interviews Execution Interval</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal User Wireframe Interviews Execution Interval</skos:prefLabel>
+    <rdfs:comment xml:lang="en">Actual timing in a fictional execution snapshot. A missing end means no end is recorded; the snapshot date is not an activity end.</rdfs:comment>
+    <time:hasBeginning rdf:resource="https://in2use.com/process_model/Portal_User_Wireframe_Interviews_Execution_Interval_Start" />
+    <time:hasEnd rdf:resource="https://in2use.com/process_model/Portal_User_Wireframe_Interviews_Execution_Interval_End" />
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Customer_Portal_Execution_Interval">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#ProperInterval" />
+    <rdfs:label xml:lang="en">Customer Portal Execution Interval</rdfs:label>
+    <skos:prefLabel xml:lang="en">Customer Portal Execution Interval</skos:prefLabel>
+    <rdfs:comment xml:lang="en">Actual timing in a fictional execution snapshot. A missing end means no end is recorded; the snapshot date is not an activity end.</rdfs:comment>
+    <time:hasBeginning rdf:resource="https://in2use.com/process_model/Customer_Portal_Execution_Interval_Start" />
+  </rdf:Description>
+  <rdf:Description xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Use_Case_Interviews_Execution_Association">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <rdfs:label xml:lang="en">Portal Use Case Interviews Execution Association</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Use Case Interviews Execution Association</skos:prefLabel>
+    <prov:agent rdf:resource="https://in2use.com/process_model/Priya_Shah" />
+    <prov:hadRole rdf:resource="https://in2use.com/process_model/Portal_Business_Analyst_Role" />
+    <prov:hadPlan rdf:resource="https://in2use.com/process_model/Portal_Create_Use_Cases_Plan" />
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Develop_Wireframes_Execution_Interval_End">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant" />
+    <rdfs:label xml:lang="en">Portal Develop Wireframes Execution Interval End</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Develop Wireframes Execution Interval End</skos:prefLabel>
+    <time:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-05T16:00:00-08:00</time:inXSDDateTimeStamp>
+  </rdf:Description>
+  <rdf:Description xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Create_Use_Cases_Execution_Uses_Wireframes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Usage" />
+    <rdfs:label xml:lang="en">Portal Create Use Cases Execution Uses Wireframes</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Create Use Cases Execution Uses Wireframes</skos:prefLabel>
+    <prov:entity rdf:resource="https://in2use.com/process_model/Portal_Wireframes_V1" />
+    <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-08T09:00:00-08:00</prov:atTime>
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Technical_Design_Execution_Interval">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#ProperInterval" />
+    <rdfs:label xml:lang="en">Portal Technical Design Execution Interval</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Technical Design Execution Interval</skos:prefLabel>
+    <rdfs:comment xml:lang="en">Actual timing in a fictional execution snapshot. A missing end means no end is recorded; the snapshot date is not an activity end.</rdfs:comment>
+    <time:hasBeginning rdf:resource="https://in2use.com/process_model/Portal_Technical_Design_Execution_Interval_Start" />
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Customer_Portal_Execution_Interval_Start">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant" />
+    <rdfs:label xml:lang="en">Customer Portal Execution Interval Start</rdfs:label>
+    <skos:prefLabel xml:lang="en">Customer Portal Execution Interval Start</skos:prefLabel>
+    <time:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-01T09:00:00-08:00</time:inXSDDateTimeStamp>
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Kickoff_Notes_Document_Series">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="https://in2use.com/process_model/Document_Series" />
+    <rdfs:label xml:lang="en">Portal Kickoff Notes Document Series</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Kickoff Notes Document Series</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:sulo="https://w3id.org/sulo/" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Customer_Portal_Execution">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity" />
+    <rdfs:label xml:lang="en">Customer Portal Execution</rdfs:label>
+    <skos:prefLabel xml:lang="en">Customer Portal Execution</skos:prefLabel>
+    <rdfs:comment xml:lang="en">Synthetic execution of Customer Portal Plan, observed as of 10 February 2027 at 12:00 UTC-08:00. This is an illustrative future scenario, not a claim about real work or the current date. The project and five recorded step executions are in progress. Six step executions are completed. Requirements review, its completion event, implementation, testing and rollout have not started in this example. Their planned Steps remain without Activity instances. All assertions are in the default graph.</rdfs:comment>
+    <skos:scopeNote xml:lang="en">This snapshot is complete for the example activities described here. In general, missing end times or missing Activities mean only that no end or execution is recorded. Plan dates and assignments remain the baseline. The actual narrative finishes one hour late; wireframe development finishes one hour early; technical design intentionally starts before requirements completion. No review decision, approval, finished use-case document or evaluation result is fabricated.</skos:scopeNote>
+    <time:hasTime rdf:resource="https://in2use.com/process_model/Customer_Portal_Execution_Interval" />
+    <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-01T09:00:00-08:00</prov:startedAtTime>
+    <prov:qualifiedAssociation rdf:resource="https://in2use.com/process_model/Customer_Portal_Execution_Association" />
+    <prov:wasAssociatedWith rdf:resource="https://in2use.com/process_model/Alex_Morgan" />
+    <sulo:hasDirectPart rdf:resource="https://in2use.com/process_model/Portal_Requirements_Acquisition_Execution" />
+    <sulo:hasDirectPart rdf:resource="https://in2use.com/process_model/Portal_Technical_Design_Execution" />
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Create_Detailed_Requirements_Execution_Interval">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#ProperInterval" />
+    <rdfs:label xml:lang="en">Portal Create Detailed Requirements Execution Interval</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Create Detailed Requirements Execution Interval</skos:prefLabel>
+    <rdfs:comment xml:lang="en">Actual timing in a fictional execution snapshot. A missing end means no end is recorded; the snapshot date is not an activity end.</rdfs:comment>
+    <time:hasBeginning rdf:resource="https://in2use.com/process_model/Portal_Create_Detailed_Requirements_Execution_Interval_Start" />
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Create_Wireframes_Execution_Interval_Start">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant" />
+    <rdfs:label xml:lang="en">Portal Create Wireframes Execution Interval Start</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Create Wireframes Execution Interval Start</skos:prefLabel>
+    <time:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-03T09:00:00-08:00</time:inXSDDateTimeStamp>
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Project_Narrative_Document_Series">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="https://in2use.com/process_model/Document_Series" />
+    <rdfs:label xml:lang="en">Portal Project Narrative Document Series</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Project Narrative Document Series</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Project_Brief_Document_Series">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="https://in2use.com/process_model/Document_Series" />
+    <rdfs:label xml:lang="en">Portal Project Brief Document Series</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Project Brief Document Series</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Use_Case_Interviews_Execution_Interval_End">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant" />
+    <rdfs:label xml:lang="en">Portal Use Case Interviews Execution Interval End</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Use Case Interviews Execution Interval End</skos:prefLabel>
+    <time:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-08T12:00:00-08:00</time:inXSDDateTimeStamp>
+  </rdf:Description>
+  <rdf:Description xmlns:pp="http://purl.org/net/p-plan#" xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Develop_Wireframes_Execution">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="https://in2use.com/process_model/Step_Execution" />
+    <rdfs:label xml:lang="en">Portal Develop Wireframes Execution</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Develop Wireframes Execution</skos:prefLabel>
+    <pp:correspondsToStep rdf:resource="https://in2use.com/process_model/Portal_Develop_Wireframes" />
+    <time:hasTime rdf:resource="https://in2use.com/process_model/Portal_Develop_Wireframes_Execution_Interval" />
+    <prov:startedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-03T13:00:00-08:00</prov:startedAtTime>
+    <prov:endedAtTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-05T16:00:00-08:00</prov:endedAtTime>
+    <prov:qualifiedAssociation rdf:resource="https://in2use.com/process_model/Portal_Develop_Wireframes_Execution_Association" />
+    <prov:wasAssociatedWith rdf:resource="https://in2use.com/process_model/Jordan_Lee" />
+    <rdfs:comment xml:lang="en">Completed in the fictional snapshot at 2027-02-10T12:00:00-08:00. Correspondence is to the project-specific planned Step, whose derivation links to Method Omega.</rdfs:comment>
+    <prov:used rdf:resource="https://in2use.com/process_model/Portal_Wireframe_Interview_Notes_V1" />
+    <prov:qualifiedUsage rdf:resource="https://in2use.com/process_model/Portal_Develop_Wireframes_Execution_Uses_Wireframe_Interview_Notes" />
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Create_Project_Narrative_Execution_Interval">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#ProperInterval" />
+    <rdfs:label xml:lang="en">Portal Create Project Narrative Execution Interval</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Create Project Narrative Execution Interval</skos:prefLabel>
+    <rdfs:comment xml:lang="en">Actual timing in a fictional execution snapshot. A missing end means no end is recorded; the snapshot date is not an activity end.</rdfs:comment>
+    <time:hasBeginning rdf:resource="https://in2use.com/process_model/Portal_Create_Project_Narrative_Execution_Interval_Start" />
+    <time:hasEnd rdf:resource="https://in2use.com/process_model/Portal_Create_Project_Narrative_Execution_Interval_End" />
+  </rdf:Description>
+  <rdf:Description xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Technical_Design_Execution_Uses_Project_Narrative">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Usage" />
+    <rdfs:label xml:lang="en">Portal Technical Design Execution Uses Project Narrative</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Technical Design Execution Uses Project Narrative</skos:prefLabel>
+    <prov:entity rdf:resource="https://in2use.com/process_model/Portal_Project_Narrative_V1" />
+    <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-10T10:00:00-08:00</prov:atTime>
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Create_Detailed_Requirements_Execution_Interval_Start">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant" />
+    <rdfs:label xml:lang="en">Portal Create Detailed Requirements Execution Interval Start</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Create Detailed Requirements Execution Interval Start</skos:prefLabel>
+    <time:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-03T09:00:00-08:00</time:inXSDDateTimeStamp>
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Create_Use_Cases_Execution_Interval">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#ProperInterval" />
+    <rdfs:label xml:lang="en">Portal Create Use Cases Execution Interval</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Create Use Cases Execution Interval</skos:prefLabel>
+    <rdfs:comment xml:lang="en">Actual timing in a fictional execution snapshot. A missing end means no end is recorded; the snapshot date is not an activity end.</rdfs:comment>
+    <time:hasBeginning rdf:resource="https://in2use.com/process_model/Portal_Create_Use_Cases_Execution_Interval_Start" />
+  </rdf:Description>
+  <rdf:Description xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Kickoff_Meeting_Execution_Association">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Association" />
+    <rdfs:label xml:lang="en">Portal Kickoff Meeting Execution Association</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Kickoff Meeting Execution Association</skos:prefLabel>
+    <prov:agent rdf:resource="https://in2use.com/process_model/Alex_Morgan" />
+    <prov:hadRole rdf:resource="https://in2use.com/process_model/Portal_Project_Manager_Role" />
+    <prov:hadPlan rdf:resource="https://in2use.com/process_model/Portal_Requirements_Acquisition_Plan" />
+  </rdf:Description>
+  <rdf:Description xmlns:prov="http://www.w3.org/ns/prov#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:about="https://in2use.com/process_model/Portal_Create_Project_Narrative_Execution_Uses_Kickoff_Notes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/ns/prov#Usage" />
+    <rdfs:label xml:lang="en">Portal Create Project Narrative Execution Uses Kickoff Notes</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Create Project Narrative Execution Uses Kickoff Notes</skos:prefLabel>
+    <prov:entity rdf:resource="https://in2use.com/process_model/Portal_Kickoff_Notes_V1" />
+    <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2027-02-01T10:00:00-08:00</prov:atTime>
+  </rdf:Description>
+  <rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:time="http://www.w3.org/2006/time#" rdf:about="https://in2use.com/process_model/Portal_Create_Use_Cases_Execution_Interval_Start">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual" />
+    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant" />
+    <rdfs:label xml:lang="en">Portal Create Use Cases Execution Interval Start</rdfs:label>
+    <skos:prefLabel xml:lang="en">Portal Create Use Cases Execution Interval Start</skos:prefLabel>
+    <time:inXSDDateTimeStamp rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTimeStamp">2027-02-08T09:00:00-08:00</time:inXSDDateTimeStamp>
+  </rdf:Description>
 </rdf:RDF>
 
 
 
 <!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
 

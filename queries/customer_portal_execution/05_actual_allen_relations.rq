@@ -1,0 +1,29 @@
+# Requires inferred Allen assertions visible to this query engine.
+# Only actual intervals of this execution with both endpoints are considered.
+# Scheduled intervals and unfinished actual intervals are excluded.
+PREFIX pm: <https://in2use.com/process_model/>
+PREFIX sulo: <https://w3id.org/sulo/>
+PREFIX time: <http://www.w3.org/2006/time#>
+
+SELECT DISTINCT ?execution ?interval ?relation ?otherInterval ?otherExecution
+WHERE {
+  pm:Customer_Portal_Execution sulo:hasDirectPart+ ?execution, ?otherExecution .
+  FILTER(?execution != ?otherExecution)
+  ?execution time:hasTime ?interval .
+  ?otherExecution time:hasTime ?otherInterval .
+  ?interval time:hasBeginning/time:inXSDDateTimeStamp ?start ;
+            time:hasEnd/time:inXSDDateTimeStamp ?end .
+  ?otherInterval time:hasBeginning/time:inXSDDateTimeStamp ?otherStart ;
+                 time:hasEnd/time:inXSDDateTimeStamp ?otherEnd .
+  VALUES ?relation {
+    time:intervalBefore time:intervalAfter
+    time:intervalMeets time:intervalMetBy
+    time:intervalOverlaps time:intervalOverlappedBy
+    time:intervalStarts time:intervalStartedBy
+    time:intervalDuring time:intervalContains
+    time:intervalFinishes time:intervalFinishedBy
+    time:intervalEquals
+  }
+  ?interval ?relation ?otherInterval .
+}
+ORDER BY ?execution ?otherExecution ?relation

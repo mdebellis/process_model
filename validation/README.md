@@ -2,13 +2,17 @@
 
 The repository has one ontology source: [process_model_with_examples.rdf](../ontologies/process_model_with_examples.rdf). Validation records document checks on this source and the earlier stages from which it was assembled.
 
-## Current source and ontology-identity checks
+## Current Customer Portal execution checks
 
-The current ontology contains **5,506 asserted triples**, including ten complete SWRL rules and the [state and goal extensions](../state_goal_extensions_review/README.md). Its ontology IRI is `https://in2use.com/process_model` (no trailing slash). Its entity namespace and `pm:` prefix remain `https://in2use.com/process_model/`; `owl:versionInfo` is `process-model-v4-2026-11-18`.
+The source now contains **7,158 asserted triples**, including the unchanged ten SWRL rules. The [Customer Portal execution report](customer_portal_execution.json) checks the fictional execution snapshot, preservation of the existing ontology, OWLAPI 4.5.29/Pellet parsing and reasoning, and Allen relations on completed actual intervals. The [execution walkthrough](../docs/Customer_Portal_Execution.md) describes the scenario and query expectations. All data remains in the default graph and the existing namespace.
+
+## Historical ontology-identity checks
+
+At the ontology-identity revision, the ontology contained **5,506 asserted triples**, including ten complete SWRL rules and the [state and goal extensions](../state_goal_extensions_review/README.md). Its ontology IRI is `https://in2use.com/process_model` (no trailing slash). Its entity namespace and `pm:` prefix remain `https://in2use.com/process_model/`; `owl:versionInfo` is `process-model-v4-2026-11-18`.
 
 The [naming conventions](../docs/naming_conventions.md) explain the distinction between ontology identity and entity namespace. The header correction updates 54 `rdfs:isDefinedBy` references in the complete source and 49 in the review fragment. Class, property, and individual IRIs, labels, logical axioms, and query text are unchanged. The additional triple is an ontology change note.
 
-[ontology_identity.json](ontology_identity.json) records current structural, naming, reference, and query checks; [ontology_identity_reasoning.json](ontology_identity_reasoning.json) records the focused comparison with commit `8cfff5f` and current parser/reasoner results. Run `python validation/validate_naming.py` to repeat the structural/query checks; it writes the current report without overwriting the historical naming report.
+[ontology_identity.json](ontology_identity.json) records that revision's structural, naming, reference, and query checks; [ontology_identity_reasoning.json](ontology_identity_reasoning.json) records the focused comparison with commit `8cfff5f` and its parser/reasoner results. Run `python validation/validate_naming.py` to repeat the structural/query checks; it writes the current report without overwriting the historical naming report.
 
 ## Earlier naming revision
 
@@ -42,3 +46,4 @@ These JSON files are historical evidence. Their source filenames, absolute scrat
 The historical RDF/XML/Turtle equivalence checks do not make Turtle a supported editing format for this project. The affected Protégé/OWLAPI route deleted named SWRL rule content when opening and saving Turtle. Maintain the ontology in RDF/XML with the declaration order described in the [compatibility report](rdfxml_compatibility.md); RDF graph equivalence alone does not verify that an OWLAPI loader preserved the rules.
 
 The [plan notes](../docs/figure8_model_notes.md), [execution notes](../docs/figure8_execution.md), and [Method Omega notes](../docs/method_omega_notes.md) explain the modeling assumptions and the limits of the recorded checks. Historical reasoner results and GUI screenshots should not be read as verification of a reader's current installation.
+

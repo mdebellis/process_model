@@ -1,0 +1,53 @@
+# Comparisons of recorded actual timestamps with the unchanged baseline schedule.
+# The third branch checks explicit finish-to-start transitions, not transitive precedence.
+# "No predecessor end recorded" is a missing-evidence finding, not an OWL contradiction.
+PREFIX pm: <https://in2use.com/process_model/>
+PREFIX pp: <http://purl.org/net/p-plan#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sulo: <https://w3id.org/sulo/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?finding ?step ?execution ?scheduledTime ?actualTime
+                ?predecessorStep ?predecessorExecution ?predecessorEnd ?transition
+WHERE {
+  pm:Customer_Portal_Execution sulo:hasDirectPart+ ?execution .
+  ?execution pp:correspondsToStep ?step .
+  {
+    ?step pm:has_scheduled_time/time:hasBeginning/time:inXSDDateTimeStamp ?scheduledTime .
+    ?execution prov:startedAtTime ?actualTime .
+    BIND(xsd:dateTime(STR(?scheduledTime)) AS ?planned)
+    BIND(xsd:dateTime(STR(?actualTime)) AS ?actual)
+    FILTER(?actual != ?planned)
+    BIND(IF(?actual < ?planned, "Started before scheduled start", "Started after scheduled start") AS ?finding)
+  }
+  UNION
+  {
+    ?step pm:has_scheduled_time/time:hasEnd/time:inXSDDateTimeStamp ?scheduledTime .
+    ?execution prov:endedAtTime ?actualTime .
+    BIND(xsd:dateTime(STR(?scheduledTime)) AS ?planned)
+    BIND(xsd:dateTime(STR(?actualTime)) AS ?actual)
+    FILTER(?actual != ?planned)
+    BIND(IF(?actual < ?planned, "Ended before scheduled end", "Ended after scheduled end") AS ?finding)
+  }
+  UNION
+  {
+    ?execution prov:startedAtTime ?actualTime .
+    ?transition a pm:Finish_To_Start_Transition ;
+                pm:has_source_step ?predecessorStep ;
+                pm:has_target_step ?step .
+    # Conditional alternatives require their own branch-selection evidence.
+    FILTER NOT EXISTS { ?transition pm:has_condition ?condition . }
+    OPTIONAL {
+      pm:Customer_Portal_Execution sulo:hasDirectPart+ ?predecessorExecution .
+      ?predecessorExecution pp:correspondsToStep ?predecessorStep .
+      OPTIONAL { ?predecessorExecution prov:endedAtTime ?predecessorEnd . }
+    }
+    FILTER(!BOUND(?predecessorEnd) ||
+      xsd:dateTime(STR(?predecessorEnd)) > xsd:dateTime(STR(?actualTime)))
+    BIND(IF(!BOUND(?predecessorEnd),
+      "Started with no predecessor end recorded",
+      "Started before recorded predecessor end") AS ?finding)
+  }
+}
+ORDER BY ?execution ?finding ?predecessorStep

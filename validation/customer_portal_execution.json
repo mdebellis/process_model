@@ -1,0 +1,108 @@
+{
+  "passed": true,
+  "ontology": "ontologies/process_model_with_examples.rdf",
+  "baseline_commit": "eaa975c7a61af61a186669dd9b32f3fc8676cbc2",
+  "snapshot": "2027-02-10T12:00:00-08:00",
+  "sha256": {
+    "baseline": "dfb8005b050c5c006418b73c4bfbb4bf5ac5de50711872a78f728da2f432c295",
+    "candidate": "6948ef8e2e025a785cfcc9df7c58f14ff64f637c29d0bc823c6fbe57d959890f"
+  },
+  "rdf_preservation": {
+    "baseline_triples": 6588,
+    "candidate_triples": 7158,
+    "added_triples": 570,
+    "removed_triples": 0,
+    "comparison": "RDF graph comparison modulo blank-node identifiers, supplemented by byte preservation of the original RDF body",
+    "existing_named_individual_descriptions_unchanged": true,
+    "schema_unchanged": true,
+    "only_existing_vocabulary_properties_used": true
+  },
+  "scenario": {
+    "new_individuals": 78,
+    "activities": 12,
+    "step_executions": 11,
+    "completed_step_executions": 6,
+    "ongoing_step_executions": 5,
+    "project_activity_ongoing": true,
+    "hierarchy_edges": 11,
+    "hierarchy_is_rooted_tree": true,
+    "child_times_within_recorded_parent_bounds": true,
+    "new_names_and_english_labels_valid": true,
+    "all_78_new_individuals_without_inferred_identity_merges": true,
+    "activities_separate_from_plans_and_steps": true,
+    "actual_and_scheduled_intervals_distinct": true
+  },
+  "provenance": {
+    "qualified_usages_checked": 12,
+    "generated_artifacts_checked": 5,
+    "usage_not_before_generation": true,
+    "usage_within_activity_bounds_or_snapshot": true,
+    "generation_within_producing_activity_bounds": true,
+    "prov_and_owl_time_endpoints_agree": true
+  },
+  "reasoner": {
+    "owlapi": "4.5.29",
+    "pellet": "2.3.0 (official Protege plugin jars)",
+    "baseline_axioms": 5019,
+    "baseline_logical_axioms": 1788,
+    "candidate_axioms": 5589,
+    "candidate_logical_axioms": 2091,
+    "all_original_logical_axioms_preserved_exactly": true,
+    "all_original_declarations_and_annotations_preserved": true,
+    "anonymous_annotation_comparison": "Three xsd:pattern annotation subjects receive fresh OWLAPI identifiers; their annotation content and complete RDF graph structure are preserved.",
+    "swrl_rules": 10,
+    "all_swrl_rule_axioms_preserved_exactly": true,
+    "all_swrl_body_head_atom_counts_match": true,
+    "consistent": true,
+    "all_protege_precomputations_pass": true,
+    "unsatisfiable_named_classes": 0,
+    "save_reload_logical_axioms_equal": true,
+    "save_reload_consistent": true
+  },
+  "allen": {
+    "completed_actual_intervals": 6,
+    "ordered_pairs_checked": 30,
+    "relations_checked_per_pair": 13,
+    "date_derived_and_inferred_relations_agree": true,
+    "observed_relations": [
+      "intervalAfter",
+      "intervalBefore",
+      "intervalFinishedBy",
+      "intervalFinishes",
+      "intervalMeets",
+      "intervalMetBy",
+      "intervalStartedBy",
+      "intervalStarts"
+    ],
+    "kickoff_meets_project_narrative": true,
+    "completed_wireframes_before_use_case_interviews": true,
+    "ongoing_intervals_without_asserted_or_inferred_named_ends": 6,
+    "ongoing_activities_without_prov_end_times": 6,
+    "ongoing_intervals_without_unsupported_complete_interval_relations": 6
+  },
+  "queries": {
+    "01_execution_tree": {
+      "rows": 11,
+      "graph": "asserted"
+    },
+    "02_plan_and_actual": {
+      "rows": 16,
+      "graph": "asserted"
+    },
+    "03_actual_inputs_outputs_and_people": {
+      "rows": 88,
+      "graph": "asserted"
+    },
+    "04_timing_deviations": {
+      "rows": 5,
+      "graph": "asserted"
+    },
+    "05_actual_allen_relations": {
+      "rows": 30,
+      "graph": "asserted plus actual Allen triples returned by Pellet"
+    },
+    "verification": "Executed by the independent query reviewer and main agent"
+  },
+  "java_scenario_assertions_passed": 808,
+  "scope": "Local RDFLib and OWLAPI/Pellet checks. No live Protege, Gruff, AllegroGraph, or LLM invocation was performed."
+}

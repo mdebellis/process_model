@@ -1,0 +1,12 @@
+# Asserted execution hierarchy. Each returned row is an existing RDF triple.
+# The property path scopes the query; it does not create ancestor-to-descendant edges.
+PREFIX pm: <https://in2use.com/process_model/>
+PREFIX sulo: <https://w3id.org/sulo/>
+
+SELECT DISTINCT ?subject ?predicate ?object
+WHERE {
+  pm:Customer_Portal_Execution sulo:hasDirectPart* ?subject .
+  VALUES ?predicate { sulo:hasDirectPart }
+  ?subject ?predicate ?object .
+}
+ORDER BY ?subject ?object
