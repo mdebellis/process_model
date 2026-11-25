@@ -2,7 +2,7 @@
 
 Abstract model added 6 November 2026; documentation updated for the single-source repository layout.
 
-The combined ontology contains the Figure 8 tendering plan, its synthetic execution, and the Method Omega model from Michael's diagram. The Method Omega stage contained **4,942 asserted triples**; the current source contains **5,299 asserted triples** after the [state and goal extensions](../state_goal_extensions_review/README.md) and [namespace migration](namespace_migration.md). It retains all ten complete SWRL rules and the qualified PROV usage declarations, with no exported inferences.
+The combined ontology contains the Figure 8 tendering plan, its synthetic execution, and the Method Omega model.
 
 ## Queries and Results
 
