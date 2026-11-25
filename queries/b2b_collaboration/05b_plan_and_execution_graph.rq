@@ -1,0 +1,28 @@
+PREFIX pm:   <https://in2use.com/process_model/>
+PREFIX pp:   <http://purl.org/net/p-plan#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sulo: <https://w3id.org/sulo/>
+
+# Assumes materialized hasPart inferences are available.
+CONSTRUCT {
+  pm:Lavatory_Collaboration_Plan pm:has_step ?step .
+
+  ?execution pp:correspondsToStep ?step ;
+             prov:startedAtTime ?actualStart ;
+             prov:endedAtTime ?actualEnd .
+}
+WHERE {
+  pm:Lavatory_Collaboration_Plan pm:has_step ?step .
+
+  OPTIONAL {
+    pm:Lavatory_Collaboration_Execution sulo:hasPart ?execution .
+    ?execution pp:correspondsToStep ?step .
+
+    OPTIONAL {
+      ?execution prov:startedAtTime ?actualStart .
+    }
+    OPTIONAL {
+      ?execution prov:endedAtTime ?actualEnd .
+    }
+  }
+}
