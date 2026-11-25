@@ -114,9 +114,13 @@ def check(source,entailments,repo):
         else:rows=list(result)
         query_results.append({'query':path.name,'results':len(rows),'kind':result.type})
         if path.name.startswith('02_'):
-            expected={(s,p,o) for s,p,o in asserted if str(s).startswith(str(PM)+'Lavatory_') and p in (PM.has_sub_goal,PM.has_responsible_agent)}
-            ok('All goal and supplier edges returned',rows==expected and len(rows)==15)
+            expected={(s,p,o) for s,p,o in asserted if str(s).startswith(str(PM)+'Lavatory_') and p==PM.has_sub_goal}
+            ok('Seven goal-decomposition edges returned',rows==expected and len(rows)==7)
         if path.name.startswith('05_'):ok('Seven planned steps in comparison',len(rows)==7)
+        if path.name.startswith('05b_'):
+            ok('Plan/actual graph includes seven steps and six correspondences',
+               len(rows)==24 and sum(p==PM.has_step for s,p,o in rows)==7
+               and sum(p==PP.correspondsToStep for s,p,o in rows)==6)
         if path.name.startswith('06_'):ok('Eight assessments in table',len(rows)==8)
         if path.name.startswith('07_'):ok('Six recorded operational Activities',len(rows)==6)
         if path.name.startswith('09_'):ok('No expected-type mismatches',len(rows)==0)

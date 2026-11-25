@@ -2,18 +2,43 @@
 
 The repository has one ontology source: [process_model_with_examples.rdf](../ontologies/process_model_with_examples.rdf). Validation records document checks on this source and the earlier stages from which it was assembled.
 
-## Current B2B collaboration checks
+## Current client relationship checks
 
-The combined source now contains **9,314 asserted triples**. The B2B addition
+The combined source contains **9,336 asserted triples**. The shared
+`has_client` / `is_client_of` pair connects `Customer_Portal_Plan` to the new
+fictional organization `Northstar_Retail` and `Lavatory_Collaboration_Plan`
+to the existing `Aerospace_Customer`. Its domain is `p-plan:Plan` and its
+range is `prov:Agent`. This does not assign work to clients or record their
+participation in an execution or receipt of a deliverable.
+
+- [Client relationship report](client_relationship_checks.json): preservation of the
+  preceding 9,314-triple source, the two plan/client links and inferred inverses,
+  absence of unintended client/plan types, retained named entailments, and
+  unchanged Customer Portal execution-tree and Allen-graph query results.
+- [Current reasoning report](client_relationship_reasoning.json): consistency,
+  all inference precomputations, zero unsatisfiable named classes, all ten SWRL
+  rules, and RDF/XML save/reload logical equality.
+- [Current B2B query report](b2b_collaboration_queries.json): eleven demonstration
+  queries (including the graph-only plan/execution comparison), ten runnable
+  state tests, eight assessment replays, and the existing evidence checks.
+  The goal hierarchy check now matches the saved seven-edge, goal-only query.
+
+The source was extended without reserializing existing RDF/XML. Documentation
+and validation checks were updated; visualization queries were not changed.
+Reload the source and regenerate inferred data to include the client links.
+
+## B2B collaboration addition
+
+At this addition the combined source contained **9,314 asserted triples**. The B2B addition
 preserves the preceding 7,159-triple source and all ten SWRL rules. It adds a
 bounded lavatory collaboration methodology, supplier-specific plan, execution
 snapshot, goals and conditions, SPARQL tests, and synthetic assessment records.
 The [walkthrough](../docs/B2B_Collaboration.md) describes its scope.
 
-- [Reasoning report](b2b_collaboration_reasoning.json): Protégé-compatible
+- [Historical reasoning report](b2b_collaboration_reasoning.json): Protégé-compatible
   Pellet consistency, all inference precomputations, zero unsatisfiable named
   classes, complete SWRL rules, and RDF/XML save/reload logical equality.
-- [Query report](b2b_collaboration_queries.json): ten demonstration queries,
+- [Query report](b2b_collaboration_queries.json), rerun on the current source: eleven demonstration queries,
   ten runnable state tests, eight assessment replays, preconditions at each
   recorded start, required bindings, and wrong-resource/recipient/proposal
   counterexamples. A completed-delivery fixture is used only for testing.

@@ -1,0 +1,104 @@
+{
+  "date": "2026-11-24",
+  "source": "ontologies/process_model_with_examples.rdf",
+  "base_commit": "b2befbb68baed01c953c0cb438577adcb0749c0b",
+  "previous_source_sha256": "0c91bcd125d4b9e48d2544e32c5098d4d23cf57c583bfb7e1b269f0dab9ed530",
+  "source_sha256": "d16e82e9b5ea9f057f976666dae46054c2008cd58aa47f56494f71340d719877",
+  "previous_source_triples": 9314,
+  "source_triples": 9336,
+  "added_triples": 22,
+  "passed": true,
+  "check_count": 33,
+  "checks": [
+    "Existing source bytes preserved around additive RDF/XML block",
+    "Twenty-two asserted triples added",
+    "Plan domain and Agent range",
+    "Inverse declaration on primary property",
+    "Client relation is not functional or a responsibility subproperty",
+    "Exactly the two intended plan/client links",
+    "Organization client https://in2use.com/process_model/Northstar_Retail",
+    "Inferred inverse https://in2use.com/process_model/Customer_Portal_Plan",
+    "Plan types unchanged https://in2use.com/process_model/Customer_Portal_Plan",
+    "Organization client https://in2use.com/process_model/Aerospace_Customer",
+    "Inferred inverse https://in2use.com/process_model/Lavatory_Collaboration_Plan",
+    "Plan types unchanged https://in2use.com/process_model/Lavatory_Collaboration_Plan",
+    "New client has only expected inferred class types",
+    "Reusable methodologies have no assigned client",
+    "All prior named object-property and class entailments preserved",
+    "Only seven intended named entailments added",
+    "Direct English label https://in2use.com/process_model/has_client / http://www.w3.org/2000/01/rdf-schema#label",
+    "Direct English label https://in2use.com/process_model/has_client / http://www.w3.org/2004/02/skos/core#prefLabel",
+    "English definition https://in2use.com/process_model/has_client",
+    "Direct English label https://in2use.com/process_model/is_client_of / http://www.w3.org/2000/01/rdf-schema#label",
+    "Direct English label https://in2use.com/process_model/is_client_of / http://www.w3.org/2004/02/skos/core#prefLabel",
+    "English definition https://in2use.com/process_model/is_client_of",
+    "Direct English label https://in2use.com/process_model/Northstar_Retail / http://www.w3.org/2000/01/rdf-schema#label",
+    "Direct English label https://in2use.com/process_model/Northstar_Retail / http://www.w3.org/2004/02/skos/core#prefLabel",
+    "English definition https://in2use.com/process_model/Northstar_Retail",
+    "Customer Portal query unchanged 01_execution_tree.rq",
+    "Customer Portal query unchanged 02_plan_and_actual.rq",
+    "Customer Portal query unchanged 03_actual_inputs_outputs_and_people.rq",
+    "Customer Portal query unchanged 04_timing_deviations.rq",
+    "Customer Portal query unchanged 05_actual_allen_relations.rq",
+    "Customer Portal query unchanged 05b_actual_allen_graph.rq",
+    "User screenshots retained docs/Method_Omega.md",
+    "User screenshots retained docs/B2B_Collaboration.md"
+  ],
+  "client_links": [
+    {
+      "plan": "https://in2use.com/process_model/Customer_Portal_Plan",
+      "client": "https://in2use.com/process_model/Northstar_Retail"
+    },
+    {
+      "plan": "https://in2use.com/process_model/Lavatory_Collaboration_Plan",
+      "client": "https://in2use.com/process_model/Aerospace_Customer"
+    }
+  ],
+  "named_entailments_before": 12026,
+  "named_entailments_after": 12033,
+  "customer_portal_queries": [
+    {
+      "query": "01_execution_tree.rq",
+      "results": 11,
+      "kind": "SELECT",
+      "unchanged": true
+    },
+    {
+      "query": "02_plan_and_actual.rq",
+      "results": 16,
+      "kind": "SELECT",
+      "unchanged": true
+    },
+    {
+      "query": "03_actual_inputs_outputs_and_people.rq",
+      "results": 88,
+      "kind": "SELECT",
+      "unchanged": true
+    },
+    {
+      "query": "04_timing_deviations.rq",
+      "results": 5,
+      "kind": "SELECT",
+      "unchanged": true
+    },
+    {
+      "query": "05_actual_allen_relations.rq",
+      "results": 30,
+      "kind": "SELECT",
+      "unchanged": true
+    },
+    {
+      "query": "05b_actual_allen_graph.rq",
+      "results": 15,
+      "kind": "CONSTRUCT",
+      "unchanged": true
+    }
+  ],
+  "reasoning_report": "client_relationship_reasoning.json",
+  "b2b_query_report": "b2b_collaboration_queries.json",
+  "limits": [
+    "The organizations and client relationships are illustrative example data.",
+    "Tests use RDFLib and Prot\u00e9g\u00e9-compatible OWLAPI/Pellet, not the live AllegroGraph/Gruff installation.",
+    "No inferred ontology export was published; regenerate it from the updated source."
+  ]
+}

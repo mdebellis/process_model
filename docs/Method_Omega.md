@@ -46,7 +46,9 @@ WHERE {
 
 
 ### Query For Plan Hierarchy
-This is for *Method Omega* applied to a client for a project to build a `Customer Portal`. This and the following queries and graphs describe the planned specification and baseline schedule. The ontology now also includes a separate [Customer Portal execution snapshot](Customer_Portal_Execution.md); the plan is retained for comparison. 
+This is for *Method Omega* applied to a project to build a `Customer Portal` for **Northstar Retail**, an explicitly fictional client organization. `Customer_Portal_Plan has_client Northstar_Retail` records the client of this project; Method Omega remains the reusable methodology. The inverse is `is_client_of`. The same property links the B2B lavatory plan to its client, `Aerospace_Customer`.
+
+This and the following queries and graphs describe the planned specification and baseline schedule. The ontology also includes a separate [Customer Portal execution snapshot](Customer_Portal_Execution.md); the plan is retained for comparison.
 
 ```
 PREFIX pm: <https://in2use.com/process_model/>

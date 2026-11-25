@@ -1,0 +1,155 @@
+{
+  "expected_rule_counts_supplied": true,
+  "initial_load": {
+    "all_precomputations_pass": true,
+    "axioms": 7391,
+    "consistent": true,
+    "logical_axioms": 2923,
+    "passed": true,
+    "rule_content_checks_pass": true,
+    "rule_content_errors": [],
+    "rule_count": 10,
+    "rules": {
+      "[<http://www.w3.org/2006/time#intervalBefore>]": {
+        "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+        "body_atoms": 11,
+        "head_atom_kinds": "object_property=1",
+        "head_atoms": 1
+      },
+      "[<http://www.w3.org/2006/time#intervalContains>]": {
+        "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=4;data_property=4;object_property=4",
+        "body_atoms": 12,
+        "head_atom_kinds": "object_property=1",
+        "head_atoms": 1
+      },
+      "[<http://www.w3.org/2006/time#intervalEquals>]": {
+        "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=2;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=2;data_property=4;object_property=4",
+        "body_atoms": 12,
+        "head_atom_kinds": "object_property=1",
+        "head_atoms": 1
+      },
+      "[<http://www.w3.org/2006/time#intervalFinishes>]": {
+        "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+        "body_atoms": 12,
+        "head_atom_kinds": "object_property=1",
+        "head_atoms": 1
+      },
+      "[<http://www.w3.org/2006/time#intervalMeets>]": {
+        "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=2;data_property=4;object_property=4",
+        "body_atoms": 11,
+        "head_atom_kinds": "object_property=1",
+        "head_atoms": 1
+      },
+      "[<http://www.w3.org/2006/time#intervalOverlaps>]": {
+        "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=5;data_property=4;object_property=4",
+        "body_atoms": 13,
+        "head_atom_kinds": "object_property=1",
+        "head_atoms": 1
+      },
+      "[<http://www.w3.org/2006/time#intervalStarts>]": {
+        "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+        "body_atoms": 12,
+        "head_atom_kinds": "object_property=1",
+        "head_atoms": 1
+      },
+      "[<http://www.w3.org/ns/prov#wasAssociatedWith>]": {
+        "body_atom_kinds": "object_property=2",
+        "body_atoms": 2,
+        "head_atom_kinds": "object_property=1",
+        "head_atoms": 1
+      },
+      "[<https://in2use.com/process_model/has_flow_dependency>]": {
+        "body_atom_kinds": "class=2;different_individuals=1;object_property=4",
+        "body_atoms": 7,
+        "head_atom_kinds": "object_property=1",
+        "head_atoms": 1
+      },
+      "[<https://in2use.com/process_model/shares_input_variable>]": {
+        "body_atom_kinds": "class=2;different_individuals=1;object_property=4",
+        "body_atoms": 7,
+        "head_atom_kinds": "object_property=1",
+        "head_atoms": 1
+      }
+    },
+    "unsatisfiable_named_classes": 0
+  },
+  "input_file": "process_model_with_examples.rdf",
+  "passed": true,
+  "save_reload": {
+    "all_precomputations_pass": true,
+    "axioms": 7392,
+    "consistent": true,
+    "logical_axioms": 2923,
+    "passed": true,
+    "rule_content_checks_pass": true,
+    "rule_content_errors": [],
+    "rule_count": 10,
+    "rules": {
+      "[<http://www.w3.org/2006/time#intervalBefore>]": {
+        "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+        "body_atoms": 11,
+        "head_atom_kinds": "object_property=1",
+        "head_atoms": 1
+      },
+      "[<http://www.w3.org/2006/time#intervalContains>]": {
+        "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=4;data_property=4;object_property=4",
+        "body_atoms": 12,
+        "head_atom_kinds": "object_property=1",
+        "head_atoms": 1
+      },
+      "[<http://www.w3.org/2006/time#intervalEquals>]": {
+        "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=2;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=2;data_property=4;object_property=4",
+        "body_atoms": 12,
+        "head_atom_kinds": "object_property=1",
+        "head_atoms": 1
+      },
+      "[<http://www.w3.org/2006/time#intervalFinishes>]": {
+        "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+        "body_atoms": 12,
+        "head_atom_kinds": "object_property=1",
+        "head_atoms": 1
+      },
+      "[<http://www.w3.org/2006/time#intervalMeets>]": {
+        "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=2;data_property=4;object_property=4",
+        "body_atoms": 11,
+        "head_atom_kinds": "object_property=1",
+        "head_atoms": 1
+      },
+      "[<http://www.w3.org/2006/time#intervalOverlaps>]": {
+        "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=5;data_property=4;object_property=4",
+        "body_atoms": 13,
+        "head_atom_kinds": "object_property=1",
+        "head_atoms": 1
+      },
+      "[<http://www.w3.org/2006/time#intervalStarts>]": {
+        "body_atom_kinds": "builtin|http://www.w3.org/2003/11/swrlb#equal|arguments=2=1;builtin|http://www.w3.org/2003/11/swrlb#lessThan|arguments=2=3;data_property=4;object_property=4",
+        "body_atoms": 12,
+        "head_atom_kinds": "object_property=1",
+        "head_atoms": 1
+      },
+      "[<http://www.w3.org/ns/prov#wasAssociatedWith>]": {
+        "body_atom_kinds": "object_property=2",
+        "body_atoms": 2,
+        "head_atom_kinds": "object_property=1",
+        "head_atoms": 1
+      },
+      "[<https://in2use.com/process_model/has_flow_dependency>]": {
+        "body_atom_kinds": "class=2;different_individuals=1;object_property=4",
+        "body_atoms": 7,
+        "head_atom_kinds": "object_property=1",
+        "head_atoms": 1
+      },
+      "[<https://in2use.com/process_model/shares_input_variable>]": {
+        "body_atom_kinds": "class=2;different_individuals=1;object_property=4",
+        "body_atoms": 7,
+        "head_atom_kinds": "object_property=1",
+        "head_atoms": 1
+      }
+    },
+    "unsatisfiable_named_classes": 0
+  },
+  "save_reload_logical_axioms_equal": true,
+  "source": "ontologies/process_model_with_examples.rdf",
+  "source_sha256": "d16e82e9b5ea9f057f976666dae46054c2008cd58aa47f56494f71340d719877",
+  "date": "2026-11-24"
+}

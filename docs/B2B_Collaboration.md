@@ -24,7 +24,8 @@ Customer Portal examples remain in the same file.
    not updated by this change and does not contain the B2B addition.
 2. Run [02_goal_hierarchy.rq](../queries/b2b_collaboration/02_goal_hierarchy.rq)
    and choose **Create Visual Graph**. Start with the desired delivered module,
-   then follow its subgoals and assigned suppliers.
+   then follow its subgoals. Supplier responsibility remains in the ontology
+   but is omitted from this focused hierarchy view.
 3. Run [04_conditions_and_tests.rq](../queries/b2b_collaboration/04_conditions_and_tests.rq)
    to connect manufacture, transfer, and assembly with their conditions and tests.
 4. Run [06_state_evaluations.rq](../queries/b2b_collaboration/06_state_evaluations.rq)
@@ -32,7 +33,9 @@ Customer Portal examples remain in the same file.
    [08_frame_evidence.rq](../queries/b2b_collaboration/08_frame_evidence.rq)
    to inspect the actual frame, decision, receipt, and Activities.
 5. Compare planned and actual work with
-   [05_plan_and_execution.rq](../queries/b2b_collaboration/05_plan_and_execution.rq).
+   [05b_plan_and_execution_graph.rq](../queries/b2b_collaboration/05b_plan_and_execution_graph.rq).
+   [05_plan_and_execution.rq](../queries/b2b_collaboration/05_plan_and_execution.rq)
+   provides the fuller comparison table.
 
 Graph queries return existing RDF triples. They do not invent property-path
 edges or attach interval predicates directly to Activities. Queries that
@@ -74,6 +77,16 @@ The first three are `p-plan:Plan` individuals. The execution root is a
 `prov:Activity`; each recorded `Step_Execution` corresponds to exactly one
 project-specific planned Step. Qualified PROV associations identify the actual
 participating organizations, roles, and project plan.
+
+The plan identifies its client with
+`Lavatory_Collaboration_Plan has_client Aerospace_Customer`.
+`Aerospace_Customer` is the existing fictional customer organization intended
+to receive the finished module. The same `has_client` / `is_client_of` pair
+links `Customer_Portal_Plan` to its fictional client, `Northstar_Retail`.
+Its domain is `p-plan:Plan` and its range is `prov:Agent`, allowing either an
+organization or a person as the client. Being the client does not itself imply
+goal responsibility, a task assignment, execution participation, or receipt of
+a deliverable; those relationships retain their separate meanings.
 
 T1–T5 are not flattened into the manufacturing sequence. They can be revisited
 as the collaboration changes. Their own execution is not modeled in this first
@@ -198,6 +211,7 @@ separate conditions to add when required. Here, Unsatisfied delivery means
 | `Make_Part_Step`, `Assemble_Product_Step`, `Deliver_Product_Step`, `Coordination_Step` | Preserve operational distinctions as subclasses of `Task_Step`. |
 | `Manufactured_Item`, `Frame`, `Transport_Cover`, `Lavatory_Module`, `Component_Batch` | Describe actual physical resources, distinct from information objects and planned Variables. |
 | `Resource_Receipt`, `has_received_resource`, `has_receiving_agent`, and their inverses | Describe explicit receipt evidence for a resource and recipient. |
+| `has_client` / `is_client_of` | Identify the client or customer of a plan, independently of supplier assignments and actual receipt evidence. Shared with the Customer Portal example. |
 | `has_expected_type` (annotation property) | Name the class expected for an Entity realizing a Variable, without class/individual punning or a duplicate Variable class hierarchy. |
 
 The additions are primitive classes and ordinary properties. They introduce no
@@ -219,6 +233,7 @@ are visible to the query engine.
 | [03_plan_flow.rq](../queries/b2b_collaboration/03_plan_flow.rq) | Direct prerequisite transitions and the explicit approval condition. |
 | [04_conditions_and_tests.rq](../queries/b2b_collaboration/04_conditions_and_tests.rq) | Preconditions, postconditions, component states, and tests. |
 | [05_plan_and_execution.rq](../queries/b2b_collaboration/05_plan_and_execution.rq) | Seven planned Steps, supplier assignments, schedules, and recorded actual work. |
+| [05b_plan_and_execution_graph.rq](../queries/b2b_collaboration/05b_plan_and_execution_graph.rq) | Graph of the seven planned Steps, their corresponding recorded Activities, and actual start/end times. |
 | [06_state_evaluations.rq](../queries/b2b_collaboration/06_state_evaluations.rq) | Eight assessment records with time, result, and explanation. |
 | [07_execution_tree.rq](../queries/b2b_collaboration/07_execution_tree.rq) | Six direct execution-part edges. |
 | [08_frame_evidence.rq](../queries/b2b_collaboration/08_frame_evidence.rq) | Manufacturing, coordination, transfer, assembly, and the frame receipt. |

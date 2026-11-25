@@ -1,12 +1,12 @@
 {
   "date": "2026-11-24",
   "source": "process_model_with_examples.rdf",
-  "source_sha256": "0c91bcd125d4b9e48d2544e32c5098d4d23cf57c583bfb7e1b269f0dab9ed530",
-  "source_triples": 9314,
-  "materialized_test_graph_triples": 19365,
+  "source_sha256": "d16e82e9b5ea9f057f976666dae46054c2008cd58aa47f56494f71340d719877",
+  "source_triples": 9336,
+  "materialized_test_graph_triples": 19391,
   "query_engine": "RDFLib",
   "passed": true,
-  "check_count": 118,
+  "check_count": 120,
   "checks": [
     "Replay Lavatory_Transfer_Arrangement_Approved_Evaluation",
     "Evidence predates Lavatory_Transfer_Arrangement_Approved_Evaluation / Lavatory_Frame_Design_V1",
@@ -94,10 +94,12 @@
     "Start precondition Lavatory_Transfer_Frame_Execution / Lavatory_Frame_Transfer_Arranged",
     "Existing edges only: 01_methodology.rq",
     "Existing edges only: 02_goal_hierarchy.rq",
-    "All goal and supplier edges returned",
+    "Seven goal-decomposition edges returned",
     "Existing edges only: 03_plan_flow.rq",
     "Existing edges only: 04_conditions_and_tests.rq",
     "Seven planned steps in comparison",
+    "Existing edges only: 05b_plan_and_execution_graph.rq",
+    "Plan/actual graph includes seven steps and six correspondences",
     "Eight assessments in table",
     "Existing edges only: 07_execution_tree.rq",
     "Six recorded operational Activities",
@@ -196,7 +198,7 @@
     },
     {
       "query": "02_goal_hierarchy.rq",
-      "results": 15,
+      "results": 7,
       "kind": "CONSTRUCT"
     },
     {
@@ -213,6 +215,11 @@
       "query": "05_plan_and_execution.rq",
       "results": 7,
       "kind": "SELECT"
+    },
+    {
+      "query": "05b_plan_and_execution_graph.rq",
+      "results": 24,
+      "kind": "CONSTRUCT"
     },
     {
       "query": "06_state_evaluations.rq",

@@ -4,7 +4,14 @@ An ontology for process modeling that combines P-Plan, PROV, OWL-Time, and SWRL 
 
 ## Validation
 
-The [Customer Portal checks](validation/customer_portal_execution.json) cover the execution addition, preserved original axioms, complete SWRL rules, and Protégé-compatible parsing and reasoning at that revision. The subsequent [parthood checks](validation/parthood_reflexivity.json) cover the preceding 7,159-triple source and the deliberate omission of SULO's global reflexivity axioms for `hasPart` and `isPartOf`; transitivity and inverses remain. See the [parthood notes](validation/README.md#current-parthood-checks) before regenerating inferred data.
+The [client relationship checks](validation/client_relationship_checks.json) and
+[current reasoning report](validation/client_relationship_reasoning.json)
+cover the current 9,336-triple source. The shared `has_client` property identifies
+**Northstar Retail** as the fictional Customer Portal client and the existing
+**Aerospace Customer** as the lavatory collaboration client. Its inverse is
+`is_client_of`; both client individuals are `prov:Organization` instances.
+
+The [Customer Portal checks](validation/customer_portal_execution.json) cover the execution addition, preserved original axioms, complete SWRL rules, and Protégé-compatible parsing and reasoning at that revision. The subsequent [parthood checks](validation/parthood_reflexivity.json) cover the preceding 7,159-triple source and the deliberate omission of SULO's global reflexivity axioms for `hasPart` and `isPartOf`; transitivity and inverses remain. See the [parthood notes](validation/README.md#parthood-checks-before-the-b2b-addition) before regenerating inferred data.
 
 **Keep the source in RDF/XML, with `rdf:type` elements first within each resource description.** OWLAPI 4.5.29 can otherwise read named SWRL rules with empty bodies or heads and cause Pellet to report an inconsistency, even when the RDF graph is unchanged. See the [RDF/XML compatibility checks](validation/rdfxml_compatibility.md). Opening and saving the named-rule Turtle representation also deleted SWRL rule content in the affected installation; see the [execution notes](docs/figure8_execution.md#open-the-rdfxml-file-in-protégé).
 
@@ -25,5 +32,5 @@ The B2B example separates collaboration-design decisions T1–T5 from the result
 
 **Reload and reason over the updated source for the B2B example.** The repository’s older `ontologies/process_model_inferred_axioms.rdf` has not been regenerated and does not include this addition; regenerate your inference export from the current source.
 
-[Validation records](validation/README.md) include the current B2B [reasoning](validation/b2b_collaboration_reasoning.json), [query](validation/b2b_collaboration_queries.json), and [preservation](validation/b2b_collaboration_preservation.json) checks, and distinguish them from earlier execution, parthood, naming, namespace, and RDF/XML checks. Screenshots and the illustrative tender timeline are in [docs/images](docs/images/). Earlier screenshots and reports retain the identifiers used when they were produced.
+[Validation records](validation/README.md) include the current client and B2B [query checks](validation/b2b_collaboration_queries.json), the B2B addition's [reasoning](validation/b2b_collaboration_reasoning.json) and [preservation](validation/b2b_collaboration_preservation.json) reports, and earlier execution, parthood, naming, namespace, and RDF/XML checks. Screenshots and the illustrative tender timeline are in [docs/images](docs/images/). Earlier screenshots and reports retain the identifiers used when they were produced.
 
