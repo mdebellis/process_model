@@ -57,6 +57,9 @@ Gruff visualizations of the queries in the previous section. Note: for some quer
 
 <img width="1108" height="541" alt="image" src="https://github.com/user-attachments/assets/af62ad4b-abf0-40b4-babb-2ab368a3e179" />
 
+### Plan and Execution Graph B
+
+<img width="1307" height="664" alt="image" src="https://github.com/user-attachments/assets/5f5b2e1d-7764-401c-9714-f86a093c620e" />
 
 ## Four objects with distinct jobs
 
