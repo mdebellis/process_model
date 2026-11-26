@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_Assembly_Example" targetNamespace="https://in2use.com/process_model/examples/bpmn/" exporter="Process modeling example">
+  <bpmn:message id="Message_Frame_Receipt" name="Receipt notice for the expected frame"/>
+  <bpmn:process id="Process_Assembly_Fragment" name="From frame receipt to module assembly" isExecutable="false">
+    <bpmn:documentation>Illustrative specification only. Semantic annotations reference the existing ontology. The symbolic readiness condition requires an explicit runtime binding; this model is not configured for engine deployment. The receipt message alone does not prove availability. The end event does not verify goal satisfaction.</bpmn:documentation>
+    <bpmn:startEvent id="Event_Receipt" name="Receipt notice received">
+      <bpmn:outgoing>Flow_Receipt_Ready</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="Definition_Receipt_Message" messageRef="Message_Frame_Receipt"/>
+    </bpmn:startEvent>
+    <bpmn:intermediateCatchEvent id="Event_Ready" name="Wait until inputs are ready">
+      <bpmn:documentation>{
+  "state": "https://in2use.com/process_model/Lavatory_Assembly_Inputs_Ready",
+  "condition_binding": "assemblyInputsReady; evaluated by an external state-test integration"
+}</bpmn:documentation>
+      <bpmn:incoming>Flow_Receipt_Ready</bpmn:incoming>
+      <bpmn:outgoing>Flow_Ready_Assemble</bpmn:outgoing>
+      <bpmn:conditionalEventDefinition id="Definition_Readiness">
+        <bpmn:condition xsi:type="bpmn:tFormalExpression">assemblyInputsReady</bpmn:condition>
+      </bpmn:conditionalEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:task id="Task_Assemble" name="Assemble module">
+      <bpmn:documentation>{
+  "has_precondition": "https://in2use.com/process_model/Lavatory_Assembly_Inputs_Ready",
+  "has_goal": "https://in2use.com/process_model/Lavatory_Module_Assembled",
+  "has_postcondition": "https://in2use.com/process_model/Lavatory_Module_Assembled"
+}</bpmn:documentation>
+      <bpmn:incoming>Flow_Ready_Assemble</bpmn:incoming>
+      <bpmn:outgoing>Flow_Assemble_End</bpmn:outgoing>
+      <bpmn:ioSpecification id="IO_Assemble">
+        <bpmn:dataInput id="Input_Availability" name="Input availability record"/>
+        <bpmn:dataOutput id="Output_Assembly" name="Assembly record"/>
+        <bpmn:inputSet id="InputSet_Assemble">
+          <bpmn:dataInputRefs>Input_Availability</bpmn:dataInputRefs>
+        </bpmn:inputSet>
+        <bpmn:outputSet id="OutputSet_Assemble">
+          <bpmn:dataOutputRefs>Output_Assembly</bpmn:dataOutputRefs>
+        </bpmn:outputSet>
+      </bpmn:ioSpecification>
+      <bpmn:dataInputAssociation id="DataAssociation_Input">
+        <bpmn:sourceRef>DataRef_Input</bpmn:sourceRef>
+        <bpmn:targetRef>Input_Availability</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+      <bpmn:dataOutputAssociation id="DataAssociation_Output">
+        <bpmn:sourceRef>Output_Assembly</bpmn:sourceRef>
+        <bpmn:targetRef>DataRef_Output</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:task>
+    <bpmn:endEvent id="Event_End" name="Assembly step ended">
+      <bpmn:incoming>Flow_Assemble_End</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Receipt_Ready" sourceRef="Event_Receipt" targetRef="Event_Ready"/>
+    <bpmn:sequenceFlow id="Flow_Ready_Assemble" sourceRef="Event_Ready" targetRef="Task_Assemble"/>
+    <bpmn:sequenceFlow id="Flow_Assemble_End" sourceRef="Task_Assemble" targetRef="Event_End"/>
+    <bpmn:dataObject id="Data_Input"/>
+    <bpmn:dataObjectReference id="DataRef_Input" name="Input availability record" dataObjectRef="Data_Input">
+      <bpmn:dataState id="State_Data_Input" name="confirmed"/>
+    </bpmn:dataObjectReference>
+    <bpmn:dataObject id="Data_Output"/>
+    <bpmn:dataObjectReference id="DataRef_Output" name="Assembly record" dataObjectRef="Data_Output">
+      <bpmn:dataState id="State_Data_Output" name="completed"/>
+    </bpmn:dataObjectReference>
+    <bpmn:textAnnotation id="Annotation_Trigger">
+      <bpmn:text>TRIGGER
+Receipt notice for
+the expected frame</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_Annotation_Trigger" sourceRef="Event_Receipt" targetRef="Annotation_Trigger" associationDirection="None"/>
+    <bpmn:textAnnotation id="Annotation_Precondition">
+      <bpmn:text>PRECONDITION / STATE
+Assembly inputs ready:
+frame available at assembler
+AND other components available</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_Annotation_Precondition" sourceRef="Event_Ready" targetRef="Annotation_Precondition" associationDirection="None"/>
+    <bpmn:textAnnotation id="Annotation_Goal">
+      <bpmn:text>GOAL
+Module assembled</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_Annotation_Goal" sourceRef="Task_Assemble" targetRef="Annotation_Goal" associationDirection="None"/>
+    <bpmn:textAnnotation id="Annotation_Outcome">
+      <bpmn:text>EXPECTED OUTCOME
+Module assembled;
+component use recorded</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_Annotation_Outcome" sourceRef="Task_Assemble" targetRef="Annotation_Outcome" associationDirection="None"/>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Diagram_Assembly">
+    <bpmndi:BPMNPlane id="Plane_Assembly" bpmnElement="Process_Assembly_Fragment">
+      <bpmndi:BPMNShape id="Shape_Event_Receipt" bpmnElement="Event_Receipt">
+        <dc:Bounds x="150" y="325" width="50" height="50"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="100" y="391" width="150" height="60"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Event_Ready" bpmnElement="Event_Ready">
+        <dc:Bounds x="455" y="325" width="50" height="50"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="405" y="391" width="150" height="60"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Task_Assemble" bpmnElement="Task_Assemble">
+        <dc:Bounds x="750" y="300" width="240" height="100"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Event_End" bpmnElement="Event_End">
+        <dc:Bounds x="1155" y="325" width="50" height="50"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1105" y="391" width="150" height="60"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_DataRef_Input" bpmnElement="DataRef_Input">
+        <dc:Bounds x="514" y="526" width="52" height="66"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="425" y="604" width="230" height="60"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_DataRef_Output" bpmnElement="DataRef_Output">
+        <dc:Bounds x="894" y="526" width="52" height="66"/>
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="825" y="604" width="190" height="60"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Annotation_Trigger" bpmnElement="Annotation_Trigger">
+        <dc:Bounds x="60" y="145" width="245" height="104"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Annotation_Precondition" bpmnElement="Annotation_Precondition">
+        <dc:Bounds x="340" y="128" width="325" height="140"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Annotation_Goal" bpmnElement="Annotation_Goal">
+        <dc:Bounds x="760" y="145" width="265" height="90"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Shape_Annotation_Outcome" bpmnElement="Annotation_Outcome">
+        <dc:Bounds x="1060" y="490" width="220" height="126"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Edge_Flow_Receipt_Ready" bpmnElement="Flow_Receipt_Ready">
+        <di:waypoint x="200" y="350"/>
+        <di:waypoint x="455" y="350"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Ready_Assemble" bpmnElement="Flow_Ready_Assemble">
+        <di:waypoint x="505" y="350"/>
+        <di:waypoint x="750" y="350"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Flow_Assemble_End" bpmnElement="Flow_Assemble_End">
+        <di:waypoint x="990" y="350"/>
+        <di:waypoint x="1155" y="350"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_DataAssociation_Input" bpmnElement="DataAssociation_Input">
+        <di:waypoint x="540" y="526"/>
+        <di:waypoint x="540" y="476"/>
+        <di:waypoint x="810" y="476"/>
+        <di:waypoint x="810" y="400"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_DataAssociation_Output" bpmnElement="DataAssociation_Output">
+        <di:waypoint x="930" y="400"/>
+        <di:waypoint x="930" y="476"/>
+        <di:waypoint x="920" y="476"/>
+        <di:waypoint x="920" y="526"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Association_Annotation_Trigger" bpmnElement="Association_Annotation_Trigger">
+        <di:waypoint x="175" y="325"/>
+        <di:waypoint x="175" y="249"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Association_Annotation_Precondition" bpmnElement="Association_Annotation_Precondition">
+        <di:waypoint x="480" y="325"/>
+        <di:waypoint x="480" y="268"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Association_Annotation_Goal" bpmnElement="Association_Annotation_Goal">
+        <di:waypoint x="870" y="300"/>
+        <di:waypoint x="870" y="235"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Edge_Association_Annotation_Outcome" bpmnElement="Association_Annotation_Outcome">
+        <di:waypoint x="990" y="390"/>
+        <di:waypoint x="1060" y="490"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
